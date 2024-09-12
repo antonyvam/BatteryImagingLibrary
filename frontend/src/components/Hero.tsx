@@ -9,6 +9,18 @@ const maxTitleFontSize = `min(5vw, ${HERO_DIMS.w * 0.05}px)`
 const maxSpanFontSize = `min(2vw, ${HERO_DIMS.w * 0.02}px)`
 const marginOffset = `min(${HERO_DIMS.h - 210}px, 28%)`
 
+
+const c1 = "#0d6efd";
+const c2 = "#FD9C0D";
+const liStyle: React.CSSProperties = {color: c1};
+const bStyle: React.CSSProperties = {
+    background: `linear-gradient(to right, ${c1}, ${c2})`,
+    WebkitBackgroundClip: 'text',
+    backgroundClip: 'text',
+    WebkitTextFillColor: "transparent",
+};
+const atteryStyle: React.CSSProperties = {color: c2};
+
 const Hero: React.FC = () => {
     /*Auto-resizing hero div based on fluid image inside parent div. */
 
@@ -26,7 +38,13 @@ const Hero: React.FC = () => {
         <div style={{width: 'full', height: 'full'}}>
             <Image src="/assets/imgs/hero.png" style={{zIndex: -1}} fluid></Image>
             <div style={getStyle(Theme.INFO_FOLD)}>
-                <h2 style={{fontSize: maxTitleFontSize, marginTop: marginOffset }}>libattery ct</h2>
+                <h2 style={{fontSize: maxTitleFontSize, marginTop: marginOffset }}> 
+                    <span style={liStyle}>li</span>
+                    <span style={bStyle}>b</span>
+                    <span style={atteryStyle}>attery</span>
+                    <span> ct</span>
+                    
+                </h2>
                 <span style={{maxWidth: "40%", fontSize: maxSpanFontSize, textAlign: 'center'}}> Raw data, reconstructions, and processing scripts for lab-, synchotron-, neturon- and XRD- CT scans of commerical batteries.   </span>
             </div>
         </div>

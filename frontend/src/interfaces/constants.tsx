@@ -2,7 +2,7 @@ import { ThemeCols } from "./types";
 
 
 export const HERO_DIMS: {w: number, h: number} = {w: 1401, h: 610}
-export const Theme: ThemeCols = {HERO_BG: "#707070", INFO_FOLD: "#212121", DATA_FOLD: "#f2f2f2"}
+export const Theme: ThemeCols = {HERO_BG: "#707070", INFO_FOLD: "#212121", DATA_FOLD: "#f8f9fa"}
 
 export const flexCentreDivStyle: React.CSSProperties = {
     display: "flex",

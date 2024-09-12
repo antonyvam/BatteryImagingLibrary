@@ -1,13 +1,16 @@
 import React from "react";
 import Hero from "./components/Hero";
+import InfoFold from "./components/InfoFold";
 
 import "./assets/scss/App.scss";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 const App: React.FC = () => {
     return (
-    <div>
+    <div style={{display: "flex", flexDirection: 'column', alignItems: 'center'}}>
         <Hero />
+        <InfoFold />
     </div>
     );
 };

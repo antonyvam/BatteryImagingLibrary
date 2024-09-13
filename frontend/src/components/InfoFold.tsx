@@ -17,7 +17,7 @@ cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est la
 const getBtn = (i: number, val: string) => {
     const variant = (i == 1) ? "primary" : "light" ;
     const style: React.CSSProperties = {marginLeft: '10px', marginRight: '10px', fontSize: maxSpanFontSize };
-    return (<Button variant={variant} href={btnLinks[i]} style={style}>{val}</Button>)
+    return (<Button key={String(i)} variant={variant} href={btnLinks[i]} style={style}>{val}</Button>)
 } 
 
 

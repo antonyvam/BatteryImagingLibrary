@@ -20,3 +20,8 @@ export interface ThemeCols {
     INFO_FOLD: string,
     DATA_FOLD: string
 }
+
+export interface FrameProps {
+    title: string,
+    data: object
+}

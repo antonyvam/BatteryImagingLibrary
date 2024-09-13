@@ -19,7 +19,7 @@ export const cardStyle: React.CSSProperties = {
     alignItems: 'center',
     flexDirection: 'column',
     margin: '3%',
-    maxWidth: '80%',
+    maxWidth: '54%',
     minWidth: '54%'
 }
 

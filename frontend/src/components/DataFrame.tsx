@@ -10,6 +10,7 @@ import { Theme, HERO_DIMS } from "../interfaces/constants";
 const DataFrame = ({title, data}: FrameProps) => {
     const getTitle = (titleStr: string) => {
         if (titleStr == 'xrd') { return "XRD"}
+        else if (titleStr == 'lab') {return "Laboratory"}
         else {
             return (titleStr.charAt(0).toUpperCase() + titleStr.slice(1));
         }

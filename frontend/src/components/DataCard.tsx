@@ -1,6 +1,6 @@
 import React from "react";
 import { FrameProps } from "src/interfaces/types";
-import { Table, Image } from "react-bootstrap";
+import { Table, Image, Button } from "react-bootstrap";
 
 import { Theme, HERO_DIMS } from "../interfaces/constants";
 import Tags from "./Tags";
@@ -9,9 +9,9 @@ import Tags from "./Tags";
 const TableRow = ({i, data}: {i: number, data: object}) => {
     return (
         <tr>
-            <td>{i + 2}</td>
+            <td style={{margin: 'auto'}}><b>{i + 2}</b></td>
             <td><Tags scanEntry={data} reduced={true}></Tags></td>
-            <td>More Info!</td>
+            <td style={{verticalAlign: 'center', textAlign: 'center'}}><Button variant="dark">More Info</Button></td>
         </tr>
     )
 }
@@ -37,14 +37,24 @@ const DataCard = ({title, data}: FrameProps) => {
                 <h2 style={{textAlign: "center"}}>{title}</h2>
                 <div>
                     <span>
-                    Foo bar text about this battery
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
                     </span>
                 </div>
 
                 <div>
                     <h4>Scan 1:</h4>
-                    <Tags scanEntry={data["0"]} reduced={false}></Tags>
+                    <div style={{display: 'flex', justifyContent: 'space-around'}}>
+                        <div>   
+                            <Tags scanEntry={data["0"]} reduced={false}></Tags>
+                        </div>
+                        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                            <Button style={{margin: 2}} variant="primary">Zenodo</Button>
+                            <Button variant="dark">More Info</Button>
+                        </div>
+                    </div>
                 </div>
+                
                 
                 <div>
                     <h4>Other scans:</h4>

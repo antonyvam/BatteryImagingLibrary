@@ -43,7 +43,7 @@ const getText = (header: string, value: string | number | Array<number>, reduced
         return tag
     }
 }
-
+// TODO: add check if value for header same as previous scan, if it is then ignore it
 const getTag = (header: string, value: string, i: number, reduced: boolean) => {
     if (value == "N/A") {
         return <></>

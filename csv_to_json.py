@@ -24,7 +24,7 @@ def append_to_dict(obj: dict, key: str, entry: dict[str, str | float | int]) -> 
 
 
 with open("test_sheet.csv", newline="") as csvfile:
-    reader = csv.reader(csvfile, delimiter="␟", quotechar="|")
+    reader = csv.reader(csvfile, delimiter="|")
     headers: list[str] = next(
         reader,
     )
@@ -40,5 +40,5 @@ with open("test_sheet.csv", newline="") as csvfile:
         append_to_dict(data[imaging_type], battery_type, entry)
 print(data)
 
-with open("data.json", "w") as f:
-    dump(data, f, indent=2, sort_keys=True)
+with open("frontend/src/assets/data.json", "w") as f:
+    dump(data, f, indent=2, sort_keys=False)

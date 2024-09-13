@@ -28,11 +28,10 @@ const Orthoslices = ({fname}: {fname: string}) => {
             <ButtonGroup style={{marginTop: 12, zIndex: 10}}>
                 {radios.map((radio, idx) => (
                     <ToggleButton
-                        key={idx}
-                        id={`radio-${idx}`}
+                        key={idx + fname}
+                        id={`radio-${idx}-${fname}`}
                         type="checkbox"
                         variant="outline-dark"
-                        name="radio"
                         value={radio.value}
                         checked={dir === radio.value}
                         onChange={(e) => radioClicked(e)}

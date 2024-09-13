@@ -64,12 +64,14 @@ const getTag = (
     prevVal: string | null
 ) => {
     if (value == "N/A") {
-        return <span key={i}></span>;
+        return <div key={i}></div>;
     } else if (prevVal == value) {
-        return <span key={i}></span>;
+        return <div key={i}></div>;
+    } else if (header == "battery_number") {
+        return <div key={i}></div>;
     } else {
         return (
-            <span key={i} className="badge" style={{backgroundColor: COLOURS[i]}}>
+            <span key={i} className="badge" style={{backgroundColor: COLOURS[i - 1]}}>
                 {getText(header, value, reduced)}
             </span>
         );

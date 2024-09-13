@@ -27,3 +27,8 @@ export interface FrameProps {
     title: string,
     data: object
 }
+
+export interface TagsProps {
+    scanEntry: object
+    reduced: boolean
+}

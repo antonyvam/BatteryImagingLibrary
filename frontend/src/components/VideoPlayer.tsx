@@ -33,7 +33,7 @@ const VideoPlayer = ({fname, active}: {fname: string, active: boolean}) => {
             <video ref={vidRef} width="300" height="300" loop onTimeUpdate={e => timeUpdate()} >
                 <source src={path} type="video/mp4"></source>
             </video>
-            <Form.Range style={{width: '70%', marginTop: -24, zIndex: 10}}  step={0.25} ref={sliderRef} onChange={e => sliderChange()} />
+            <Form.Range style={{width: '70%', marginTop: -24, zIndex: 10}} step={0.1} ref={sliderRef} onChange={e => sliderChange()} />
         </div>
     )
 }

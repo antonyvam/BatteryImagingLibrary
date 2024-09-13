@@ -24,7 +24,7 @@ const Orthoslices = ({fname}: {fname: string}) => {
                 maxWidth: 220
             }}
         >
-            <Image src={`../assets/imgs/${fname}_${dir}.png`} fluid></Image>
+            <Image src={`../assets/imgs/${fname}/${dir}.png`} fluid></Image>
             <ButtonGroup style={{marginTop: 12, zIndex: 10}}>
                 {radios.map((radio, idx) => (
                     <ToggleButton

@@ -71,9 +71,9 @@ with open("test_sheet.csv", newline="") as csvfile:
             if type(to_add) == str:
                 is_new = to_add not in out["unique_props"][h]
                 is_valid = to_add != INVALID_STR
-                if is_new and is_valid:
+                if is_new and is_valid and h != "desc":
                     out["unique_props"][h].append(to_add)
-            if i < 3:
+            if i > 0 and i < 3:
                 continue
             else:
                 entry[h] = to_add

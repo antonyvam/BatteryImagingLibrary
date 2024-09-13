@@ -7,6 +7,17 @@ import Tags from "./Tags";
 import VideoPlayer from "./VideoPlayer";
 import Orthoslices from "./Orthoslices";
 
+function fileExists(url: string) {
+    const xhr = new XMLHttpRequest();
+    try {
+        xhr.open("HEAD", url, false); // 'false' makes the request synchronous
+        xhr.send();
+        return xhr.status >= 200 && xhr.status < 300;
+    } catch (err) {
+        return false;
+    }
+}
+
 const TableRow = ({i, data, prevData}: {i: number; data: object; prevData: object}) => {
     return (
         <tr>
@@ -33,6 +44,15 @@ const DataCard = ({title, data}: FrameProps) => {
     const divRef = useRef<HTMLDivElement>(null);
     const [hover, setHover] = useState<boolean>(false);
     const entries = Object.entries(data);
+
+    const getFname = (batteryNumber: string) => {
+        const fileValid = fileExists(`../assets/videos/${batteryNumber}.mp4`);
+        if (fileValid) {
+            return batteryNumber;
+        } else {
+            return "1";
+        }
+    };
 
     useEffect(() => {
         if (hover) {
@@ -67,26 +87,22 @@ const DataCard = ({title, data}: FrameProps) => {
                     alignItems: "center"
                 }}
             >
-                <VideoPlayer fname="uncompressed" active={hover} />
-                <Orthoslices fname="placeholder"></Orthoslices>
+                <VideoPlayer fname={getFname(data["0"]["battery_number"])} active={hover} />
+                <Orthoslices fname={getFname(data["0"]["battery_number"])}></Orthoslices>
             </div>
             <div
                 style={{
                     flexGrow: 7,
                     display: "flex",
                     flexDirection: "column",
-                    justifyContent: "space-between",
+                    justifyContent: "flex-start",
+                    gap: "20px",
                     padding: "0%"
                 }}
             >
                 <h2 style={{textAlign: "center"}}>{title}</h2>
                 <div>
-                    <span>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat.
-                    </span>
+                    <span>{data["0"]["desc"]}</span>
                 </div>
 
                 <div>

@@ -3,6 +3,7 @@
     "lab": {
       "LCO pin type (Panasonic)": {
         "0": {
+          "battery_number": "1",
           "instrument": "Diondo D5",
           "scan": "full",
           "image_size": [
@@ -23,9 +24,11 @@
           "state": "N/A",
           "comments": "N/A",
           "contributors": "N/A",
-          "DOI": "N/A"
+          "DOI": "N/A",
+          "desc": "Our Li-Ion miniature batteries deliver a high energy density, a good cycle stability and a long lifespan. In addition, they are extremely light and robust. They are especially designed for wristband devices, fitness trackers, smart glasses, stylus pens, wireless head phones, hearing aids, industrial IoT applications and other applications"
         },
         "1": {
+          "battery_number": "1",
           "instrument": "Diondo D5",
           "scan": "full",
           "image_size": [
@@ -46,9 +49,11 @@
           "state": "N/A",
           "comments": "N/A",
           "contributors": "N/A",
-          "DOI": "N/A"
+          "DOI": "N/A",
+          "desc": "N/A"
         },
         "2": {
+          "battery_number": "1",
           "instrument": "Zeiss Versa 510",
           "scan": "full",
           "image_size": [
@@ -69,11 +74,13 @@
           "state": "N/A",
           "comments": "N/A",
           "contributors": "N/A",
-          "DOI": "N/A"
+          "DOI": "N/A",
+          "desc": "N/A"
         }
       },
       "AAA alkaline (Energiser)": {
         "0": {
+          "battery_number": "2",
           "instrument": "Phoenix Nanotom",
           "scan": "roi",
           "image_size": "N/A",
@@ -90,11 +97,13 @@
           "state": "N/A",
           "comments": "N/A",
           "contributors": "N/A",
-          "DOI": "N/A"
+          "DOI": "N/A",
+          "desc": "Energizer\u00ae AAA batteries come in four different types. Using this handy chart, you\u2019re sure to find the one that\u2019s right for your particular device.  Our #1 longest-lasting MAX\u2122 AA battery, plus leakage protection* in your favorite devices."
         }
       },
       "AAA LiFeS2 (Varta)": {
         "0": {
+          "battery_number": "3",
           "instrument": "Phoenix Nanotom",
           "scan": "full",
           "image_size": "N/A",
@@ -111,13 +120,15 @@
           "state": "N/A",
           "comments": "N/A",
           "contributors": "N/A",
-          "DOI": "N/A"
+          "DOI": "N/A",
+          "desc": "Keep all your liberties every day with VARTA Longlife, our long-lasting batteries for devices with constant and low energy need, such as remote controls, wall clocks or radios. Standing out with long run times and reliable energy delivery to keep you independent in every second. \u201cMade in Germany \u2013 made to last\u201d, VARTA brand quality ensured"
         }
       }
     },
     "xrd": {
       "AAA NiMH": {
         "0": {
+          "battery_number": "4",
           "instrument": "P07",
           "scan": "N/A",
           "image_size": "N/A",
@@ -134,13 +145,15 @@
           "state": "charged",
           "comments": "N/A",
           "contributors": "N/A",
-          "DOI": "N/A"
+          "DOI": "N/A",
+          "desc": "N/A"
         }
       }
     },
     "neutron": {
       "AAA NMC532": {
         "0": {
+          "battery_number": "5",
           "instrument": "I12 (micro)",
           "scan": "N/A",
           "image_size": "N/A",
@@ -157,13 +170,15 @@
           "state": "pristine",
           "comments": "N/A",
           "contributors": "N/A",
-          "DOI": "N/A"
+          "DOI": "N/A",
+          "desc": "N/A"
         }
       }
     },
     "synchotron": {
       "AAA LiFes2": {
         "0": {
+          "battery_number": "6",
           "instrument": "I12 (micro)",
           "scan": "N/A",
           "image_size": "N/A",
@@ -180,11 +195,13 @@
           "state": "N/A",
           "comments": "N/A",
           "contributors": "N/A",
-          "DOI": "N/A"
+          "DOI": "N/A",
+          "desc": "N/A"
         }
       },
       "LCO pin type (Panasonic)": {
         "0": {
+          "battery_number": "7",
           "instrument": "ID11 (micro)",
           "scan": "N/A",
           "image_size": "N/A",
@@ -201,7 +218,8 @@
           "state": "N/A",
           "comments": "N/A",
           "contributors": "N/A",
-          "DOI": "N/A"
+          "DOI": "N/A",
+          "desc": "N/A"
         }
       }
     }
@@ -259,6 +277,7 @@
     ],
     "comments": [],
     "contributors": [],
-    "DOI": []
+    "DOI": [],
+    "desc": []
   }
 }

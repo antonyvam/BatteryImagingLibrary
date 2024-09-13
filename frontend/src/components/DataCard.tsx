@@ -60,7 +60,7 @@ dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
                     <h4>Other scans:</h4>
                     <Table striped bordered hover size="sm">
                         <tbody>
-                            {Object.entries(data).slice(1).map(([k, v], i) => <TableRow i={i} data={v}/>)}
+                            {Object.entries(data).slice(1).map(([k, v], i) => <TableRow key={i} i={i} data={v}/>)}
                         </tbody>
                     </Table>
                 </div>

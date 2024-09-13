@@ -46,9 +46,9 @@ const getText = (header: string, value: string | number | Array<number>, reduced
 // TODO: add check if value for header same as previous scan, if it is then ignore it
 const getTag = (header: string, value: string, i: number, reduced: boolean) => {
     if (value == "N/A") {
-        return <></>
+        return (<span key={i}></span>)
     } else {
-        return (<span className="badge" style={{backgroundColor: COLOURS[i]}}>{getText(header, value, reduced)}</span>)
+        return (<span key={i} className="badge" style={{backgroundColor: COLOURS[i]}}>{getText(header, value, reduced)}</span>)
     }
 }
 

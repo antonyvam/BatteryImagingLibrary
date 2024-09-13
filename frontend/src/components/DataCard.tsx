@@ -6,11 +6,11 @@ import { Theme, HERO_DIMS } from "../interfaces/constants";
 import Tags from "./Tags";
 
 
-const TableRow = ({i, data}: {i: number, data: object}) => {
+const TableRow = ({i, data, prevData}: {i: number, data: object, prevData: object}) => {
     return (
         <tr>
             <td style={{margin: 'auto'}}><b>{i + 2}</b></td>
-            <td><Tags scanEntry={data} reduced={true}></Tags></td>
+            <td><Tags scanEntry={data} prevEntry={prevData} reduced={false}></Tags></td>
             <td style={{verticalAlign: 'center', textAlign: 'center'}}><Button variant="dark">More Info</Button></td>
         </tr>
     )
@@ -24,6 +24,8 @@ const DataCard = ({title, data}: FrameProps) => {
     // use 'timeupdate' event on video to sync slider playback button
     // TODO: get tags working as their own component
     // TODO: add on hover border change, pause video unless hover
+
+    const entries = Object.entries(data);
     
     return( 
         <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', backgroundColor: 'white', outline: `1px solid ${Theme.LIGHT_GREY}`, padding: '2%' }}>
@@ -46,7 +48,7 @@ dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
                     <h4>Scan 1:</h4>
                     <div style={{display: 'flex', justifyContent: 'space-around'}}>
                         <div>   
-                            <Tags scanEntry={data["0"]} reduced={false}></Tags>
+                            <Tags scanEntry={data["0"]} prevEntry={null} reduced={false}></Tags>
                         </div>
                         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                             <Button style={{margin: 2}} variant="primary">Zenodo</Button>
@@ -60,7 +62,7 @@ dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
                     <h4>Other scans:</h4>
                     <Table striped bordered hover size="sm">
                         <tbody>
-                            {Object.entries(data).slice(1).map(([k, v], i) => <TableRow key={i} i={i} data={v}/>)}
+                            {entries.slice(1).map(([k, v], i) => <TableRow key={i} i={i} data={v} prevData={data[i]}/>)}
                         </tbody>
                     </Table>
                 </div>

@@ -30,5 +30,6 @@ export interface FrameProps {
 
 export interface TagsProps {
     scanEntry: object
+    prevEntry: object | null
     reduced: boolean
 }

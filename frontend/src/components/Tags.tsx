@@ -44,8 +44,10 @@ const getText = (header: string, value: string | number | Array<number>, reduced
     }
 }
 // TODO: add check if value for header same as previous scan, if it is then ignore it
-const getTag = (header: string, value: string, i: number, reduced: boolean) => {
+const getTag = (header: string, value: string, i: number, reduced: boolean, prevVal: string | null) => {
     if (value == "N/A") {
+        return (<span key={i}></span>)
+    } else if (prevVal == value) {
         return (<span key={i}></span>)
     } else {
         return (<span key={i} className="badge" style={{backgroundColor: COLOURS[i]}}>{getText(header, value, reduced)}</span>)
@@ -53,13 +55,15 @@ const getTag = (header: string, value: string, i: number, reduced: boolean) => {
 }
 
 
-const Tags = ({scanEntry, reduced}: TagsProps) => {
+const Tags = ({scanEntry, prevEntry, reduced}: TagsProps) => {
     const wrap = reduced ? "wrap" : "wrap";
     const overflow = reduced ? "visible" : "visible";
     const maxWidth = reduced ? "24em" : "30em"
+    const scanEntries = Object.entries(scanEntry)
+    const prevEntries = (prevEntry === null) ? scanEntries.map(([k, v], i) => [null, null]) : Object.entries(prevEntry)
     return (
     <div style={{display:"flex", flexDirection:"row", alignItems: 'center', flexWrap: wrap, overflowX: overflow, gap: '4px', maxWidth: maxWidth}}>
-        {Object.entries(scanEntry).map(([k, v], i) => getTag(k, v, i, reduced))}
+        {scanEntries.map(([k, v], i) => getTag(k, v, i, reduced, prevEntries[i][1]))}
     </div>
     )
 }

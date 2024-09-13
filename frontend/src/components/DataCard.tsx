@@ -1,15 +1,16 @@
-import React from "react";
-import { FrameProps } from "src/interfaces/types";
+import React, { useState } from "react";
 import { Table, Image, Button } from "react-bootstrap";
 
+import { FrameProps } from "src/interfaces/types";
 import { Theme, HERO_DIMS } from "../interfaces/constants";
 import Tags from "./Tags";
+import VideoPlayer from "./VideoPlayer";
 
 
 const TableRow = ({i, data, prevData}: {i: number, data: object, prevData: object}) => {
     return (
         <tr>
-            <td style={{margin: 'auto'}}><b>{i + 2}</b></td>
+            <td style={{verticalAlign: 'center', textAlign: 'center'}}><b>{i + 2}</b></td>
             <td><Tags scanEntry={data} prevEntry={prevData} reduced={false}></Tags></td>
             <td style={{verticalAlign: 'center', textAlign: 'center'}}><Button variant="dark">More Info</Button></td>
         </tr>
@@ -25,14 +26,13 @@ const DataCard = ({title, data}: FrameProps) => {
     // TODO: get tags working as their own component
     // TODO: add on hover border change, pause video unless hover
 
+    const [hover, setHover] = useState<boolean>(false)
     const entries = Object.entries(data);
     
     return( 
-        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', backgroundColor: 'white', outline: `1px solid ${Theme.LIGHT_GREY}`, padding: '2%' }}>
+        <div onMouseEnter={e => setHover(true)} onMouseLeave={e => setHover(false)}  style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', backgroundColor: 'white', outline: `1px solid ${Theme.LIGHT_GREY}`, padding: '2%' }}>
             <div style={{flexGrow: 3, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-                <video width="300" height="300" autoPlay loop >
-                    <source src="../assets/videos/uncompressed.mp4" type="video/mp4"></source>
-                </video>
+                <VideoPlayer fname="uncompressed" active={hover}/>
                 <Image style={{maxWidth: 220}} src="../assets/imgs/placeholder_xy.png" fluid></Image>
             </div>
             <div style={{flexGrow: 7, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: "0%"}}>

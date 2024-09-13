@@ -1,195 +1,264 @@
 {
-  "lab": {
-    "LCO pin type (Panasonic)": {
-      "0": {
-        "instrument": "Diondo D5",
-        "scan": "full",
-        "image_size": "1000x1000x3000",
-        "projections": "1000",
-        "exposure_time_s": "0.67",
-        "potential_kv": "160",
-        "power": "25.6",
-        "voxel_binning": "1",
-        "scan_time_min": "22",
-        "voxel_size_microns": "9",
-        "frame_binning": "2",
-        "magnification": "",
-        "acq_time_min": "11",
-        "state": "",
-        "comments": "",
-        "contributors": "",
-        "DOI": ""
+  "data": {
+    "lab": {
+      "LCO pin type (Panasonic)": {
+        "0": {
+          "instrument": "Diondo D5",
+          "scan": "full",
+          "image_size": [
+            1000,
+            1000,
+            3000
+          ],
+          "projections": 1000,
+          "exposure_time_s": 0.67,
+          "potential_kv": 160,
+          "power": 25.6,
+          "pixel_binning": 1,
+          "scan_time_min": 22,
+          "voxel_size_microns": 9.0,
+          "frame_binning": 2,
+          "magnification": "N/A",
+          "acq_time_min": 11,
+          "state": "N/A",
+          "comments": "N/A",
+          "contributors": "N/A",
+          "DOI": "N/A"
+        },
+        "1": {
+          "instrument": "Diondo D5",
+          "scan": "full",
+          "image_size": [
+            1000,
+            1000,
+            3000
+          ],
+          "projections": 1000,
+          "exposure_time_s": 0.6,
+          "potential_kv": 200,
+          "power": 28.0,
+          "pixel_binning": 1,
+          "scan_time_min": 21,
+          "voxel_size_microns": 9.0,
+          "frame_binning": 2,
+          "magnification": "N/A",
+          "acq_time_min": 10,
+          "state": "N/A",
+          "comments": "N/A",
+          "contributors": "N/A",
+          "DOI": "N/A"
+        },
+        "2": {
+          "instrument": "Zeiss Versa 510",
+          "scan": "full",
+          "image_size": [
+            1000,
+            1000,
+            1000
+          ],
+          "projections": 801,
+          "exposure_time_s": 1.0,
+          "potential_kv": 140,
+          "power": 10.0,
+          "pixel_binning": 2,
+          "scan_time_min": 44,
+          "voxel_size_microns": 9.0,
+          "frame_binning": 2,
+          "magnification": "N/A",
+          "acq_time_min": 13,
+          "state": "N/A",
+          "comments": "N/A",
+          "contributors": "N/A",
+          "DOI": "N/A"
+        }
       },
-      "1": {
-        "instrument": "Diondo D5",
-        "scan": "full",
-        "image_size": "1000x1000x3000",
-        "projections": "1000",
-        "exposure_time_s": "0.6",
-        "potential_kv": "200",
-        "power": "28",
-        "voxel_binning": "1",
-        "scan_time_min": "21",
-        "voxel_size_microns": "9",
-        "frame_binning": "2",
-        "magnification": "",
-        "acq_time_min": "10",
-        "state": "",
-        "comments": "",
-        "contributors": "",
-        "DOI": ""
+      "AAA alkaline (Energiser)": {
+        "0": {
+          "instrument": "Phoenix Nanotom",
+          "scan": "roi",
+          "image_size": "N/A",
+          "projections": 1800,
+          "exposure_time_s": 0.5,
+          "potential_kv": 100,
+          "power": "N/A",
+          "pixel_binning": 1,
+          "scan_time_min": "N/A",
+          "voxel_size_microns": 21.0,
+          "frame_binning": "N/A",
+          "magnification": "N/A",
+          "acq_time_min": 38,
+          "state": "N/A",
+          "comments": "N/A",
+          "contributors": "N/A",
+          "DOI": "N/A"
+        }
       },
-      "2": {
-        "instrument": "Zeiss Versa 510",
-        "scan": "full",
-        "image_size": "1000x1000x1000",
-        "projections": "801",
-        "exposure_time_s": "1",
-        "potential_kv": "140",
-        "power": "10",
-        "voxel_binning": "2",
-        "scan_time_min": "44",
-        "voxel_size_microns": "9",
-        "frame_binning": "2",
-        "magnification": "",
-        "acq_time_min": "13",
-        "state": "",
-        "comments": "",
-        "contributors": "",
-        "DOI": ""
+      "AAA LiFeS2 (Varta)": {
+        "0": {
+          "instrument": "Phoenix Nanotom",
+          "scan": "full",
+          "image_size": "N/A",
+          "projections": 1800,
+          "exposure_time_s": 0.25,
+          "potential_kv": 100,
+          "power": "N/A",
+          "pixel_binning": 2,
+          "scan_time_min": "N/A",
+          "voxel_size_microns": 40.5,
+          "frame_binning": "N/A",
+          "magnification": "N/A",
+          "acq_time_min": 22,
+          "state": "N/A",
+          "comments": "N/A",
+          "contributors": "N/A",
+          "DOI": "N/A"
+        }
       }
     },
-    "AAA alkaline (Energiser)": {
-      "0": {
-        "instrument": "Phoenix Nanotom",
-        "scan": "roi",
-        "image_size": "",
-        "projections": "1800",
-        "exposure_time_s": "0.5",
-        "potential_kv": "100",
-        "power": "",
-        "voxel_binning": "1",
-        "scan_time_min": "",
-        "voxel_size_microns": "21",
-        "frame_binning": "",
-        "magnification": "",
-        "acq_time_min": "38",
-        "state": "",
-        "comments": "",
-        "contributors": "",
-        "DOI": ""
+    "xrd": {
+      "AAA NiMH": {
+        "0": {
+          "instrument": "P07",
+          "scan": "N/A",
+          "image_size": "N/A",
+          "projections": "N/A",
+          "exposure_time_s": "N/A",
+          "potential_kv": "N/A",
+          "power": "N/A",
+          "pixel_binning": "N/A",
+          "scan_time_min": "N/A",
+          "voxel_size_microns": "N/A",
+          "frame_binning": "N/A",
+          "magnification": "N/A",
+          "acq_time_min": "N/A",
+          "state": "charged",
+          "comments": "N/A",
+          "contributors": "N/A",
+          "DOI": "N/A"
+        }
       }
     },
-    "AAA LiFeS2 (Varta)": {
-      "0": {
-        "instrument": "Phoenix Nanotom",
-        "scan": "full",
-        "image_size": "",
-        "projections": "1800",
-        "exposure_time_s": "0.25",
-        "potential_kv": "100",
-        "power": "",
-        "voxel_binning": "2",
-        "scan_time_min": "",
-        "voxel_size_microns": "40.5",
-        "frame_binning": "",
-        "magnification": "",
-        "acq_time_min": "22",
-        "state": "",
-        "comments": "",
-        "contributors": "",
-        "DOI": ""
+    "neutron": {
+      "AAA NMC532": {
+        "0": {
+          "instrument": "I12 (micro)",
+          "scan": "N/A",
+          "image_size": "N/A",
+          "projections": "N/A",
+          "exposure_time_s": "N/A",
+          "potential_kv": "N/A",
+          "power": "N/A",
+          "pixel_binning": "N/A",
+          "scan_time_min": "N/A",
+          "voxel_size_microns": "N/A",
+          "frame_binning": "N/A",
+          "magnification": "N/A",
+          "acq_time_min": "N/A",
+          "state": "pristine",
+          "comments": "N/A",
+          "contributors": "N/A",
+          "DOI": "N/A"
+        }
+      }
+    },
+    "synchotron": {
+      "AAA LiFes2": {
+        "0": {
+          "instrument": "I12 (micro)",
+          "scan": "N/A",
+          "image_size": "N/A",
+          "projections": "N/A",
+          "exposure_time_s": "N/A",
+          "potential_kv": "N/A",
+          "power": "N/A",
+          "pixel_binning": "N/A",
+          "scan_time_min": "N/A",
+          "voxel_size_microns": "N/A",
+          "frame_binning": "N/A",
+          "magnification": "N/A",
+          "acq_time_min": "N/A",
+          "state": "N/A",
+          "comments": "N/A",
+          "contributors": "N/A",
+          "DOI": "N/A"
+        }
+      },
+      "LCO pin type (Panasonic)": {
+        "0": {
+          "instrument": "ID11 (micro)",
+          "scan": "N/A",
+          "image_size": "N/A",
+          "projections": "N/A",
+          "exposure_time_s": "N/A",
+          "potential_kv": "N/A",
+          "power": "N/A",
+          "pixel_binning": "N/A",
+          "scan_time_min": "N/A",
+          "voxel_size_microns": "N/A",
+          "frame_binning": "N/A",
+          "magnification": "N/A",
+          "acq_time_min": "N/A",
+          "state": "N/A",
+          "comments": "N/A",
+          "contributors": "N/A",
+          "DOI": "N/A"
+        }
       }
     }
   },
-  "xrd": {
-    "AAA NiMH": {
-      "0": {
-        "instrument": "P07",
-        "scan": "",
-        "image_size": "",
-        "projections": "",
-        "exposure_time_s": "",
-        "potential_kv": "",
-        "power": "",
-        "voxel_binning": "",
-        "scan_time_min": "",
-        "voxel_size_microns": "",
-        "frame_binning": "",
-        "magnification": "",
-        "acq_time_min": "",
-        "state": "charged",
-        "comments": "",
-        "contributors": "",
-        "DOI": ""
-      }
-    }
-  },
-  "neutron": {
-    "AAA NMC532": {
-      "0": {
-        "instrument": "I12 (micro)",
-        "scan": "",
-        "image_size": "",
-        "projections": "",
-        "exposure_time_s": "",
-        "potential_kv": "",
-        "power": "",
-        "voxel_binning": "",
-        "scan_time_min": "",
-        "voxel_size_microns": "",
-        "frame_binning": "",
-        "magnification": "",
-        "acq_time_min": "",
-        "state": "pristine",
-        "comments": "",
-        "contributors": "",
-        "DOI": ""
-      }
-    }
-  },
-  "synchotron": {
-    "AAA LiFes2": {
-      "0": {
-        "instrument": "I12 (micro)",
-        "scan": "",
-        "image_size": "",
-        "projections": "",
-        "exposure_time_s": "",
-        "potential_kv": "",
-        "power": "",
-        "voxel_binning": "",
-        "scan_time_min": "",
-        "voxel_size_microns": "",
-        "frame_binning": "",
-        "magnification": "",
-        "acq_time_min": "",
-        "state": "",
-        "comments": "",
-        "contributors": "",
-        "DOI": ""
-      }
-    },
-    "LCO pin type (Panasonic)": {
-      "0": {
-        "instrument": "ID11 (micro)",
-        "scan": "",
-        "image_size": "",
-        "projections": "",
-        "exposure_time_s": "",
-        "potential_kv": "",
-        "power": "",
-        "voxel_binning": "",
-        "scan_time_min": "",
-        "voxel_size_microns": "",
-        "frame_binning": "",
-        "magnification": "",
-        "acq_time_min": "",
-        "state": "",
-        "comments": "",
-        "contributors": "",
-        "DOI": ""
-      }
-    }
+  "unique_props": {
+    "battery_number": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "imaging_type": [
+      "lab",
+      "xrd",
+      "neutron",
+      "synchotron"
+    ],
+    "battery": [
+      "LCO pin type (Panasonic)",
+      "AAA alkaline (Energiser)",
+      "AAA LiFeS2 (Varta)",
+      "AAA NiMH",
+      "AAA NMC532",
+      "AAA LiFes2"
+    ],
+    "instrument": [
+      "Diondo D5",
+      "Zeiss Versa 510",
+      "Phoenix Nanotom",
+      "P07",
+      "I12 (micro)",
+      "ID11 (micro)"
+    ],
+    "scan": [
+      "full",
+      "roi"
+    ],
+    "image_size": [],
+    "projections": [],
+    "exposure_time_s": [],
+    "potential_kv": [],
+    "power": [],
+    "pixel_binning": [],
+    "scan_time_min": [],
+    "voxel_size_microns": [],
+    "frame_binning": [],
+    "magnification": [],
+    "acq_time_min": [],
+    "state": [
+      "charged",
+      "pristine"
+    ],
+    "comments": [],
+    "contributors": [],
+    "DOI": []
   }
 }

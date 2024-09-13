@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import AppContext from "./types";
 
 const AppContextProvider = (props: {
@@ -9,12 +9,12 @@ const AppContextProvider = (props: {
     return (
         <AppContext.Provider
             value={{
-                foo: [foo, setFoo],
+                foo: [foo, setFoo]
             }}
         >
             {props.children}
         </AppContext.Provider>
     );
-}
+};
 
 export default AppContextProvider;

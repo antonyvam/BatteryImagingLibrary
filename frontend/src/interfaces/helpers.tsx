@@ -8,4 +8,4 @@ export const hexToRGB = (hex: string, alpha: number) => {
     } else {
         return "rgb(" + r + ", " + g + ", " + b + ")";
     }
-}
+};

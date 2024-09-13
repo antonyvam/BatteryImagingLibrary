@@ -1,23 +1,27 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Table, Image, Button } from "react-bootstrap";
+import React, {useEffect, useRef, useState} from "react";
+import {Table, Image, Button} from "react-bootstrap";
 
-import { FrameProps } from "src/interfaces/types";
-import { Theme, HERO_DIMS } from "../interfaces/constants";
+import {FrameProps} from "src/interfaces/types";
+import {Theme, HERO_DIMS} from "../interfaces/constants";
 import Tags from "./Tags";
 import VideoPlayer from "./VideoPlayer";
 import Orthoslices from "./Orthoslices";
 
-
-const TableRow = ({i, data, prevData}: {i: number, data: object, prevData: object}) => {
+const TableRow = ({i, data, prevData}: {i: number; data: object; prevData: object}) => {
     return (
         <tr>
-            <td style={{verticalAlign: 'center', textAlign: 'center'}}><b>{i + 2}</b></td>
-            <td><Tags scanEntry={data} prevEntry={prevData} reduced={false}></Tags></td>
-            <td style={{verticalAlign: 'center', textAlign: 'center'}}><Button variant="dark">More Info</Button></td>
+            <td style={{verticalAlign: "center", textAlign: "center"}}>
+                <b>{i + 2}</b>
+            </td>
+            <td>
+                <Tags scanEntry={data} prevEntry={prevData} reduced={false}></Tags>
+            </td>
+            <td style={{verticalAlign: "center", textAlign: "center"}}>
+                <Button variant="dark">More Info</Button>
+            </td>
         </tr>
-    )
-}
-
+    );
+};
 
 const DataCard = ({title, data}: FrameProps) => {
     // NB: video needs to be in H264 codec (not H265) to play
@@ -27,59 +31,96 @@ const DataCard = ({title, data}: FrameProps) => {
     // TODO: get tags working as their own component
     // TODO: add on hover border change, pause video unless hover
     const divRef = useRef<HTMLDivElement>(null);
-    const [hover, setHover] = useState<boolean>(false)
+    const [hover, setHover] = useState<boolean>(false);
     const entries = Object.entries(data);
 
     useEffect(() => {
         if (hover) {
-            divRef.current!.style.zIndex = '12'
-            divRef.current!.style.outline = `1px solid ${Theme.INFO_FOLD}`
+            divRef.current!.style.zIndex = "12";
+            divRef.current!.style.outline = `1px solid ${Theme.INFO_FOLD}`;
         } else {
-            divRef.current!.style.zIndex = '0'
-            divRef.current!.style.outline = `1px solid ${Theme.LIGHT_GREY}`
+            divRef.current!.style.zIndex = "0";
+            divRef.current!.style.outline = `1px solid ${Theme.LIGHT_GREY}`;
         }
-    }, [hover])
-    
-    return( 
-        <div ref={divRef} onMouseEnter={e => setHover(true)} onMouseLeave={e => setHover(false)}  style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', backgroundColor: 'white', outline: `1px solid ${Theme.LIGHT_GREY}`, padding: '2%' }}>
-            <div style={{flexGrow: 3, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-                <VideoPlayer fname="uncompressed" active={hover}/>
+    }, [hover]);
+
+    return (
+        <div
+            ref={divRef}
+            onMouseEnter={(e) => setHover(true)}
+            onMouseLeave={(e) => setHover(false)}
+            style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "flex-start",
+                backgroundColor: "white",
+                outline: `1px solid ${Theme.LIGHT_GREY}`,
+                padding: "2%"
+            }}
+        >
+            <div
+                style={{
+                    flexGrow: 3,
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center"
+                }}
+            >
+                <VideoPlayer fname="uncompressed" active={hover} />
                 <Orthoslices fname="placeholder"></Orthoslices>
             </div>
-            <div style={{flexGrow: 7, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: "0%"}}>
+            <div
+                style={{
+                    flexGrow: 7,
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    padding: "0%"
+                }}
+            >
                 <h2 style={{textAlign: "center"}}>{title}</h2>
                 <div>
                     <span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat.
                     </span>
                 </div>
 
                 <div>
                     <h4>Scan 1:</h4>
-                    <div style={{display: 'flex', justifyContent: 'space-around'}}>
-                        <div>   
+                    <div style={{display: "flex", justifyContent: "space-around"}}>
+                        <div>
                             <Tags scanEntry={data["0"]} prevEntry={null} reduced={false}></Tags>
                         </div>
-                        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+                        <div
+                            style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "center",
+                                alignItems: "center"
+                            }}
+                        >
                             <Button variant="dark">More Info</Button>
                         </div>
                     </div>
                 </div>
-                
-                
+
                 <div>
                     <h4>Other scans:</h4>
                     <Table striped bordered hover size="sm">
                         <tbody>
-                            {entries.slice(1).map(([k, v], i) => <TableRow key={i} i={i} data={v} prevData={data[i]}/>)}
+                            {entries.slice(1).map(([k, v], i) => (
+                                <TableRow key={i} i={i} data={v} prevData={data[i]} />
+                            ))}
                         </tbody>
                     </Table>
                 </div>
-                
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default DataCard
+export default DataCard;

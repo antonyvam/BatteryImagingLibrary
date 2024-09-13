@@ -2,7 +2,7 @@ import { ThemeCols } from "./types";
 
 
 export const HERO_DIMS: {w: number, h: number} = {w: 1401, h: 610}
-export const Theme: ThemeCols = {HERO_BG: "#707070", INFO_FOLD: "#212121", DATA_FOLD: "#f8f9fa"}
+export const Theme: ThemeCols = {HERO_BG: "#707070", INFO_FOLD: "#212121", DATA_FOLD: "#f8f9fa", BLUE: "#0d6efd", LIGHT_GREY: "#bcc3cf"}
 
 export const flexCentreDivStyle: React.CSSProperties = {
     display: "flex",
@@ -11,6 +11,16 @@ export const flexCentreDivStyle: React.CSSProperties = {
     flexDirection: 'column',
     color: "whitesmoke",
     margin: '3%'
+}
+
+export const cardStyle: React.CSSProperties = {
+    display: "flex",
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    flexDirection: 'column',
+    margin: '3%',
+    maxWidth: '80%',
+    minWidth: '54%'
 }
 
 export const heroGradDivStyle: React.CSSProperties = {

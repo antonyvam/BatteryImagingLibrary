@@ -10,8 +10,8 @@ const maxSpanFontSize = `min(2vw, ${HERO_DIMS.w * 0.02}px)`
 const marginOffset = `min(${HERO_DIMS.h - 170}px, 28%)`
 
 
-const c1 = "#0d6efd";
-const c2 = "#bcc3cf"; //"#FD9C0D";
+const c1 = Theme.BLUE;
+const c2 = Theme.LIGHT_GREY; //"#FD9C0D";
 const liStyle: React.CSSProperties = {color: c1};
 const bStyle: React.CSSProperties = {
     background: `linear-gradient(to right, ${c1}, ${c2})`,

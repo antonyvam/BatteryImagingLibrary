@@ -18,7 +18,9 @@ export interface FoldProps {
 export interface ThemeCols {
     HERO_BG: string,
     INFO_FOLD: string,
-    DATA_FOLD: string
+    DATA_FOLD: string,
+    BLUE: string,
+    LIGHT_GREY: string
 }
 
 export interface FrameProps {

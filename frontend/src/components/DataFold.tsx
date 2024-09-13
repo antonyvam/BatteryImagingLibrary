@@ -1,7 +1,7 @@
 import React from "react";
 import Fold from "./Fold";
 
-import { Theme, HERO_DIMS } from "../interfaces/constants";
+import { Theme, HERO_DIMS, cardStyle } from "../interfaces/constants";
 import { Stack } from "react-bootstrap";
 
 import "../assets/scss/styles.css";
@@ -23,11 +23,11 @@ const DataFold: React.FC = () => {
 
     return (
     <Fold bgColour={Theme.DATA_FOLD}>
-        <Stack style={{alignItems: 'center', marginTop: '3%', width: '56%'}}>
-            {
-                Object.entries(data["data"]).map(([k, v]) => <DataFrame title={k} data={v} />)
-            }
-        </Stack>
+        <div style={cardStyle}>
+                {
+                    Object.entries(data["data"]).map(([k, v]) => <DataFrame key={k} title={k} data={v} />)
+                }
+        </div>
     </Fold>
     )
 }

@@ -25,6 +25,8 @@
           "comments": "N/A",
           "contributors": "N/A",
           "DOI": "N/A",
+          "url": "N/A",
+          "wavelengths": "N/A",
           "desc": "Our Li-Ion miniature batteries deliver a high energy density, a good cycle stability and a long lifespan. In addition, they are extremely light and robust. They are especially designed for wristband devices, fitness trackers, smart glasses, stylus pens, wireless head phones, hearing aids, industrial IoT applications and other applications"
         },
         "1": {
@@ -50,6 +52,8 @@
           "comments": "N/A",
           "contributors": "N/A",
           "DOI": "N/A",
+          "url": "N/A",
+          "wavelengths": "N/A",
           "desc": "N/A"
         },
         "2": {
@@ -75,6 +79,8 @@
           "comments": "N/A",
           "contributors": "N/A",
           "DOI": "N/A",
+          "url": "N/A",
+          "wavelengths": "N/A",
           "desc": "N/A"
         }
       },
@@ -98,6 +104,8 @@
           "comments": "N/A",
           "contributors": "N/A",
           "DOI": "N/A",
+          "url": "N/A",
+          "wavelengths": "N/A",
           "desc": "Energizer\u00ae AAA batteries come in four different types. Using this handy chart, you\u2019re sure to find the one that\u2019s right for your particular device.  Our #1 longest-lasting MAX\u2122 AA battery, plus leakage protection* in your favorite devices."
         }
       },
@@ -121,6 +129,8 @@
           "comments": "N/A",
           "contributors": "N/A",
           "DOI": "N/A",
+          "url": "N/A",
+          "wavelengths": "N/A",
           "desc": "Keep all your liberties every day with VARTA Longlife, our long-lasting batteries for devices with constant and low energy need, such as remote controls, wall clocks or radios. Standing out with long run times and reliable energy delivery to keep you independent in every second. \u201cMade in Germany \u2013 made to last\u201d, VARTA brand quality ensured"
         }
       }
@@ -146,6 +156,12 @@
           "comments": "N/A",
           "contributors": "N/A",
           "DOI": "N/A",
+          "url": "N/A",
+          "wavelengths": [
+            "210",
+            "448",
+            "746"
+          ],
           "desc": "N/A"
         }
       }
@@ -171,6 +187,8 @@
           "comments": "N/A",
           "contributors": "N/A",
           "DOI": "N/A",
+          "url": "N/A",
+          "wavelengths": "N/A",
           "desc": "N/A"
         }
       }
@@ -196,6 +214,8 @@
           "comments": "N/A",
           "contributors": "N/A",
           "DOI": "N/A",
+          "url": "N/A",
+          "wavelengths": "N/A",
           "desc": "N/A"
         }
       },
@@ -219,6 +239,8 @@
           "comments": "N/A",
           "contributors": "N/A",
           "DOI": "N/A",
+          "url": "N/A",
+          "wavelengths": "N/A",
           "desc": "N/A"
         }
       }
@@ -278,6 +300,8 @@
     "comments": [],
     "contributors": [],
     "DOI": [],
+    "url": [],
+    "wavelengths": [],
     "desc": []
   }
 }

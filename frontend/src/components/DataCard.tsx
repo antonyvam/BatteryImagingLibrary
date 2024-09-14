@@ -88,7 +88,10 @@ const DataCard = ({title, data}: FrameProps) => {
                 }}
             >
                 <VideoPlayer fname={getFname(data["0"]["battery_number"])} active={hover} />
-                <Orthoslices fname={getFname(data["0"]["battery_number"])}></Orthoslices>
+                <Orthoslices
+                    fname={getFname(data["0"]["battery_number"])}
+                    wavelengths={data["0"]["wavelengths"]}
+                ></Orthoslices>
             </div>
             <div
                 style={{

@@ -49,6 +49,9 @@ def process_entry(val: str, header: str) -> str | float | int | list:
     elif header == "image_size":
         dims = val.split("x")
         return [int(d) for d in dims]
+    elif header == "wavelengths":
+        dims = val.split(", ")
+        return [str(d) for d in dims]
     else:
         return str(val)
 

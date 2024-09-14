@@ -16,6 +16,8 @@ const COLOURS = [
     "#EC9F05"
 ];
 
+const IGNORE_HEADERS = ["url", "wavelengths", "battery_number"];
+
 const getText = (header: string, value: string | number | Array<number>, reduced: boolean) => {
     let prefix = "";
     let tag = "";
@@ -67,7 +69,7 @@ const getTag = (
         return <div key={i}></div>;
     } else if (prevVal == value) {
         return <div key={i}></div>;
-    } else if (header == "battery_number") {
+    } else if (IGNORE_HEADERS.includes(header)) {
         return <div key={i}></div>;
     } else {
         return (
@@ -93,9 +95,10 @@ const Tags = ({scanEntry, prevEntry, reduced}: TagsProps) => {
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "center",
+                justifyItems: "flex-start",
                 flexWrap: wrap,
                 overflowX: overflow,
-                gap: "4px",
+                gap: "1px 2px",
                 maxWidth: maxWidth
             }}
         >

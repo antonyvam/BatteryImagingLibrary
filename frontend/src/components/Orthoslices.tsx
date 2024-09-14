@@ -1,8 +1,15 @@
 import React, {useState} from "react";
 import {Image, ButtonGroup, ToggleButton} from "react-bootstrap";
 
-const Orthoslices = ({fname}: {fname: string}) => {
+const Orthoslices = ({
+    fname,
+    wavelengths
+}: {
+    fname: string;
+    wavelengths: Array<string> | string;
+}) => {
     const [dir, setDir] = useState<"xy" | "yz" | "xz">("xy");
+    const [lambda, setLambda] = useState<string>("");
     const radios = [
         {name: "xy", value: "xy"},
         {name: "yz", value: "yz"},
@@ -10,8 +17,13 @@ const Orthoslices = ({fname}: {fname: string}) => {
     ];
     const radioClicked = (e: React.ChangeEvent<HTMLInputElement>) => {
         const val = e.currentTarget.value as "xy" | "yz" | "xz";
-        console.log(dir, val);
         setDir(val);
+    };
+    const lambdaRadioClicked = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const val = e.currentTarget.value as string;
+        console.log(val, typeof val);
+        console.log(wavelengths);
+        setLambda("_" + val + "nm");
     };
 
     return (
@@ -24,8 +36,8 @@ const Orthoslices = ({fname}: {fname: string}) => {
                 maxWidth: 220
             }}
         >
-            <Image src={`../assets/imgs/${fname}/${dir}.png`} fluid></Image>
-            <ButtonGroup style={{marginTop: 12, zIndex: 10}}>
+            <Image src={`../assets/imgs/${fname}/${dir}${lambda}.png`} fluid></Image>
+            <ButtonGroup style={{marginTop: 12}}>
                 {radios.map((radio, idx) => (
                     <ToggleButton
                         key={idx + fname}
@@ -40,6 +52,23 @@ const Orthoslices = ({fname}: {fname: string}) => {
                     </ToggleButton>
                 ))}
             </ButtonGroup>
+            {typeof wavelengths != "string" && (
+                <ButtonGroup style={{marginTop: 4}}>
+                    {wavelengths.map((l, idx) => (
+                        <ToggleButton
+                            key={idx + fname + l}
+                            id={`radio-${idx}-${fname}-${l}`}
+                            type="checkbox"
+                            variant="outline-dark"
+                            value={l}
+                            checked={lambda === "_" + l + "nm"}
+                            onChange={(e) => lambdaRadioClicked(e)}
+                        >
+                            {l + "nm"}
+                        </ToggleButton>
+                    ))}
+                </ButtonGroup>
+            )}
         </div>
     );
 };

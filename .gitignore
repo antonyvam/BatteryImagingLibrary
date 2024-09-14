@@ -162,3 +162,9 @@ cython_debug/
 #.idea/
 
 volumes/
+
+frontend/node_modules/
+frontend/dist/
+frontend/.cache/
+frontend/.idea/
+frontend/package-lock.json

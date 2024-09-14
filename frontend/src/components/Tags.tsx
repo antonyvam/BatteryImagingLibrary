@@ -13,7 +13,12 @@ const COLOURS = [
     "#CB958E",
     "#253031",
     "#BCAB79",
-    "#EC9F05"
+    "#EC9F05",
+    "#0E402D",
+    "#757780",
+    "#8ACE00",
+    "#D2CCA1",
+    "#387780"
 ];
 
 const IGNORE_HEADERS = ["url", "wavelengths", "battery_number"];
@@ -48,6 +53,12 @@ const getText = (header: string, value: string | number | Array<number>, reduced
     } else if (header == "frame_binning") {
         prefix = "frame binning: ";
         tag = value.toString();
+    } else if (header == "acq_time_min") {
+        prefix = "acquisition time: ";
+        tag = value.toString() + "mins";
+    } else if (header == "magnification") {
+        prefix = "magnification: ";
+        tag = value.toString() + "x";
     } else {
         tag = value.toString();
     }

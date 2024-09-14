@@ -21,8 +21,6 @@ const Orthoslices = ({
     };
     const lambdaRadioClicked = (e: React.ChangeEvent<HTMLInputElement>) => {
         const val = e.currentTarget.value as string;
-        console.log(val, typeof val);
-        console.log(wavelengths);
         setLambda("_" + val + "nm");
     };
 

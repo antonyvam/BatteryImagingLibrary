@@ -8,6 +8,8 @@ import Tags from "./Tags";
 import VideoPlayer from "./VideoPlayer";
 import Orthoslices from "./Orthoslices";
 
+import "../assets/scss/styles.css";
+
 const TableRow = ({
     i,
     data,
@@ -36,14 +38,7 @@ const TableRow = ({
     );
 };
 
-const DataCard = ({
-    title,
-    data,
-    showModal,
-    setShowModal,
-    modalEntry,
-    setModalEntry
-}: FrameProps) => {
+const DataCard = ({title, data, setShowModal, setModalEntry}: FrameProps) => {
     // NB: video needs to be in H264 codec (not H265) to play
     // can probably get away with compression
     // TODO: refactor img and video into their own interactive components
@@ -83,14 +78,7 @@ const DataCard = ({
             ref={divRef}
             onMouseEnter={(e) => setHover(true)}
             onMouseLeave={(e) => setHover(false)}
-            style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "flex-start",
-                backgroundColor: "white",
-                outline: `1px solid ${Theme.LIGHT_GREY}`,
-                padding: "2%"
-            }}
+            className="data-card"
         >
             <div
                 style={{

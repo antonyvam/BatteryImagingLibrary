@@ -9,3 +9,14 @@ export const hexToRGB = (hex: string, alpha: number) => {
         return "rgb(" + r + ", " + g + ", " + b + ")";
     }
 };
+
+export const fileExists = (url: string) => {
+    const xhr = new XMLHttpRequest();
+    try {
+        xhr.open("HEAD", url, false); // 'false' makes the request synchronous
+        xhr.send();
+        return xhr.status >= 200 && xhr.status < 300;
+    } catch (err) {
+        return false;
+    }
+};

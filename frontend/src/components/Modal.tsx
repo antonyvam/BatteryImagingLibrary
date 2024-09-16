@@ -1,11 +1,34 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Modal, Button} from "react-bootstrap";
-
+import {fileExists} from "../interfaces/helpers";
 import {ModalProps} from "react-bootstrap";
+import Orthoslices from "./Orthoslices";
 
 // todo: parameteise modal with set/show hide of entryboolean
 
 const DataModal = ({show, setShow, entry, setEntry}: ModalProps) => {
+    const [fname, setFname] = useState<string>("1");
+
+    const getFname = (batteryNumber: string) => {
+        const fileValid = fileExists(`../assets/imgs/${batteryNumber}/`);
+        if (fileValid) {
+            return batteryNumber;
+        } else {
+            return "1";
+        }
+    };
+
+    useEffect(() => {
+        if (entry == null) {
+            return;
+        }
+
+        const newFname = getFname(entry["global_scan_number"] + 1);
+        console.log(entry);
+        console.log(newFname);
+        setFname(newFname);
+    }, [entry]);
+
     if (entry == null) {
         return <></>;
     } else {
@@ -24,14 +47,11 @@ const DataModal = ({show, setShow, entry, setEntry}: ModalProps) => {
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <p>
-                            Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae unde
-                            commodi aspernatur enim, consectetur. Cumque deleniti temporibus ipsam
-                            atque a dolores quisquam quisquam adipisci possimus laboriosam.
-                            Quibusdam facilis doloribus debitis! Sit quasi quod accusamus eos quod.
-                            Ab quos consequuntur eaque quo rem! Mollitia reiciendis porro quo magni
-                            incidunt dolore amet atque facilis ipsum deleniti rem!
-                        </p>
+                        <Orthoslices
+                            fname={fname}
+                            wavelengths={entry["wavelengths"]}
+                            modal={true}
+                        />
                     </Modal.Body>
                 </Modal>
             </>

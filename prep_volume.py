@@ -44,7 +44,6 @@ def gen_wavelength_arrs(slice: np.ndarray) -> list[np.ndarray]:
         dist_arr = np.abs(remapped - centre)
         rgba = m.to_rgba(dist_arr)
         rgba = (rgba * 255).astype(np.uint8)
-        print(rgba.dtype)
         out.append(rgba)
     return out
 
@@ -61,7 +60,7 @@ for file_name in listdir("volumes"):
         img = slice_to_png(slice)
         img.save(f"{out_dir}/{plane}.png")
 
-        if number == "4":
+        if number == "6":
             wavelength_arrs = gen_wavelength_arrs(slice)
             for wavelength, arr in zip(wavelengths, wavelength_arrs):
                 img = slice_to_png(arr, False)

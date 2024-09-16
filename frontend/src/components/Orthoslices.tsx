@@ -3,10 +3,12 @@ import {Image, ButtonGroup, ToggleButton} from "react-bootstrap";
 
 const Orthoslices = ({
     fname,
-    wavelengths
+    wavelengths,
+    modal = false
 }: {
     fname: string;
     wavelengths: Array<string> | string;
+    modal: boolean;
 }) => {
     const [dir, setDir] = useState<"xy" | "yz" | "xz">("xy");
     const [lambda, setLambda] = useState<string>("");
@@ -38,8 +40,8 @@ const Orthoslices = ({
             <ButtonGroup style={{marginTop: 12}}>
                 {radios.map((radio, idx) => (
                     <ToggleButton
-                        key={idx + fname}
-                        id={`radio-${idx}-${fname}`}
+                        key={idx + fname + modal}
+                        id={`radio-${idx}-${fname}-${modal}`}
                         type="checkbox"
                         variant="outline-dark"
                         value={radio.value}

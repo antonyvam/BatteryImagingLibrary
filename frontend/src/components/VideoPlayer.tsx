@@ -45,6 +45,7 @@ const VideoPlayer = ({fname, active}: {fname: string; active: boolean}) => {
                 onTimeUpdate={(e) => timeUpdate()}
                 style={{pointerEvents: "none"}}
                 playsInline
+                muted
             >
                 <source src={path} type="video/mp4"></source>
             </video>

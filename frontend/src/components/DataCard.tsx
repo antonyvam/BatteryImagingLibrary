@@ -3,20 +3,10 @@ import {Table, Button} from "react-bootstrap";
 
 import {FrameProps} from "src/interfaces/types";
 import {Theme, HERO_DIMS} from "../interfaces/constants";
+import {fileExists} from "../interfaces/helpers";
 import Tags from "./Tags";
 import VideoPlayer from "./VideoPlayer";
 import Orthoslices from "./Orthoslices";
-
-function fileExists(url: string) {
-    const xhr = new XMLHttpRequest();
-    try {
-        xhr.open("HEAD", url, false); // 'false' makes the request synchronous
-        xhr.send();
-        return xhr.status >= 200 && xhr.status < 300;
-    } catch (err) {
-        return false;
-    }
-}
 
 const TableRow = ({
     i,
@@ -113,8 +103,9 @@ const DataCard = ({
             >
                 <VideoPlayer fname={getFname(data["0"]["battery_number"])} active={hover} />
                 <Orthoslices
-                    fname={getFname(data["0"]["battery_number"])}
+                    fname={getFname(data["0"]["global_scan_number"] + 1)}
                     wavelengths={data["0"]["wavelengths"]}
+                    modal={false}
                 ></Orthoslices>
             </div>
             <div

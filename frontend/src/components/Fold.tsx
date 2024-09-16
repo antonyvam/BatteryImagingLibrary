@@ -3,22 +3,17 @@ import {FoldProps} from "src/interfaces/types";
 
 const Fold = ({children, bgColour, hero = false}: FoldProps) => {
     const colour = bgColour! as React.CSSProperties["backgroundColor"];
-    const style: React.CSSProperties = {
-        background: colour,
-        width: "100vw",
-        height: "full",
-        display: "flex",
-        justifyContent: "flex-start",
-        alignItems: "center",
-        flexDirection: "column"
-    };
+    const style: React.CSSProperties = hero
+        ? {background: "linear-gradient(0deg, rgba(33,33,33,1) 0%, rgba(112,112,112,0.5) 100%)"}
+        : {
+              background: colour
+          };
 
-    if (hero) {
-        style["background"] =
-            "linear-gradient(0deg, rgba(33,33,33,1) 0%, rgba(214,214,214,0.14) 100%)";
-    }
-
-    return <div style={style}>{children}</div>;
+    return (
+        <div className="fold" style={style}>
+            {children}
+        </div>
+    );
 };
 
 export default Fold;

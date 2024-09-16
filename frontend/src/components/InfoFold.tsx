@@ -2,7 +2,6 @@ import React from "react";
 import Fold from "./Fold";
 
 import {Theme} from "../interfaces/constants";
-import {HERO_DIMS, flexCentreDivStyle} from "../interfaces/constants";
 import {Button} from "react-bootstrap";
 
 const btnTexts = ["GitHub", "Zenodo", "Paper"];
@@ -27,7 +26,7 @@ const getBtn = (i: number, val: string) => {
 const InfoFold: React.FC = () => {
     return (
         <Fold bgColour={Theme.INFO_FOLD} hero={false}>
-            <div style={flexCentreDivStyle}>
+            <div className="flex-centre-style">
                 <p className="info-text">{infoText}</p>
                 <div style={{display: "flex"}}>{btnTexts.map((val, i) => getBtn(i, val))}</div>
             </div>

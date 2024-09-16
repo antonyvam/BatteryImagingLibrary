@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const App: React.FC = () => {
     return (
-        <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+        <div className="app">
             <Hero />
             <InfoFold />
             <DataFold />

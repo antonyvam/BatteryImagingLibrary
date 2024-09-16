@@ -3,7 +3,7 @@ import {Stack} from "react-bootstrap";
 import {FrameProps} from "src/interfaces/types";
 import DataCard from "./DataCard";
 
-import {Theme, HERO_DIMS} from "../interfaces/constants";
+import "../assets/scss/styles.css";
 
 const DataFrame = ({
     title,
@@ -25,15 +25,7 @@ const DataFrame = ({
 
     return (
         <Stack style={{margin: "1%"}}>
-            <div
-                style={{
-                    backgroundColor: Theme.HERO_BG,
-                    borderRadius: "20px 20px 0px 0px",
-                    color: "whitesmoke",
-                    padding: "10px 30px",
-                    outline: `1px solid ${Theme.LIGHT_GREY}`
-                }}
-            >
+            <div className="data-frame">
                 <h1>{getTitle(title)}</h1>
             </div>
             {Object.entries(data).map(([k, v]) => (

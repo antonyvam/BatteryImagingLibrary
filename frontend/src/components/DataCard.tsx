@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from "react";
 import {Table, Button} from "react-bootstrap";
 
 import {FrameProps} from "src/interfaces/types";
-import {Theme, HERO_DIMS} from "../interfaces/constants";
+import {Theme} from "../interfaces/constants";
 import {fileExists} from "../interfaces/helpers";
 import Tags from "./Tags";
 import VideoPlayer from "./VideoPlayer";

@@ -5,7 +5,14 @@ import DataCard from "./DataCard";
 
 import {Theme, HERO_DIMS} from "../interfaces/constants";
 
-const DataFrame = ({title, data}: FrameProps) => {
+const DataFrame = ({
+    title,
+    data,
+    showModal,
+    setShowModal,
+    modalEntry,
+    setModalEntry
+}: FrameProps) => {
     const getTitle = (titleStr: string) => {
         if (titleStr == "xrd") {
             return "XRD";
@@ -30,7 +37,15 @@ const DataFrame = ({title, data}: FrameProps) => {
                 <h1>{getTitle(title)}</h1>
             </div>
             {Object.entries(data).map(([k, v]) => (
-                <DataCard title={k} data={v} key={k} />
+                <DataCard
+                    title={k}
+                    data={v}
+                    key={k}
+                    showModal={showModal}
+                    setShowModal={setShowModal}
+                    modalEntry={modalEntry}
+                    setModalEntry={setModalEntry}
+                />
             ))}
         </Stack>
     );

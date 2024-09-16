@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from "react";
-import {Table, Image, Button} from "react-bootstrap";
+import {Table, Button} from "react-bootstrap";
 
 import {FrameProps} from "src/interfaces/types";
 import {Theme, HERO_DIMS} from "../interfaces/constants";
@@ -34,7 +34,14 @@ const TableRow = ({i, data, prevData}: {i: number; data: object; prevData: objec
     );
 };
 
-const DataCard = ({title, data}: FrameProps) => {
+const DataCard = ({
+    title,
+    data,
+    showModal,
+    setShowModal,
+    modalEntry,
+    setModalEntry
+}: FrameProps) => {
     // NB: video needs to be in H264 codec (not H265) to play
     // can probably get away with compression
     // TODO: refactor img and video into their own interactive components
@@ -52,6 +59,11 @@ const DataCard = ({title, data}: FrameProps) => {
         } else {
             return "1";
         }
+    };
+
+    const showModalSetContent = (scanEntryNumber: number) => {
+        setModalEntry(data[scanEntryNumber.toString()]);
+        setShowModal(true);
     };
 
     useEffect(() => {
@@ -122,7 +134,9 @@ const DataCard = ({title, data}: FrameProps) => {
                                 alignItems: "center"
                             }}
                         >
-                            <Button variant="dark">More Info</Button>
+                            <Button variant="dark" onClick={(e) => showModalSetContent(0)}>
+                                More Info
+                            </Button>
                         </div>
                     </div>
                 </div>

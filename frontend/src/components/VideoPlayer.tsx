@@ -37,7 +37,15 @@ const VideoPlayer = ({fname, active}: {fname: string; active: boolean}) => {
                 marginBottom: 20
             }}
         >
-            <video ref={vidRef} width="300" height="300" loop onTimeUpdate={(e) => timeUpdate()}>
+            <video
+                ref={vidRef}
+                width="300"
+                height="300"
+                loop
+                onTimeUpdate={(e) => timeUpdate()}
+                style={{pointerEvents: "none"}}
+                playsInline
+            >
                 <source src={path} type="video/mp4"></source>
             </video>
             <Form.Range

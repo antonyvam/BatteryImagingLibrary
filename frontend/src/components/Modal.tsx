@@ -21,7 +21,6 @@ const kvValid = (kv: [string, any]) => {
 const DataTable = ({entry}: {entry: Object}) => {
     const getNRows = (entry: object) => {
         const kvs = Object.entries(entry);
-        console.log(kvs);
         let j = 0;
         for (let i = 0; i < kvs.length; i++) {
             if (kvValid(kvs[i])) {
@@ -33,7 +32,7 @@ const DataTable = ({entry}: {entry: Object}) => {
 
     const getRow = (entryKVs: [string, any][], idx: number) => {
         return (
-            <tr>
+            <tr key={idx}>
                 <th>{entryKVs[idx][0]}</th>
                 <th>{getText(entryKVs[idx][0], entryKVs[idx][1], true)}</th>
                 <th>{entryKVs[idx + 1][0]}</th>

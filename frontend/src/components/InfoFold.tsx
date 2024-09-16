@@ -8,7 +8,7 @@ const btnTexts = ["GitHub", "Zenodo", "Paper"];
 const btnLinks = ["Coming Soon", "Coming soon", "Coming soon"];
 
 const infoText =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ";
+    "Raw data, reconstructions, and processing scripts for lab-, synchotron-, neturon- and XRD- CT scans of commerical batteries."; //"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ";
 
 const getBtn = (i: number, val: string) => {
     const variant = i == 1 ? "primary" : "light";

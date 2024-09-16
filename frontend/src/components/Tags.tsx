@@ -44,6 +44,7 @@ export const getText = (
 ) => {
     let prefix = "";
     let tag = "";
+    // TODO: break this into its own fn - maybe using match - that returns prefix and tag s.t yu can use it in model
     if (header == "scan") {
         tag = value + " " + "scan";
     } else if (header == "image_size") {

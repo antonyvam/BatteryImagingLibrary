@@ -19,7 +19,7 @@ const DataFold: React.FC = () => {
     // TODO: this should have max width in px and be like 80% otherwise or something
 
     return (
-        <Fold bgColour={Theme.DATA_FOLD} hero={false}>
+        <Fold bgColour={"white"} hero={false}>
             <div className="data-fold">
                 {Object.entries(data["data"]).map(([k, v]) => (
                     <DataFrame

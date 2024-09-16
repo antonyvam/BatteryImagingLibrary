@@ -109,6 +109,23 @@
   padding: 2%;
 }
 
+.ortho-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20;
+  max-width: 220px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.vid-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20;
+}
+
 
 @media screen and (width < 700px) {
   .data-card {

@@ -119,26 +119,6 @@ const DataCard = ({title, data, setShowModal, setModalEntry}: FrameProps) => {
                             </tr>
                         </tbody>
                     </Table>
-                    {/*
-                    
-                    <div style={{display: "flex", justifyContent: "space-around"}}>
-                        <div>
-                            <Tags scanEntry={data["0"]} prevEntry={null} reduced={false}></Tags>
-                        </div>
-                        <div
-                            style={{
-                                display: "flex",
-                                flexDirection: "column",
-                                justifyContent: "center",
-                                alignItems: "center"
-                            }}
-                        >
-                            <Button variant="dark" onClick={(e) => showModalSetContent(0)}>
-                                More Info
-                            </Button>
-                        </div>
-                    </div>
-                    */}
                 </div>
 
                 <div>

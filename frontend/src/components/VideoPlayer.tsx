@@ -29,14 +29,7 @@ const VideoPlayer = ({fname, active}: {fname: string; active: boolean}) => {
     }, [active]);
 
     return (
-        <div
-            style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                marginBottom: 20
-            }}
-        >
+        <div className="vid-div">
             <video
                 ref={vidRef}
                 width="300"

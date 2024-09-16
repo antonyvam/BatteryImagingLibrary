@@ -27,17 +27,7 @@ const Orthoslices = ({
     };
 
     return (
-        <div
-            style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                marginBottom: 20,
-                maxWidth: "220px",
-                marginRight: "auto",
-                marginLeft: "auto"
-            }}
-        >
+        <div className="ortho-div">
             <Image src={`../assets/imgs/${fname}/${dir}${lambda}.png`} fluid></Image>
             <ButtonGroup style={{marginTop: 12}}>
                 {radios.map((radio, idx) => (

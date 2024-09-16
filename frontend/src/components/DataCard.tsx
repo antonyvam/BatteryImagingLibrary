@@ -74,6 +74,8 @@ const DataCard = ({title, data, setShowModal, setModalEntry}: FrameProps) => {
         <div
             ref={divRef}
             onMouseEnter={(e) => setHover(true)}
+            onPointerEnter={(e) => setHover(true)}
+            onPointerLeave={(e) => setHover(false)}
             onMouseLeave={(e) => setHover(false)}
             className="data-card"
         >

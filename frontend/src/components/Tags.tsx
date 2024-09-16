@@ -25,7 +25,7 @@ const COLOURS = [
     "#387780"
 ];
 
-const IGNORE_HEADERS = [
+export const IGNORE_HEADERS = [
     "global_scan_number",
     "local_scan_number",
     "battery_number",
@@ -33,10 +33,15 @@ const IGNORE_HEADERS = [
     "battery",
     "url",
     "wavelengths",
-    "desc"
+    "desc",
+    "comments"
 ];
 
-const getText = (header: string, value: string | number | Array<number>, reduced: boolean) => {
+export const getText = (
+    header: string,
+    value: string | number | Array<number>,
+    reduced: boolean
+) => {
     let prefix = "";
     let tag = "";
     if (header == "scan") {

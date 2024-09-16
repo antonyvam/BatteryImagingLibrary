@@ -24,8 +24,8 @@ export const cardStyle: React.CSSProperties = {
     alignItems: "center",
     flexDirection: "column",
     margin: "3%",
-    maxWidth: "54%",
-    minWidth: "54%"
+    width: "76%",
+    maxWidth: 1000
 };
 
 export const heroGradDivStyle: React.CSSProperties = {

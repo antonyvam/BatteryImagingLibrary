@@ -2,7 +2,6 @@
 
 ## TODO:
 
--   orthoslices/volumes should be battery then scan indexed
 -   data modal
 -   search filter
 -   dataframe accordioning

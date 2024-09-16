@@ -4,9 +4,11 @@ import Fold from "./Fold";
 import {Theme, heroGradDivStyle, HERO_DIMS} from "../interfaces/constants";
 import {hexToRGB} from "../interfaces/helpers";
 
-const maxTitleFontSize = `min(5vw, ${HERO_DIMS.w * 0.05}px)`;
-const maxSpanFontSize = `min(2vw, ${HERO_DIMS.w * 0.02}px)`;
-const marginOffset = `min(${HERO_DIMS.h - 170}px, 28%)`;
+//const maxTitleFontSize = `min(5vw, ${HERO_DIMS.w * 0.05}px)`;
+//const maxSpanFontSize = `min(2vw, ${HERO_DIMS.w * 0.02}px)`;
+//const marginOffset = `min(${HERO_DIMS.h - 170}px, 28%)`;
+
+import "../assets/scss/styles.css";
 
 const c1 = Theme.BLUE;
 const c2 = Theme.LIGHT_GREY; //"#FD9C0D";
@@ -32,20 +34,28 @@ const Hero: React.FC = () => {
     };
 
     return (
-        <Fold bgColour={Theme.HERO_BG}>
-            <div style={{width: "full", height: "full"}}>
-                <Image src="/assets/imgs/hero.png" style={{zIndex: -1}} fluid></Image>
-                <div style={getStyle(Theme.INFO_FOLD)}>
-                    <h2 style={{fontSize: maxTitleFontSize, marginTop: marginOffset}}>
+        <Fold bgColour={Theme.HERO_BG} hero={true}>
+            <div className="hero-parent-div">
+                <Image
+                    src="/assets/imgs/hero.png"
+                    style={{zIndex: -1, left: "0%", top: "0%"}}
+                    fluid
+                ></Image>
+                <Image
+                    src="/assets/imgs/hero.png"
+                    style={{visibility: "hidden", zIndex: -10, height: 0, width: 0}}
+                    fluid
+                ></Image>
+                <div className="hero-grad-div">
+                    <h1 className="title">
                         <span style={liStyle}>li</span>
                         <span style={bStyle}>b</span>
                         <span style={atteryStyle}>attery</span>
                         <span>-ct</span>
-                    </h2>
-                    <span style={{maxWidth: "40%", fontSize: maxSpanFontSize, textAlign: "center"}}>
-                        {" "}
+                    </h1>
+                    <span className="subhead">
                         Raw data, reconstructions, and processing scripts for lab-, synchotron-,
-                        neturon- and XRD- CT scans of commerical batteries.{" "}
+                        neturon- and XRD- CT scans of commerical batteries.
                     </span>
                 </div>
             </div>

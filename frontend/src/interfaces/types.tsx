@@ -10,6 +10,7 @@ export default AppContext;
 export interface FoldProps {
     children: ReactElement;
     bgColour: string;
+    hero: boolean;
 }
 
 export interface ThemeCols {

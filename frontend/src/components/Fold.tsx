@@ -1,10 +1,10 @@
 import React from "react";
 import {FoldProps} from "src/interfaces/types";
 
-const Fold = ({children, bgColour}: FoldProps) => {
+const Fold = ({children, bgColour, hero = false}: FoldProps) => {
     const colour = bgColour! as React.CSSProperties["backgroundColor"];
     const style: React.CSSProperties = {
-        backgroundColor: colour,
+        background: colour,
         width: "100vw",
         height: "full",
         display: "flex",
@@ -12,6 +12,11 @@ const Fold = ({children, bgColour}: FoldProps) => {
         alignItems: "center",
         flexDirection: "column"
     };
+
+    if (hero) {
+        style["background"] =
+            "linear-gradient(0deg, rgba(33,33,33,1) 0%, rgba(214,214,214,0.14) 50%)";
+    }
 
     return <div style={style}>{children}</div>;
 };

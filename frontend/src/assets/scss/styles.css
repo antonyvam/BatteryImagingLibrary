@@ -1,32 +1,35 @@
 .container:focus {
     outline: none;
     --theme-light-grey: #bcc3cf;
+    --theme-hero-bg: #707070;
+    --theme-info-fold: #212121;
+    --theme-info-fold-rgba: rgba(33, 33, 33, 1);
+    --theme-data-fold: #f8f9fa;
+    --theme-grad-start: #d6d6d614;
+    --theme-grad-start-rgba: rgba(214, 214, 214, 0.08);
+    --theme-blue: #0d6efd;
 }
 
-/* Style the buttons that are used to open and close the accordion panel */
-.accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    text-align: left;
-    border: none;
-    outline: none;
-    transition: 0.4s;
-  }
-  
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active, .accordion:hover {
-  background-color: #ccc;
+.hero-parent-div {
+  width: full;
+  height: full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-/* Style the accordion panel. Note: hidden by default */
-.panel {
-  padding: 0 18px;
-  background-color: white;
-  display: none;
-  overflow: hidden;
+.hero-grad-div {
+  z-index: 0;
+  position: absolute;
+  height: 500;
+  width: 500;
+  background-color: transparent;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  color: whitesmoke;
 }
 
 .data-fold {
@@ -67,6 +70,25 @@
     outline: 1px solid var(--theme-light-grey);
     padding: 2%;
   }
+
+  .title {
+    font-size: 2.8em;
+  }
+
+  .subhead {
+    font-size: 1.1em;
+    max-width: 800px;
+    width: 80%;
+    text-align: center;
+  }
+
+  .info-text {
+    font-size: 1em;
+    max-width: 800px;
+    width: 80%;
+    text-align: center;
+    color: whitesmoke;
+  }
 }
 
 @media screen and (width > 700px) {
@@ -77,6 +99,25 @@
     background-color: white;
     outline: 1px solid var(--theme-light-grey);
     padding: 2%;
+  }
+
+  .title {
+    font-size: 5.8em;
+  }
+
+  .subhead {
+    font-size: 1.8em;
+    max-width: 800px;
+    width: 80%;
+    text-align: center;
+  }
+
+  .info-text {
+    font-size: 1.3em;
+    max-width: 800px;
+    width: 80%;
+    text-align: center;
+    color: whitesmoke;
   }
 }
 

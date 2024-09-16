@@ -15,16 +15,13 @@
   height: full;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   flex-direction: column;
 }
 
 .hero-grad-div {
   z-index: 0;
   position: absolute;
-  height: 500;
-  width: 500;
-  background-color: transparent;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -36,6 +33,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  background-color: var(--theme-hero-bg);
   flex-direction: column;
   margin: 3%;
   width: 84%;

@@ -102,7 +102,11 @@ const getTag = (
         return <div key={i}></div>;
     } else {
         return (
-            <span key={i} className="badge" style={{backgroundColor: COLOURS[i - 1]}}>
+            <span
+                key={i}
+                className="badge"
+                style={{backgroundColor: COLOURS[i - 1], fontSize: "0.8em"}}
+            >
                 {getText(header, value, reduced)}
             </span>
         );

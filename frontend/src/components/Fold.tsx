@@ -15,7 +15,7 @@ const Fold = ({children, bgColour, hero = false}: FoldProps) => {
 
     if (hero) {
         style["background"] =
-            "linear-gradient(0deg, rgba(33,33,33,1) 0%, rgba(214,214,214,0.14) 50%)";
+            "linear-gradient(0deg, rgba(33,33,33,1) 0%, rgba(214,214,214,0.14) 100%)";
     }
 
     return <div style={style}>{children}</div>;

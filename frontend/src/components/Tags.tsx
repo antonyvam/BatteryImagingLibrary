@@ -21,7 +21,7 @@ const COLOURS = [
     "#387780"
 ];
 
-const IGNORE_HEADERS = ["url", "wavelengths", "battery_number"];
+const IGNORE_HEADERS = ["url", "wavelengths", "battery_number", "desc"];
 
 const getText = (header: string, value: string | number | Array<number>, reduced: boolean) => {
     let prefix = "";

@@ -6,7 +6,8 @@
 -   data modal
 -   search filter
 -   dataframe accordioning
--   fix layout problem
+-   fix layout problem with hero header
+-   move scan 1 deets into (hidden) table s.t it always aligns with other scans
 -   mobile layout
 -   floating buttons on modal (tldr group)? jump down button
 -   cleanup jsx: move styles into scss file, add comments, deduplicate

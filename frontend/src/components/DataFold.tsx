@@ -1,16 +1,13 @@
 import React, {useState} from "react";
 import Fold from "./Fold";
 
-import {Theme, HERO_DIMS, cardStyle} from "../interfaces/constants";
+import {Theme} from "../interfaces/constants";
 
 import "../assets/scss/styles.css";
 import data from "../assets/data.json";
 
 import DataFrame from "./DataFrame";
 import DataModal from "./Modal";
-
-const maxTitleFontSize = `min(2vw, ${HERO_DIMS.w * 0.02}px)`;
-const maxTextFontSize = `min(2vw, ${HERO_DIMS.w * 0.015}px)`;
 
 console.log(data);
 
@@ -23,7 +20,7 @@ const DataFold: React.FC = () => {
 
     return (
         <Fold bgColour={Theme.DATA_FOLD}>
-            <div style={cardStyle}>
+            <div className="data-fold">
                 {Object.entries(data["data"]).map(([k, v]) => (
                     <DataFrame
                         key={k}

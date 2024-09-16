@@ -46,6 +46,7 @@ const VideoPlayer = ({fname, active}: {fname: string; active: boolean}) => {
                 style={{pointerEvents: "none"}}
                 playsInline
                 muted
+                autoPlay
             >
                 <source src={path} type="video/mp4"></source>
             </video>

@@ -41,10 +41,7 @@ const TableRow = ({
 const DataCard = ({title, data, setShowModal, setModalEntry}: FrameProps) => {
     // NB: video needs to be in H264 codec (not H265) to play
     // can probably get away with compression
-    // TODO: refactor img and video into their own interactive components
-    // use 'timeupdate' event on video to sync slider playback button
-    // TODO: get tags working as their own component
-    // TODO: add on hover border change, pause video unless hover
+
     const divRef = useRef<HTMLDivElement>(null);
     const [hover, setHover] = useState<boolean>(false);
     const entries = Object.entries(data);
@@ -80,32 +77,15 @@ const DataCard = ({title, data, setShowModal, setModalEntry}: FrameProps) => {
             onMouseLeave={(e) => setHover(false)}
             className="data-card"
         >
-            <div
-                style={{
-                    flexGrow: 3,
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center"
-                }}
-            >
-                <VideoPlayer fname={getFname(data["0"]["battery_number"])} active={hover} />
+            <div className="data-column-lhs">
+                <VideoPlayer fname={getFname(data["0"]["global_scan_number"] + 1)} active={hover} />
                 <Orthoslices
                     fname={getFname(data["0"]["global_scan_number"] + 1)}
                     wavelengths={data["0"]["wavelengths"]}
                     modal={false}
-                ></Orthoslices>
+                />
             </div>
-            <div
-                style={{
-                    flexGrow: 7,
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "flex-start",
-                    gap: "20px",
-                    padding: "0%"
-                }}
-            >
+            <div className="data-column-rhs">
                 <h2 style={{textAlign: "center"}}>{title}</h2>
                 <div>
                     <span>{data["0"]["desc"]}</span>
@@ -113,6 +93,32 @@ const DataCard = ({title, data, setShowModal, setModalEntry}: FrameProps) => {
 
                 <div>
                     <h4>Scan 1:</h4>
+                    <Table borderless>
+                        <tbody>
+                            <tr
+                                style={{
+                                    verticalAlign: "center",
+                                    textAlign: "center"
+                                }}
+                            >
+                                <td style={{visibility: "hidden"}}>1</td>
+                                <td>
+                                    <Tags
+                                        scanEntry={data["0"]}
+                                        prevEntry={null}
+                                        reduced={false}
+                                    ></Tags>
+                                </td>
+                                <td>
+                                    <Button variant="dark" onClick={(e) => showModalSetContent(0)}>
+                                        More Info
+                                    </Button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </Table>
+                    {/*
+                    
                     <div style={{display: "flex", justifyContent: "space-around"}}>
                         <div>
                             <Tags scanEntry={data["0"]} prevEntry={null} reduced={false}></Tags>
@@ -130,6 +136,7 @@ const DataCard = ({title, data, setShowModal, setModalEntry}: FrameProps) => {
                             </Button>
                         </div>
                     </div>
+                    */}
                 </div>
 
                 <div>

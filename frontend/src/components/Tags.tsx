@@ -124,6 +124,7 @@ const Tags = ({scanEntry, prevEntry, reduced}: TagsProps) => {
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "center",
+                justifyContent: "flex-start",
                 justifyItems: "flex-start",
                 flexWrap: wrap,
                 overflowX: overflow,

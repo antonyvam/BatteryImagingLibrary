@@ -33,7 +33,9 @@ const Orthoslices = ({
                 flexDirection: "column",
                 alignItems: "center",
                 marginBottom: 20,
-                maxWidth: 220
+                maxWidth: "220px",
+                marginRight: "auto",
+                marginLeft: "auto"
             }}
         >
             <Image src={`../assets/imgs/${fname}/${dir}${lambda}.png`} fluid></Image>

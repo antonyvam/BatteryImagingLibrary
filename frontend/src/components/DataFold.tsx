@@ -18,11 +18,8 @@ const DataFold: React.FC = () => {
     const [showModal, setShowModal] = useState<boolean>(false);
     const [modalEntry, setModalEntry] = useState<object | null>(null);
 
-    // search bar at the top
-    // map over all imaging types to make frames
-    // (inside) map over all battery types to make cards
-    // need/want global data structure to do this? maybe only data fold needs to see the info?
-    // the modal might - although that could be a child of data fold I suppose
+    // TOOD: search bar at the top
+    // TODO: this should have max width in px and be like 80% otherwise or something
 
     return (
         <Fold bgColour={Theme.DATA_FOLD}>
@@ -38,7 +35,7 @@ const DataFold: React.FC = () => {
                         setModalEntry={setModalEntry}
                     />
                 ))}
-                <DataModal show={showModal} setShow={setShowModal} entry={data["0"]} />
+                <DataModal show={showModal} setShow={setShowModal} entry={modalEntry} />
             </div>
         </Fold>
     );

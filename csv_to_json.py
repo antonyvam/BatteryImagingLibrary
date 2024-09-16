@@ -64,11 +64,22 @@ with open("test_sheet.csv", newline="") as csvfile:
     for h in headers:
         out["unique_props"][h] = []
 
-    for row in reader:
+    local_scan_count, prev_battery_type = 0, ""
+    for j, row in enumerate(reader):
         imaging_type = row[1]
         assert imaging_type in imaging_types
+
         battery_type = row[2]
+        if prev_battery_type == battery_type:
+            local_scan_count += 1
+        else:
+            print(f"changing from {prev_battery_type} to {imaging_type}")
+            local_scan_count = 0
+        prev_battery_type = battery_type
+
         entry: dict[str, str | float | int | list] = {}
+        entry["global_scan_number"] = j
+        entry["local_scan_number"] = local_scan_count
         for i, h in enumerate(headers):
             to_add = process_entry(row[i], h)
             if type(to_add) == str:
@@ -76,10 +87,7 @@ with open("test_sheet.csv", newline="") as csvfile:
                 is_valid = to_add != INVALID_STR
                 if is_new and is_valid and h != "desc":
                     out["unique_props"][h].append(to_add)
-            if i > 0 and i < 3:
-                continue
-            else:
-                entry[h] = to_add
+            entry[h] = to_add
         append_to_dict(out["data"][imaging_type], battery_type, entry)
 print(out)
 

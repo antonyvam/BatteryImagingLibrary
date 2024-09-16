@@ -3,7 +3,11 @@
     "lab": {
       "LCO pin type (Panasonic)": {
         "0": {
+          "global_scan_number": 0,
+          "local_scan_number": 0,
           "battery_number": "1",
+          "imaging_type": "lab",
+          "battery": "LCO pin type (Panasonic)",
           "instrument": "Diondo D5",
           "scan": "full",
           "image_size": [
@@ -30,7 +34,11 @@
           "desc": "Our Li-Ion miniature batteries deliver a high energy density, a good cycle stability and a long lifespan. In addition, they are extremely light and robust. They are especially designed for wristband devices, fitness trackers, smart glasses, stylus pens, wireless head phones, hearing aids, industrial IoT applications and other applications"
         },
         "1": {
+          "global_scan_number": 1,
+          "local_scan_number": 1,
           "battery_number": "1",
+          "imaging_type": "lab",
+          "battery": "LCO pin type (Panasonic)",
           "instrument": "Diondo D5",
           "scan": "full",
           "image_size": [
@@ -57,7 +65,11 @@
           "desc": "N/A"
         },
         "2": {
+          "global_scan_number": 2,
+          "local_scan_number": 2,
           "battery_number": "1",
+          "imaging_type": "lab",
+          "battery": "LCO pin type (Panasonic)",
           "instrument": "Zeiss Versa 510",
           "scan": "full",
           "image_size": [
@@ -86,7 +98,11 @@
       },
       "AAA alkaline (Energiser)": {
         "0": {
+          "global_scan_number": 3,
+          "local_scan_number": 0,
           "battery_number": "2",
+          "imaging_type": "lab",
+          "battery": "AAA alkaline (Energiser)",
           "instrument": "Phoenix Nanotom",
           "scan": "roi",
           "image_size": "N/A",
@@ -111,7 +127,11 @@
       },
       "AAA LiFeS2 (Varta)": {
         "0": {
+          "global_scan_number": 4,
+          "local_scan_number": 0,
           "battery_number": "3",
+          "imaging_type": "lab",
+          "battery": "AAA LiFeS2 (Varta)",
           "instrument": "Phoenix Nanotom",
           "scan": "full",
           "image_size": "N/A",
@@ -138,7 +158,11 @@
     "xrd": {
       "AAA NiMH": {
         "0": {
+          "global_scan_number": 5,
+          "local_scan_number": 0,
           "battery_number": "4",
+          "imaging_type": "xrd",
+          "battery": "AAA NiMH",
           "instrument": "P07",
           "scan": "N/A",
           "image_size": "N/A",
@@ -169,7 +193,11 @@
     "neutron": {
       "AAA NMC532": {
         "0": {
+          "global_scan_number": 6,
+          "local_scan_number": 0,
           "battery_number": "5",
+          "imaging_type": "neutron",
+          "battery": "AAA NMC532",
           "instrument": "I12 (micro)",
           "scan": "N/A",
           "image_size": "N/A",
@@ -196,7 +224,11 @@
     "synchotron": {
       "AAA LiFes2": {
         "0": {
+          "global_scan_number": 7,
+          "local_scan_number": 0,
           "battery_number": "6",
+          "imaging_type": "synchotron",
+          "battery": "AAA LiFes2",
           "instrument": "I12 (micro)",
           "scan": "N/A",
           "image_size": "N/A",
@@ -221,7 +253,11 @@
       },
       "LCO pin type (Panasonic)": {
         "0": {
+          "global_scan_number": 8,
+          "local_scan_number": 0,
           "battery_number": "7",
+          "imaging_type": "synchotron",
+          "battery": "LCO pin type (Panasonic)",
           "instrument": "ID11 (micro)",
           "scan": "N/A",
           "image_size": "N/A",

@@ -2,6 +2,10 @@ import React from "react";
 import {TagsProps} from "src/interfaces/types";
 
 const COLOURS = [
+    "#ffffff",
+    "#ffffff",
+    "#ffffff",
+    "#ffffff",
     "#8EA604",
     "#F5BB00",
     "#D76A03",
@@ -21,7 +25,16 @@ const COLOURS = [
     "#387780"
 ];
 
-const IGNORE_HEADERS = ["url", "wavelengths", "battery_number", "desc"];
+const IGNORE_HEADERS = [
+    "global_scan_number",
+    "local_scan_number",
+    "battery_number",
+    "imaging_type",
+    "battery",
+    "url",
+    "wavelengths",
+    "desc"
+];
 
 const getText = (header: string, value: string | number | Array<number>, reduced: boolean) => {
     let prefix = "";

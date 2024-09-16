@@ -18,7 +18,17 @@ function fileExists(url: string) {
     }
 }
 
-const TableRow = ({i, data, prevData}: {i: number; data: object; prevData: object}) => {
+const TableRow = ({
+    i,
+    data,
+    prevData,
+    showModalI
+}: {
+    i: number;
+    data: object;
+    prevData: object;
+    showModalI: (e: number) => void;
+}) => {
     return (
         <tr>
             <td style={{verticalAlign: "center", textAlign: "center"}}>
@@ -28,7 +38,9 @@ const TableRow = ({i, data, prevData}: {i: number; data: object; prevData: objec
                 <Tags scanEntry={data} prevEntry={prevData} reduced={false}></Tags>
             </td>
             <td style={{verticalAlign: "center", textAlign: "center"}}>
-                <Button variant="dark">More Info</Button>
+                <Button variant="dark" onClick={(e) => showModalI(data["local_scan_number"])}>
+                    More Info
+                </Button>
             </td>
         </tr>
     );
@@ -146,7 +158,13 @@ const DataCard = ({
                     <Table striped bordered hover size="sm">
                         <tbody>
                             {entries.slice(1).map(([k, v], i) => (
-                                <TableRow key={i} i={i} data={v} prevData={data[i]} />
+                                <TableRow
+                                    key={i}
+                                    i={i}
+                                    data={v}
+                                    prevData={data[i]}
+                                    showModalI={showModalSetContent}
+                                />
                             ))}
                         </tbody>
                     </Table>

@@ -19,6 +19,7 @@ const kvValid = (kv: [string, any]) => {
 };
 
 const DataTable = ({entry}: {entry: Object}) => {
+    // change this as viewport dims change (i.e go to single row format)
     const getNRows = (entry: object) => {
         const kvs = Object.entries(entry);
         let j = 0;

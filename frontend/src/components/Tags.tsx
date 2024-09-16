@@ -124,15 +124,10 @@ const Tags = ({scanEntry, prevEntry, reduced}: TagsProps) => {
             : Object.entries(prevEntry);
     return (
         <div
+            className="tags-div"
             style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "flex-start",
-                justifyItems: "flex-start",
                 flexWrap: wrap,
                 overflowX: overflow,
-                gap: "1px 2px",
                 maxWidth: maxWidth
             }}
         >

@@ -8,8 +8,13 @@ import data from "../assets/data.json";
 
 import DataFrame from "./DataFrame";
 import DataModal from "./Modal";
+import {regexSearch} from "../interfaces/helpers";
 
 console.log(data);
+
+// How to do search?
+// loop over all kvs in data and return yes for entry if it matches regex (i.e lowercase spaces removed)
+// how
 
 const DataFold: React.FC = () => {
     const [showModal, setShowModal] = useState<boolean>(false);
@@ -17,6 +22,7 @@ const DataFold: React.FC = () => {
 
     // TOOD: search bar at the top
     // TODO: this should have max width in px and be like 80% otherwise or something
+    console.log(regexSearch("", data["data"]));
 
     return (
         <Fold bgColour={"white"} hero={false}>

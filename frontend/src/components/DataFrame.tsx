@@ -4,6 +4,7 @@ import {FrameProps} from "src/interfaces/types";
 import DataCard from "./DataCard";
 
 import "../assets/scss/styles.css";
+import {regexSearch} from "../interfaces/helpers";
 
 const DataFrame = ({
     title,
@@ -28,17 +29,19 @@ const DataFrame = ({
             <div className="data-frame">
                 <h1>{getTitle(title)}</h1>
             </div>
-            {Object.entries(data).map(([k, v]) => (
-                <DataCard
-                    title={k}
-                    data={v}
-                    key={k}
-                    showModal={showModal}
-                    setShowModal={setShowModal}
-                    modalEntry={modalEntry}
-                    setModalEntry={setModalEntry}
-                />
-            ))}
+            {Object.entries(data)
+                .filter(([k, v]) => regexSearch("", v))
+                .map(([k, v]) => (
+                    <DataCard
+                        title={k}
+                        data={v}
+                        key={k}
+                        showModal={showModal}
+                        setShowModal={setShowModal}
+                        modalEntry={modalEntry}
+                        setModalEntry={setModalEntry}
+                    />
+                ))}
         </Stack>
     );
 };

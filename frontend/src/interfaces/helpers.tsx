@@ -54,8 +54,9 @@ const flattenObject = (ob: Object, prefix: string | null = null, result: object 
 
 export const regexSearch = (term: string, data: object): boolean => {
     const _matchStr = (term: string, query: string): boolean => {
-        const lower = query.toString().replace(" ", "").toLowerCase();
-        return lower.includes(term);
+        const queryClean = query.toString().replace(" ", "").toLowerCase();
+        const termClean = term.toString().replace(" ", "").toLowerCase();
+        return queryClean.includes(termClean);
     };
 
     let result = false;

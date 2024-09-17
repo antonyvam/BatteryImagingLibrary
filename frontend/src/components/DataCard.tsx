@@ -8,6 +8,8 @@ import Tags from "./Tags";
 import VideoPlayer from "./VideoPlayer";
 import Orthoslices from "./Orthoslices";
 
+import {regexSearch} from "../interfaces/helpers";
+
 import "../assets/scss/styles.css";
 
 const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
@@ -40,7 +42,7 @@ const TableRow = ({
     );
 };
 
-const DataCard = ({title, data, setShowModal, setModalEntry}: FrameProps) => {
+const DataCard = ({title, data, setShowModal, setModalEntry, searchText}: FrameProps) => {
     // NB: video needs to be in H264 codec (not H265) to play
     // can probably get away with compression
 
@@ -97,47 +99,55 @@ const DataCard = ({title, data, setShowModal, setModalEntry}: FrameProps) => {
                     <span>{data["0"]["desc"]}</span>
                 </div>
 
-                <div>
-                    <h4>Scan 1:</h4>
-                    <Table borderless>
-                        <tbody>
-                            <tr
-                                style={{
-                                    verticalAlign: "center",
-                                    textAlign: "center"
-                                }}
-                            >
-                                <td style={{visibility: "hidden"}}>1</td>
-                                <td>
-                                    <Tags
-                                        scanEntry={data["0"]}
-                                        prevEntry={null}
-                                        reduced={false}
-                                    ></Tags>
-                                </td>
-                                <td>
-                                    <Button variant="dark" onClick={(e) => showModalSetContent(0)}>
-                                        More Info
-                                    </Button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </Table>
-                </div>
+                {regexSearch(searchText, data["0"]) && (
+                    <div>
+                        <h4>Scan 1:</h4>
+                        <Table borderless>
+                            <tbody>
+                                <tr
+                                    style={{
+                                        verticalAlign: "center",
+                                        textAlign: "center"
+                                    }}
+                                >
+                                    <td style={{visibility: "hidden"}}>1</td>
+                                    <td>
+                                        <Tags
+                                            scanEntry={data["0"]}
+                                            prevEntry={null}
+                                            reduced={false}
+                                        ></Tags>
+                                    </td>
+                                    <td>
+                                        <Button
+                                            variant="dark"
+                                            onClick={(e) => showModalSetContent(0)}
+                                        >
+                                            More Info
+                                        </Button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </Table>
+                    </div>
+                )}
 
                 <div>
                     <h4>Other scans:</h4>
                     <Table striped bordered hover size="sm">
                         <tbody>
-                            {entries.slice(1).map(([k, v], i) => (
-                                <TableRow
-                                    key={i}
-                                    i={i}
-                                    data={v}
-                                    prevData={data[i]}
-                                    showModalI={showModalSetContent}
-                                />
-                            ))}
+                            {entries
+                                .slice(1)
+                                .filter(([k, v]) => regexSearch(searchText, v))
+                                .map(([k, v], i) => (
+                                    <TableRow
+                                        key={i}
+                                        i={i}
+                                        data={v}
+                                        prevData={data[i]}
+                                        showModalI={showModalSetContent}
+                                    />
+                                ))}
                         </tbody>
                     </Table>
                 </div>

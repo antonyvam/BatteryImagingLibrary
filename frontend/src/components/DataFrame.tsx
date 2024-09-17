@@ -12,7 +12,8 @@ const DataFrame = ({
     showModal,
     setShowModal,
     modalEntry,
-    setModalEntry
+    setModalEntry,
+    searchText
 }: FrameProps) => {
     const getTitle = (titleStr: string) => {
         if (titleStr == "xrd") {
@@ -30,7 +31,7 @@ const DataFrame = ({
                 <h1>{getTitle(title)}</h1>
             </div>
             {Object.entries(data)
-                .filter(([k, v]) => regexSearch("", v))
+                .filter(([k, v]) => regexSearch(searchText, v))
                 .map(([k, v]) => (
                     <DataCard
                         title={k}
@@ -40,6 +41,7 @@ const DataFrame = ({
                         setShowModal={setShowModal}
                         modalEntry={modalEntry}
                         setModalEntry={setModalEntry}
+                        searchText={searchText}
                     />
                 ))}
         </Stack>

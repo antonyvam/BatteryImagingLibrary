@@ -28,6 +28,7 @@ export interface FrameProps {
     setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
     modalEntry: object | null;
     setModalEntry: React.Dispatch<React.SetStateAction<object | null>>;
+    searchText: string;
 }
 
 export interface TagsProps {

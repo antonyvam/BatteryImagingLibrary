@@ -9,6 +9,7 @@ import data from "../assets/data.json";
 import DataFrame from "./DataFrame";
 import DataModal from "./Modal";
 import {regexSearch} from "../interfaces/helpers";
+import {InputGroup, Form} from "react-bootstrap";
 
 console.log(data);
 
@@ -20,6 +21,8 @@ const DataFold: React.FC = () => {
     const [showModal, setShowModal] = useState<boolean>(false);
     const [modalEntry, setModalEntry] = useState<object | null>(null);
 
+    const [searchText, setSearchText] = useState<string>("");
+
     // TOOD: search bar at the top
     // TODO: this should have max width in px and be like 80% otherwise or something
     console.log(regexSearch("", data["data"]));
@@ -27,17 +30,28 @@ const DataFold: React.FC = () => {
     return (
         <Fold bgColour={"white"} hero={false}>
             <div className="data-fold">
-                {Object.entries(data["data"]).map(([k, v]) => (
-                    <DataFrame
-                        key={k}
-                        title={k}
-                        data={v}
-                        showModal={showModal}
-                        setShowModal={setShowModal}
-                        modalEntry={modalEntry}
-                        setModalEntry={setModalEntry}
-                    />
-                ))}
+                <div>
+                    <InputGroup>
+                        <InputGroup.Text>Search:</InputGroup.Text>
+                        <Form.Control
+                            onChange={(e) => setSearchText(e.target.value)}
+                        ></Form.Control>
+                    </InputGroup>
+                </div>
+                {Object.entries(data["data"])
+                    .filter(([k, v]) => regexSearch(searchText, v))
+                    .map(([k, v]) => (
+                        <DataFrame
+                            key={k}
+                            title={k}
+                            data={v}
+                            showModal={showModal}
+                            setShowModal={setShowModal}
+                            modalEntry={modalEntry}
+                            setModalEntry={setModalEntry}
+                            searchText={searchText}
+                        />
+                    ))}
                 <DataModal show={showModal} setShow={setShowModal} entry={modalEntry} />
             </div>
         </Fold>

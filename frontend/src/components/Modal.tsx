@@ -4,7 +4,7 @@ import {fileExists} from "../interfaces/helpers";
 import {ModalProps} from "react-bootstrap";
 import Orthoslices from "./Orthoslices";
 
-import {IGNORE_HEADERS, getText} from "./Tags";
+import {IGNORE_HEADERS, getText, getPrefixAndSuffix} from "./Tags";
 
 // todo: parameteise modal with set/show hide of entryboolean
 
@@ -20,6 +20,9 @@ const kvValid = (kv: [string, any]) => {
 
 const DataTable = ({entry}: {entry: Object}) => {
     // change this as viewport dims change (i.e go to single row format)
+
+    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+
     const getNRows = (entry: object) => {
         const kvs = Object.entries(entry);
         let j = 0;
@@ -28,16 +31,27 @@ const DataTable = ({entry}: {entry: Object}) => {
                 j += 1;
             }
         }
-        return Math.ceil(j / 2);
+        const scalar = vw > 600 ? 2 : 1;
+        return Math.ceil(j / scalar);
+    };
+
+    const getSingleKV = (entryKV: [string, any]) => {
+        const [prefix, suffix] = getPrefixAndSuffix(entryKV[0], entryKV[1], true);
+        console.log(prefix, suffix);
+        const headerText = prefix.charAt(0).toUpperCase() + prefix.slice(1);
+        return (
+            <>
+                <th>{headerText}</th>
+                <td>{suffix}</td>
+            </>
+        );
     };
 
     const getRow = (entryKVs: [string, any][], idx: number) => {
         return (
             <tr key={idx}>
-                <th>{entryKVs[idx][0]}</th>
-                <th>{getText(entryKVs[idx][0], entryKVs[idx][1], true)}</th>
-                <th>{entryKVs[idx + 1][0]}</th>
-                <th>{getText(entryKVs[idx + 1][0], entryKVs[idx + 1][1], true)}</th>
+                {getSingleKV(entryKVs[idx])}
+                {vw > 600 && getSingleKV(entryKVs[idx + 1])}
             </tr>
         );
     };
@@ -46,7 +60,8 @@ const DataTable = ({entry}: {entry: Object}) => {
         const N = getNRows(entry);
         const arrN = [...Array(N).keys()];
         const KVs = Object.entries(entry).filter((v, _) => kvValid(v));
-        return arrN.map((_, i, __) => getRow(KVs, 2 * i));
+        const scalar = vw > 600 ? 2 : 1;
+        return arrN.map((_, i, __) => getRow(KVs, scalar * i));
     };
 
     return (
@@ -101,7 +116,12 @@ const DataModal = ({show, setShow, entry, setEntry}: ModalProps) => {
                             wavelengths={entry["wavelengths"]}
                             modal={true}
                         />
-                        <Button href={entry["url"]}>Download on Zenodo</Button>
+                        <Button
+                            href={entry["url"]}
+                            style={{marginTop: "14px", marginBottom: "14px"}}
+                        >
+                            Download on Zenodo
+                        </Button>
                         <DataTable entry={entry} />
                     </Modal.Body>
                 </Modal>

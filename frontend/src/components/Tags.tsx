@@ -37,20 +37,31 @@ export const IGNORE_HEADERS = [
     "comments"
 ];
 
-export const getText = (
+const EXPAND_FOR_TABLE = ["instrument", "scan", "image_size", "projections:"];
+
+export const getPrefixAndSuffix = (
     header: string,
     value: string | number | Array<number>,
-    reduced: boolean
+    table: boolean = false
 ) => {
     let prefix = "";
     let tag = "";
     // TODO: break this into its own fn - maybe using match - that returns prefix and tag s.t yu can use it in model
-    if (header == "scan") {
+    if (header == "scan" && table == false) {
         tag = value + " " + "scan";
-    } else if (header == "image_size") {
+    } else if (header == "scan" && table == true) {
+        prefix = "scan:";
+        tag = value.toString();
+    } else if (header == "image_size" && table == false) {
         tag = value[0] + "x" + value[1] + "x" + value[2];
-    } else if (header == "projections") {
+    } else if (header == "image_size" && table == true) {
+        prefix = "dimensions:";
+        tag = value[0] + "x" + value[1] + "x" + value[2];
+    } else if (header == "projections" && table == false) {
         tag = value + " projections";
+    } else if (header == "projections" && table == true) {
+        prefix = "projections:";
+        tag = value.toString();
     } else if (header == "exposure_time_s") {
         prefix = "exposure: ";
         tag = value + "s";
@@ -78,15 +89,33 @@ export const getText = (
     } else if (header == "magnification") {
         prefix = "magnification: ";
         tag = value.toString() + "x";
+    } else if (header == "instrument" && table) {
+        prefix = "instrument:";
+        tag = value.toString();
+    } else if (header == "state" && table) {
+        prefix = "state:";
+        tag = value.toString();
     } else {
         tag = value.toString();
     }
+
+    return [prefix, tag];
+};
+
+export const getText = (
+    header: string,
+    value: string | number | Array<number>,
+    reduced: boolean
+) => {
+    const [prefix, tag] = getPrefixAndSuffix(header, value);
+
     if (reduced === false) {
         return prefix + tag;
     } else {
         return tag;
     }
 };
+
 // TODO: add check if value for header same as previous scan, if it is then ignore it
 const getTag = (
     header: string,

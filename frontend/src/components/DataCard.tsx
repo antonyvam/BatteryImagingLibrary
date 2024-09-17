@@ -10,6 +10,8 @@ import Orthoslices from "./Orthoslices";
 
 import "../assets/scss/styles.css";
 
+const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+
 const TableRow = ({
     i,
     data,
@@ -81,11 +83,13 @@ const DataCard = ({title, data, setShowModal, setModalEntry}: FrameProps) => {
         >
             <div className="data-column-lhs">
                 <VideoPlayer fname={getFname(data["0"]["global_scan_number"] + 1)} active={hover} />
-                <Orthoslices
-                    fname={getFname(data["0"]["global_scan_number"] + 1)}
-                    wavelengths={data["0"]["wavelengths"]}
-                    modal={false}
-                />
+                {vw > 600 && (
+                    <Orthoslices
+                        fname={getFname(data["0"]["global_scan_number"] + 1)}
+                        wavelengths={data["0"]["wavelengths"]}
+                        modal={false}
+                    />
+                )}
             </div>
             <div className="data-column-rhs">
                 <h2 style={{textAlign: "center"}}>{title}</h2>

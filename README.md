@@ -2,7 +2,6 @@
 
 ## TODO:
 
--   data modal
 -   search filter
 -   dataframe accordioning
 -   cleanup jsx: add comments, deduplicate

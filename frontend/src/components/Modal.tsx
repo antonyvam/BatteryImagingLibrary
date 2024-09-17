@@ -18,10 +18,10 @@ const kvValid = (kv: [string, any]) => {
     }
 };
 
+const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+
 const DataTable = ({entry}: {entry: Object}) => {
     // change this as viewport dims change (i.e go to single row format)
-
-    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
 
     const getNRows = (entry: object) => {
         const kvs = Object.entries(entry);

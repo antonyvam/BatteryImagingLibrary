@@ -43,3 +43,8 @@ export interface ModalProps {
     entry: object | null;
     setEntry: React.Dispatch<React.SetStateAction<object | null>>;
 }
+
+export interface SearchFilterProps {
+    data: object;
+    setSearchText: React.Dispatch<React.SetStateAction<string>>;
+}

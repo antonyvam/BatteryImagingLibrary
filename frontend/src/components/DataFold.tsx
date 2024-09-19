@@ -7,8 +7,8 @@ import data from "../assets/data.json";
 import DataFrame from "./DataFrame";
 import DataModal from "./Modal";
 import {regexSearch} from "../interfaces/helpers";
-import {InputGroup, Form} from "react-bootstrap";
 import {Contents} from "./Contents";
+import {SearchFilters} from "./SearchFilters";
 
 console.log(data);
 
@@ -29,17 +29,10 @@ const DataFold: React.FC = () => {
     return (
         <Fold bgColour={"white"} hero={false}>
             <div className="data-fold">
-                <Contents data={data["data"]}></Contents>
-                <div style={{marginBottom: "3%"}}>
-                    <InputGroup>
-                        <InputGroup.Text>Search:</InputGroup.Text>
-                        <Form.Control
-                            onChange={(e) => setSearchText(e.target.value)}
-                        ></Form.Control>
-                    </InputGroup>
-                </div>
+                <Contents data={data["data"]} />
+                <SearchFilters data={data} setSearchText={setSearchText} />
                 {Object.entries(data["data"])
-                    .filter(([k, v]) => regexSearch(searchText, v))
+                    .filter(([_, v]) => regexSearch(searchText, v))
                     .map(([k, v]) => (
                         <DataFrame
                             key={k}

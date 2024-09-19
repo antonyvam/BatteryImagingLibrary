@@ -176,6 +176,13 @@ html {
     width: 84%;
     max-width: 240px;
   }
+
+  .search-filters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media screen and (width > 700px) {
@@ -215,6 +222,12 @@ html {
     z-index: 100;
     width: 84%;
     max-width: 240px;
+  }
+
+  .search-filters {
+    display: flex;
+    flex-direction: row;
+
   }
 }
 

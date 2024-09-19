@@ -1,7 +1,7 @@
 import React from "react";
 import {TagsProps} from "src/interfaces/types";
 
-const COLOURS = [
+export const COLOURS = [
     "#ffffff",
     "#ffffff",
     "#ffffff",
@@ -50,17 +50,17 @@ export const getPrefixAndSuffix = (
     if (header == "scan" && table == false) {
         tag = value + " " + "scan";
     } else if (header == "scan" && table == true) {
-        prefix = "scan:";
+        prefix = "scan: ";
         tag = value.toString();
     } else if (header == "image_size" && table == false) {
         tag = value[0] + "x" + value[1] + "x" + value[2];
     } else if (header == "image_size" && table == true) {
-        prefix = "dimensions:";
+        prefix = "dimensions: ";
         tag = value[0] + "x" + value[1] + "x" + value[2];
     } else if (header == "projections" && table == false) {
         tag = value + " projections";
     } else if (header == "projections" && table == true) {
-        prefix = "projections:";
+        prefix = "projections: ";
         tag = value.toString();
     } else if (header == "exposure_time_s") {
         prefix = "exposure: ";
@@ -90,10 +90,10 @@ export const getPrefixAndSuffix = (
         prefix = "magnification: ";
         tag = value.toString() + "x";
     } else if (header == "instrument" && table) {
-        prefix = "instrument:";
+        prefix = "instrument: ";
         tag = value.toString();
     } else if (header == "state" && table) {
-        prefix = "state:";
+        prefix = "state: ";
         tag = value.toString();
     } else {
         tag = value.toString();

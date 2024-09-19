@@ -76,6 +76,7 @@ const DataCard = ({title, data, setShowModal, setModalEntry, searchText}: FrameP
 
     return (
         <div
+            id={data["0"]["imaging_type"] + "_" + title}
             ref={divRef}
             onMouseEnter={(e) => setHover(true)}
             onPointerEnter={(e) => setHover(true)}

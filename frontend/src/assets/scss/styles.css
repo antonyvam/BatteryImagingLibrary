@@ -11,11 +11,15 @@
   --theme-blue-rgba: rgba(13, 110, 253, 1);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 .container:focus {
     outline: none;
     
 }
-
 
 .app {
   display: flex;
@@ -165,6 +169,13 @@
     text-align: center;
     color: whitesmoke;
   }
+
+  .contents {
+    font-size: 1.1em;
+    z-index: 100;
+    width: 84%;
+    max-width: 240px;
+  }
 }
 
 @media screen and (width > 700px) {
@@ -194,6 +205,16 @@
     width: 80%;
     text-align: center;
     color: whitesmoke;
+  }
+
+  .contents {
+    position: fixed;
+    top: 100%;
+    left:0%;
+    inset: auto 3% 1%;
+    z-index: 100;
+    width: 84%;
+    max-width: 240px;
   }
 }
 

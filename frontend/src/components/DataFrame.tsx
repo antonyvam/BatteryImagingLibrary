@@ -6,6 +6,16 @@ import DataCard from "./DataCard";
 import "../assets/scss/styles.css";
 import {regexSearch} from "../interfaces/helpers";
 
+export const getTitle = (titleStr: string) => {
+    if (titleStr == "xrd") {
+        return "XRD";
+    } else if (titleStr == "lab") {
+        return "Laboratory";
+    } else {
+        return titleStr.charAt(0).toUpperCase() + titleStr.slice(1);
+    }
+};
+
 const DataFrame = ({
     title,
     data,
@@ -15,18 +25,8 @@ const DataFrame = ({
     setModalEntry,
     searchText
 }: FrameProps) => {
-    const getTitle = (titleStr: string) => {
-        if (titleStr == "xrd") {
-            return "XRD";
-        } else if (titleStr == "lab") {
-            return "Laboratory";
-        } else {
-            return titleStr.charAt(0).toUpperCase() + titleStr.slice(1);
-        }
-    };
-
     return (
-        <Stack style={{margin: "1%"}}>
+        <Stack style={{margin: "1%"}} id={title}>
             <div className="data-frame">
                 <h1>{getTitle(title)}</h1>
             </div>

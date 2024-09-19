@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 import Fold from "./Fold";
 
-import {Theme} from "../interfaces/constants";
-
 import "../assets/scss/styles.css";
 import data from "../assets/data.json";
 
@@ -10,6 +8,7 @@ import DataFrame from "./DataFrame";
 import DataModal from "./Modal";
 import {regexSearch} from "../interfaces/helpers";
 import {InputGroup, Form} from "react-bootstrap";
+import {Contents} from "./Contents";
 
 console.log(data);
 
@@ -30,7 +29,8 @@ const DataFold: React.FC = () => {
     return (
         <Fold bgColour={"white"} hero={false}>
             <div className="data-fold">
-                <div>
+                <Contents data={data["data"]}></Contents>
+                <div style={{marginBottom: "3%"}}>
                     <InputGroup>
                         <InputGroup.Text>Search:</InputGroup.Text>
                         <Form.Control

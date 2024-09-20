@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from "react";
-import {Table, Button} from "react-bootstrap";
+import {Table, Button, Accordion} from "react-bootstrap";
 
 import {FrameProps} from "src/interfaces/types";
 import {Theme} from "../interfaces/constants";
@@ -22,13 +22,13 @@ const TableRow = ({
 }: {
     i: number;
     data: object;
-    prevData: object;
+    prevData: object | null | undefined;
     showModalI: (e: number) => void;
 }) => {
     return (
         <tr>
             <td style={{verticalAlign: "center", textAlign: "center"}}>
-                <b>{i + 2}</b>
+                <b>{i + 1}</b>
             </td>
             <td>
                 <Tags scanEntry={data} prevEntry={prevData} reduced={false}></Tags>
@@ -84,6 +84,7 @@ const DataCard = ({title, data, setShowModal, setModalEntry, searchText}: FrameP
             onMouseLeave={(e) => setHover(false)}
             className="data-card"
         >
+            <h2 style={{textAlign: "center"}}>{title}</h2>
             <div className="data-column-lhs">
                 <VideoPlayer fname={getFname(data["0"]["global_scan_number"] + 1)} active={hover} />
                 {vw > 600 && (
@@ -95,63 +96,34 @@ const DataCard = ({title, data, setShowModal, setModalEntry, searchText}: FrameP
                 )}
             </div>
             <div className="data-column-rhs">
-                <h2 style={{textAlign: "center"}}>{title}</h2>
                 <div>
                     <span>{data["0"]["desc"]}</span>
                 </div>
 
-                {regexSearch(searchText, data["0"]) && (
-                    <div>
-                        <h4>Scan 1:</h4>
-                        <Table borderless>
-                            <tbody>
-                                <tr
-                                    style={{
-                                        verticalAlign: "center",
-                                        textAlign: "center"
-                                    }}
-                                >
-                                    <td style={{visibility: "hidden"}}>1</td>
-                                    <td>
-                                        <Tags
-                                            scanEntry={data["0"]}
-                                            prevEntry={null}
-                                            reduced={false}
-                                        ></Tags>
-                                    </td>
-                                    <td>
-                                        <Button
-                                            variant="dark"
-                                            onClick={(e) => showModalSetContent(0)}
-                                        >
-                                            More Info
-                                        </Button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </Table>
-                    </div>
-                )}
-
-                <div>
-                    <h4>Other scans:</h4>
-                    <Table striped bordered hover size="sm">
-                        <tbody>
-                            {entries
-                                .slice(1)
-                                .filter(([k, v]) => regexSearch(searchText, v))
-                                .map(([k, v], i) => (
-                                    <TableRow
-                                        key={i}
-                                        i={i}
-                                        data={v}
-                                        prevData={data[i]}
-                                        showModalI={showModalSetContent}
-                                    />
-                                ))}
-                        </tbody>
-                    </Table>
-                </div>
+                <Accordion style={{width: "100%"}} flush>
+                    <Accordion.Item eventKey="0">
+                        <Accordion.Header>
+                            <h3>Scans</h3>
+                        </Accordion.Header>
+                        <Accordion.Body style={{padding: "5px 0px"}}>
+                            <Table striped bordered hover size="sm">
+                                <tbody>
+                                    {entries
+                                        .filter(([k, v]) => regexSearch(searchText, v))
+                                        .map(([k, v], i) => (
+                                            <TableRow
+                                                key={i}
+                                                i={i}
+                                                data={v}
+                                                prevData={data[i - 1]}
+                                                showModalI={showModalSetContent}
+                                            />
+                                        ))}
+                                </tbody>
+                            </Table>
+                        </Accordion.Body>
+                    </Accordion.Item>
+                </Accordion>
             </div>
         </div>
     );

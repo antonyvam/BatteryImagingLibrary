@@ -149,19 +149,19 @@ const getTag = (
 const Tags = ({scanEntry, prevEntry, reduced}: TagsProps) => {
     const wrap = reduced ? "wrap" : "wrap";
     const overflow = reduced ? "visible" : "visible";
-    const maxWidth = reduced ? "24em" : "30em";
+    //const maxWidth = reduced ? "24em" : "30em";
     const scanEntries = Object.entries(scanEntry);
     const prevEntries =
-        prevEntry === null
+        prevEntry === null || prevEntry === undefined
             ? scanEntries.map(([k, v], i) => [null, null])
             : Object.entries(prevEntry);
+    //maxWidth: maxWidth
     return (
         <div
             className="tags-div"
             style={{
                 flexWrap: wrap,
-                overflowX: overflow,
-                maxWidth: maxWidth
+                overflowX: overflow
             }}
         >
             {scanEntries.map(([k, v], i) => getTag(k, v, i, reduced, prevEntries[i][1]))}

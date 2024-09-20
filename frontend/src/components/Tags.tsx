@@ -22,7 +22,8 @@ export const COLOURS = [
     "#757780",
     "#8ACE00",
     "#D2CCA1",
-    "#387780"
+    "#387780",
+    "#000000"
 ];
 
 export const IGNORE_HEADERS = [
@@ -111,6 +112,8 @@ export const getText = (
 
     if (reduced === false) {
         return prefix + tag;
+    } else if (header == "search") {
+        return '"' + tag + '"';
     } else {
         return tag;
     }

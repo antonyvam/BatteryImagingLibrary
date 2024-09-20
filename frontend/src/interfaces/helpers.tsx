@@ -1,3 +1,5 @@
+import {SearchTerm} from "./types";
+
 export const hexToRGB = (hex: string, alpha: number) => {
     let r = parseInt(hex.slice(1, 3), 16),
         g = parseInt(hex.slice(3, 5), 16),
@@ -52,7 +54,7 @@ const flattenObject = (ob: Object, prefix: string | null = null, result: object 
     return result;
 };
 
-export const regexSearch = (terms: string[], data: object): boolean => {
+export const regexSearch = (terms: SearchTerm[], data: object): boolean => {
     const _matchStr = (term: string, query: string): boolean => {
         const queryClean = query.toString().replace(" ", "").toLowerCase();
         const termClean = term.toString().replace(" ", "").toLowerCase();
@@ -62,12 +64,13 @@ export const regexSearch = (terms: string[], data: object): boolean => {
     const flatKVs = Object.entries(flattenObject(data));
     let globalResult = true;
     for (let term of terms) {
+        const searchValue = term.value;
         let result = false;
         for (let [k, v] of flatKVs) {
-            if (_matchStr(term, k)) {
+            if (_matchStr(searchValue, k)) {
                 result = true;
             }
-            if (_matchStr(term, v)) {
+            if (_matchStr(searchValue, v)) {
                 result = true;
             }
         }

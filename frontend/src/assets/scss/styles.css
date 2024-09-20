@@ -183,6 +183,14 @@ html {
     align-items: center;
     justify-content: center;
   }
+
+  .search-texts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 84%;
+    max-width: 240px;
+  }
 }
 
 @media screen and (width > 700px) {
@@ -227,7 +235,13 @@ html {
   .search-filters {
     display: flex;
     flex-direction: row;
+  }
 
+  .search-texts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 84%;
   }
 }
 

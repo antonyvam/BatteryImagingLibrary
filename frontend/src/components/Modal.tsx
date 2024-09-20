@@ -37,7 +37,6 @@ const DataTable = ({entry}: {entry: Object}) => {
 
     const getSingleKV = (entryKV: [string, any]) => {
         const [prefix, suffix] = getPrefixAndSuffix(entryKV[0], entryKV[1], true);
-        console.log(prefix, suffix);
         const headerText = prefix.charAt(0).toUpperCase() + prefix.slice(1);
         return (
             <>

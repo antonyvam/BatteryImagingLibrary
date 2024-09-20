@@ -318,17 +318,66 @@
       "full",
       "roi"
     ],
-    "image_size": [],
-    "projections": [],
-    "exposure_time_s": [],
-    "potential_kv": [],
-    "power": [],
-    "pixel_binning": [],
-    "scan_time_min": [],
-    "voxel_size_microns": [],
-    "frame_binning": [],
+    "image_size": [
+      [
+        1000,
+        1000,
+        3000
+      ],
+      [
+        1000,
+        1000,
+        1000
+      ]
+    ],
+    "projections": [
+      1000,
+      801,
+      1800
+    ],
+    "exposure_time_s": [
+      0.67,
+      0.6,
+      1.0,
+      0.5,
+      0.25
+    ],
+    "potential_kv": [
+      160,
+      200,
+      140,
+      100
+    ],
+    "power": [
+      25.6,
+      28.0,
+      10.0
+    ],
+    "pixel_binning": [
+      1,
+      2
+    ],
+    "scan_time_min": [
+      22,
+      21,
+      44
+    ],
+    "voxel_size_microns": [
+      9.0,
+      21.0,
+      40.5
+    ],
+    "frame_binning": [
+      2
+    ],
     "magnification": [],
-    "acq_time_min": [],
+    "acq_time_min": [
+      11,
+      10,
+      13,
+      38,
+      22
+    ],
     "state": [
       "charged",
       "pristine"
@@ -337,7 +386,13 @@
     "contributors": [],
     "DOI": [],
     "url": [],
-    "wavelengths": [],
+    "wavelengths": [
+      [
+        "210",
+        "448",
+        "746"
+      ]
+    ],
     "desc": []
   }
 }

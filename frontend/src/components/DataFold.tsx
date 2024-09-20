@@ -9,6 +9,7 @@ import DataModal from "./Modal";
 import {regexSearch} from "../interfaces/helpers";
 import {Contents} from "./Contents";
 import {SearchFilters} from "./SearchFilters";
+import {SearchTerm} from "src/interfaces/types";
 
 console.log(data);
 
@@ -20,11 +21,8 @@ const DataFold: React.FC = () => {
     const [showModal, setShowModal] = useState<boolean>(false);
     const [modalEntry, setModalEntry] = useState<object | null>(null);
 
-    const [searchText, setSearchText] = useState<string[]>([""]);
-
-    // TOOD: search bar at the top
-    // TODO: this should have max width in px and be like 80% otherwise or something
-    console.log(regexSearch([""], data["data"]));
+    const defaultSearch: SearchTerm = {tag: "search", value: ""};
+    const [searchText, setSearchText] = useState<SearchTerm[]>([defaultSearch]);
 
     return (
         <Fold bgColour={"white"} hero={false}>

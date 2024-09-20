@@ -1,16 +1,11 @@
 import React, {useRef, useState} from "react";
 import {InputGroup, Form} from "react-bootstrap";
 import {SearchFilterProps} from "src/interfaces/types";
-import {COLOURS, getPrefixAndSuffix} from "./Tags";
-
-import {FormControl} from "react-bootstrap";
+import {COLOURS, getPrefixAndSuffix, getText} from "./Tags";
 
 import "../assets/scss/styles.css";
+import {SearchTags} from "./SearchTags";
 
-// when category changes, change the value dropdown to be that colour
-// add in added tags in div at bottom
-// render serach + categories div as row flex if computer, column if mobile
-// added filter tags are just badges with x button which deletes search text at index i
 export const SearchFilters = ({data, searchText, setSearchText}: SearchFilterProps) => {
     const [selectedHeader, setSelectedHeader] = useState<string>("Category");
     const [bg, setBG] = useState<string>("#ffffff");
@@ -23,13 +18,13 @@ export const SearchFilters = ({data, searchText, setSearchText}: SearchFilterPro
             return <></>;
         } else if (returnK) {
             return (
-                <option key={k} value={k + "|" + i.toString()}>
+                <option key={k + "|" + i.toString()} value={k}>
                     {hText.charAt(0).toUpperCase() + hText.slice(1, -2)}
                 </option>
             );
         } else {
             return (
-                <option key={v} value={v + "|" + i.toString()}>
+                <option key={v + "|" + i.toString()} value={v.toString()}>
                     {v.toString()}
                 </option>
             );
@@ -45,28 +40,24 @@ export const SearchFilters = ({data, searchText, setSearchText}: SearchFilterPro
         setBG(newBGColour);
     };
 
+    const setValue = (str: string) => {
+        appendToSearch(str, selectedHeader);
+    };
+
     const checkKeyPress = (e: any) => {
         if (e.keyCode == 13) {
             const search = searchRef.current;
-
             if (search == null) {
                 return;
             }
-            appendToSearch(search.value);
+            appendToSearch(search.value, "search");
+            search.value = "";
         }
     };
 
-    const appendToSearch = (newEntry: string) => {
-        let newText = searchText;
-        if (searchText[0] == "") {
-            newText = [newEntry];
-        } else {
-            newText.push(newEntry);
-        }
-        setSearchText(newText);
+    const appendToSearch = (newEntry: string, newTag: string) => {
+        setSearchText([...searchText, {tag: newTag, value: newEntry}]);
     };
-
-    // onChange={(e) => appendToSearch(e.target.value)}
 
     return (
         <div style={{marginBottom: "3%", display: "flex", flexDirection: "column"}}>
@@ -90,7 +81,10 @@ export const SearchFilters = ({data, searchText, setSearchText}: SearchFilterPro
                             getDropdownOptions(k, "", true, i)
                         )}
                     </Form.Select>
-                    <Form.Select style={{maxWidth: "9em", outline: `2px solid ${bg}`}}>
+                    <Form.Select
+                        style={{maxWidth: "9em", outline: `2px solid ${bg}`}}
+                        onChange={(e) => setValue(e.target.value)}
+                    >
                         <option>Value</option>
                         {selectedHeader != "Category" &&
                             data["unique_props"][selectedHeader].map((v: string, i: number) =>
@@ -99,7 +93,9 @@ export const SearchFilters = ({data, searchText, setSearchText}: SearchFilterPro
                     </Form.Select>
                 </InputGroup>
             </div>
-            <div className="searchTexts"></div>
+            <SearchTags data={data} searchText={searchText} setSearchText={setSearchText} />
         </div>
     );
 };
+
+//{searchText.map(() => {})}

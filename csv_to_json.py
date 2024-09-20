@@ -82,11 +82,10 @@ with open("test_sheet.csv", newline="") as csvfile:
         entry["local_scan_number"] = local_scan_count
         for i, h in enumerate(headers):
             to_add = process_entry(row[i], h)
-            if type(to_add) == str:
-                is_new = to_add not in out["unique_props"][h]
-                is_valid = to_add != INVALID_STR
-                if is_new and is_valid and h != "desc":
-                    out["unique_props"][h].append(to_add)
+            is_new = to_add not in out["unique_props"][h]
+            is_valid = to_add != INVALID_STR
+            if is_new and is_valid and h != "desc":
+                out["unique_props"][h].append(to_add)
             entry[h] = to_add
         append_to_dict(out["data"][imaging_type], battery_type, entry)
 print(out)

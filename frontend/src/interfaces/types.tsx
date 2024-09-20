@@ -28,7 +28,7 @@ export interface FrameProps {
     setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
     modalEntry: object | null;
     setModalEntry: React.Dispatch<React.SetStateAction<object | null>>;
-    searchText: string;
+    searchText: string[];
 }
 
 export interface TagsProps {
@@ -46,5 +46,6 @@ export interface ModalProps {
 
 export interface SearchFilterProps {
     data: object;
-    setSearchText: React.Dispatch<React.SetStateAction<string>>;
+    searchText: string[];
+    setSearchText: React.Dispatch<React.SetStateAction<string[]>>;
 }

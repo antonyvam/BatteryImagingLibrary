@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 import {InputGroup, Form} from "react-bootstrap";
 import {SearchFilterProps} from "src/interfaces/types";
 import {COLOURS, getPrefixAndSuffix} from "./Tags";
@@ -11,9 +11,11 @@ import "../assets/scss/styles.css";
 // add in added tags in div at bottom
 // render serach + categories div as row flex if computer, column if mobile
 // added filter tags are just badges with x button which deletes search text at index i
-export const SearchFilters = ({data, setSearchText}: SearchFilterProps) => {
+export const SearchFilters = ({data, searchText, setSearchText}: SearchFilterProps) => {
     const [selectedHeader, setSelectedHeader] = useState<string>("Category");
     const [bg, setBG] = useState<string>("#ffffff");
+
+    const searchRef = useRef<HTMLInputElement>(null);
 
     const getDropdownOptions = (k: string, v: string, returnK: boolean, i: number) => {
         const [hText, vText] = getPrefixAndSuffix(k, v, true);
@@ -38,22 +40,47 @@ export const SearchFilters = ({data, setSearchText}: SearchFilterProps) => {
         const split = str.split("|");
         const idx = parseInt(split[1]) + 4;
         const newBGColour = COLOURS[idx];
-        console.log(newBGColour, idx, split);
 
         setSelectedHeader(split[0]);
         setBG(newBGColour);
     };
+
+    const checkKeyPress = (e: any) => {
+        if (e.keyCode == 13) {
+            const search = searchRef.current;
+
+            if (search == null) {
+                return;
+            }
+            appendToSearch(search.value);
+        }
+    };
+
+    const appendToSearch = (newEntry: string) => {
+        let newText = searchText;
+        if (searchText[0] == "") {
+            newText = [newEntry];
+        } else {
+            newText.push(newEntry);
+        }
+        setSearchText(newText);
+    };
+
+    // onChange={(e) => appendToSearch(e.target.value)}
 
     return (
         <div style={{marginBottom: "3%", display: "flex", flexDirection: "column"}}>
             <div className="search-filters">
                 <InputGroup>
                     <InputGroup.Text>Search:</InputGroup.Text>
-                    <Form.Control onChange={(e) => setSearchText(e.target.value)}></Form.Control>
+                    <Form.Control
+                        ref={searchRef}
+                        onKeyDown={(e) => checkKeyPress(e)}
+                    ></Form.Control>
                 </InputGroup>
                 <InputGroup>
                     <Form.Select
-                        style={{maxWidth: "9em"}}
+                        style={{maxWidth: "9em", marginLeft: "4%"}}
                         onChange={(e) => {
                             setCategory(e.target.value);
                         }}

@@ -52,22 +52,26 @@ const flattenObject = (ob: Object, prefix: string | null = null, result: object 
     return result;
 };
 
-export const regexSearch = (term: string, data: object): boolean => {
+export const regexSearch = (terms: string[], data: object): boolean => {
     const _matchStr = (term: string, query: string): boolean => {
         const queryClean = query.toString().replace(" ", "").toLowerCase();
         const termClean = term.toString().replace(" ", "").toLowerCase();
         return queryClean.includes(termClean);
     };
 
-    let result = false;
     const flatKVs = Object.entries(flattenObject(data));
-    for (let [k, v] of flatKVs) {
-        if (_matchStr(term, k)) {
-            result = true;
+    let globalResult = true;
+    for (let term of terms) {
+        let result = false;
+        for (let [k, v] of flatKVs) {
+            if (_matchStr(term, k)) {
+                result = true;
+            }
+            if (_matchStr(term, v)) {
+                result = true;
+            }
         }
-        if (_matchStr(term, v)) {
-            result = true;
-        }
+        globalResult = globalResult && result;
     }
-    return result;
+    return globalResult;
 };

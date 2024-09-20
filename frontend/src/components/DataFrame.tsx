@@ -8,9 +8,13 @@ import {regexSearch} from "../interfaces/helpers";
 
 export const getTitle = (titleStr: string) => {
     if (titleStr == "xrd") {
-        return "XRD";
+        return "XRD-CT";
     } else if (titleStr == "lab") {
-        return "Laboratory";
+        return "Lab XCT";
+    } else if (titleStr == "neutron") {
+        return "Neutron-CT";
+    } else if (titleStr == "synchotron") {
+        return "Synchotron XCT";
     } else {
         return titleStr.charAt(0).toUpperCase() + titleStr.slice(1);
     }

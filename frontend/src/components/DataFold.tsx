@@ -20,17 +20,17 @@ const DataFold: React.FC = () => {
     const [showModal, setShowModal] = useState<boolean>(false);
     const [modalEntry, setModalEntry] = useState<object | null>(null);
 
-    const [searchText, setSearchText] = useState<string>("");
+    const [searchText, setSearchText] = useState<string[]>([""]);
 
     // TOOD: search bar at the top
     // TODO: this should have max width in px and be like 80% otherwise or something
-    console.log(regexSearch("", data["data"]));
+    console.log(regexSearch([""], data["data"]));
 
     return (
         <Fold bgColour={"white"} hero={false}>
             <div className="data-fold">
                 <Contents data={data["data"]} />
-                <SearchFilters data={data} setSearchText={setSearchText} />
+                <SearchFilters data={data} searchText={searchText} setSearchText={setSearchText} />
                 {Object.entries(data["data"])
                     .filter(([_, v]) => regexSearch(searchText, v))
                     .map(([k, v]) => (

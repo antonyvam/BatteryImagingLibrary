@@ -1,1 +1,1 @@
-# batteryct
+# Batteryc Imaging Library

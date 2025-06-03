@@ -1,1 +1,1 @@
-# Batteryc Imaging Library
+# Battery Imaging Library

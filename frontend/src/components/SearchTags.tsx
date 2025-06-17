@@ -27,6 +27,7 @@ export const SearchTags = ({data, searchText, setSearchText}: SearchFilterProps)
                 style={{backgroundColor: COLOURS[tagIdx], fontSize: "0.8em"}}
             >
                 {getText(term.tag, term.value, true)}
+                &nbsp;&nbsp;
                 <CloseButton variant="white" onClick={(_) => removeFromSearch(index)} />
             </span>
         );

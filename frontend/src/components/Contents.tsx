@@ -4,10 +4,6 @@ import "../assets/scss/styles.css";
 import {Accordion} from "react-bootstrap";
 import {getTitle} from "./DataFrame";
 
-const scrollToID = (id: string) => {
-    document.getElementById(id)!.scrollIntoView();
-};
-
 export const Contents = ({data}: {data: object}) => {
     return (
         <div className="contents" style={{marginBottom: "3%"}}>

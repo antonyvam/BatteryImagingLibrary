@@ -62,14 +62,14 @@ export const SearchFilters = ({data, searchText, setSearchText}: SearchFilterPro
     return (
         <div style={{marginBottom: "3%", display: "flex", flexDirection: "column"}}>
             <div className="search-filters">
-                <InputGroup>
+                <InputGroup style={{flexGrow: 1}}>
                     <InputGroup.Text>Search:</InputGroup.Text>
                     <Form.Control
                         ref={searchRef}
                         onKeyDown={(e) => checkKeyPress(e)}
                     ></Form.Control>
                 </InputGroup>
-                <InputGroup>
+                <InputGroup style={{flexGrow: 1}}>
                     <Form.Select
                         style={{maxWidth: "9em", marginLeft: "4%"}}
                         onChange={(e) => {

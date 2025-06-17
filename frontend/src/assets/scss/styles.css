@@ -170,8 +170,7 @@ html {
   .contents {
     font-size: 1.1em;
     z-index: 100;
-    width: 84%;
-    max-width: 240px;
+    width: 100%;
   }
 
   .search-filters {

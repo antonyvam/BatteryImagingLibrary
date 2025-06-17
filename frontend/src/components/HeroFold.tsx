@@ -7,13 +7,6 @@ import "../assets/scss/styles.css";
 const Hero: React.FC = () => {
     /*Auto-resizing hero div based on fluid image inside parent div. */
 
-    /* 
-    <span className="subhead">
-                        Raw data, reconstructions, and processing scripts for lab-, synchotron-,
-                        neturon- and XRD- CT scans of commerical batteries.
-                    </span>
-    */
-
     return (
         <Fold bgColour={Theme.HERO_BG} hero={true}>
             <div className="hero-parent-div">
@@ -29,10 +22,9 @@ const Hero: React.FC = () => {
                 ></Image>
                 <div className="hero-grad-div">
                     <h1 className="title">
-                        <span className="li-text">li</span>
-                        <span className="b-text">b</span>
-                        <span className="attery-text">attery</span>
-                        <span>-ct</span>
+                        <span className="li-text">Battery </span>
+                        <span className="b-text">Imaging </span>
+                        <span className="attery-text">Library</span>
                     </h1>
                 </div>
             </div>

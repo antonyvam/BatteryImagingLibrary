@@ -52,11 +52,12 @@ html {
   align-items: center;
   justify-content: flex-end;
   flex-direction: column;
+  /* background-image: url('../imgs/hero_rot.png'); */
 }
 
 .hero-grad-div {
   z-index: 0;
-  position: absolute;
+  position: relative;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -212,7 +213,7 @@ html {
   }
 
   .title {
-    font-size: 5.8em;
+    font-size: 4.8em;
   }
 
   .subhead {
@@ -236,7 +237,7 @@ html {
     left:0%;
     inset: auto 3% 1%;
     z-index: 100;
-    width: 84%;
+    width: 100%;
     max-width: 240px;
   }
 

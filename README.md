@@ -4,15 +4,16 @@
 
 -   form to submit data:
     -   DOI required
-    -   sends email to us
+    -   sends email to us?
     -   allows them to add optional metadata fields determined by us
     -   conribute button on hero
 -   'skyscanner' panel:
     -   cut tags down to instrument, scan size and voxel size
     -
 -   notebook rendering:
-    -   button on hero
+    -   button on hero?
     -   popup modal with series of links
+    -   there's one script per modality for dataloading - maybe below header?
     -   opens new HTML page with notebooks inlined
     -   add static html page compilation to script?
 

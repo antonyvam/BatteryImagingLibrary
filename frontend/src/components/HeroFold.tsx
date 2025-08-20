@@ -4,6 +4,8 @@ import {LargeFilterCard, DoubleSlider} from "./LargeFilterCard";
 import SearchBar from "./SearchBar";
 import "../assets/scss/styles.css";
 import {Container, Row, Col, Button} from "react-bootstrap";
+import {MODALITIES} from "../interfaces/types";
+import {renderModality} from "../interfaces/helpers";
 
 const links = ["Paper", "Github", "Scripts", "Docs", "About", "Contribute"];
 
@@ -123,10 +125,13 @@ const HeroFold: React.FC = () => {
                                     id="modality-dropdown"
                                     defaultValue="X-ray"
                                 >
-                                    <option value="X-ray">X-ray</option>
-                                    <option value="Neutron">Neutron</option>
-                                    <option value="Electron">Electron</option>
-                                    <option value="Optical">Optical</option>
+                                    {MODALITIES.map((v) => {
+                                        return (
+                                            <option value={v} key={v}>
+                                                {renderModality(v)}
+                                            </option>
+                                        );
+                                    })}
                                 </select>
                             </div>
                         </LargeFilterCard>

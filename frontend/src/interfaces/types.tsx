@@ -13,17 +13,23 @@ export interface FoldProps {
     hero: boolean;
 }
 
-export const UNITS = ["NM", "µM", "MM", "CM"];
+export const UNITS = ["NANO", "MICRON", "MILLI", "CENTI"] as const;
 export type Units = (typeof UNITS)[number];
+export const UNIT_TO_UNIT_STR: Record<Units, string> = {
+    NANO: "nm",
+    MICRON: "µm",
+    MILLI: "mm",
+    CENTI: "cm"
+};
 
 export const MODALITIES = [
     "SEM",
     "EDX",
     "EBSD",
-    "LAB_XCT",
+    "LAB_MICRO_XCT",
     "NEUTRON_CT",
     "XRD_CT",
-    "SYNCHOTRON_MICRO_CT",
-    "SYNCHOTRON_NANO_CT"
-];
+    "SYNCHOTRON_MICRO_XCT",
+    "SYNCHOTRON_NANO_XCT"
+] as const;
 export type Modality = (typeof MODALITIES)[number];

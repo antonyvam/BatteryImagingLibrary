@@ -1,9 +1,9 @@
 import React, {useRef, useEffect, useState} from "react";
 import Fold from "./Fold";
-import LargeFilterCard from "./LargeFilterCard";
+import {LargeFilterCard, DoubleSlider} from "./LargeFilterCard";
 import SearchBar from "./SearchBar";
 import "../assets/scss/styles.css";
-import {Container, Row, Col, Button, Card} from "react-bootstrap";
+import {Container, Row, Col, Button} from "react-bootstrap";
 
 const links = ["Paper", "Github", "Scripts", "Docs", "About", "Contribute"];
 
@@ -11,6 +11,8 @@ const HeroFold: React.FC = () => {
     const heroRef = useRef<HTMLDivElement>(null);
     const [heroHeight, setHeroHeight] = useState<number>(600);
     const [imgRight, setImgRight] = useState<number>(0);
+
+    const [resRange, setResRange] = useState<{lower: number; upper: number}>({lower: 0, upper: 0});
 
     useEffect(() => {
         const updateDims = () => {
@@ -94,21 +96,10 @@ const HeroFold: React.FC = () => {
                         decrease size ofl arge filter card */}
                         <LargeFilterCard title="Resolution">
                             <div>
-                                <label htmlFor="resolution-slider" className="form-label">
-                                    Resolution: <span id="resolution-value">50</span>
-                                </label>
-                                <input
-                                    type="range"
-                                    className="form-range"
-                                    id="resolution-slider"
-                                    min={10}
-                                    max={100}
-                                    step={1}
-                                    defaultValue={50}
-                                    onInput={(e) => {
-                                        const val = (e.target as HTMLInputElement).value;
-                                        const label = document.getElementById("resolution-value");
-                                        if (label) label.textContent = val;
+                                <DoubleSlider
+                                    value={resRange}
+                                    setValue={(v) => {
+                                        setResRange(v);
                                     }}
                                 />
                             </div>

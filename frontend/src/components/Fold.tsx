@@ -1,5 +1,5 @@
 import React from "react";
-import {FoldProps} from "src/interfaces/types";
+import {FoldProps} from "../interfaces/types";
 
 const Fold = ({children, bgColour, hero = false}: FoldProps) => {
     const colour = bgColour! as React.CSSProperties["backgroundColor"];

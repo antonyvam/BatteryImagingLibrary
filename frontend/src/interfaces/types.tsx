@@ -13,44 +13,17 @@ export interface FoldProps {
     hero: boolean;
 }
 
-export interface ThemeCols {
-    HERO_BG: string;
-    INFO_FOLD: string;
-    DATA_FOLD: string;
-    BLUE: string;
-    LIGHT_GREY: string;
-}
+export const UNITS = ["NM", "µM", "MM", "CM"];
+export type Units = (typeof UNITS)[number];
 
-export interface FrameProps {
-    title: string;
-    data: object;
-    showModal: boolean;
-    setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
-    modalEntry: object | null;
-    setModalEntry: React.Dispatch<React.SetStateAction<object | null>>;
-    searchText: SearchTerm[];
-}
-
-export interface TagsProps {
-    scanEntry: object;
-    prevEntry: object | null | undefined;
-    reduced: boolean;
-}
-
-export interface ModalProps {
-    show: boolean;
-    setShow: React.Dispatch<React.SetStateAction<boolean>>;
-    entry: object | null;
-    setEntry: React.Dispatch<React.SetStateAction<object | null>>;
-}
-
-export interface SearchTerm {
-    tag: string;
-    value: string;
-}
-
-export interface SearchFilterProps {
-    data: object;
-    searchText: SearchTerm[];
-    setSearchText: React.Dispatch<React.SetStateAction<SearchTerm[]>>;
-}
+export const MODALITIES = [
+    "SEM",
+    "EDX",
+    "EBSD",
+    "LAB_XCT",
+    "NEUTRON_CT",
+    "XRD_CT",
+    "SYNCHOTRON_MICRO_CT",
+    "SYNCHOTRON_NANO_CT"
+];
+export type Modality = (typeof MODALITIES)[number];

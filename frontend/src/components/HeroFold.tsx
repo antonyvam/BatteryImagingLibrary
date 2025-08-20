@@ -12,7 +12,11 @@ const HeroFold: React.FC = () => {
     const [heroHeight, setHeroHeight] = useState<number>(600);
     const [imgRight, setImgRight] = useState<number>(0);
 
-    const [resRange, setResRange] = useState<{lower: number; upper: number}>({lower: 0, upper: 0});
+    const [resRange, setResRange] = useState<{lower: number; upper: number}>({lower: 0, upper: 40});
+    const [sizeRange, setSizeRange] = useState<{lower: number; upper: number}>({
+        lower: 0,
+        upper: 40
+    });
 
     useEffect(() => {
         const updateDims = () => {
@@ -92,8 +96,6 @@ const HeroFold: React.FC = () => {
                         className="mb-4"
                         style={{gap: 16, display: "flex", justifyContent: "space-evenly"}}
                     >
-                        {/* TODO: make all these sliders small components in large filter card,
-                        decrease size ofl arge filter card */}
                         <LargeFilterCard title="Resolution">
                             <div>
                                 <DoubleSlider
@@ -106,30 +108,16 @@ const HeroFold: React.FC = () => {
                         </LargeFilterCard>
                         <LargeFilterCard title="Image Size">
                             <div>
-                                <label htmlFor="imagesize-slider" className="form-label">
-                                    Image Size: <span id="imagesize-value">500</span>
-                                </label>
-                                <input
-                                    type="range"
-                                    className="form-range"
-                                    id="imagesize-slider"
-                                    min={100}
-                                    max={1000}
-                                    step={10}
-                                    defaultValue={500}
-                                    onInput={(e) => {
-                                        const val = (e.target as HTMLInputElement).value;
-                                        const label = document.getElementById("imagesize-value");
-                                        if (label) label.textContent = val;
+                                <DoubleSlider
+                                    value={sizeRange}
+                                    setValue={(v) => {
+                                        setSizeRange(v);
                                     }}
                                 />
                             </div>
                         </LargeFilterCard>
                         <LargeFilterCard title="Modality">
                             <div>
-                                <label htmlFor="modality-dropdown" className="form-label">
-                                    Modality
-                                </label>
                                 <select
                                     className="form-select"
                                     id="modality-dropdown"

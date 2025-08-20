@@ -168,3 +168,5 @@ frontend/dist/
 frontend/.cache/
 frontend/.idea/
 frontend/package-lock.json
+
+old/

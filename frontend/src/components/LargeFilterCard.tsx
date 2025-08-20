@@ -1,6 +1,6 @@
 import React from "react";
 import ReactSlider from "react-slider";
-import {InputGroup, DropdownButton, Dropdown, Form, Card} from "react-bootstrap";
+import {Form, Card} from "react-bootstrap";
 import "../assets/scss/styles.css";
 
 export interface DoubleSliderProps {
@@ -14,6 +14,7 @@ export interface DoubleSliderProps {
     onUnitChange?: (unit: string) => void;
 }
 
+// TODO: render res in scientific notation if larger than certain amount
 const defaultUnits = ["nm", "μm", "mm"];
 
 export const DoubleSlider: React.FC<DoubleSliderProps> = ({
@@ -40,6 +41,17 @@ export const DoubleSlider: React.FC<DoubleSliderProps> = ({
                 pearling
                 onChange={([lower, upper]) => setValue({lower, upper})}
                 renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
+                renderTrack={(props, state) => (
+                    <div
+                        {...props}
+                        style={{
+                            ...props.style,
+                            background: state.index === 1 ? "#0d6efd" : "#e9ecef",
+                            height: 6,
+                            borderRadius: 3
+                        }}
+                    />
+                )}
             />
             <Form.Select
                 style={{maxWidth: 80}}

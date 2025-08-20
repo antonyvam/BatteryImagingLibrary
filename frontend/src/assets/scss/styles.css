@@ -278,4 +278,10 @@ html {
   background: #e9ecef;
   border-radius: 3px;
   transform: translateY(-50%);
+  color:#0d6efd;
+}
+.example-track-selected {
+  background: #0d6efd; /* your highlight color */
+  height: 6px;
+  border-radius: 3px;
 }

@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 import "../assets/scss/styles.css";
 import {Container, Row, Col, Button, Card} from "react-bootstrap";
 
-const links = ["Home", "Datasets", "Upload", "Docs", "About", "Contact"];
+const links = ["Paper", "Github", "Scripts", "Docs", "About", "Contribute"];
 
 const HeroFold: React.FC = () => {
     const heroRef = useRef<HTMLDivElement>(null);
@@ -44,8 +44,7 @@ const HeroFold: React.FC = () => {
                         height: heroHeight,
                         zIndex: 0,
                         opacity: 0.65,
-                        pointerEvents: "none",
-                        transition: "right 0.2s"
+                        pointerEvents: "none"
                     }}
                 />
                 <Container
@@ -57,8 +56,10 @@ const HeroFold: React.FC = () => {
                     <Row className="align-items-center mb-4">
                         <Col md={7}>
                             <p className="lead" style={{color: "#fff"}}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Pellentesque euismod, nisi eu consectetur.
+                                M modalities, S scans and V voxels of open battery imaging data,
+                                from single particles up to full cells. Includes raw and processed
+                                (reconstructed, denoised, segmented, <i>etc.</i>) data. Start
+                                searching!
                             </p>
                         </Col>
                         <Col md={5}>
@@ -85,74 +86,71 @@ const HeroFold: React.FC = () => {
                             <SearchBar variant="light" />
                         </Col>
                     </Row>
-                    <Row className="mb-4" style={{gap: 16}}>
-                        <Col md={4}>
-                            <LargeFilterCard title="Resolution">
-                                <div>
-                                    <label htmlFor="resolution-slider" className="form-label">
-                                        Resolution: <span id="resolution-value">50</span>
-                                    </label>
-                                    <input
-                                        type="range"
-                                        className="form-range"
-                                        id="resolution-slider"
-                                        min={10}
-                                        max={100}
-                                        step={1}
-                                        defaultValue={50}
-                                        onInput={(e) => {
-                                            const val = (e.target as HTMLInputElement).value;
-                                            const label =
-                                                document.getElementById("resolution-value");
-                                            if (label) label.textContent = val;
-                                        }}
-                                    />
-                                </div>
-                            </LargeFilterCard>
-                        </Col>
-                        <Col md={4}>
-                            <LargeFilterCard title="Image Size">
-                                <div>
-                                    <label htmlFor="imagesize-slider" className="form-label">
-                                        Image Size: <span id="imagesize-value">500</span>
-                                    </label>
-                                    <input
-                                        type="range"
-                                        className="form-range"
-                                        id="imagesize-slider"
-                                        min={100}
-                                        max={1000}
-                                        step={10}
-                                        defaultValue={500}
-                                        onInput={(e) => {
-                                            const val = (e.target as HTMLInputElement).value;
-                                            const label =
-                                                document.getElementById("imagesize-value");
-                                            if (label) label.textContent = val;
-                                        }}
-                                    />
-                                </div>
-                            </LargeFilterCard>
-                        </Col>
-                        <Col md={4}>
-                            <LargeFilterCard title="Modality">
-                                <div>
-                                    <label htmlFor="modality-dropdown" className="form-label">
-                                        Modality
-                                    </label>
-                                    <select
-                                        className="form-select"
-                                        id="modality-dropdown"
-                                        defaultValue="X-ray"
-                                    >
-                                        <option value="X-ray">X-ray</option>
-                                        <option value="Neutron">Neutron</option>
-                                        <option value="Electron">Electron</option>
-                                        <option value="Optical">Optical</option>
-                                    </select>
-                                </div>
-                            </LargeFilterCard>
-                        </Col>
+                    <Row
+                        className="mb-4"
+                        style={{gap: 16, display: "flex", justifyContent: "space-evenly"}}
+                    >
+                        {/* TODO: make all these sliders small components in large filter card,
+                        decrease size ofl arge filter card */}
+                        <LargeFilterCard title="Resolution">
+                            <div>
+                                <label htmlFor="resolution-slider" className="form-label">
+                                    Resolution: <span id="resolution-value">50</span>
+                                </label>
+                                <input
+                                    type="range"
+                                    className="form-range"
+                                    id="resolution-slider"
+                                    min={10}
+                                    max={100}
+                                    step={1}
+                                    defaultValue={50}
+                                    onInput={(e) => {
+                                        const val = (e.target as HTMLInputElement).value;
+                                        const label = document.getElementById("resolution-value");
+                                        if (label) label.textContent = val;
+                                    }}
+                                />
+                            </div>
+                        </LargeFilterCard>
+                        <LargeFilterCard title="Image Size">
+                            <div>
+                                <label htmlFor="imagesize-slider" className="form-label">
+                                    Image Size: <span id="imagesize-value">500</span>
+                                </label>
+                                <input
+                                    type="range"
+                                    className="form-range"
+                                    id="imagesize-slider"
+                                    min={100}
+                                    max={1000}
+                                    step={10}
+                                    defaultValue={500}
+                                    onInput={(e) => {
+                                        const val = (e.target as HTMLInputElement).value;
+                                        const label = document.getElementById("imagesize-value");
+                                        if (label) label.textContent = val;
+                                    }}
+                                />
+                            </div>
+                        </LargeFilterCard>
+                        <LargeFilterCard title="Modality">
+                            <div>
+                                <label htmlFor="modality-dropdown" className="form-label">
+                                    Modality
+                                </label>
+                                <select
+                                    className="form-select"
+                                    id="modality-dropdown"
+                                    defaultValue="X-ray"
+                                >
+                                    <option value="X-ray">X-ray</option>
+                                    <option value="Neutron">Neutron</option>
+                                    <option value="Electron">Electron</option>
+                                    <option value="Optical">Optical</option>
+                                </select>
+                            </div>
+                        </LargeFilterCard>
                     </Row>
                 </Container>
             </div>

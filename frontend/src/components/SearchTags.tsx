@@ -1,6 +1,6 @@
 import React, {useRef, useState} from "react";
 import {CloseButton} from "react-bootstrap";
-import {COLOURS, getText} from "./Tags";
+import {COLOURS, getText} from "./old/Tags";
 
 import {SearchFilterProps, SearchTerm} from "src/interfaces/types";
 

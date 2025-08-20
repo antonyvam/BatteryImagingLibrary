@@ -2,9 +2,9 @@ import React, {useEffect, useState} from "react";
 import {Modal, Button, Table} from "react-bootstrap";
 import {fileExists} from "../interfaces/helpers";
 import {ModalProps} from "react-bootstrap";
-import Orthoslices from "./Orthoslices";
+import Orthoslices from "./old/Orthoslices";
 
-import {IGNORE_HEADERS, getText, getPrefixAndSuffix} from "./Tags";
+import {IGNORE_HEADERS, getText, getPrefixAndSuffix} from "./old/Tags";
 
 // todo: parameteise modal with set/show hide of entryboolean
 

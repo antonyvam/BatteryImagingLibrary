@@ -1,7 +1,7 @@
 import React from "react";
-import Fold from "./Fold";
+import Fold from "../Fold";
 
-import {Theme} from "../interfaces/constants";
+import {Theme} from "../../interfaces/constants";
 import {Button} from "react-bootstrap";
 
 const btnTexts = ["GitHub", "Notebooks", "Zenodo", "Contribute!", "Paper"];

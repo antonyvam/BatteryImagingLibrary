@@ -1,7 +1,7 @@
 import React, {useRef, useState} from "react";
 import {InputGroup, Form} from "react-bootstrap";
 import {SearchFilterProps} from "src/interfaces/types";
-import {COLOURS, getPrefixAndSuffix, getText} from "./Tags";
+import {COLOURS, getPrefixAndSuffix, getText} from "./old/Tags";
 
 import "../assets/scss/styles.css";
 import {SearchTags} from "./SearchTags";

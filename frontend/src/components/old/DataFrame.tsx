@@ -4,7 +4,7 @@ import {FrameProps} from "src/interfaces/types";
 import DataCard from "./DataCard";
 
 import "../assets/scss/styles.css";
-import {regexSearch} from "../interfaces/helpers";
+import {regexSearch} from "../../interfaces/helpers";
 
 export const getTitle = (titleStr: string) => {
     if (titleStr == "xrd") {

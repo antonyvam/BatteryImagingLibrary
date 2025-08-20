@@ -2,13 +2,13 @@ import React, {useEffect, useRef, useState} from "react";
 import {Table, Button, Accordion} from "react-bootstrap";
 
 import {FrameProps} from "src/interfaces/types";
-import {Theme} from "../interfaces/constants";
-import {fileExists} from "../interfaces/helpers";
+import {Theme} from "../../interfaces/constants";
+import {fileExists} from "../../interfaces/helpers";
 import Tags from "./Tags";
 import VideoPlayer from "./VideoPlayer";
 import Orthoslices from "./Orthoslices";
 
-import {regexSearch} from "../interfaces/helpers";
+import {regexSearch} from "../../interfaces/helpers";
 
 import "../assets/scss/styles.css";
 

@@ -4,10 +4,10 @@ import Fold from "./Fold";
 import "../assets/scss/styles.css";
 import data from "../assets/data.json";
 
-import DataFrame from "./DataFrame";
+import DataFrame from "./old/DataFrame";
 import DataModal from "./Modal";
 import {regexSearch} from "../interfaces/helpers";
-import {Contents} from "./Contents";
+import {Contents} from "./old/Contents";
 import {SearchFilters} from "./SearchFilters";
 import {SearchTerm} from "src/interfaces/types";
 

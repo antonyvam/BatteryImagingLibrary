@@ -1,7 +1,69 @@
-import React from "react";
+import {useState, FC} from "react";
 import ReactSlider from "react-slider";
 import {Form, Card} from "react-bootstrap";
+import {UNITS, Units} from "../interfaces/types";
+import {renderUnit} from "../interfaces/helpers";
 import "../assets/scss/styles.css";
+
+// Numeric input with units dropdown component
+interface NumericInputWithUnitsProps {
+    value: number;
+    setValue: (val: number) => void;
+    units?: string[];
+    selectedUnit?: string;
+    onUnitChange?: (unit: string) => void;
+    placeholder?: string;
+}
+
+export const NumericInputWithUnits: FC<NumericInputWithUnitsProps> = ({
+    value,
+    setValue,
+    units = UNITS
+}) => {
+    const [unit, setUnit] = useState<Units>("NANO");
+    const onUnitChange = (newUnit: string) => {
+        const isUnit = (val: string): val is Units => {
+            return UNITS.includes(val as Units);
+        };
+
+        if (isUnit(newUnit)) {
+            setUnit(unit);
+        }
+    };
+
+    // Only allow floats and scientific notation
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const val = e.target.value;
+        if (/^[-+]?\d*\.?\d*(e[-+]?\d*)?$/i.test(val) || val === "") {
+            setValue(parseFloat(val));
+        }
+    };
+    return (
+        <Form.Group style={{width: "100%"}}>
+            <div style={{display: "flex", flexDirection: "row", gap: 5}}>
+                <Form.Control
+                    type="text"
+                    value={value}
+                    onChange={handleChange}
+                    placeholder={"1"}
+                    inputMode="decimal"
+                    autoComplete="off"
+                />
+                <Form.Select
+                    style={{maxWidth: 80}}
+                    value={unit}
+                    onChange={(e) => onUnitChange(e.target.value)}
+                >
+                    {units.map((u) => (
+                        <option value={u} key={u}>
+                            {renderUnit(u)}
+                        </option>
+                    ))}
+                </Form.Select>
+            </div>
+        </Form.Group>
+    );
+};
 
 export interface DoubleSliderProps {
     value: {lower: number; upper: number};
@@ -14,17 +76,13 @@ export interface DoubleSliderProps {
     onUnitChange?: (unit: string) => void;
 }
 
-// TODO: render res in scientific notation if larger than certain amount
-const defaultUnits = ["nm", "μm", "mm"];
-
-export const DoubleSlider: React.FC<DoubleSliderProps> = ({
+export const DoubleSlider: FC<DoubleSliderProps> = ({
     value,
     setValue,
     min = 0,
     max = 100,
     step = 1,
-    units = defaultUnits,
-    selectedUnit = defaultUnits[0],
+    units = UNITS,
     onUnitChange
 }) => {
     return (
@@ -53,17 +111,12 @@ export const DoubleSlider: React.FC<DoubleSliderProps> = ({
                     />
                 )}
             />
-            <Form.Select
-                style={{maxWidth: 80}}
-                value={selectedUnit}
-                onChange={(e) => onUnitChange && onUnitChange(e.target.value)}
-            >
-                {units.map((u) => (
-                    <option value={u} key={u}>
-                        {u}
-                    </option>
-                ))}
-            </Form.Select>
+            <NumericInputWithUnits
+                value={value.upper}
+                setValue={(v) => {
+                    value.lower, v;
+                }}
+            />
         </div>
     );
 };
@@ -75,7 +128,7 @@ export interface LargeFilterCardProps {
     style?: React.CSSProperties;
 }
 
-export const LargeFilterCard: React.FC<LargeFilterCardProps> = ({title, children, style}) => {
+export const LargeFilterCard: FC<LargeFilterCardProps> = ({title, children, style}) => {
     return (
         <Card
             className="mb-3 p-2 shadow-sm"

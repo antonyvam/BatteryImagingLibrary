@@ -1,3 +1,5 @@
+import {Modality, UNIT_TO_UNIT_STR, Units} from "./types";
+
 // Render a resolution value as 1x10^n if > 1,000 or < 0.001, else as normal string
 export function renderResolutionText(val: number): string {
     if (val === 0 || isNaN(val)) return "0";
@@ -13,7 +15,20 @@ export function renderResolutionText(val: number): string {
     }
     return val.toString();
 }
-import {Modality, UNIT_TO_UNIT_STR, Units} from "./types";
+
+export function parseStrAsNumber(s: string): number {
+    if (!s) return NaN;
+    // Handle scientific notation like 1x10^3 or 1×10^3
+    const sciMatch = s.match(/^([+-]?\d*\.?\d+)\s*[x×]\s*10\^([+-]?\d+)$/i);
+    if (sciMatch) {
+        const base = parseFloat(sciMatch[1]);
+        const exp = parseInt(sciMatch[2], 10);
+        return base * Math.pow(10, exp);
+    }
+    // Handle 1e3 or 1E3
+    const num = Number(s);
+    return isNaN(num) ? 0 : num;
+}
 
 export const renderModality = (x: Modality) => {
     switch (x) {

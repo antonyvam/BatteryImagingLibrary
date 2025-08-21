@@ -1,21 +1,20 @@
 import {useState, FC} from "react";
 import ReactSlider from "react-slider";
-import {Form, Card} from "react-bootstrap";
+import {Form, Card, InputGroup} from "react-bootstrap";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
 import {UNITS, Units} from "../interfaces/types";
-import {renderUnit} from "../interfaces/helpers";
+import {parseStrAsNumber, renderResolutionText, renderUnit} from "../interfaces/helpers";
 import "../assets/scss/styles.css";
 
 // Numeric input with units dropdown component
-interface NumericInputWithUnitsProps {
+interface NumericInputOptionalDropdown {
     value: number;
     setValue: (val: number) => void;
     units?: string[];
-    selectedUnit?: string;
-    onUnitChange?: (unit: string) => void;
-    placeholder?: string;
 }
 
-export const NumericInputWithUnits: FC<NumericInputWithUnitsProps> = ({
+export const NumericInputOptionalDropdown: FC<NumericInputOptionalDropdown> = ({
     value,
     setValue,
     units = UNITS
@@ -27,41 +26,36 @@ export const NumericInputWithUnits: FC<NumericInputWithUnitsProps> = ({
         };
 
         if (isUnit(newUnit)) {
-            setUnit(unit);
+            setUnit(newUnit);
         }
     };
 
     // Only allow floats and scientific notation
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const val = e.target.value;
-        if (/^[-+]?\d*\.?\d*(e[-+]?\d*)?$/i.test(val) || val === "") {
-            setValue(parseFloat(val));
-        }
+    const handleChange = (val: string) => {
+        setValue(parseStrAsNumber(val));
     };
     return (
-        <Form.Group style={{width: "100%"}}>
-            <div style={{display: "flex", flexDirection: "row", gap: 5}}>
-                <Form.Control
-                    type="text"
-                    value={value}
-                    onChange={handleChange}
-                    placeholder={"1"}
-                    inputMode="decimal"
-                    autoComplete="off"
-                />
-                <Form.Select
-                    style={{maxWidth: 80}}
-                    value={unit}
-                    onChange={(e) => onUnitChange(e.target.value)}
-                >
-                    {units.map((u) => (
-                        <option value={u} key={u}>
-                            {renderUnit(u)}
-                        </option>
-                    ))}
-                </Form.Select>
-            </div>
-        </Form.Group>
+        <InputGroup style={{width: "100%"}} size="sm">
+            <Form.Control
+                type="text"
+                value={renderResolutionText(value)}
+                onChange={(e) => handleChange(e.target.value)}
+                inputMode="decimal"
+                autoComplete="off"
+                maxLength={10}
+            />
+            <DropdownButton
+                title={renderUnit(unit)}
+                style={{maxWidth: 80}}
+                variant="outline-secondary"
+            >
+                {units.map((u) => (
+                    <Dropdown.Item key={u} onClick={(_) => onUnitChange(u)}>
+                        {renderUnit(u)}
+                    </Dropdown.Item>
+                ))}
+            </DropdownButton>
+        </InputGroup>
     );
 };
 
@@ -71,22 +65,19 @@ export interface DoubleSliderProps {
     min?: number;
     max?: number;
     step?: number;
-    units?: string[];
-    selectedUnit?: string;
-    onUnitChange?: (unit: string) => void;
+    logarithmic?: boolean;
+    addDropdown?: boolean;
 }
 
 export const DoubleSlider: FC<DoubleSliderProps> = ({
     value,
     setValue,
-    min = 0,
-    max = 100,
-    step = 1,
-    units = UNITS,
-    onUnitChange
+    min = 1,
+    max = 1000,
+    step = 1
 }) => {
     return (
-        <div style={{display: "flex", flexDirection: "row", gap: 5}}>
+        <div style={{display: "flex", flexDirection: "column", gap: 2}}>
             <ReactSlider
                 className="horizontal-slider"
                 thumbClassName="example-thumb"
@@ -98,7 +89,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                 minDistance={10}
                 pearling
                 onChange={([lower, upper]) => setValue({lower, upper})}
-                renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
+                // renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
                 renderTrack={(props, state) => (
                     <div
                         {...props}
@@ -111,12 +102,20 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                     />
                 )}
             />
-            <NumericInputWithUnits
-                value={value.upper}
-                setValue={(v) => {
-                    value.lower, v;
-                }}
-            />
+            <div style={{display: "flex", flexDirection: "row", gap: 5}}>
+                <NumericInputOptionalDropdown
+                    value={value.lower}
+                    setValue={(v) => {
+                        setValue({lower: v, upper: value.upper});
+                    }}
+                />
+                <NumericInputOptionalDropdown
+                    value={value.upper}
+                    setValue={(v) => {
+                        setValue({lower: value.lower, upper: v});
+                    }}
+                />
+            </div>
         </div>
     );
 };

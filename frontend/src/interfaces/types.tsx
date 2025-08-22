@@ -5,6 +5,7 @@ export type ScanDetails = {
     scanID: number;
     sampleID: number;
     sampleName: string;
+    chemistry: string;
     sampleDescription: string;
     scanType: string;
     scanModality: string;
@@ -27,6 +28,7 @@ export const ScanDetailsSchema = z.object({
     scanID: z.number(),
     sampleID: z.number(),
     sampleName: z.string(),
+    chemistry: z.string(),
     sampleDescription: z.string(),
     scanType: z.string(),
     scanModality: z.string(),

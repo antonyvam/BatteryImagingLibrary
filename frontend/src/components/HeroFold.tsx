@@ -41,7 +41,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
 
     return (
         <Fold bgColour="#35383d" hero={false}>
-            <div ref={heroRef} style={{position: "relative", minHeight: 600}}>
+            <div ref={heroRef} style={{position: "relative", minHeight: 180}}>
                 {/* Background image absolutely positioned, flush to HeroFold edge, height matches HeroFold */}
                 <img
                     src="/assets/imgs/hero_rot.png"
@@ -100,7 +100,12 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                     </Row>
                     <Row
                         className="mb-4"
-                        style={{gap: 16, display: "flex", justifyContent: "space-evenly"}}
+                        style={{
+                            gap: 16,
+                            display: "flex",
+                            justifyContent: "space-evenly",
+                            flexWrap: "nowrap"
+                        }}
                     >
                         <LargeFilterCard title="Resolution">
                             <div>

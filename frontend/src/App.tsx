@@ -47,19 +47,21 @@ const App: React.FC = () => {
                 </Container>
             )}
             {searching && (
-                <div
-                    style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        flexWrap: "wrap",
-                        justifyContent: "space-between",
-                        gap: 30
-                    }}
-                >
-                    {scanData.map((v, i) => (
-                        <SearchCard scan={v} key={i} />
-                    ))}
-                </div>
+                <Container className="my-5">
+                    <div
+                        style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            flexWrap: "wrap",
+                            justifyContent: "space-between",
+                            gap: 30
+                        }}
+                    >
+                        {scanData.map((v, i) => (
+                            <SearchCard scan={v} key={i} />
+                        ))}
+                    </div>
+                </Container>
             )}
         </div>
     );

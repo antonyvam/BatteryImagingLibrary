@@ -31,7 +31,7 @@ export const ScanDetailsSchema = z.object({
     scanType: z.string(),
     scanModality: z.string(),
     instrument: z.string(),
-    pixellSize_µm: z.array(z.union([z.number(), z.string()])),
+    pixelSize_µm: z.array(z.union([z.number(), z.string()])),
     dataDimensions_px: z.array(z.union([z.number(), z.string()])),
     dataDimensions_µm: z.array(z.union([z.number(), z.string()])),
     thumbnailType: z.string(),
@@ -41,7 +41,7 @@ export const ScanDetailsSchema = z.object({
         rawZenodoLinks: z.array(z.string()),
         processedZenodoLinks: z.array(z.string()),
         reconstructedZenodoLinks: z.array(z.string()),
-        dOIs: z.array(z.string())
+        DOIs: z.array(z.string())
     })
 });
 
@@ -56,6 +56,7 @@ export interface contextProps {
     ];
     searchText: [searchText: string, setSearchText: (e: string) => void];
     searching: [searching: boolean, setSearching: (e: boolean) => void];
+    scanData: [scanData: ScanDetails[], setScanData: (e: ScanDetails[]) => void];
 }
 
 const AppContext = createContext<contextProps | null>(null);

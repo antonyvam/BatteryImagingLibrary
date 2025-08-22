@@ -1,8 +1,10 @@
 import React, {useContext} from "react";
+import AppContext from "./interfaces/types";
+
 import HeroFold from "./components/HeroFold";
 import ExampleCard from "./components/ExampleCard";
+import SearchCard from "./components/SearchCard";
 import {Container, Row, Col} from "react-bootstrap";
-import AppContext from "./interfaces/types";
 
 import "./assets/scss/App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -25,8 +27,10 @@ const exampleData = [
 
 const App: React.FC = () => {
     const {
-        searching: [searching]
+        searching: [searching],
+        scanData: [scanData]
     } = useContext(AppContext)!;
+    console.log(scanData);
     return (
         <div className="app">
             <HeroFold />
@@ -41,6 +45,21 @@ const App: React.FC = () => {
                         ))}
                     </Row>
                 </Container>
+            )}
+            {searching && (
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        flexWrap: "wrap",
+                        justifyContent: "space-between",
+                        gap: 30
+                    }}
+                >
+                    {scanData.map((v, i) => (
+                        <SearchCard scan={v} key={i} />
+                    ))}
+                </div>
             )}
         </div>
     );

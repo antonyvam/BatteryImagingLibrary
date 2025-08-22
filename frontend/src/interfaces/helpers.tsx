@@ -1,4 +1,12 @@
-import {Modality, UNIT_TO_SCALE, UNIT_TO_UNIT_STR, Units} from "./types";
+import {
+    Modality,
+    UNIT_TO_SCALE,
+    UNIT_TO_UNIT_STR,
+    Units,
+    ScanDetailsSchema,
+    ScanDetails
+} from "./types";
+import data from "../assets/data.json";
 
 // Render a resolution value as 1x10^n if > 1,000 or < 0.001, else as normal string
 export function renderResolutionText(val: number, unit: Units = "NANO"): string {
@@ -52,3 +60,13 @@ export const renderModality = (x: Modality) => {
 export const renderUnit = (x: Units) => {
     return UNIT_TO_UNIT_STR[x];
 };
+
+export function loadAndParseScanDetails(): ScanDetails[] {
+    const res = data
+        .map((item) => {
+            return ScanDetailsSchema.safeParse(item);
+        })
+        .filter((v) => v.success)
+        .map((v) => v.data);
+    return res;
+}

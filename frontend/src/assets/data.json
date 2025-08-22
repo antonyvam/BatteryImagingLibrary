@@ -7,9 +7,9 @@
         "scanType": "ELECTRODE",
         "scanModality": "SEM",
         "instrument": "Thermo Scientific Helios Hydra PFIB-SEM",
-        "pixel/VoxelSize(µm)(XYZ)": [0, 0],
-        "dataDimensions(px)(XYZ)": [1358, 969, "H2"],
-        "dataDimensions(µm)(XYZ)": [10, 7],
+        "pixelSize_µm": [0, 0],
+        "dataDimensions_px": [1358, 969, "H2"],
+        "dataDimensions_µm": [10, 7],
         "thumbnailType": "2H",
         "thumbnailName": ["1_1H.png", "1_2H.png"],
         "scanParameters": {
@@ -22,7 +22,7 @@
             "rawZenodoLinks": ["https://zenodo.org/records/6815045", ""],
             "processedZenodoLinks": [""],
             "reconstructedZenodoLinks": [""],
-            "dOIs": [
+            "DOIs": [
                 "https://dx.doi.org/10.1149/1945-7111/ac7a67",
                 "https://dx.doi.org/10.1149/1945-7111/ac7a67"
             ]
@@ -36,9 +36,9 @@
         "scanType": "ELECTRODE",
         "scanModality": "EDS",
         "instrument": "Thermo Scientific Helios Hydra PFIB-SEM (Oxford Instruments X-Max 50 silicon drift detector)",
-        "pixel/VoxelSize(µm)(XYZ)": [0, 0],
-        "dataDimensions(px)(XYZ)": [1358, 970, "H5"],
-        "dataDimensions(µm)(XYZ)": [10, 7],
+        "pixelSize_µm": [0, 0],
+        "dataDimensions_px": [1358, 970, "H5"],
+        "dataDimensions_µm": [10, 7],
         "thumbnailType": "5H",
         "thumbnailName": ["2_1H.png", "2_2H.png", "2_3H.png", "2_4H.png", "2_5H.png"],
         "scanParameters": {
@@ -51,7 +51,7 @@
             "rawZenodoLinks": ["https://zenodo.org/records/6815046"],
             "processedZenodoLinks": [""],
             "reconstructedZenodoLinks": [""],
-            "dOIs": ["https://dx.doi.org/10.1149/1945-7111/ac7a68"]
+            "DOIs": ["https://dx.doi.org/10.1149/1945-7111/ac7a68"]
         }
     },
     {
@@ -62,9 +62,9 @@
         "scanType": "CELL",
         "scanModality": "XRD_CT",
         "instrument": "ESRF ID31",
-        "pixel/VoxelSize(µm)(XYZ)": [20, 20, 3],
-        "dataDimensions(px)(XYZ)": [400, 400, "H2000"],
-        "dataDimensions(µm)(XYZ)": [10, 7],
+        "pixelSize_µm": [20, 20, 3],
+        "dataDimensions_px": [400, 400, "H2000"],
+        "dataDimensions_µm": [10, 7],
         "thumbnailType": "4H",
         "thumbnailName": ["6_1H.png", "6_2H.png", "6_3H.png", "6_4H.png"],
         "scanParameters": null,
@@ -72,7 +72,7 @@
             "rawZenodoLinks": [""],
             "processedZenodoLinks": [""],
             "reconstructedZenodoLinks": [""],
-            "dOIs": [""]
+            "DOIs": [""]
         }
     },
     {
@@ -83,9 +83,9 @@
         "scanType": "CELL",
         "scanModality": "LAB_MICRO_XCT",
         "instrument": "DESY P07",
-        "pixel/VoxelSize(µm)(XYZ)": [],
-        "dataDimensions(px)(XYZ)": [],
-        "dataDimensions(µm)(XYZ)": [],
+        "pixelSize_µm": [],
+        "dataDimensions_px": [],
+        "dataDimensions_µm": [],
         "thumbnailType": "3H",
         "thumbnailName": ["7_1H.png", "7_2H.png", "7_3H.png"],
         "scanParameters": null,
@@ -93,7 +93,7 @@
             "rawZenodoLinks": [""],
             "processedZenodoLinks": [""],
             "reconstructedZenodoLinks": [""],
-            "dOIs": [""]
+            "DOIs": [""]
         }
     },
     {
@@ -104,9 +104,9 @@
         "scanType": null,
         "scanModality": null,
         "instrument": null,
-        "pixel/VoxelSize(µm)(XYZ)": [],
-        "dataDimensions(px)(XYZ)": [],
-        "dataDimensions(µm)(XYZ)": [],
+        "pixelSize_µm": [],
+        "dataDimensions_px": [],
+        "dataDimensions_µm": [],
         "thumbnailType": null,
         "thumbnailName": [""],
         "scanParameters": null,
@@ -114,7 +114,7 @@
             "rawZenodoLinks": [""],
             "processedZenodoLinks": [""],
             "reconstructedZenodoLinks": [""],
-            "dOIs": [""]
+            "DOIs": [""]
         }
     }
 ]

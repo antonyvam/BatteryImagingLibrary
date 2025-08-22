@@ -1,4 +1,49 @@
+import {z} from "zod";
 import {createContext, ReactElement} from "react";
+
+export type ScanDetails = {
+    scanID: number;
+    sampleID: number;
+    sampleName: string;
+    sampleDescription: string;
+    scanType: string;
+    scanModality: string;
+    instrument: string;
+    pixelSize_µm: (number | string)[];
+    dataDimensions_px: (number | string)[];
+    dataDimensions_µm: (number | string)[];
+    thumbnailType: string;
+    thumbnailName: string[];
+    scanParameters: Record<string, string>;
+    zenodoLinks: {
+        rawZenodoLinks: string[];
+        processedZenodoLinks: string[];
+        reconstructedZenodoLinks: string[];
+        DOIs: string[];
+    };
+};
+
+export const ScanDetailsSchema = z.object({
+    scanID: z.number(),
+    sampleID: z.number(),
+    sampleName: z.string(),
+    sampleDescription: z.string(),
+    scanType: z.string(),
+    scanModality: z.string(),
+    instrument: z.string(),
+    pixellSize_µm: z.array(z.union([z.number(), z.string()])),
+    dataDimensions_px: z.array(z.union([z.number(), z.string()])),
+    dataDimensions_µm: z.array(z.union([z.number(), z.string()])),
+    thumbnailType: z.string(),
+    thumbnailName: z.array(z.string()),
+    scanParameters: z.record(z.string(), z.string()),
+    zenodoLinks: z.object({
+        rawZenodoLinks: z.array(z.string()),
+        processedZenodoLinks: z.array(z.string()),
+        reconstructedZenodoLinks: z.array(z.string()),
+        dOIs: z.array(z.string())
+    })
+});
 
 export type Range = {lower: number; upper: number};
 

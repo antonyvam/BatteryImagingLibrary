@@ -1,398 +1,120 @@
-{
-  "data": {
-    "lab": {
-      "LCO pin type (Panasonic)": {
-        "0": {
-          "global_scan_number": 0,
-          "local_scan_number": 0,
-          "battery_number": "1",
-          "imaging_type": "lab",
-          "battery": "LCO pin type (Panasonic)",
-          "instrument": "Diondo D5",
-          "scan": "full",
-          "image_size": [
-            1000,
-            1000,
-            3000
-          ],
-          "projections": 1000,
-          "exposure_time_s": 0.67,
-          "potential_kv": 160,
-          "power": 25.6,
-          "pixel_binning": 1,
-          "scan_time_min": 22,
-          "voxel_size_microns": 9.0,
-          "frame_binning": 2,
-          "magnification": "N/A",
-          "acq_time_min": 11,
-          "state": "N/A",
-          "comments": "N/A",
-          "contributors": "N/A",
-          "DOI": "N/A",
-          "url": "N/A",
-          "wavelengths": "N/A",
-          "desc": "Our Li-Ion miniature batteries deliver a high energy density, a good cycle stability and a long lifespan. In addition, they are extremely light and robust. They are especially designed for wristband devices, fitness trackers, smart glasses, stylus pens, wireless head phones, hearing aids, industrial IoT applications and other applications"
+[
+    {
+        "scanID": 1,
+        "sampleID": 1,
+        "sampleName": "18650 Li-NMC",
+        "sampleDescription": "Backscattered electron (BSE) SEM images of a platinum-infiltrated NMC cathode (to reduce the 'pore-back' effect). Two detectors were used, the “concentric back-scattered” (CBS) and the through-lens detector (TLD).",
+        "scanType": "ELECTRODE",
+        "scanModality": "SEM",
+        "instrument": "Thermo Scientific Helios Hydra PFIB-SEM",
+        "pixel/VoxelSize(µm)(XYZ)": [0, 0],
+        "dataDimensions(px)(XYZ)": [1358, 969, "H2"],
+        "dataDimensions(µm)(XYZ)": [10, 7],
+        "thumbnailType": "2H",
+        "thumbnailName": ["1_1H.png", "1_2H.png"],
+        "scanParameters": {
+            "accelerating_voltage": "5kV",
+            "beam_current": "5nA",
+            "dwell_time": "3μs",
+            "working_distance": "4mm"
         },
-        "1": {
-          "global_scan_number": 1,
-          "local_scan_number": 1,
-          "battery_number": "1",
-          "imaging_type": "lab",
-          "battery": "LCO pin type (Panasonic)",
-          "instrument": "Diondo D5",
-          "scan": "full",
-          "image_size": [
-            1000,
-            1000,
-            3000
-          ],
-          "projections": 1000,
-          "exposure_time_s": 0.6,
-          "potential_kv": 200,
-          "power": 28.0,
-          "pixel_binning": 1,
-          "scan_time_min": 21,
-          "voxel_size_microns": 9.0,
-          "frame_binning": 2,
-          "magnification": "N/A",
-          "acq_time_min": 10,
-          "state": "N/A",
-          "comments": "N/A",
-          "contributors": "N/A",
-          "DOI": "N/A",
-          "url": "N/A",
-          "wavelengths": "N/A",
-          "desc": "N/A"
+        "zenodoLinks": {
+            "rawZenodoLinks": ["https://zenodo.org/records/6815045", ""],
+            "processedZenodoLinks": [""],
+            "reconstructedZenodoLinks": [""],
+            "dOIs": [
+                "https://dx.doi.org/10.1149/1945-7111/ac7a67",
+                "https://dx.doi.org/10.1149/1945-7111/ac7a67"
+            ]
+        }
+    },
+    {
+        "scanID": 2,
+        "sampleID": 1,
+        "sampleName": "18650 Li-NMC",
+        "sampleDescription": "Energy Dispersive Spectroscopy (EDS) elemental maps of a platinum-infiltrated NMC cathode (to reduce the 'pore-back' effect). The channels are Ni (Active Material), Al (Current collector), Pt (Pore), C (Carbon Binder), F.",
+        "scanType": "ELECTRODE",
+        "scanModality": "EDS",
+        "instrument": "Thermo Scientific Helios Hydra PFIB-SEM (Oxford Instruments X-Max 50 silicon drift detector)",
+        "pixel/VoxelSize(µm)(XYZ)": [0, 0],
+        "dataDimensions(px)(XYZ)": [1358, 970, "H5"],
+        "dataDimensions(µm)(XYZ)": [10, 7],
+        "thumbnailType": "5H",
+        "thumbnailName": ["2_1H.png", "2_2H.png", "2_3H.png", "2_4H.png", "2_5H.png"],
+        "scanParameters": {
+            "landing_energy": "10keV",
+            "beam_current": "1.6nA",
+            "step_size": "54nm",
+            "working_distance": "4.1mm"
         },
-        "2": {
-          "global_scan_number": 2,
-          "local_scan_number": 2,
-          "battery_number": "1",
-          "imaging_type": "lab",
-          "battery": "LCO pin type (Panasonic)",
-          "instrument": "Zeiss Versa 510",
-          "scan": "full",
-          "image_size": [
-            1000,
-            1000,
-            1000
-          ],
-          "projections": 801,
-          "exposure_time_s": 1.0,
-          "potential_kv": 140,
-          "power": 10.0,
-          "pixel_binning": 2,
-          "scan_time_min": 44,
-          "voxel_size_microns": 9.0,
-          "frame_binning": 2,
-          "magnification": "N/A",
-          "acq_time_min": 13,
-          "state": "N/A",
-          "comments": "N/A",
-          "contributors": "N/A",
-          "DOI": "N/A",
-          "url": "N/A",
-          "wavelengths": "N/A",
-          "desc": "N/A"
+        "zenodoLinks": {
+            "rawZenodoLinks": ["https://zenodo.org/records/6815046"],
+            "processedZenodoLinks": [""],
+            "reconstructedZenodoLinks": [""],
+            "dOIs": ["https://dx.doi.org/10.1149/1945-7111/ac7a68"]
         }
-      },
-      "AAA alkaline (Energiser)": {
-        "0": {
-          "global_scan_number": 3,
-          "local_scan_number": 0,
-          "battery_number": "2",
-          "imaging_type": "lab",
-          "battery": "AAA alkaline (Energiser)",
-          "instrument": "Phoenix Nanotom",
-          "scan": "roi",
-          "image_size": "N/A",
-          "projections": 1800,
-          "exposure_time_s": 0.5,
-          "potential_kv": 100,
-          "power": "N/A",
-          "pixel_binning": 1,
-          "scan_time_min": "N/A",
-          "voxel_size_microns": 21.0,
-          "frame_binning": "N/A",
-          "magnification": "N/A",
-          "acq_time_min": 38,
-          "state": "N/A",
-          "comments": "N/A",
-          "contributors": "N/A",
-          "DOI": "N/A",
-          "url": "N/A",
-          "wavelengths": "N/A",
-          "desc": "Energizer\u00ae AAA batteries come in four different types. Using this handy chart, you\u2019re sure to find the one that\u2019s right for your particular device.  Our #1 longest-lasting MAX\u2122 AA battery, plus leakage protection* in your favorite devices."
-        }
-      },
-      "AAA LiFeS2 (Varta)": {
-        "0": {
-          "global_scan_number": 4,
-          "local_scan_number": 0,
-          "battery_number": "3",
-          "imaging_type": "lab",
-          "battery": "AAA LiFeS2 (Varta)",
-          "instrument": "Phoenix Nanotom",
-          "scan": "full",
-          "image_size": "N/A",
-          "projections": 1800,
-          "exposure_time_s": 0.25,
-          "potential_kv": 100,
-          "power": "N/A",
-          "pixel_binning": 2,
-          "scan_time_min": "N/A",
-          "voxel_size_microns": 40.5,
-          "frame_binning": "N/A",
-          "magnification": "N/A",
-          "acq_time_min": 22,
-          "state": "N/A",
-          "comments": "N/A",
-          "contributors": "N/A",
-          "DOI": "N/A",
-          "url": "N/A",
-          "wavelengths": "N/A",
-          "desc": "Keep all your liberties every day with VARTA Longlife, our long-lasting batteries for devices with constant and low energy need, such as remote controls, wall clocks or radios. Standing out with long run times and reliable energy delivery to keep you independent in every second. \u201cMade in Germany \u2013 made to last\u201d, VARTA brand quality ensured"
-        }
-      }
     },
-    "xrd": {
-      "AAA NiMH": {
-        "0": {
-          "global_scan_number": 5,
-          "local_scan_number": 0,
-          "battery_number": "4",
-          "imaging_type": "xrd",
-          "battery": "AAA NiMH",
-          "instrument": "P07",
-          "scan": "N/A",
-          "image_size": "N/A",
-          "projections": "N/A",
-          "exposure_time_s": "N/A",
-          "potential_kv": "N/A",
-          "power": "N/A",
-          "pixel_binning": "N/A",
-          "scan_time_min": "N/A",
-          "voxel_size_microns": "N/A",
-          "frame_binning": "N/A",
-          "magnification": "N/A",
-          "acq_time_min": "N/A",
-          "state": "charged",
-          "comments": "N/A",
-          "contributors": "N/A",
-          "DOI": "N/A",
-          "url": "N/A",
-          "wavelengths": [
-            "210",
-            "448",
-            "746"
-          ],
-          "desc": "N/A"
+    {
+        "scanID": 6,
+        "sampleID": 4,
+        "sampleName": "NCA",
+        "sampleDescription": null,
+        "scanType": "CELL",
+        "scanModality": "XRD_CT",
+        "instrument": "ESRF ID31",
+        "pixel/VoxelSize(µm)(XYZ)": [20, 20, 3],
+        "dataDimensions(px)(XYZ)": [400, 400, "H2000"],
+        "dataDimensions(µm)(XYZ)": [10, 7],
+        "thumbnailType": "4H",
+        "thumbnailName": ["6_1H.png", "6_2H.png", "6_3H.png", "6_4H.png"],
+        "scanParameters": null,
+        "zenodoLinks": {
+            "rawZenodoLinks": [""],
+            "processedZenodoLinks": [""],
+            "reconstructedZenodoLinks": [""],
+            "dOIs": [""]
         }
-      }
     },
-    "neutron": {
-      "AAA NMC532": {
-        "0": {
-          "global_scan_number": 6,
-          "local_scan_number": 0,
-          "battery_number": "5",
-          "imaging_type": "neutron",
-          "battery": "AAA NMC532",
-          "instrument": "I12 (micro)",
-          "scan": "N/A",
-          "image_size": "N/A",
-          "projections": "N/A",
-          "exposure_time_s": "N/A",
-          "potential_kv": "N/A",
-          "power": "N/A",
-          "pixel_binning": "N/A",
-          "scan_time_min": "N/A",
-          "voxel_size_microns": "N/A",
-          "frame_binning": "N/A",
-          "magnification": "N/A",
-          "acq_time_min": "N/A",
-          "state": "pristine",
-          "comments": "N/A",
-          "contributors": "N/A",
-          "DOI": "N/A",
-          "url": "N/A",
-          "wavelengths": "N/A",
-          "desc": "N/A"
+    {
+        "scanID": 7,
+        "sampleID": 5,
+        "sampleName": "NMC532",
+        "sampleDescription": null,
+        "scanType": "CELL",
+        "scanModality": "LAB_MICRO_XCT",
+        "instrument": "DESY P07",
+        "pixel/VoxelSize(µm)(XYZ)": [],
+        "dataDimensions(px)(XYZ)": [],
+        "dataDimensions(µm)(XYZ)": [],
+        "thumbnailType": "3H",
+        "thumbnailName": ["7_1H.png", "7_2H.png", "7_3H.png"],
+        "scanParameters": null,
+        "zenodoLinks": {
+            "rawZenodoLinks": [""],
+            "processedZenodoLinks": [""],
+            "reconstructedZenodoLinks": [""],
+            "dOIs": [""]
         }
-      }
     },
-    "synchotron": {
-      "AAA LiFes2": {
-        "0": {
-          "global_scan_number": 7,
-          "local_scan_number": 0,
-          "battery_number": "6",
-          "imaging_type": "synchotron",
-          "battery": "AAA LiFes2",
-          "instrument": "I12 (micro)",
-          "scan": "N/A",
-          "image_size": "N/A",
-          "projections": "N/A",
-          "exposure_time_s": "N/A",
-          "potential_kv": "N/A",
-          "power": "N/A",
-          "pixel_binning": "N/A",
-          "scan_time_min": "N/A",
-          "voxel_size_microns": "N/A",
-          "frame_binning": "N/A",
-          "magnification": "N/A",
-          "acq_time_min": "N/A",
-          "state": "N/A",
-          "comments": "N/A",
-          "contributors": "N/A",
-          "DOI": "N/A",
-          "url": "N/A",
-          "wavelengths": "N/A",
-          "desc": "N/A"
+    {
+        "scanID": 8,
+        "sampleID": null,
+        "sampleName": null,
+        "sampleDescription": null,
+        "scanType": null,
+        "scanModality": null,
+        "instrument": null,
+        "pixel/VoxelSize(µm)(XYZ)": [],
+        "dataDimensions(px)(XYZ)": [],
+        "dataDimensions(µm)(XYZ)": [],
+        "thumbnailType": null,
+        "thumbnailName": [""],
+        "scanParameters": null,
+        "zenodoLinks": {
+            "rawZenodoLinks": [""],
+            "processedZenodoLinks": [""],
+            "reconstructedZenodoLinks": [""],
+            "dOIs": [""]
         }
-      },
-      "LCO pin type (Panasonic)": {
-        "0": {
-          "global_scan_number": 8,
-          "local_scan_number": 0,
-          "battery_number": "7",
-          "imaging_type": "synchotron",
-          "battery": "LCO pin type (Panasonic)",
-          "instrument": "ID11 (micro)",
-          "scan": "N/A",
-          "image_size": "N/A",
-          "projections": "N/A",
-          "exposure_time_s": "N/A",
-          "potential_kv": "N/A",
-          "power": "N/A",
-          "pixel_binning": "N/A",
-          "scan_time_min": "N/A",
-          "voxel_size_microns": "N/A",
-          "frame_binning": "N/A",
-          "magnification": "N/A",
-          "acq_time_min": "N/A",
-          "state": "N/A",
-          "comments": "N/A",
-          "contributors": "N/A",
-          "DOI": "N/A",
-          "url": "N/A",
-          "wavelengths": "N/A",
-          "desc": "N/A"
-        }
-      }
     }
-  },
-  "unique_props": {
-    "battery_number": [
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7"
-    ],
-    "imaging_type": [
-      "lab",
-      "xrd",
-      "neutron",
-      "synchotron"
-    ],
-    "battery": [
-      "LCO pin type (Panasonic)",
-      "AAA alkaline (Energiser)",
-      "AAA LiFeS2 (Varta)",
-      "AAA NiMH",
-      "AAA NMC532",
-      "AAA LiFes2"
-    ],
-    "instrument": [
-      "Diondo D5",
-      "Zeiss Versa 510",
-      "Phoenix Nanotom",
-      "P07",
-      "I12 (micro)",
-      "ID11 (micro)"
-    ],
-    "scan": [
-      "full",
-      "roi"
-    ],
-    "image_size": [
-      [
-        1000,
-        1000,
-        3000
-      ],
-      [
-        1000,
-        1000,
-        1000
-      ]
-    ],
-    "projections": [
-      1000,
-      801,
-      1800
-    ],
-    "exposure_time_s": [
-      0.67,
-      0.6,
-      1.0,
-      0.5,
-      0.25
-    ],
-    "potential_kv": [
-      160,
-      200,
-      140,
-      100
-    ],
-    "power": [
-      25.6,
-      28.0,
-      10.0
-    ],
-    "pixel_binning": [
-      1,
-      2
-    ],
-    "scan_time_min": [
-      22,
-      21,
-      44
-    ],
-    "voxel_size_microns": [
-      9.0,
-      21.0,
-      40.5
-    ],
-    "frame_binning": [
-      2
-    ],
-    "magnification": [],
-    "acq_time_min": [
-      11,
-      10,
-      13,
-      38,
-      22
-    ],
-    "state": [
-      "charged",
-      "pristine"
-    ],
-    "comments": [],
-    "contributors": [],
-    "DOI": [],
-    "url": [],
-    "wavelengths": [
-      [
-        "210",
-        "448",
-        "746"
-      ]
-    ],
-    "desc": []
-  }
-}
+]

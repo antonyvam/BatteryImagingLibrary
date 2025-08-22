@@ -1,7 +1,16 @@
-import {createContext, ReactElement} from "react";
+import React, {createContext, ReactElement} from "react";
 
-interface contextProps {
-    foo: [foo: number | null, setFoo: (e: number | null) => void];
+export type Range = {lower: number; upper: number};
+
+export interface contextProps {
+    resRange: [resRange: Range, setResRange: (e: Range) => void];
+    sizeRange: [sizeRange: Range, setSizeRange: (e: Range) => void];
+    selectedModalities: [
+        selectedModalities: Modality[],
+        setSelectedModalities: (e: Modality[]) => void
+    ];
+    searchText: [searchText: string, setSearchText: (e: string) => void];
+    searching: [searching: boolean, setSearching: (e: boolean) => void];
 }
 
 const AppContext = createContext<contextProps | null>(null);

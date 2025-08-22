@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useContext} from "react";
 import HeroFold from "./components/HeroFold";
 import ExampleCard from "./components/ExampleCard";
 import {Container, Row, Col} from "react-bootstrap";
+import AppContext from "./interfaces/types";
 
 import "./assets/scss/App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -23,19 +24,24 @@ const exampleData = [
 ];
 
 const App: React.FC = () => {
+    const {
+        searching: [searching]
+    } = useContext(AppContext)!;
     return (
         <div className="app">
             <HeroFold />
-            <Container className="my-5">
-                <h2 className="mb-4">Examples</h2>
-                <Row>
-                    {exampleData.map((ex, idx) => (
-                        <Col md={12} className="mb-3" key={idx}>
-                            <ExampleCard title={ex.title} text={ex.text} />
-                        </Col>
-                    ))}
-                </Row>
-            </Container>
+            {!searching && (
+                <Container className="my-5">
+                    <h2 className="mb-4">Examples</h2>
+                    <Row>
+                        {exampleData.map((ex, idx) => (
+                            <Col md={12} className="mb-3" key={idx}>
+                                <ExampleCard title={ex.title} text={ex.text} />
+                            </Col>
+                        ))}
+                    </Row>
+                </Container>
+            )}
         </div>
     );
 };

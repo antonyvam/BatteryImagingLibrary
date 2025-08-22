@@ -1,4 +1,4 @@
-import React, {useRef, useEffect, useState} from "react";
+import React, {useRef, useEffect, useContext} from "react";
 import Fold from "./Fold";
 import {LargeFilterCard, DoubleSlider} from "./LargeFilterCard";
 import SearchBar from "./SearchBar";
@@ -6,19 +6,20 @@ import "../assets/scss/styles.css";
 import {Container, Row, Col, Button} from "react-bootstrap";
 import {MODALITIES} from "../interfaces/types";
 import {renderModality} from "../interfaces/helpers";
+import AppContext from "../interfaces/types";
 
 const links = ["Paper", "Github", "Scripts", "Docs", "About", "Contribute"];
 
 const HeroFold: React.FC = () => {
     const heroRef = useRef<HTMLDivElement>(null);
-    const [heroHeight, setHeroHeight] = useState<number>(600);
-    const [imgRight, setImgRight] = useState<number>(0);
 
-    const [resRange, setResRange] = useState<{lower: number; upper: number}>({lower: 0, upper: 40});
-    const [sizeRange, setSizeRange] = useState<{lower: number; upper: number}>({
-        lower: 0,
-        upper: 40
-    });
+    const [heroHeight, setHeroHeight] = React.useState<number>(600);
+    const [imgRight, setImgRight] = React.useState<number>(0);
+
+    const {
+        resRange: [resRange, setResRange],
+        sizeRange: [sizeRange, setSizeRange]
+    } = useContext(AppContext)!;
 
     useEffect(() => {
         const updateDims = () => {
@@ -102,9 +103,7 @@ const HeroFold: React.FC = () => {
                             <div>
                                 <DoubleSlider
                                     value={resRange}
-                                    setValue={(v) => {
-                                        setResRange(v);
-                                    }}
+                                    setValue={setResRange}
                                     addDropdown={true}
                                     logarithmic={true}
                                 />
@@ -112,12 +111,7 @@ const HeroFold: React.FC = () => {
                         </LargeFilterCard>
                         <LargeFilterCard title="Image Size">
                             <div>
-                                <DoubleSlider
-                                    value={sizeRange}
-                                    setValue={(v) => {
-                                        setSizeRange(v);
-                                    }}
-                                />
+                                <DoubleSlider value={sizeRange} setValue={setSizeRange} />
                             </div>
                         </LargeFilterCard>
                         <LargeFilterCard title="Modality">

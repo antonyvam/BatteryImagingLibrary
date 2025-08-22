@@ -21,6 +21,7 @@ export const UNIT_TO_UNIT_STR: Record<Units, string> = {
     MILLI: "mm",
     CENTI: "cm"
 };
+export const UNIT_TO_SCALE: Record<Units, number> = {NANO: 1, MICRON: 1e3, MILLI: 1e6, CENTI: 1e9};
 
 export const MODALITIES = [
     "SEM",

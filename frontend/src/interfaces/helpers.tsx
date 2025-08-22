@@ -1,19 +1,21 @@
-import {Modality, UNIT_TO_UNIT_STR, Units} from "./types";
+import {Modality, UNIT_TO_SCALE, UNIT_TO_UNIT_STR, Units} from "./types";
 
 // Render a resolution value as 1x10^n if > 1,000 or < 0.001, else as normal string
-export function renderResolutionText(val: number): string {
-    if (val === 0 || isNaN(val)) return "0";
-    if (Math.abs(val) >= 1000) {
-        const exp = Math.floor(Math.log10(Math.abs(val)));
-        const base = val / Math.pow(10, exp);
+export function renderResolutionText(val: number, unit: Units = "NANO"): string {
+    const scaled = val * UNIT_TO_SCALE[unit] * val;
+
+    if (scaled === 0 || isNaN(scaled)) return "0";
+    if (Math.abs(scaled) >= 1000) {
+        const exp = Math.floor(Math.log10(Math.abs(scaled)));
+        const base = scaled / Math.pow(10, exp);
         return `${base.toFixed(1)}×10^${exp}`;
     }
-    if (Math.abs(val) > 0 && Math.abs(val) < 0.001) {
-        const exp = Math.floor(Math.log10(Math.abs(val)));
-        const base = val / Math.pow(10, exp);
+    if (Math.abs(scaled) > 0 && Math.abs(scaled) < 0.001) {
+        const exp = Math.floor(Math.log10(Math.abs(scaled)));
+        const base = scaled / Math.pow(10, exp);
         return `${base.toFixed(1)}×10^${exp}`;
     }
-    return val.toPrecision(3).toString();
+    return scaled.toPrecision(3).toString();
 }
 
 export function parseStrAsNumber(s: string): number {

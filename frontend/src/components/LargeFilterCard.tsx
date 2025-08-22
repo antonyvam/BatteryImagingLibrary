@@ -3,7 +3,7 @@ import ReactSlider from "react-slider";
 import {Form, Card, InputGroup} from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
-import {UNITS, Units} from "../interfaces/types";
+import {UNIT_TO_SCALE, UNITS, Units} from "../interfaces/types";
 import {parseStrAsNumber, renderResolutionText, renderUnit} from "../interfaces/helpers";
 import "../assets/scss/styles.css";
 
@@ -21,6 +21,8 @@ export const NumericInputOptionalDropdown: FC<NumericInputOptionalDropdown> = ({
     addDropdown = false,
     units = UNITS
 }) => {
+    // TODO: fix scale-based text rendering
+    // TODO: fix over eager text parsing / input
     const [unit, setUnit] = useState<Units>("NANO");
     const onUnitChange = (newUnit: string) => {
         const isUnit = (val: string): val is Units => {
@@ -40,7 +42,7 @@ export const NumericInputOptionalDropdown: FC<NumericInputOptionalDropdown> = ({
         <InputGroup style={{width: "100%"}} size="sm">
             <Form.Control
                 type="text"
-                value={renderResolutionText(value)}
+                value={renderResolutionText(value, unit)}
                 onChange={(e) => handleChange(e.target.value)}
                 inputMode="decimal"
                 autoComplete="off"
@@ -86,6 +88,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
         lower: min,
         upper: max
     });
+    // TODO: Hoist unit up here?
 
     const onSliderChange = (lower: number, upper: number) => {
         if (logarithmic) {

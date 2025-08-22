@@ -89,20 +89,19 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
 
     const onSliderChange = (lower: number, upper: number) => {
         if (logarithmic) {
-            setValue({lower: Math.pow(lower, 10), upper: Math.pow(upper, 10)});
+            setValue({lower: Math.pow(10, lower), upper: Math.pow(10, upper)});
         } else {
             setValue({lower, upper});
         }
-        setSliderVal({lower: lower, upper: upper});
     };
 
-    // useEffect(() => {
-    //     if (logarithmic) {
-    //         setSliderVal({lower: value.lower, upper: value.upper});
-    //     } else {
-    //         setSliderVal(value);
-    //     }
-    // }, [value]);
+    useEffect(() => {
+        if (logarithmic) {
+            setSliderVal({lower: Math.log10(value.lower), upper: Math.log10(value.upper)});
+        } else {
+            setSliderVal(value);
+        }
+    }, [value]);
 
     return (
         <div style={{display: "flex", flexDirection: "column", gap: 2}}>

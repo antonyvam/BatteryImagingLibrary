@@ -33,7 +33,7 @@ const App: React.FC = () => {
     console.log(scanData);
     return (
         <div className="app">
-            <HeroFold />
+            <HeroFold searching={searching} />
             {!searching && (
                 <Container className="my-5">
                     <h2 className="mb-4">Examples</h2>

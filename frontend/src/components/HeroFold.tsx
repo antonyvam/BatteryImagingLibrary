@@ -1,4 +1,4 @@
-import React, {useRef, useEffect, useContext} from "react";
+import {useState, useRef, useEffect, useContext, FC} from "react";
 import Fold from "./Fold";
 import {LargeFilterCard, DoubleSlider} from "./LargeFilterCard";
 import SearchBar from "./SearchBar";
@@ -10,11 +10,11 @@ import AppContext from "../interfaces/types";
 
 const links = ["Paper", "Github", "Scripts", "Docs", "About", "Contribute"];
 
-const HeroFold: React.FC = () => {
+const HeroFold: FC<{searching: boolean}> = ({searching}) => {
     const heroRef = useRef<HTMLDivElement>(null);
 
-    const [heroHeight, setHeroHeight] = React.useState<number>(600);
-    const [imgRight, setImgRight] = React.useState<number>(0);
+    const [heroHeight, setHeroHeight] = useState<number>(600);
+    const [imgRight, setImgRight] = useState<number>(0);
 
     const {
         resRange: [resRange, setResRange],
@@ -62,34 +62,37 @@ const HeroFold: React.FC = () => {
                     <h1 className="display-4 mb-3" style={{color: "#fff"}}>
                         Battery Imaging Library
                     </h1>
-                    <Row className="align-items-center mb-4">
-                        <Col md={7}>
-                            <p className="lead" style={{color: "#fff"}}>
-                                M modalities, S scans and V voxels of open battery imaging data,
-                                from single particles up to full cells. Includes raw and processed
-                                (reconstructed, denoised, segmented, <i>etc.</i>) data. Start
-                                searching!
-                            </p>
-                        </Col>
-                        <Col md={5}>
-                            <div style={{display: "flex", flexDirection: "column", gap: 8}}>
-                                {[0, 1].map((row) => (
-                                    <div style={{display: "flex", gap: 8}} key={row}>
-                                        {links.slice(row * 3, row * 3 + 3).map((label, idx) => (
-                                            <Button
-                                                key={label}
-                                                variant="light"
-                                                size="lg"
-                                                className="w-100"
-                                            >
-                                                {label}
-                                            </Button>
-                                        ))}
-                                    </div>
-                                ))}
-                            </div>
-                        </Col>
-                    </Row>
+
+                    {searching === false && (
+                        <Row className="align-items-center mb-4">
+                            <Col md={7}>
+                                <p className="lead" style={{color: "#fff"}}>
+                                    M modalities, S scans and V voxels of open battery imaging data,
+                                    from single particles up to full cells. Includes raw and
+                                    processed (reconstructed, denoised, segmented, <i>etc.</i>)
+                                    data. Start searching!
+                                </p>
+                            </Col>
+                            <Col md={5}>
+                                <div style={{display: "flex", flexDirection: "column", gap: 8}}>
+                                    {[0, 1].map((row) => (
+                                        <div style={{display: "flex", gap: 8}} key={row}>
+                                            {links.slice(row * 3, row * 3 + 3).map((label, idx) => (
+                                                <Button
+                                                    key={label}
+                                                    variant="light"
+                                                    size="lg"
+                                                    className="w-100"
+                                                >
+                                                    {label}
+                                                </Button>
+                                            ))}
+                                        </div>
+                                    ))}
+                                </div>
+                            </Col>
+                        </Row>
+                    )}
                     <Row className="mb-4">
                         <Col>
                             <SearchBar variant="light" />

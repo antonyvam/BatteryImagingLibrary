@@ -105,6 +105,8 @@ const HeroFold: React.FC = () => {
                                     setValue={(v) => {
                                         setResRange(v);
                                     }}
+                                    addDropdown={true}
+                                    logarithmic={true}
                                 />
                             </div>
                         </LargeFilterCard>

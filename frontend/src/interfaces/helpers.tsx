@@ -13,7 +13,7 @@ export function renderResolutionText(val: number): string {
         const base = val / Math.pow(10, exp);
         return `${base.toFixed(1)}×10^${exp}`;
     }
-    return val.toString();
+    return val.toPrecision(3).toString();
 }
 
 export function parseStrAsNumber(s: string): number {

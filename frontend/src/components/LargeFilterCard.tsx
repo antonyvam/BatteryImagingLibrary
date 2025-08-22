@@ -1,4 +1,4 @@
-import {useState, FC} from "react";
+import {useState, FC, useEffect} from "react";
 import ReactSlider from "react-slider";
 import {Form, Card, InputGroup} from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -11,12 +11,14 @@ import "../assets/scss/styles.css";
 interface NumericInputOptionalDropdown {
     value: number;
     setValue: (val: number) => void;
+    addDropdown?: boolean;
     units?: string[];
 }
 
 export const NumericInputOptionalDropdown: FC<NumericInputOptionalDropdown> = ({
     value,
     setValue,
+    addDropdown = false,
     units = UNITS
 }) => {
     const [unit, setUnit] = useState<Units>("NANO");
@@ -44,17 +46,19 @@ export const NumericInputOptionalDropdown: FC<NumericInputOptionalDropdown> = ({
                 autoComplete="off"
                 maxLength={10}
             />
-            <DropdownButton
-                title={renderUnit(unit)}
-                style={{maxWidth: 80}}
-                variant="outline-secondary"
-            >
-                {units.map((u) => (
-                    <Dropdown.Item key={u} onClick={(_) => onUnitChange(u)}>
-                        {renderUnit(u)}
-                    </Dropdown.Item>
-                ))}
-            </DropdownButton>
+            {addDropdown && (
+                <DropdownButton
+                    title={renderUnit(unit)}
+                    style={{maxWidth: 80}}
+                    variant="outline-secondary"
+                >
+                    {units.map((u) => (
+                        <Dropdown.Item key={u} onClick={(_) => onUnitChange(u)}>
+                            {renderUnit(u)}
+                        </Dropdown.Item>
+                    ))}
+                </DropdownButton>
+            )}
         </InputGroup>
     );
 };
@@ -73,22 +77,46 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     value,
     setValue,
     min = 1,
-    max = 1000,
-    step = 1
+    max = 9,
+    step = 0.001,
+    logarithmic = false,
+    addDropdown = false
 }) => {
+    const [sliderVal, setSliderVal] = useState<{lower: number; upper: number}>({
+        lower: min,
+        upper: max
+    });
+
+    const onSliderChange = (lower: number, upper: number) => {
+        if (logarithmic) {
+            setValue({lower: Math.pow(lower, 10), upper: Math.pow(upper, 10)});
+        } else {
+            setValue({lower, upper});
+        }
+        setSliderVal({lower: lower, upper: upper});
+    };
+
+    // useEffect(() => {
+    //     if (logarithmic) {
+    //         setSliderVal({lower: value.lower, upper: value.upper});
+    //     } else {
+    //         setSliderVal(value);
+    //     }
+    // }, [value]);
+
     return (
         <div style={{display: "flex", flexDirection: "column", gap: 2}}>
             <ReactSlider
                 className="horizontal-slider"
                 thumbClassName="example-thumb"
                 trackClassName="example-track"
-                value={[value.lower, value.upper]}
+                value={[sliderVal.lower, sliderVal.upper]}
                 min={min}
                 max={max}
                 step={step}
-                minDistance={10}
+                minDistance={0.2}
                 pearling
-                onChange={([lower, upper]) => setValue({lower, upper})}
+                onChange={([lower, upper]) => onSliderChange(lower, upper)}
                 // renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
                 renderTrack={(props, state) => (
                     <div
@@ -108,12 +136,14 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                     setValue={(v) => {
                         setValue({lower: v, upper: value.upper});
                     }}
+                    addDropdown={addDropdown}
                 />
                 <NumericInputOptionalDropdown
                     value={value.upper}
                     setValue={(v) => {
                         setValue({lower: value.lower, upper: v});
                     }}
+                    addDropdown={addDropdown}
                 />
             </div>
         </div>

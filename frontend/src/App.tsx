@@ -53,8 +53,8 @@ const App: React.FC = () => {
                             display: "flex",
                             flexDirection: "row",
                             flexWrap: "wrap",
-                            justifyContent: "space-between",
-                            gap: 30
+                            justifyContent: "space-evenly",
+                            gap: 18
                         }}
                     >
                         {scanData.map((v, i) => (

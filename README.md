@@ -3,7 +3,6 @@
 ## TODO:
 
 - hero banner:
-  - collapse (remove copy text and buttons) if searching
   - get resolution slider + unit text working properly
     - correct scale factors applied
     - even when switching
@@ -23,8 +22,11 @@
   - same carousel
   - display full info
   - display link data
+- script:
+  - take directory of images:
+    - resize down by a quarter, save into assets
+    - save oriignal image into azure db; loaded on modal click
 - spreadsheet:
-  - add chemistry?
   - add cell geometry?
 
 ## Old:

@@ -1,5 +1,6 @@
 import {useState, useRef, useEffect, FC} from "react";
 import type {ScanDetails} from "../interfaces/types";
+import {renderDataDims, renderModality} from "../interfaces/helpers";
 
 interface SearchCardProps {
     scan: ScanDetails;
@@ -11,6 +12,7 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
     const [imgStyle, setImgStyle] = useState<React.CSSProperties>({});
 
     const {thumbnailName, thumbnailType, sampleName, scanModality} = scan;
+    const dataDims = scan.dataDimensions_px;
     const images = thumbnailName.map((name) => `/assets/imgs/${scan.scanID}/${name}`);
 
     // Adjust image style for best fit and aspect ratio
@@ -62,7 +64,7 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
                 border: "1px solid #ccc",
                 borderRadius: 8,
                 overflow: "hidden",
-                width: 320,
+                width: 310,
                 background: "#fff",
                 boxShadow: "0 2px 8px #0001"
             }}
@@ -137,14 +139,34 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
                 </div>
                 <div
                     style={{
-                        fontSize: 14,
-                        color: "#555",
-                        background: "#e3eaff",
-                        padding: "2px 10px",
-                        borderRadius: 4
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        gap: 5
                     }}
                 >
-                    {scanModality}
+                    <div
+                        style={{
+                            fontSize: 14,
+                            color: "#555",
+                            background: "#e3eaff",
+                            padding: "2px 10px",
+                            borderRadius: 4
+                        }}
+                    >
+                        {renderModality(scanModality)}
+                    </div>
+                    <div
+                        style={{
+                            fontSize: 14,
+                            color: "#555",
+                            background: "#e3eaff",
+                            padding: "2px 10px",
+                            borderRadius: 4
+                        }}
+                    >
+                        {renderDataDims(dataDims)}
+                    </div>
                 </div>
             </div>
         </div>

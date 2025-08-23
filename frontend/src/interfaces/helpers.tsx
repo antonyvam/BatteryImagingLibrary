@@ -70,3 +70,8 @@ export function loadAndParseScanDetails(): ScanDetails[] {
         .map((v) => v.data);
     return res;
 }
+
+export const renderDataDims = (dims: (string | number)[]) => {
+    const noStr = dims.filter((v) => typeof v == "number");
+    return noStr.join("x");
+};

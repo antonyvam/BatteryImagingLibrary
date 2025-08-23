@@ -4,7 +4,8 @@ import {
     UNIT_TO_UNIT_STR,
     Units,
     ScanDetailsSchema,
-    ScanDetails
+    ScanDetails,
+    MODALITIES
 } from "./types";
 import data from "../assets/data.json";
 
@@ -74,4 +75,8 @@ export function loadAndParseScanDetails(): ScanDetails[] {
 export const renderDataDims = (dims: (string | number)[]) => {
     const noStr = dims.filter((v) => typeof v == "number");
     return noStr.join("x");
+};
+
+export const isModality = (x: any): x is Modality => {
+    return MODALITIES.includes(x);
 };

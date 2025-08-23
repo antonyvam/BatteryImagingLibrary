@@ -1,12 +1,11 @@
 import {useState, useRef, useEffect, useContext, FC} from "react";
 import Fold from "./Fold";
-import {LargeFilterCard, DoubleSlider} from "./LargeFilterCard";
+import {LargeFilterCard, DoubleSlider, ModalityCard} from "./LargeFilterCard";
 import SearchBar from "./SearchBar";
-import "../assets/scss/styles.css";
 import {Container, Row, Col, Button} from "react-bootstrap";
-import {MODALITIES} from "../interfaces/types";
-import {renderModality} from "../interfaces/helpers";
 import AppContext from "../interfaces/types";
+
+import "../assets/scss/styles.css";
 
 const links = ["Paper", "Github", "Scripts", "Docs", "About", "Contribute"];
 
@@ -122,23 +121,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                                 <DoubleSlider value={sizeRange} setValue={setSizeRange} />
                             </div>
                         </LargeFilterCard>
-                        <LargeFilterCard title="Modality">
-                            <div>
-                                <select
-                                    className="form-select"
-                                    id="modality-dropdown"
-                                    defaultValue="X-ray"
-                                >
-                                    {MODALITIES.map((v) => {
-                                        return (
-                                            <option value={v} key={v}>
-                                                {renderModality(v)}
-                                            </option>
-                                        );
-                                    })}
-                                </select>
-                            </div>
-                        </LargeFilterCard>
+                        <ModalityCard />
                     </Row>
                 </Container>
             </div>

@@ -29,6 +29,17 @@ export const MODALITIES = [
 ] as const;
 export type Modality = (typeof MODALITIES)[number];
 
+export const MODALITY_TO_COLOUR: Record<Modality, string> = {
+    SEM: "#387780",
+    EDS: "#EC9F05",
+    EBSD: "#8EA604",
+    LAB_MICRO_XCT: "#253031",
+    NEUTRON_CT: "#888682ff",
+    XRD_CT: "#BF3100",
+    SYNCHOTRON_MICRO_XCT: "#D76A03",
+    SYNCHOTRON_NANO_XCT: "#F5BB00"
+};
+
 export type ScanDetails = {
     scanID: number;
     sampleID: number;

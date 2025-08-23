@@ -1,10 +1,23 @@
-import {useState, FC, useEffect} from "react";
+import {useState, FC, useEffect, useContext, ChangeEvent} from "react";
 import ReactSlider from "react-slider";
-import {Form, Card, InputGroup} from "react-bootstrap";
+import {Form, Card, InputGroup, Button, CloseButton} from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
-import {UNIT_TO_SCALE, UNITS, Units} from "../interfaces/types";
-import {parseStrAsNumber, renderResolutionText, renderUnit} from "../interfaces/helpers";
+import AppContext, {
+    MODALITIES,
+    Modality,
+    MODALITY_TO_COLOUR,
+    UNIT_TO_SCALE,
+    UNITS,
+    Units
+} from "../interfaces/types";
+import {
+    isModality,
+    parseStrAsNumber,
+    renderModality,
+    renderResolutionText,
+    renderUnit
+} from "../interfaces/helpers";
 import "../assets/scss/styles.css";
 
 // Numeric input with units dropdown component
@@ -170,5 +183,77 @@ export const LargeFilterCard: FC<LargeFilterCardProps> = ({title, children, styl
                 {children}
             </Card.Body>
         </Card>
+    );
+};
+
+export const ModalityCard = () => {
+    const {
+        selectedModalities: [selectedModalities, setSelectedModalities]
+    } = useContext(AppContext)!;
+
+    const [dropdownSelection, setDropdownSelection] = useState<Modality>("SEM");
+
+    const onDropdownChange = (x: ChangeEvent<HTMLSelectElement>) => {
+        const val = x.target.value;
+        if (isModality(val)) {
+            setDropdownSelection(val);
+        }
+    };
+
+    const onButtonClick = () => {
+        if (selectedModalities.includes(dropdownSelection)) {
+            return;
+        }
+
+        setSelectedModalities([...selectedModalities, dropdownSelection]);
+    };
+
+    return (
+        <LargeFilterCard title="Modality">
+            <div style={{display: "flex", flexDirection: "column", gap: 5}}>
+                <InputGroup>
+                    <select
+                        className="form-select"
+                        id="modality-dropdown"
+                        defaultValue="X-ray"
+                        onChange={(e) => onDropdownChange(e)}
+                    >
+                        {MODALITIES.map((v) => {
+                            return (
+                                <option value={v} key={v}>
+                                    {renderModality(v)}
+                                </option>
+                            );
+                        })}
+                    </select>
+                    <Button variant="outline-secondary" onClick={onButtonClick}>
+                        +
+                    </Button>
+                </InputGroup>
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        flexWrap: "wrap",
+                        overflowY: "scroll",
+                        gap: 2
+                    }}
+                >
+                    {selectedModalities.map((v, i) => {
+                        return (
+                            <span
+                                key={i}
+                                className="badge"
+                                style={{backgroundColor: MODALITY_TO_COLOUR[v], fontSize: "0.8em"}}
+                            >
+                                {renderModality(v)}
+                                &nbsp;&nbsp;
+                                <b>x</b>
+                            </span>
+                        );
+                    })}
+                </div>
+            </div>
+        </LargeFilterCard>
     );
 };

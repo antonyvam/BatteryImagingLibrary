@@ -8,7 +8,7 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({variant = "outline-secondary"}) => {
     const {
-        searchText: [searchText, setSearchText]
+        searchText: [, setSearchText]
     } = useContext(AppContext)!;
 
     const onSearchChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {

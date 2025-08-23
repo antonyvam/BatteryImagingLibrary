@@ -12,7 +12,7 @@ import data from "../assets/data.json";
 
 // Render a resolution value as 1x10^n if > 1,000 or < 0.001, else as normal string
 export function renderResolutionText(val: number, unit: Units = "NANO"): string {
-    const scaled = val * UNIT_TO_SCALE[unit] * val;
+    const scaled = val / UNIT_TO_SCALE[unit];
 
     if (scaled === 0 || isNaN(scaled)) return "0";
     if (Math.abs(scaled) >= 1000) {

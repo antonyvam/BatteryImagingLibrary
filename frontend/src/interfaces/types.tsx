@@ -7,6 +7,9 @@ export interface FoldProps {
     hero: boolean;
 }
 
+export const MAX_SIZE_NM = 1e9;
+export const MAX_SIZE_PX = 1e10;
+
 export const UNITS = ["NANO", "MICRON", "MILLI", "CENTI"] as const;
 export type Units = (typeof UNITS)[number];
 export const UNIT_TO_UNIT_STR: Record<Units, string> = {
@@ -15,7 +18,7 @@ export const UNIT_TO_UNIT_STR: Record<Units, string> = {
     MILLI: "mm",
     CENTI: "cm"
 };
-export const UNIT_TO_SCALE: Record<Units, number> = {NANO: 1, MICRON: 1e3, MILLI: 1e6, CENTI: 1e9};
+export const UNIT_TO_SCALE: Record<Units, number> = {NANO: 1, MICRON: 1e3, MILLI: 1e6, CENTI: 1e8};
 
 export const MODALITIES = [
     "SEM",

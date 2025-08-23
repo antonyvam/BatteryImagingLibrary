@@ -42,6 +42,9 @@ export const NumericInputOptionalDropdown: FC<NumericInputOptionalDropdown> = ({
             return UNITS.includes(val as Units);
         };
 
+        const SF = UNIT_TO_SCALE[newUnit] / UNIT_TO_SCALE[unit];
+        setValue(value * SF);
+
         if (isUnit(newUnit)) {
             setUnit(newUnit);
         }
@@ -49,7 +52,7 @@ export const NumericInputOptionalDropdown: FC<NumericInputOptionalDropdown> = ({
 
     // Only allow floats and scientific notation
     const handleChange = (val: string) => {
-        setValue(parseStrAsNumber(val));
+        setValue(parseStrAsNumber(val) / UNIT_TO_SCALE[unit]);
     };
     return (
         <InputGroup style={{width: "100%"}} size="sm">
@@ -91,7 +94,7 @@ export interface DoubleSliderProps {
 export const DoubleSlider: FC<DoubleSliderProps> = ({
     value,
     setValue,
-    min = 1,
+    min = 0,
     max = 9,
     step = 0.001,
     logarithmic = false,
@@ -249,11 +252,17 @@ export const ModalityCard = () => {
                             <span
                                 key={i}
                                 className="badge"
-                                style={{backgroundColor: MODALITY_TO_COLOUR[v], fontSize: "0.8em"}}
+                                style={{
+                                    backgroundColor: MODALITY_TO_COLOUR[v],
+                                    fontSize: "0.8em",
+                                    cursor: "default"
+                                }}
                             >
                                 {renderModality(v)}
                                 &nbsp;&nbsp;
-                                <b onClick={(_) => removeModality(v)}>x</b>
+                                <b onClick={(_) => removeModality(v)} style={{cursor: "pointer"}}>
+                                    x
+                                </b>
                             </span>
                         );
                     })}

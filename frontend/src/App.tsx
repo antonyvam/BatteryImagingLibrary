@@ -35,7 +35,6 @@ const App: React.FC = () => {
         resRange: [resRange],
         sizeRange: [sizeRange]
     } = useContext(AppContext)!;
-    console.log(scanData);
     return (
         <div className="app">
             <HeroFold searching={searching} />

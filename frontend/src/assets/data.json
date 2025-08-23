@@ -189,13 +189,35 @@
         }
     },
     {
-        "scanID": "",
-        "sampleID": "",
-        "sampleName": "",
-        "chemistry": "",
+        "scanID": 9,
+        "sampleID": 4,
+        "sampleName": "LCO Pintype",
+        "chemistry": "LCO",
+        "sampleDescription": "Lab micro-CT of an LCO pintype battery, used in Apple iPad pencils.",
+        "scanType": "CELL",
+        "scanModality": "LAB_MICRO_XCT",
+        "instrument": "Diondo D5",
+        "pixelSize_µm": [9, 9, 9],
+        "dataDimensions_px": [1000, 1000, 3000],
+        "dataDimensions_µm": [9000, 9000, 27000],
+        "thumbnailType": "3D",
+        "thumbnailName": ["9_xy.png", "9_xz.png", "9_yz.png"],
+        "scanParameters": {},
+        "zenodoLinks": {
+            "rawZenodoLinks": [""],
+            "processedZenodoLinks": [""],
+            "reconstructedZenodoLinks": [""],
+            "DOIs": ["BIL"]
+        }
+    },
+    {
+        "scanID": 10,
+        "sampleID": 5,
+        "sampleName": "AAAA alkaline",
+        "chemistry": "ZMO2",
         "sampleDescription": "",
-        "scanType": "",
-        "scanModality": "",
+        "scanType": "CELL",
+        "scanModality": "LAB_MICRO_XCT",
         "instrument": "",
         "pixelSize_µm": [],
         "dataDimensions_px": [],
@@ -207,7 +229,7 @@
             "rawZenodoLinks": [""],
             "processedZenodoLinks": [""],
             "reconstructedZenodoLinks": [""],
-            "DOIs": [""]
+            "DOIs": ["BIL"]
         }
     },
     {
@@ -229,7 +251,7 @@
             "rawZenodoLinks": [""],
             "processedZenodoLinks": [""],
             "reconstructedZenodoLinks": [""],
-            "DOIs": [""]
+            "DOIs": ["BIL"]
         }
     },
     {
@@ -251,7 +273,7 @@
             "rawZenodoLinks": [""],
             "processedZenodoLinks": [""],
             "reconstructedZenodoLinks": [""],
-            "DOIs": [""]
+            "DOIs": ["BIL"]
         }
     },
     {

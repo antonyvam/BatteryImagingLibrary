@@ -7,7 +7,9 @@
     - correct scale factors applied
     - even when switching
   - modality card:
+    - plus button next to dropdown that adds that tag
     - little tags that sit under card when added
+    - (reuse tag colours in search resuslt)
 - examples cards:
   - card per modality
   - on click, do search with that modality applied
@@ -18,16 +20,21 @@
       - scale down to fit aspect ratio
     - sample name
     - modality (as tag?)
+    - smallest pixel size in um as well
 - modal:
   - same carousel
+    - display full-res image
   - display full info
   - display link data
+  - display citation information + button to copy + little toast that says 'copied to clipboard'
 - script:
   - take directory of images:
     - resize down by a quarter, save into assets
     - save oriignal image into azure db; loaded on modal click
 - spreadsheet:
   - add cell geometry?
+  - add appscript to VC?
+- notebook rendering
 
 ## Old:
 

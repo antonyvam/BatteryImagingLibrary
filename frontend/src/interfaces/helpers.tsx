@@ -5,7 +5,8 @@ import {
     Units,
     ScanDetailsSchema,
     ScanDetails,
-    MODALITIES
+    MODALITIES,
+    Range
 } from "./types";
 import data from "../assets/data.json";
 
@@ -85,3 +86,18 @@ export function loadAndParseScanDetails(): ScanDetails[] {
         .map((v) => v.data);
     return res;
 }
+
+export const scanMatchesSearch = (
+    s: ScanDetails,
+    searchTerm: string,
+    resRange: Range,
+    sizeRange: Range,
+    selectedModalities: Modality[]
+): boolean => {
+    const searchMatches = true;
+    const resRangeMatches = true;
+    const sizeRangeMatches = true;
+    const modalityMatches =
+        selectedModalities.length == 0 || selectedModalities.includes(s.scanModality);
+    return searchMatches && resRangeMatches && sizeRangeMatches && modalityMatches;
+};

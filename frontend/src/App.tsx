@@ -8,6 +8,7 @@ import {Container, Row, Col} from "react-bootstrap";
 
 import "./assets/scss/App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {scanMatchesSearch} from "./interfaces/helpers";
 
 const exampleData = [
     {
@@ -28,7 +29,11 @@ const exampleData = [
 const App: React.FC = () => {
     const {
         searching: [searching],
-        scanData: [scanData]
+        scanData: [scanData],
+        searchText: [searchText],
+        selectedModalities: [selectedModalities],
+        resRange: [resRange],
+        sizeRange: [sizeRange]
     } = useContext(AppContext)!;
     console.log(scanData);
     return (
@@ -57,9 +62,19 @@ const App: React.FC = () => {
                             gap: 18
                         }}
                     >
-                        {scanData.map((v, i) => (
-                            <SearchCard scan={v} key={i} />
-                        ))}
+                        {scanData
+                            .filter((s) =>
+                                scanMatchesSearch(
+                                    s,
+                                    searchText,
+                                    resRange,
+                                    sizeRange,
+                                    selectedModalities
+                                )
+                            )
+                            .map((v, i) => (
+                                <SearchCard scan={v} key={i} />
+                            ))}
                     </div>
                 </Container>
             )}

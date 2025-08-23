@@ -208,6 +208,11 @@ export const ModalityCard = () => {
         setSelectedModalities([...selectedModalities, dropdownSelection]);
     };
 
+    const removeModality = (x: Modality) => {
+        const newModalities = selectedModalities.filter((v) => v != x);
+        setSelectedModalities(newModalities);
+    };
+
     return (
         <LargeFilterCard title="Modality">
             <div style={{display: "flex", flexDirection: "column", gap: 5}}>
@@ -248,7 +253,7 @@ export const ModalityCard = () => {
                             >
                                 {renderModality(v)}
                                 &nbsp;&nbsp;
-                                <b>x</b>
+                                <b onClick={(_) => removeModality(v)}>x</b>
                             </span>
                         );
                     })}

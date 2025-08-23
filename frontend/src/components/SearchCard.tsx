@@ -1,6 +1,6 @@
 import {useState, useRef, useEffect, FC} from "react";
-import type {ScanDetails} from "../interfaces/types";
-import {renderDataDims, renderModality} from "../interfaces/helpers";
+import {MODALITY_TO_COLOUR, type ScanDetails} from "../interfaces/types";
+import {renderDataDims, renderModality, renderSmallestPixelSize} from "../interfaces/helpers";
 
 interface SearchCardProps {
     scan: ScanDetails;
@@ -13,6 +13,7 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
 
     const {thumbnailName, thumbnailType, sampleName, scanModality} = scan;
     const dataDims = scan.dataDimensions_px;
+    const pixelSize = scan.pixelSize_µm;
     const images = thumbnailName.map((name) => `/assets/imgs/${scan.scanID}/${name}`);
 
     // Adjust image style for best fit and aspect ratio
@@ -145,17 +146,15 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
                         gap: 5
                     }}
                 >
-                    <div
+                    <span
+                        className="badge"
                         style={{
-                            fontSize: 14,
-                            color: "#555",
-                            background: "#e3eaff",
-                            padding: "2px 10px",
-                            borderRadius: 4
+                            backgroundColor: MODALITY_TO_COLOUR[scanModality],
+                            fontSize: "0.9em"
                         }}
                     >
                         {renderModality(scanModality)}
-                    </div>
+                    </span>
                     <div
                         style={{
                             fontSize: 14,
@@ -166,6 +165,17 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
                         }}
                     >
                         {renderDataDims(dataDims)}
+                    </div>
+                    <div
+                        style={{
+                            fontSize: 14,
+                            color: "#555",
+                            background: "#e3eaff",
+                            padding: "2px 10px",
+                            borderRadius: 4
+                        }}
+                    >
+                        {renderSmallestPixelSize(pixelSize)}
                     </div>
                 </div>
             </div>

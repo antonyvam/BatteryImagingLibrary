@@ -62,6 +62,20 @@ export const renderUnit = (x: Units) => {
     return UNIT_TO_UNIT_STR[x];
 };
 
+export const renderDataDims = (dims: (string | number)[]) => {
+    const noStr = dims.filter((v) => typeof v == "number");
+    return noStr.join("x");
+};
+
+export const renderSmallestPixelSize = (dims: (string | number)[]) => {
+    const noStr = dims.filter((v) => typeof v == "number");
+    return Math.min(...noStr).toString() + renderUnit("MICRON");
+};
+
+export const isModality = (x: any): x is Modality => {
+    return MODALITIES.includes(x);
+};
+
 export function loadAndParseScanDetails(): ScanDetails[] {
     const res = data
         .map((item) => {
@@ -71,12 +85,3 @@ export function loadAndParseScanDetails(): ScanDetails[] {
         .map((v) => v.data);
     return res;
 }
-
-export const renderDataDims = (dims: (string | number)[]) => {
-    const noStr = dims.filter((v) => typeof v == "number");
-    return noStr.join("x");
-};
-
-export const isModality = (x: any): x is Modality => {
-    return MODALITIES.includes(x);
-};

@@ -8,6 +8,26 @@ interface SearchCardProps {
     scan: ScanDetails;
 }
 
+// Abstracted badge component
+import type {Modality} from "../interfaces/types";
+export const ModalityBadge: FC<{modality: Modality}> = ({modality}) => (
+    <span
+        style={{
+            backgroundColor: MODALITY_TO_COLOUR[modality],
+            color: "#fff",
+            fontWeight: 600,
+            fontSize: "0.9em",
+            borderRadius: 8,
+            padding: "2px 10px",
+            display: "inline-block",
+            minWidth: 60,
+            textAlign: "center"
+        }}
+    >
+        {renderModality(modality)}
+    </span>
+);
+
 const SearchCard: FC<SearchCardProps> = ({scan}) => {
     const {thumbnailName, sampleName, scanModality, scanID} = scan;
     const dataDims = scan.dataDimensions_px;
@@ -59,15 +79,7 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
                         gap: 5
                     }}
                 >
-                    <span
-                        className="badge"
-                        style={{
-                            backgroundColor: MODALITY_TO_COLOUR[scanModality],
-                            fontSize: "0.9em"
-                        }}
-                    >
-                        {renderModality(scanModality)}
-                    </span>
+                    <ModalityBadge modality={scanModality} />
                     <div
                         style={{
                             fontSize: 14,

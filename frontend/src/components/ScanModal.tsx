@@ -1,8 +1,9 @@
 import React, {useState} from "react";
-import {Modal, Button, Badge, Collapse, Table} from "react-bootstrap";
+import {Modal, Button, Accordion, Table, Form} from "react-bootstrap";
 import ChannelCarousel from "./ChannelCarousel";
-import {MODALITY_TO_COLOUR, ScanDetails} from "../interfaces/types";
+import {ScanDetails} from "../interfaces/types";
 import {renderModality, renderSmallestPixelSize, renderDataDims} from "../interfaces/helpers";
+import {ModalityBadge} from "./SearchCard";
 
 interface ScanModalProps {
     show: boolean;
@@ -11,19 +12,36 @@ interface ScanModalProps {
 }
 
 const ScanModal: React.FC<ScanModalProps> = ({show, scan, onClose}) => {
-    const [paramsOpen, setParamsOpen] = useState(false);
+    // Modal centering and responsive width
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    React.useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     // Prepare scanParameters as array of [key, value] pairs, two per row
-    const paramRows = Object.entries(scan.scanParameters).reduce<[Array<[string, any]>]>(
-        (rows, entry, idx, arr) => {
-            if (idx % 2 === 0) rows.push(arr.slice(idx, idx + 2));
-            return rows;
-        },
-        [[]]
-    );
+    const paramEntries: [string, string][] = Object.entries(scan.scanParameters || {});
+    const paramRows: [string, string][][] = [];
+    for (let i = 0; i < paramEntries.length; i += 2) {
+        paramRows.push(paramEntries.slice(i, i + 2));
+    }
+    const {rawZenodoLinks, processedZenodoLinks, reconstructedZenodoLinks, DOIs} = scan.zenodoLinks;
 
-    // Zenodo links
-    const {rawZenodoLinks, processedZenodoLinks, reconstructedZenodoLinks} = scan.zenodoLinks;
+    // Responsive flex for Zenodo links
+    const zenodoFlex: React.CSSProperties =
+        windowWidth > 700
+            ? {display: "flex", flexDirection: "row" as const, gap: 32}
+            : {display: "flex", flexDirection: "column" as const, gap: 18};
+
+    // Center modal with custom style
+    const modalStyle = {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: "100vh",
+        margin: 0
+    };
 
     return (
         <Modal
@@ -32,7 +50,7 @@ const ScanModal: React.FC<ScanModalProps> = ({show, scan, onClose}) => {
             size="xl"
             centered
             dialogClassName="scan-modal-wide"
-            style={{maxWidth: "90vw"}}
+            style={modalStyle}
         >
             <Modal.Header closeButton>
                 <Modal.Title style={{fontWeight: 700, fontSize: 28}}>{scan.sampleName}</Modal.Title>
@@ -54,17 +72,11 @@ const ScanModal: React.FC<ScanModalProps> = ({show, scan, onClose}) => {
                             flexDirection: "row",
                             alignItems: "center",
                             gap: 16,
-                            marginTop: 8
+                            marginTop: 8,
+                            justifyContent: "center"
                         }}
                     >
-                        <Badge
-                            style={{
-                                backgroundColor: MODALITY_TO_COLOUR[scan.scanModality],
-                                fontSize: "1em"
-                            }}
-                        >
-                            {renderModality(scan.scanModality)}
-                        </Badge>
+                        <ModalityBadge modality={scan.scanModality} />
                         <div
                             style={{
                                 fontSize: 16,
@@ -102,19 +114,11 @@ const ScanModal: React.FC<ScanModalProps> = ({show, scan, onClose}) => {
                         {scan.sampleDescription}
                     </div>
 
-                    {/* Collapsible Scan Parameters */}
-                    <div>
-                        <Button
-                            variant="outline-secondary"
-                            onClick={() => setParamsOpen(!paramsOpen)}
-                            aria-controls="scan-params-collapse"
-                            aria-expanded={paramsOpen}
-                            size="sm"
-                        >
-                            {paramsOpen ? "Hide" : "Show"} Scan Parameters
-                        </Button>
-                        <Collapse in={paramsOpen}>
-                            <div id="scan-params-collapse" style={{marginTop: 12}}>
+                    {/* Accordion for Scan Parameters and Zenodo Links */}
+                    <Accordion defaultActiveKey="1" alwaysOpen>
+                        <Accordion.Item eventKey="0">
+                            <Accordion.Header>Scan Parameters</Accordion.Header>
+                            <Accordion.Body>
                                 <Table bordered size="sm">
                                     <tbody>
                                         {paramRows.map((row, idx) => (
@@ -137,74 +141,102 @@ const ScanModal: React.FC<ScanModalProps> = ({show, scan, onClose}) => {
                                         ))}
                                     </tbody>
                                 </Table>
-                            </div>
-                        </Collapse>
-                    </div>
-
-                    {/* Zenodo Links */}
-                    <div>
-                        <h5>Zenodo Links</h5>
-                        <div style={{display: "flex", flexDirection: "row", gap: 32}}>
-                            {rawZenodoLinks && rawZenodoLinks.length > 0 && (
-                                <div>
-                                    <div style={{fontWeight: 600}}>Raw</div>
-                                    <ul>
-                                        {rawZenodoLinks.map((url, i) => (
-                                            <li key={i}>
-                                                <a
-                                                    href={url}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                >
-                                                    {url}
-                                                </a>
-                                            </li>
-                                        ))}
-                                    </ul>
+                            </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="1">
+                            <Accordion.Header>Zenodo Links</Accordion.Header>
+                            <Accordion.Body>
+                                <div style={zenodoFlex}>
+                                    {rawZenodoLinks && rawZenodoLinks.length > 0 && (
+                                        <div>
+                                            <div style={{fontWeight: 600}}>Raw</div>
+                                            <ul>
+                                                {rawZenodoLinks.map((url, i) => (
+                                                    <li key={i}>
+                                                        <a
+                                                            href={url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                        >
+                                                            {url}
+                                                        </a>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
+                                    {processedZenodoLinks && processedZenodoLinks.length > 0 && (
+                                        <div>
+                                            <div style={{fontWeight: 600}}>Processed</div>
+                                            <ul>
+                                                {processedZenodoLinks.map((url, i) => (
+                                                    <li key={i}>
+                                                        <a
+                                                            href={url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                        >
+                                                            {url}
+                                                        </a>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
+                                    {reconstructedZenodoLinks &&
+                                        reconstructedZenodoLinks.length > 0 && (
+                                            <div>
+                                                <div style={{fontWeight: 600}}>Reconstructed</div>
+                                                <ul>
+                                                    {reconstructedZenodoLinks.map((url, i) => (
+                                                        <li key={i}>
+                                                            <a
+                                                                href={url}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                            >
+                                                                {url}
+                                                            </a>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        )}
                                 </div>
-                            )}
-                            {processedZenodoLinks && processedZenodoLinks.length > 0 && (
-                                <div>
-                                    <div style={{fontWeight: 600}}>Processed</div>
-                                    <ul>
-                                        {processedZenodoLinks.map((url, i) => (
-                                            <li key={i}>
-                                                <a
-                                                    href={url}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                >
-                                                    {url}
-                                                </a>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            )}
-                            {reconstructedZenodoLinks && reconstructedZenodoLinks.length > 0 && (
-                                <div>
-                                    <div style={{fontWeight: 600}}>Reconstructed</div>
-                                    <ul>
-                                        {reconstructedZenodoLinks.map((url, i) => (
-                                            <li key={i}>
-                                                <a
-                                                    href={url}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                >
-                                                    {url}
-                                                </a>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            )}
-                        </div>
-                    </div>
+                            </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="2">
+                            <Accordion.Header>DOIs</Accordion.Header>
+                            <Accordion.Body>
+                                {DOIs && DOIs.length > 0 ? (
+                                    DOIs.map((doi, idx) => (
+                                        <Form.Group
+                                            controlId={`formDOI${idx}`}
+                                            className="mb-3"
+                                            key={doi}
+                                        >
+                                            <Form.Label>{doi}</Form.Label>
+                                            <Button
+                                                variant="outline-primary"
+                                                size="sm"
+                                                style={{marginLeft: 8}}
+                                                onClick={() => {
+                                                    navigator.clipboard.writeText(doi);
+                                                }}
+                                            >
+                                                Copy
+                                            </Button>
+                                        </Form.Group>
+                                    ))
+                                ) : (
+                                    <div>No DOIs available.</div>
+                                )}
+                            </Accordion.Body>
+                        </Accordion.Item>
+                    </Accordion>
                 </div>
             </Modal.Body>
         </Modal>
     );
 };
-
 export default ScanModal;

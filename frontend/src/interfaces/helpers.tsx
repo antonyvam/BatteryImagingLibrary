@@ -68,9 +68,21 @@ export const renderDataDims = (dims: (string | number)[]) => {
     return noStr.join("x");
 };
 
-export const renderSmallestPixelSize = (dims: (string | number)[]) => {
+export const getSmallestFromDims = (dims: (string | number)[]) => {
     const noStr = dims.filter((v) => typeof v == "number");
-    return Math.min(...noStr).toString() + renderUnit("MICRON");
+    return Math.min(...noStr);
+};
+
+export const getNVoxels = (dims: (string | number)[]) => {
+    const noStr = dims.filter((v) => typeof v == "number");
+    if (noStr.length == 0) {
+        return Infinity;
+    }
+    return noStr.reduce((p, v) => p * v);
+};
+
+export const renderSmallestPixelSize = (dims: (string | number)[]) => {
+    return getSmallestFromDims(dims).toString() + renderUnit("MICRON");
 };
 
 export const isModality = (x: any): x is Modality => {
@@ -151,8 +163,12 @@ export const scanMatchesSearch = (
     selectedModalities: Modality[]
 ): boolean => {
     const searchMatches = regexSearch(searchTerm.split(" "), s);
-    const resRangeMatches = true;
-    const sizeRangeMatches = true;
+
+    const scanResNM = getSmallestFromDims(s.pixelSize_µm) * 1e3;
+    const resRangeMatches = resRange.lower < scanResNM && scanResNM < resRange.upper;
+
+    const nVoxels = getNVoxels(s.dataDimensions_px);
+    const sizeRangeMatches = sizeRange.lower < nVoxels && nVoxels < sizeRange.upper;
     const modalityMatches =
         selectedModalities.length == 0 || selectedModalities.includes(s.scanModality);
     return searchMatches && resRangeMatches && sizeRangeMatches && modalityMatches;

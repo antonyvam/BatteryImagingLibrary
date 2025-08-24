@@ -3,7 +3,7 @@ import Fold from "./Fold";
 import {LargeFilterCard, DoubleSlider, ModalityCard} from "./LargeFilterCard";
 import SearchBar from "./SearchBar";
 import {Container, Row, Col, Button} from "react-bootstrap";
-import AppContext from "../interfaces/types";
+import AppContext, {MAX_SIZE_NM, MAX_SIZE_PX} from "../interfaces/types";
 
 import "../assets/scss/styles.css";
 
@@ -113,12 +113,18 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                                     setValue={setResRange}
                                     addDropdown={true}
                                     logarithmic={true}
+                                    max={Math.log10(MAX_SIZE_NM)}
                                 />
                             </div>
                         </LargeFilterCard>
                         <LargeFilterCard title="Image Size">
                             <div>
-                                <DoubleSlider value={sizeRange} setValue={setSizeRange} />
+                                <DoubleSlider
+                                    value={sizeRange}
+                                    setValue={setSizeRange}
+                                    logarithmic={true}
+                                    max={Math.log10(MAX_SIZE_PX)}
+                                />
                             </div>
                         </LargeFilterCard>
                         <ModalityCard />

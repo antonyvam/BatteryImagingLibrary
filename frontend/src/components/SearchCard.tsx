@@ -14,7 +14,7 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
     const {thumbnailName, thumbnailType, sampleName, scanModality} = scan;
     const dataDims = scan.dataDimensions_px;
     const pixelSize = scan.pixelSize_µm;
-    const images = thumbnailName.map((name) => `/assets/imgs/${scan.scanID}/${name}`);
+    const images = thumbnailName.map((name) => `/assets/imgs/thumbnail/${scan.scanID}/${name}`);
 
     // Adjust image style for best fit and aspect ratio
     useEffect(() => {

@@ -169,5 +169,7 @@ frontend/.cache/
 frontend/.idea/
 frontend/package-lock.json
 frontend/src/assets
+imgs_to_process/
 
 old/
+.vscode

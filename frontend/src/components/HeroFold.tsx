@@ -100,10 +100,9 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                     <Row
                         className="mb-4"
                         style={{
-                            gap: 16,
+                            gap: 14,
                             display: "flex",
-                            justifyContent: "space-evenly",
-                            flexWrap: "nowrap"
+                            justifyContent: "space-evenly"
                         }}
                     >
                         <LargeFilterCard title="Resolution">

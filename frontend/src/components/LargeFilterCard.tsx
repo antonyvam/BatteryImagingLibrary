@@ -174,17 +174,68 @@ export interface LargeFilterCardProps {
     children: React.ReactNode;
     onChange?: (value: any) => void;
     style?: React.CSSProperties;
+    defaultCollapsed?: boolean;
 }
 
+// Utility to detect mobile
+const isMobile = () => typeof window !== "undefined" && window.innerWidth <= 768;
+
 export const LargeFilterCard: FC<LargeFilterCardProps> = ({title, children, style}) => {
+    const defaultCollapsed = isMobile();
+    const [collapsed, setCollapsed] = useState<boolean>(defaultCollapsed);
+
+    // Update collapsed state on resize (collapse on mobile by default)
+    useEffect(() => {
+        const handleResize = () => {
+            if (defaultCollapsed === undefined) {
+                setCollapsed(isMobile());
+            }
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, [defaultCollapsed]);
+
     return (
         <Card
-            className="mb-3 p-2 shadow-sm"
-            style={{minWidth: 0, maxWidth: 340, width: "100%", ...style}}
+            className="mb-3 p-2 shadow-sm large-filter-card"
+            style={{minWidth: 0, maxWidth: 340, width: "100%", ...style, height: "100%"}}
         >
-            <Card.Body>
-                <Card.Title className="mb-3">{title}</Card.Title>
-                {children}
+            <Card.Body style={{display: "flex", flexDirection: "column", height: "100%"}}>
+                <Card.Title className="mb-3" style={{marginBottom: 0}}>
+                    <div
+                        style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between"
+                        }}
+                    >
+                        {title}
+                        {defaultCollapsed && (
+                            <Button
+                                variant="ghost"
+                                size="sm"
+                                aria-label={collapsed ? "Expand" : "Collapse"}
+                                style={{marginLeft: 8, minWidth: 32, padding: 6, lineHeight: 1}}
+                                onClick={() => setCollapsed((c) => !c)}
+                            >
+                                {collapsed ? "▼" : "▲"}
+                            </Button>
+                        )}
+                    </div>
+                </Card.Title>
+
+                {!collapsed && (
+                    <div
+                        style={{
+                            flex: 1,
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "flex-start"
+                        }}
+                    >
+                        {children}
+                    </div>
+                )}
             </Card.Body>
         </Card>
     );

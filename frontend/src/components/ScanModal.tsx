@@ -77,7 +77,13 @@ const ScanModal: React.FC<ScanModalProps> = ({show, scan, onClose}) => {
                             justifyContent: "center"
                         }}
                     >
-                        <ModalityBadge modality={scan.scanModality} />
+                        <ModalityBadge
+                            modality={scan.scanModality}
+                            canClose={false}
+                            onClick={() => {
+                                /**/
+                            }}
+                        />
                         <div
                             style={{
                                 fontSize: 16,

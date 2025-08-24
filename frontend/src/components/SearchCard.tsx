@@ -1,5 +1,6 @@
 import {FC} from "react";
 import {MODALITY_TO_COLOUR, type ScanDetails} from "../interfaces/types";
+import type {Modality} from "../interfaces/types";
 import {renderDataDims, renderModality, renderSmallestPixelSize} from "../interfaces/helpers";
 
 import ChannelCarousel from "./ChannelCarousel";
@@ -9,22 +10,30 @@ interface SearchCardProps {
 }
 
 // Abstracted badge component
-import type {Modality} from "../interfaces/types";
-export const ModalityBadge: FC<{modality: Modality}> = ({modality}) => (
+export const ModalityBadge: FC<{
+    modality: Modality;
+    canClose: boolean;
+    onClick: (e: Modality) => void;
+}> = ({modality, canClose = false, onClick}) => (
     <span
+        className="badge"
         style={{
             backgroundColor: MODALITY_TO_COLOUR[modality],
             color: "#fff",
             fontWeight: 600,
-            fontSize: "0.9em",
-            borderRadius: 8,
-            padding: "2px 10px",
-            display: "inline-block",
-            minWidth: 60,
+            fontSize: "0.8em",
             textAlign: "center"
         }}
     >
         {renderModality(modality)}
+        {canClose && (
+            <>
+                &nbsp;&nbsp;
+                <b onClick={(_) => onClick(modality)} style={{cursor: "pointer"}}>
+                    x
+                </b>
+            </>
+        )}
     </span>
 );
 
@@ -79,7 +88,13 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
                         gap: 5
                     }}
                 >
-                    <ModalityBadge modality={scanModality} />
+                    <ModalityBadge
+                        modality={scanModality}
+                        canClose={false}
+                        onClick={() => {
+                            /**/
+                        }}
+                    />
                     <div
                         style={{
                             fontSize: 14,

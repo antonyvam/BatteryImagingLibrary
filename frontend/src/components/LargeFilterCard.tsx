@@ -19,6 +19,7 @@ import {
     renderUnit
 } from "../interfaces/helpers";
 import "../assets/scss/styles.css";
+import {ModalityBadge} from "./SearchCard";
 
 // Numeric input with units dropdown component
 interface NumericInputOptionalDropdown {
@@ -249,21 +250,7 @@ export const ModalityCard = () => {
                 >
                     {selectedModalities.map((v, i) => {
                         return (
-                            <span
-                                key={i}
-                                className="badge"
-                                style={{
-                                    backgroundColor: MODALITY_TO_COLOUR[v],
-                                    fontSize: "0.8em",
-                                    cursor: "default"
-                                }}
-                            >
-                                {renderModality(v)}
-                                &nbsp;&nbsp;
-                                <b onClick={(_) => removeModality(v)} style={{cursor: "pointer"}}>
-                                    x
-                                </b>
-                            </span>
+                            <ModalityBadge modality={v} canClose={true} onClick={removeModality} />
                         );
                     })}
                 </div>

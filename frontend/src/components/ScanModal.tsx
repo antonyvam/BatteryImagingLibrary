@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {isArrayEmpty} from "../interfaces/helpers";
 import {Modal, Button, Accordion, Table, Form} from "react-bootstrap";
 import ChannelCarousel from "./ChannelCarousel";
 import {ScanDetails} from "../interfaces/types";
@@ -147,7 +148,7 @@ const ScanModal: React.FC<ScanModalProps> = ({show, scan, onClose}) => {
                             <Accordion.Header>Zenodo Links</Accordion.Header>
                             <Accordion.Body>
                                 <div style={zenodoFlex}>
-                                    {rawZenodoLinks && rawZenodoLinks.length > 0 && (
+                                    {!isArrayEmpty(rawZenodoLinks) && (
                                         <div>
                                             <div style={{fontWeight: 600}}>Raw</div>
                                             <ul>
@@ -165,7 +166,7 @@ const ScanModal: React.FC<ScanModalProps> = ({show, scan, onClose}) => {
                                             </ul>
                                         </div>
                                     )}
-                                    {processedZenodoLinks && processedZenodoLinks.length > 0 && (
+                                    {!isArrayEmpty(processedZenodoLinks) && (
                                         <div>
                                             <div style={{fontWeight: 600}}>Processed</div>
                                             <ul>
@@ -183,25 +184,24 @@ const ScanModal: React.FC<ScanModalProps> = ({show, scan, onClose}) => {
                                             </ul>
                                         </div>
                                     )}
-                                    {reconstructedZenodoLinks &&
-                                        reconstructedZenodoLinks.length > 0 && (
-                                            <div>
-                                                <div style={{fontWeight: 600}}>Reconstructed</div>
-                                                <ul>
-                                                    {reconstructedZenodoLinks.map((url, i) => (
-                                                        <li key={i}>
-                                                            <a
-                                                                href={url}
-                                                                target="_blank"
-                                                                rel="noopener noreferrer"
-                                                            >
-                                                                {url}
-                                                            </a>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        )}
+                                    {!isArrayEmpty(reconstructedZenodoLinks) && (
+                                        <div>
+                                            <div style={{fontWeight: 600}}>Reconstructed</div>
+                                            <ul>
+                                                {reconstructedZenodoLinks.map((url, i) => (
+                                                    <li key={i}>
+                                                        <a
+                                                            href={url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                        >
+                                                            {url}
+                                                        </a>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
                                 </div>
                             </Accordion.Body>
                         </Accordion.Item>

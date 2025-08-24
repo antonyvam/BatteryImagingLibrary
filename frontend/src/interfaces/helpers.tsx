@@ -89,6 +89,14 @@ export const isModality = (x: any): x is Modality => {
     return MODALITIES.includes(x);
 };
 
+// Generic function to check if an array is empty or all elements are empty/undefined/null
+export const isArrayEmpty = (arr: any[] | undefined | null): boolean => {
+    if (!arr || arr.length === 0) return true;
+    return arr.every(
+        (el) => el === null || el === undefined || (typeof el === "string" && el.trim() === "")
+    );
+};
+
 export function loadAndParseScanDetails(): ScanDetails[] {
     const res = data
         .map((item) => {

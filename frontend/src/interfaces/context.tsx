@@ -12,6 +12,7 @@ const AppContextProvider = (props: {
     const [searchText, setSearchText] = useState<string>("");
     const [searching, setSearching] = useState<boolean>(true);
     const [scanData, setScanData] = useState<ScanDetails[]>(loadAndParseScanDetails());
+    const [selectedScan, setSelectedScan] = useState<ScanDetails | null>(null);
     return (
         <AppContext.Provider
             value={{
@@ -20,7 +21,8 @@ const AppContextProvider = (props: {
                 selectedModalities: [selectedModalities, setSelectedModalities],
                 searchText: [searchText, setSearchText],
                 searching: [searching, setSearching],
-                scanData: [scanData, setScanData]
+                scanData: [scanData, setScanData],
+                selectedScan: [selectedScan, setSelectedScan]
             }}
         >
             {props.children}

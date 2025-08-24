@@ -1,5 +1,6 @@
 import React, {useContext} from "react";
 import AppContext from "./interfaces/types";
+import ScanModal from "./components/ScanModal";
 
 import HeroFold from "./components/HeroFold";
 import ExampleCard from "./components/ExampleCard";
@@ -33,8 +34,10 @@ const App: React.FC = () => {
         searchText: [searchText],
         selectedModalities: [selectedModalities],
         resRange: [resRange],
-        sizeRange: [sizeRange]
+        sizeRange: [sizeRange],
+        selectedScan: [selectedScan, setSelectedScan]
     } = useContext(AppContext)!;
+
     return (
         <div className="app">
             <HeroFold searching={searching} />
@@ -72,10 +75,24 @@ const App: React.FC = () => {
                                 )
                             )
                             .map((v, i) => (
-                                <SearchCard scan={v} key={i} />
+                                <div
+                                    key={i}
+                                    onClick={() => setSelectedScan(v)}
+                                    style={{cursor: "pointer"}}
+                                >
+                                    <SearchCard scan={v} />
+                                </div>
                             ))}
                     </div>
                 </Container>
+            )}
+            {/* Scan Modal */}
+            {selectedScan && (
+                <ScanModal
+                    show={selectedScan !== null}
+                    scan={selectedScan}
+                    onClose={() => setSelectedScan(null)}
+                />
             )}
         </div>
     );

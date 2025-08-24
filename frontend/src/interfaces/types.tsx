@@ -101,6 +101,10 @@ export interface contextProps {
     searchText: [searchText: string, setSearchText: (e: string) => void];
     searching: [searching: boolean, setSearching: (e: boolean) => void];
     scanData: [scanData: ScanDetails[], setScanData: (e: ScanDetails[]) => void];
+    selectedScan: [
+        selectedScan: ScanDetails | null,
+        setSelectedScan: (e: ScanDetails | null) => void
+    ];
 }
 
 const AppContext = createContext<contextProps | null>(null);

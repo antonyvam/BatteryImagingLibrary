@@ -8,6 +8,7 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({variant = "outline-secondary"}) => {
     const {
+        searching: [, setSearching],
         searchText: [, setSearchText]
     } = useContext(AppContext)!;
 
@@ -15,6 +16,10 @@ const SearchBar: React.FC<SearchBarProps> = ({variant = "outline-secondary"}) =>
         const value = e.currentTarget.value;
         setSearchText(value);
         // console.log(value);
+    };
+
+    const onSearchPress = () => {
+        setSearching(true);
     };
 
     return (
@@ -34,7 +39,9 @@ const SearchBar: React.FC<SearchBarProps> = ({variant = "outline-secondary"}) =>
                 <Dropdown.Item eventKey="2">Image Size</Dropdown.Item>
                 <Dropdown.Item eventKey="3">Signal/Noise</Dropdown.Item>
             </DropdownButton> */}
-            <Button variant={variant}>Search</Button>
+            <Button variant={variant} onClick={onSearchPress}>
+                Search
+            </Button>
         </InputGroup>
     );
 };

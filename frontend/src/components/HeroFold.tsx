@@ -17,7 +17,8 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
 
     const {
         resRange: [resRange, setResRange],
-        sizeRange: [sizeRange, setSizeRange]
+        sizeRange: [sizeRange, setSizeRange],
+        selectedScan: [selectedScan]
     } = useContext(AppContext)!;
 
     useEffect(() => {
@@ -36,7 +37,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
         updateDims();
         window.addEventListener("resize", updateDims);
         return () => window.removeEventListener("resize", updateDims);
-    }, []);
+    }, [searching, selectedScan]);
 
     return (
         <Fold bgColour="#35383d" hero={false}>

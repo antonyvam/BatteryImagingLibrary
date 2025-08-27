@@ -46,6 +46,12 @@ export const MODALITY_TO_COLOUR: Record<Modality, string> = {
     SYNCHOTRON_NANO_XCT: "#ff0000ff"
 };
 
+export interface ExampleCardData {
+    modality: Modality;
+    text: string;
+    img_path: string;
+}
+
 export type ScanDetails = {
     scanID: number;
     sampleID: number;

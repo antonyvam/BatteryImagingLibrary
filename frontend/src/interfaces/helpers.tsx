@@ -181,3 +181,6 @@ export const scanMatchesSearch = (
         selectedModalities.length == 0 || selectedModalities.includes(s.scanModality);
     return searchMatches && resRangeMatches && sizeRangeMatches && modalityMatches;
 };
+
+// TODO:
+// - modality + scan sample diversity sort function

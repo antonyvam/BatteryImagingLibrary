@@ -10,7 +10,7 @@ const AppContextProvider = (props: {
     const [sizeRange, setSizeRange] = useState<Range>({lower: 0, upper: MAX_SIZE_PX});
     const [selectedModalities, setSelectedModalities] = useState<Modality[]>([]);
     const [searchText, setSearchText] = useState<string>("");
-    const [searching, setSearching] = useState<boolean>(true);
+    const [searching, setSearching] = useState<boolean>(false);
     const [scanData, setScanData] = useState<ScanDetails[]>(loadAndParseScanDetails());
     const [selectedScan, setSelectedScan] = useState<ScanDetails | null>(null);
     return (

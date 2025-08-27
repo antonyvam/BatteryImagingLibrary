@@ -24,7 +24,7 @@ const SearchBar: React.FC<SearchBarProps> = ({variant = "outline-secondary"}) =>
                 aria-label="Search"
                 onChange={onSearchChange}
             />
-            <DropdownButton
+            {/* <DropdownButton
                 variant={variant}
                 title="Filters"
                 id="input-group-dropdown-2"
@@ -33,7 +33,7 @@ const SearchBar: React.FC<SearchBarProps> = ({variant = "outline-secondary"}) =>
                 <Dropdown.Item eventKey="1">Resolution</Dropdown.Item>
                 <Dropdown.Item eventKey="2">Image Size</Dropdown.Item>
                 <Dropdown.Item eventKey="3">Signal/Noise</Dropdown.Item>
-            </DropdownButton>
+            </DropdownButton> */}
             <Button variant={variant}>Search</Button>
         </InputGroup>
     );

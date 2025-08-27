@@ -213,6 +213,35 @@
     {
         "scanID": 10,
         "sampleID": 5,
+        "sampleName": "Pristine NMC532",
+        "chemistry": "NMC532",
+        "sampleDescription": "XRD-CT of discharged pristine NMC532 ",
+        "scanType": "CELL",
+        "scanModality": "XRD_CT",
+        "instrument": "DESY",
+        "pixelSize_µm": [9, 9],
+        "dataDimensions_px": [1259, 1259, "H6"],
+        "dataDimensions_µm": [11331, 11331],
+        "thumbnailType": "6H",
+        "thumbnailName": [
+            "10_1H.png",
+            "10_2H.png",
+            "10_3H.png",
+            "10_4H.png",
+            "10_5H.png",
+            "10_6H.png"
+        ],
+        "scanParameters": {},
+        "zenodoLinks": {
+            "rawZenodoLinks": [""],
+            "processedZenodoLinks": [""],
+            "reconstructedZenodoLinks": [""],
+            "DOIs": [""]
+        }
+    },
+    {
+        "scanID": 11,
+        "sampleID": 5,
         "sampleName": "AAAA alkaline",
         "chemistry": "ZMO2",
         "sampleDescription": "",
@@ -277,7 +306,7 @@
         }
     },
     {
-        "scanID": 6,
+        "scanID": 14,
         "sampleID": 4,
         "sampleName": "NCA",
         "chemistry": "",
@@ -289,7 +318,7 @@
         "dataDimensions_px": [400, 400, "H2000"],
         "dataDimensions_µm": [],
         "thumbnailType": "4H",
-        "thumbnailName": ["6_1H.png", "6_2H.png", "6_3H.png", "6_4H.png"],
+        "thumbnailName": ["14_1H.png", "14_2H.png", "14_3H.png", "14_4H.png"],
         "scanParameters": {},
         "zenodoLinks": {
             "rawZenodoLinks": [""],
@@ -299,7 +328,7 @@
         }
     },
     {
-        "scanID": 7,
+        "scanID": 15,
         "sampleID": 5,
         "sampleName": "NMC532",
         "chemistry": "",
@@ -311,7 +340,7 @@
         "dataDimensions_px": [],
         "dataDimensions_µm": [],
         "thumbnailType": "3H",
-        "thumbnailName": ["7_1H.png", "7_2H.png", "7_3H.png"],
+        "thumbnailName": ["15_1H.png", "15_2H.png", "15_3H.png"],
         "scanParameters": {},
         "zenodoLinks": {
             "rawZenodoLinks": [""],

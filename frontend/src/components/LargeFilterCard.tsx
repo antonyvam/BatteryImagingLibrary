@@ -4,6 +4,7 @@ import {Form, Card, InputGroup, Button, CloseButton} from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import AppContext, {
+    isMobile,
     MODALITIES,
     Modality,
     MODALITY_TO_COLOUR,
@@ -177,9 +178,6 @@ export interface LargeFilterCardProps {
     defaultCollapsed?: boolean;
 }
 
-// Utility to detect mobile
-const isMobile = () => typeof window !== "undefined" && window.innerWidth <= 768;
-
 export const LargeFilterCard: FC<LargeFilterCardProps> = ({title, children, style}) => {
     const defaultCollapsed = isMobile();
     const [collapsed, setCollapsed] = useState<boolean>(defaultCollapsed);
@@ -198,7 +196,7 @@ export const LargeFilterCard: FC<LargeFilterCardProps> = ({title, children, styl
     return (
         <Card
             className="mb-3 p-2 shadow-sm large-filter-card"
-            style={{minWidth: 0, maxWidth: 340, width: "100%", ...style, height: "100%"}}
+            style={{minWidth: 0, maxWidth: 340, width: "100%", ...style}}
         >
             <Card.Body style={{display: "flex", flexDirection: "column", height: "100%"}}>
                 <Card.Title className="mb-3" style={{marginBottom: 0}}>

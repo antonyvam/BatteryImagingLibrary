@@ -3,7 +3,7 @@ import Fold from "./Fold";
 import {LargeFilterCard, DoubleSlider, ModalityCard} from "./LargeFilterCard";
 import SearchBar from "./SearchBar";
 import {Container, Row, Col, Button} from "react-bootstrap";
-import AppContext, {MAX_SIZE_NM, MAX_SIZE_PX} from "../interfaces/types";
+import AppContext, {isMobile, MAX_SIZE_NM, MAX_SIZE_PX} from "../interfaces/types";
 
 import "../assets/scss/styles.css";
 
@@ -102,7 +102,8 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                         style={{
                             gap: 14,
                             display: "flex",
-                            justifyContent: "space-evenly"
+                            justifyContent: "space-evenly",
+                            flexWrap: isMobile() ? "wrap" : "nowrap"
                         }}
                     >
                         <LargeFilterCard title="Resolution">

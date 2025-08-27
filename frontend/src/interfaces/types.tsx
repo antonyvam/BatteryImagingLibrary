@@ -1,6 +1,9 @@
 import {z} from "zod";
 import {createContext, ReactElement} from "react";
 
+// Utility to detect mobile
+export const isMobile = () => typeof window !== "undefined" && window.innerWidth <= 768;
+
 export interface FoldProps {
     children: ReactElement;
     bgColour: string;
@@ -34,13 +37,13 @@ export type Modality = (typeof MODALITIES)[number];
 
 export const MODALITY_TO_COLOUR: Record<Modality, string> = {
     SEM: "#387780",
-    EDS: "#EC9F05",
+    EDS: "#1fadd8ff",
     EBSD: "#8EA604",
-    LAB_MICRO_XCT: "#253031",
+    LAB_MICRO_XCT: "#bb441dff",
     NEUTRON_CT: "#888682ff",
-    XRD_CT: "#BF3100",
-    SYNCHOTRON_MICRO_XCT: "#D76A03",
-    SYNCHOTRON_NANO_XCT: "#F5BB00"
+    XRD_CT: "#D76A03",
+    SYNCHOTRON_MICRO_XCT: "#d41919ff",
+    SYNCHOTRON_NANO_XCT: "#ff0000ff"
 };
 
 export type ScanDetails = {

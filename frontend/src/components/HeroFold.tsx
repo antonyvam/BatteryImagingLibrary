@@ -7,6 +7,7 @@ import AppContext, {isMobile, MAX_SIZE_NM, MAX_SIZE_PX} from "../interfaces/type
 
 import "../assets/scss/styles.css";
 
+// TODO: remove docs & github
 const links = ["Paper", "Github", "Scripts", "Docs", "About", "Contribute"];
 
 const HeroFold: FC<{searching: boolean}> = ({searching}) => {

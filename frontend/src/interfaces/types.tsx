@@ -49,7 +49,7 @@ export const MODALITY_TO_COLOUR: Record<Modality, string> = {
 export interface ExampleCardData {
     modality: Modality;
     text: string;
-    img_path: string;
+    imgPath: string;
 }
 
 export type ScanDetails = {

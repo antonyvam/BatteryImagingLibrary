@@ -1,7 +1,7 @@
 import React from "react";
 import {Card, Button} from "react-bootstrap";
 import {Container, Row, Col} from "react-bootstrap";
-import {ExampleCardData} from "../interfaces/types";
+import {ExampleCardData, isMobile} from "../interfaces/types";
 import {renderModality} from "../interfaces/helpers";
 
 const DUMMY_TEXT =
@@ -11,32 +11,32 @@ const exampleData: ExampleCardData[] = [
     {
         modality: "XRD_CT",
         text: DUMMY_TEXT,
-        img_path: ""
+        imgPath: "assets/imgs/examples/XRD_CT.gif"
     },
     {
         modality: "LAB_MICRO_XCT",
         text: DUMMY_TEXT,
-        img_path: ""
+        imgPath: ""
     },
     {
         modality: "NEUTRON_CT",
         text: DUMMY_TEXT,
-        img_path: ""
+        imgPath: ""
     },
     {
         modality: "SEM",
         text: DUMMY_TEXT,
-        img_path: ""
+        imgPath: ""
     },
     {
         modality: "EDS",
         text: DUMMY_TEXT,
-        img_path: ""
+        imgPath: "assets/imgs/examples/EDS.gif"
     },
     {
         modality: "EBSD",
         text: DUMMY_TEXT,
-        img_path: ""
+        imgPath: "assets/imgs/examples/ebsd.gif"
     }
 ];
 
@@ -55,8 +55,8 @@ const ExampleCard: React.FC<ExampleCardProps> = ({cardData}) => {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
-                    flexDirection: "row",
-                    maxHeight: 300
+                    flexDirection: isMobile() ? "column" : "row",
+                    maxHeight: isMobile() ? 600 : 300
                 }}
             >
                 <Card.Body>
@@ -85,11 +85,11 @@ const ExampleCard: React.FC<ExampleCardProps> = ({cardData}) => {
                     <Card.Text>{cardData.text}</Card.Text>
                 </Card.Body>
                 <img
-                    src="/assets/imgs/modal/10/10_1H.png"
+                    src={cardData.imgPath}
                     style={{
                         objectFit: "scale-down",
                         objectPosition: "top center",
-                        maxHeight: 300
+                        maxHeight: 200
                         // height: "100%"
                         // height: "fill-parent"
                     }}

@@ -2,6 +2,27 @@
 
 ## TODO:
 
+- four buttons on header
+- Image size -> Cross Section Area (UNIT^2)
+
+- GIFS:
+- previews:
+- EDS: gif of kintsugi (R)
+- XRD-CT: gif of channels (R)
+- EBSD: gif of N kichucki patterns followed by (post-processed NB jack's is not integer normalised) IPF grain map (LR or HR) (R)
+- SEM: gif going through fib sem of volume (A)
+- lab XCT: pintype_lowres (A)
+  - for now just gif on the website
+  - movie: moving down through, rotating camera then volume rendering
+- nano, synchotron (A)
+
+- What next:
+
+  - text for exampels
+  - every scan filled in spreadsheet and on zenodo and thumbnails
+  - cdn + website upload
+  - look over preprint; crack at figure 1; website section
+
 - hero banner:
   - get resolution slider + unit text working properly
     - correct scale factors applied

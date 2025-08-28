@@ -28,13 +28,15 @@ interface NumericInputOptionalDropdown {
     setValue: (val: number) => void;
     addDropdown?: boolean;
     units?: string[];
+    squared?: boolean;
 }
 
 export const NumericInputOptionalDropdown: FC<NumericInputOptionalDropdown> = ({
     value,
     setValue,
     addDropdown = false,
-    units = UNITS
+    units = UNITS,
+    squared = false
 }) => {
     // TODO: fix scale-based text rendering
     // TODO: fix over eager text parsing / input
@@ -49,6 +51,19 @@ export const NumericInputOptionalDropdown: FC<NumericInputOptionalDropdown> = ({
 
         if (isUnit(newUnit)) {
             setUnit(newUnit);
+        }
+    };
+
+    const getDropdownText = (u: Units, squared: boolean = false) => {
+        if (squared) {
+            return (
+                <>
+                    {renderUnit(u)}
+                    <sup>2</sup>
+                </>
+            );
+        } else {
+            return <>{renderUnit(u)}</>;
         }
     };
 
@@ -68,13 +83,13 @@ export const NumericInputOptionalDropdown: FC<NumericInputOptionalDropdown> = ({
             />
             {addDropdown && (
                 <DropdownButton
-                    title={renderUnit(unit)}
+                    title={getDropdownText(unit, squared)}
                     style={{maxWidth: 80}}
                     variant="outline-secondary"
                 >
                     {units.map((u) => (
                         <Dropdown.Item key={u} onClick={(_) => onUnitChange(u)}>
-                            {renderUnit(u)}
+                            {getDropdownText(u, squared)}
                         </Dropdown.Item>
                     ))}
                 </DropdownButton>
@@ -91,6 +106,7 @@ export interface DoubleSliderProps {
     step?: number;
     logarithmic?: boolean;
     addDropdown?: boolean;
+    squared?: boolean;
 }
 
 export const DoubleSlider: FC<DoubleSliderProps> = ({
@@ -100,7 +116,8 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     max = 9,
     step = 0.001,
     logarithmic = false,
-    addDropdown = false
+    addDropdown = false,
+    squared = false
 }) => {
     const [sliderVal, setSliderVal] = useState<{lower: number; upper: number}>({
         lower: min,
@@ -157,6 +174,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                         setValue({lower: v, upper: value.upper});
                     }}
                     addDropdown={addDropdown}
+                    squared={squared}
                 />
                 <NumericInputOptionalDropdown
                     value={value.upper}
@@ -164,6 +182,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                         setValue({lower: value.lower, upper: v});
                     }}
                     addDropdown={addDropdown}
+                    squared={squared}
                 />
             </div>
         </div>

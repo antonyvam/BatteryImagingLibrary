@@ -3,12 +3,12 @@ import Fold from "./Fold";
 import {LargeFilterCard, DoubleSlider, ModalityCard} from "./LargeFilterCard";
 import SearchBar from "./SearchBar";
 import {Container, Row, Col, Button} from "react-bootstrap";
-import AppContext, {isMobile, MAX_SIZE_NM, MAX_SIZE_PX} from "../interfaces/types";
+import AppContext, {isMobile, MAX_SIZE_NM, MAX_AREA_NM} from "../interfaces/types";
 
 import "../assets/scss/styles.css";
 
 // TODO: remove docs & github
-const links = ["Paper", "Github", "Scripts", "Docs", "About", "Contribute"];
+const links = ["Paper", "Github", "Browse all", "Contribute!"];
 
 const HeroFold: FC<{searching: boolean}> = ({searching}) => {
     const heroRef = useRef<HTMLDivElement>(null);
@@ -78,7 +78,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                                 <div style={{display: "flex", flexDirection: "column", gap: 8}}>
                                     {[0, 1].map((row) => (
                                         <div style={{display: "flex", gap: 8}} key={row}>
-                                            {links.slice(row * 3, row * 3 + 3).map((label, idx) => (
+                                            {links.slice(row * 2, row * 2 + 2).map((label, idx) => (
                                                 <Button
                                                     key={label}
                                                     variant="light"
@@ -119,13 +119,15 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                                 />
                             </div>
                         </LargeFilterCard>
-                        <LargeFilterCard title="Image Size">
+                        <LargeFilterCard title="Area (cross-section)">
                             <div>
                                 <DoubleSlider
                                     value={sizeRange}
                                     setValue={setSizeRange}
+                                    addDropdown={true}
                                     logarithmic={true}
-                                    max={Math.log10(MAX_SIZE_PX)}
+                                    max={Math.log10(MAX_AREA_NM)}
+                                    squared={true}
                                 />
                             </div>
                         </LargeFilterCard>

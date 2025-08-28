@@ -5,9 +5,6 @@ import {ExampleCardData, isMobile, MODALITY_TO_COLOUR} from "../interfaces/types
 import {renderModality} from "../interfaces/helpers";
 import VideoPlayer from "./VideoPlayer";
 
-const DUMMY_TEXT =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet.";
-
 const exampleData: ExampleCardData[] = [
     {
         modality: "XRD_CT",

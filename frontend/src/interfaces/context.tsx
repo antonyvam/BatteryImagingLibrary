@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import AppContext, {MAX_SIZE_NM, MAX_SIZE_PX, ScanDetails} from "./types";
+import AppContext, {MAX_SIZE_NM, MAX_AREA_NM, ScanDetails} from "./types";
 import type {Range, Modality} from "./types";
 import {loadAndParseScanDetails} from "./helpers";
 
@@ -7,7 +7,7 @@ const AppContextProvider = (props: {
     children: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
 }) => {
     const [resRange, setResRange] = useState<Range>({lower: 0, upper: MAX_SIZE_NM});
-    const [sizeRange, setSizeRange] = useState<Range>({lower: 0, upper: MAX_SIZE_PX});
+    const [sizeRange, setSizeRange] = useState<Range>({lower: 0, upper: MAX_AREA_NM});
     const [selectedModalities, setSelectedModalities] = useState<Modality[]>([]);
     const [searchText, setSearchText] = useState<string>("");
     const [searching, setSearching] = useState<boolean>(false);

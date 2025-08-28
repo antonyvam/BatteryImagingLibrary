@@ -11,7 +11,7 @@ export interface FoldProps {
 }
 
 export const MAX_SIZE_NM = 1e9;
-export const MAX_SIZE_PX = 1e11;
+export const MAX_AREA_NM = 1e16;
 
 export const UNITS = ["NANO", "MICRON", "MILLI", "CENTI"] as const;
 export type Units = (typeof UNITS)[number];

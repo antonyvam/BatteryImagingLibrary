@@ -2,21 +2,13 @@
 
 ## TODO:
 
-- four buttons on header
 - Image size -> Cross Section Area (UNIT^2)
-- make DOIs buttons work better
-- make cards look nicer:
-
-  - smaller
-  - padding around video
-  - maybe a 2 column layout?
-  - make colour of see all match modality
-
-- modal to submit data
+- make DOIs buttons work better:
+  - app script to ping cross ref given a doi to get full citation and dunk it into json
+- modal to submit data (appears when 'contribute pressed')
 - home button on search results page
 
 - GIFS:
-- previews:
 - EDS: gif of kintsugi (R)
 - XRD-CT: gif of channels (R)
 - EBSD: gif of N kichucki patterns followed by (post-processed NB jack's is not integer normalised) IPF grain map (LR or HR) (R)
@@ -28,7 +20,6 @@
 
 - What next:
 
-  - text for exampels
   - every scan filled in spreadsheet and on zenodo and thumbnails
   - cdn + website upload
   - look over preprint; crack at figure 1; website section

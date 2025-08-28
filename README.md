@@ -1,4 +1,4 @@
-![BIL](https://raw.githubusercontent.com/antonyvam/BatteryImagingLibrary/master/assets/fig1.png)
+![BIL](https://raw.githubusercontent.com/antonyvam/BatteryImagingLibrary/tree/main/assets/fig1.png)
 
 # Battery Imaging Library
 
@@ -19,17 +19,17 @@ It currently includes the following type of data:
 
 The laboratory X-ray micro-ct cover the most widely used battery chemistries as shown in the following figure, specifically primary alkaline and LiFeS2 as well as rechargable NiMH and Li-ion. The sample cover a wide range of battery sizes, from the the world's smallest cylindrical Li-ion battery (Panasonic pintype) to a large 4680 Li-ion battery.
 
-![XRD-CT](https://raw.githubusercontent.com/antonyvam/BatteryImagingLibrary/master/assets/fig2.png)
+![XRD-CT](https://raw.githubusercontent.com/antonyvam/BatteryImagingLibrary/tree/main/assets/fig2.png)
 
 Importantly, BIL contains raw data for all techniques, including raw radiographs / sinograms, X-ray and electron diffraction patterns as illustrated in the following figure.
 
-![XRD-CT](https://raw.githubusercontent.com/antonyvam/BatteryImagingLibrary/master/assets/fig3.png)
+![XRD-CT](https://raw.githubusercontent.com/antonyvam/BatteryImagingLibrary/tree/main/assets/fig3.png)
 
 BIL contains data also from dynamic X-ray micro-ct with primary batteries (see gifs below) as well as XRD-CT data from dynamic experiments with Li-ion batteries [1, 2].
 
-![alkaline](https://raw.githubusercontent.com/antonyvam/BatteryImagingLibrary/master/assets/alkaline_operando.gif)
+![alkaline](https://raw.githubusercontent.com/antonyvam/BatteryImagingLibrary/tree/main/assets/alkaline_operando.gif)
 
-![LiFeS2](https://raw.githubusercontent.com/antonyvam/BatteryImagingLibrary/master/assets/lifes2_operando.gif)
+![LiFeS2](https://raw.githubusercontent.com/antonyvam/BatteryImagingLibrary/tree/main/assets/lifes2_operando.gif)
 
 ## Included Tutorials
 

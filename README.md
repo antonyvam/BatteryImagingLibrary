@@ -4,6 +4,16 @@
 
 - four buttons on header
 - Image size -> Cross Section Area (UNIT^2)
+- make DOIs buttons work better
+- make cards look nicer:
+
+  - smaller
+  - padding around video
+  - maybe a 2 column layout?
+  - make colour of see all match modality
+
+- modal to submit data
+- home button on search results page
 
 - GIFS:
 - previews:

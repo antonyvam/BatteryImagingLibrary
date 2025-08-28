@@ -19,7 +19,7 @@ It currently includes the following type of data:
 
 The laboratory X-ray micro-ct cover the most widely used battery chemistries as shown in the following figure, specifically primary alkaline and LiFeS2 as well as rechargable NiMH and Li-ion. The sample cover a wide range of battery sizes, from the the world's smallest cylindrical Li-ion battery (Panasonic pintype) to a large 4680 Li-ion battery.
 
-![XRD-CT](https://raw.githubusercontent.com/antonyvam/BatteryImagingLibrary/tree/main/assets/fig2.png)
+![XRD-CT](https://raw.githubusercontent.com/antonyvam/BatteryImagingLibrary/main/assets/fig2.png)
 
 Importantly, BIL contains raw data for all techniques, including raw radiographs / sinograms, X-ray and electron diffraction patterns as illustrated in the following figure.
 

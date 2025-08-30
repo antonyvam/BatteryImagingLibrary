@@ -38,8 +38,8 @@ The repository includes several **example notebooks** to help users learn the AP
 
 | Notebook Filename | Topic |
 |------------------|--------|
-| [`neutron-ct IMAT ISIS.ipynb`](https://github.com/antonyvam/BatteryImagingLibrary/blob/master/notebooks/neutron_ct.ipynb) | Reconstructing neutron-ct data from raw radiographs |
-| [`XRD-CT DESY P07.ipynb`](https://github.com/antonyvam/BatteryImagingLibrary/blob/master/notebooks/neutron_ct.ipynb) | Reconstructing XRD-CT data from integrated diffraction patterns |
+| [`neutron-ct IMAT ISIS.ipynb`](https://github.com/antonyvam/BatteryImagingLibrary/blob/master/notebooks/neutron-ct_IMAT_ISIS.ipynb) | Reconstructing neutron-ct data from raw radiographs |
+| [`XRD-CT DESY P07.ipynb`](https://github.com/antonyvam/BatteryImagingLibrary/blob/master/notebooks/XRD-CT_DESY_P07.ipynb) | Reconstructing XRD-CT data from integrated diffraction patterns |
 
 
 Each notebook is designed to be **standalone and executable**, with detailed inline comments and example outputs.

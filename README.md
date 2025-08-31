@@ -58,7 +58,7 @@ Create a new environment and first install astra-toolbox:
 ```bash
 conda create --name bil python=3.11
 conda activate bil
-conda install -c astra-toolbox -c nvidia -c conda-forge -c https://software.repos.intel.com/python/conda -c ccpi astra-toolbox cil ti
+conda install -c astra-toolbox -c nvidia -c conda-forge -c https://software.repos.intel.com/python/conda -c ccpi astra-toolbox cil tigre
 ```
 
 ### 2. Install nDTomo from GitHub

@@ -117,6 +117,12 @@ pip install ImageD11
 
 Please visit ImageD11's github repo for alternative installation instructions  https://github.com/FABLE-3DXRD/ImageD11/tree/master
 
+## 5. Install extra packagaes
+
+```bash
+pip install dask-image xrmreader dxchange
+```
+
 ## Citation
 
 If you use parts of the code, please cite the work using the following:

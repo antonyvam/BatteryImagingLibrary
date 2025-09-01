@@ -68,10 +68,10 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                         <Row className="align-items-center mb-4">
                             <Col md={7}>
                                 <p className="lead" style={{color: "#fff"}}>
-                                    M modalities, S scans and V voxels of open battery imaging data,
-                                    from single particles up to full cells. Includes raw and
-                                    processed (reconstructed, denoised, segmented, <i>etc.</i>)
-                                    data. Start searching!
+                                    7 modalities, 100+ scans and 10 billion voxels of open battery
+                                    imaging data, from single particles up to full cells. Includes
+                                    raw and processed (reconstructed, denoised, segmented,{" "}
+                                    <i>etc.</i>) data. Start searching!
                                 </p>
                             </Col>
                             <Col md={5}>

@@ -67,11 +67,14 @@ export type ScanDetails = {
     thumbnailType: string;
     thumbnailName: string[];
     scanParameters: Record<string, string>;
+    DOIs: string[];
     zenodoLinks: {
         rawZenodoLinks: string[];
+        rawZenodoLabels: string[];
         processedZenodoLinks: string[];
+        processedZenodoLabels: string[];
         reconstructedZenodoLinks: string[];
-        DOIs: string[];
+        reconstructedZenodoLabels: string[];
     };
 };
 
@@ -90,11 +93,14 @@ export const ScanDetailsSchema = z.object({
     thumbnailType: z.string(),
     thumbnailName: z.array(z.string()),
     scanParameters: z.record(z.string(), z.string()),
+    DOIs: z.array(z.string()),
     zenodoLinks: z.object({
         rawZenodoLinks: z.array(z.string()),
+        rawZenodoLabels: z.array(z.string()),
         processedZenodoLinks: z.array(z.string()),
+        processedZenodoLabels: z.array(z.string()),
         reconstructedZenodoLinks: z.array(z.string()),
-        DOIs: z.array(z.string())
+        reconstructedZenodoLabels: z.array(z.string())
     })
 });
 

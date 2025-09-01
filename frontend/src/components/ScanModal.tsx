@@ -27,7 +27,8 @@ const ScanModal: React.FC<ScanModalProps> = ({show, scan, onClose}) => {
     for (let i = 0; i < paramEntries.length; i += 2) {
         paramRows.push(paramEntries.slice(i, i + 2));
     }
-    const {rawZenodoLinks, processedZenodoLinks, reconstructedZenodoLinks, DOIs} = scan.zenodoLinks;
+    const {rawZenodoLinks, processedZenodoLinks, reconstructedZenodoLinks} = scan.zenodoLinks;
+    const {DOIs} = scan;
 
     // Responsive flex for Zenodo links
     const zenodoFlex: React.CSSProperties =

@@ -2,27 +2,29 @@
 
 ## TODO:
 
-- Image size -> Cross Section Area (UNIT^2)
-- make DOIs buttons work better:
-  - app script to ping cross ref given a doi to get full citation and dunk it into json
+### done:
+
+- provision CDN and link to url; upload coming soon
+- add 'labels' colum to spreadsheet, reflect in zenodo dropdown
+- edit spreadsheet to account for updated JW data strucutre
+
+### doing:
+
+- read prerpint; update website section (inc dreaft website figure)
+- refine figure 1
+
 - modal to submit data (appears when 'contribute pressed')
 - home button on search results page
+- smart shuffle of search results:
 
-- GIFS:
-- EDS: gif of kintsugi (R)
-- XRD-CT: gif of channels (R)
-- EBSD: gif of N kichucki patterns followed by (post-processed NB jack's is not integer normalised) IPF grain map (LR or HR) (R)
-- SEM: gif going through fib sem of volume (A)
-- lab XCT: pintype_lowres (A)
-  - for now just gif on the website
-  - movie: moving down through, rotating camera then volume rendering
-- nano, synchotron (A)
+  - maximise modality diversity
 
-- What next:
+- related scans dropdown which links to same samples
+- Image size -> Cross Section Area (UNIT^2)
+- make DOIs buttons work better:
 
-  - every scan filled in spreadsheet and on zenodo and thumbnails
-  - cdn + website upload
-  - look over preprint; crack at figure 1; website section
+  - app script to ping cross ref given a doi to get full citation and dunk it into json
+  - do this in a batch at the end
 
 - hero banner:
   - get resolution slider + unit text working properly

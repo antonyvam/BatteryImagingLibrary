@@ -25,7 +25,6 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
         sizeRange: [sizeRange, setSizeRange],
         selectedModalities: [selectedModalities, setSelectedModalities],
         searchText: [searchText, setSearchText],
-        searching: [searchingState, setSearching],
         showContribute: [showContribute, setShowContribute],
         selectedScan: [selectedScan]
     } = useContext(AppContext)!;

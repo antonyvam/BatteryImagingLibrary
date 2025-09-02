@@ -1,6 +1,7 @@
 import {FC, useRef, useState, useEffect, useContext} from "react";
 import {Card, Button} from "react-bootstrap";
-import {Container, Row, Col} from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
+import {Container} from "react-bootstrap";
 import AppContext, {
     ExampleCardData,
     isMobile,
@@ -58,9 +59,9 @@ interface ExampleCardProps {
 }
 
 const ExampleCard: FC<ExampleCardProps> = ({cardData}) => {
+    const navigate = useNavigate();
     const divRef = useRef<HTMLDivElement>(null);
     const {
-        searching: [, setSearching],
         searchText: [, setSearchText],
         selectedModalities: [, setSelectedModalities],
         resRange: [, setResRange],
@@ -68,11 +69,11 @@ const ExampleCard: FC<ExampleCardProps> = ({cardData}) => {
     } = useContext(AppContext)!;
 
     const handleSeeAll = () => {
-        setSearching(true);
         setSelectedModalities([cardData.modality]);
         setSearchText("");
         setResRange({lower: 0, upper: MAX_SIZE_NM});
         setSizeRange({lower: 0, upper: MAX_AREA_NM});
+        navigate("/search");
     };
 
     const [hover, setHover] = useState<boolean>(false);

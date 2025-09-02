@@ -114,7 +114,7 @@ export interface contextProps {
         setSelectedModalities: (e: Modality[]) => void
     ];
     searchText: [searchText: string, setSearchText: (e: string) => void];
-    searching: [searching: boolean, setSearching: (e: boolean) => void];
+    // searching: [searching: boolean, setSearching: (e: boolean) => void];
     scanData: [scanData: ScanDetails[], setScanData: (e: ScanDetails[]) => void];
     selectedScan: [
         selectedScan: ScanDetails | null,

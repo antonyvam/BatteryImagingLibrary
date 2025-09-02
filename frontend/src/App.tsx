@@ -1,12 +1,5 @@
 import {FC, useContext, useEffect} from "react";
-import {
-    Routes,
-    Route,
-    Navigate,
-    Outlet,
-    useLocation,
-    useNavigate
-} from "react-router-dom";
+import {Routes, Route, Navigate, Outlet, useLocation, useNavigate} from "react-router-dom";
 import AppContext from "./interfaces/types";
 import ScanModal from "./components/ScanModal";
 import ContributeModal from "./components/ContributeModal";
@@ -22,7 +15,6 @@ import {scanMatchesSearch} from "./interfaces/helpers";
 
 const App: FC = () => {
     const {
-        searching: [searching],
         scanData: [scanData],
         searchText: [searchText],
         selectedModalities: [selectedModalities],
@@ -43,10 +35,12 @@ const App: FC = () => {
         navigate(-1);
     };
 
+    // Determine if current route is '/search'
+    const isSearching = location.pathname.startsWith("/search");
 
     return (
         <div className="app">
-            <HeroFold searching={searching} />
+            <HeroFold searching={isSearching} />
             <Routes location={state?.background || location}>
                 <Route path="/" element={<ExampleCards />} />
                 <Route path="/home" element={<Navigate to="/" replace />} />
@@ -91,10 +85,7 @@ const App: FC = () => {
                         </Container>
                     }
                 />
-                <Route
-                    path="/search/:id"
-                    element={<ScanModal show={true} onClose={goBack} />}
-                />
+                <Route path="/search/:id" element={<ScanModal show={true} onClose={goBack} />} />
             </Routes>
 
             <Outlet />

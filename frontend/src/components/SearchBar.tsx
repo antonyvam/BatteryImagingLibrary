@@ -1,6 +1,7 @@
 import {FC, useContext} from "react";
 import {InputGroup, FormControl, DropdownButton, Dropdown, Button} from "react-bootstrap";
 import AppContext from "../interfaces/types";
+import {useNavigate} from "react-router-dom";
 
 interface SearchBarProps {
     variant?: string;
@@ -8,9 +9,9 @@ interface SearchBarProps {
 
 const SearchBar: FC<SearchBarProps> = ({variant = "outline-secondary"}) => {
     const {
-        searching: [, setSearching],
         searchText: [, setSearchText]
     } = useContext(AppContext)!;
+    const navigate = useNavigate();
 
     const onSearchChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
         const value = e.currentTarget.value;
@@ -19,7 +20,7 @@ const SearchBar: FC<SearchBarProps> = ({variant = "outline-secondary"}) => {
     };
 
     const onSearchPress = () => {
-        setSearching(true);
+        navigate("/search");
     };
 
     return (

@@ -9,17 +9,17 @@
 - edit spreadsheet to account for updated JW data strucutre
 - fix preview imgs (?)
 - modal to submit data (appears when 'contribute pressed')
+- react routing:
+  - point default to /home
+  - point search to /search
+  - point each sample to /search/{id}
+  - s.t users can share links to specific samples
 
 ### doing:
 
 - read prerpint; update website section (inc dreaft website figure)
 - refine figure 1
 
-- react routing:
-  - point default to /home
-  - point search to /search
-  - point each sample to /search/{id}
-  - s.t users can share links to specific samples
 - home / back button on search results page
 - smart shuffle of search results:
 
@@ -31,6 +31,7 @@
   - mkae the sliders actually work
 
 - modal:
+  - don't show scan parameters if null
   - related scans dropdown which links to same samples
   - make DOIs buttons work better:
   - display citation information + button to copy + little toast that says 'copied to clipboard'

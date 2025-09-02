@@ -20,7 +20,6 @@
 - read prerpint; update website section (inc dreaft website figure)
 - refine figure 1
 
-- home / back button on search results page
 - smart shuffle of search results:
 
   - maximise modality diversity
@@ -31,12 +30,12 @@
   - mkae the sliders actually work
 
 - modal:
-  - don't show scan parameters if null
+
   - related scans dropdown which links to same samples
   - make DOIs buttons work better:
   - display citation information + button to copy + little toast that says 'copied to clipboard'
-  - show instrument as well?
-  - fix modality badge size
+
+- home / back button on search results page
 - script:
   - save oriignal image into azure db?
 - spreadsheet:

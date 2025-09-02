@@ -32,7 +32,7 @@ const App: FC = () => {
 
     const goBack = () => {
         setSelectedScan(null);
-        navigate(-1);
+        navigate("/search");
     };
 
     // Determine if current route is '/search'

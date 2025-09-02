@@ -63,6 +63,22 @@ const ScanModal: FC<ScanModalProps> = ({show, scan: propScan, onClose}) => {
         margin: 0
     };
 
+    const styleRelatedScans = (scanData: ScanDetails[], currentScan: ScanDetails) => {
+        const valid = scanData.filter(
+            (v) => v.sampleID == currentScan.sampleID && v.scanID != currentScan.scanID
+        );
+        return valid.map((v, i) => {
+            return (
+                <>
+                    <a href={`${v.scanID}`}>
+                        {v.sampleName} ({v.scanID})
+                    </a>
+                    ;{i < valid.length - 1 && ", "}
+                </>
+            );
+        });
+    };
+
     return (
         <Modal
             show={show}
@@ -150,7 +166,8 @@ const ScanModal: FC<ScanModalProps> = ({show, scan: propScan, onClose}) => {
                             borderRadius: 6
                         }}
                     >
-                        {scan.sampleDescription}
+                        <p>{scan.sampleDescription}</p>
+                        <p>Related: {styleRelatedScans(scanData, scan)}</p>
                     </div>
 
                     {/* Accordion for Scan Parameters and Zenodo Links */}

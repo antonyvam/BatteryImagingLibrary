@@ -44,6 +44,7 @@ const ScanModal: FC<ScanModalProps> = ({show, scan: propScan, onClose}) => {
     for (let i = 0; i < paramEntries.length; i += 2) {
         paramRows.push(paramEntries.slice(i, i + 2));
     }
+    const paramsAvailable = paramEntries.length > 0;
     const {rawZenodoLinks, processedZenodoLinks, reconstructedZenodoLinks} = scan.zenodoLinks;
     const {DOIs} = scan;
 
@@ -92,7 +93,8 @@ const ScanModal: FC<ScanModalProps> = ({show, scan: propScan, onClose}) => {
                             alignItems: "center",
                             gap: 16,
                             marginTop: 8,
-                            justifyContent: "center"
+                            justifyContent: "center",
+                            flexWrap: "wrap"
                         }}
                     >
                         <ModalityBadge
@@ -101,6 +103,7 @@ const ScanModal: FC<ScanModalProps> = ({show, scan: propScan, onClose}) => {
                             onClick={() => {
                                 /**/
                             }}
+                            isLarge={true}
                         />
                         <div
                             style={{
@@ -124,6 +127,17 @@ const ScanModal: FC<ScanModalProps> = ({show, scan: propScan, onClose}) => {
                         >
                             {renderDataDims(scan.dataDimensions_px)}
                         </div>
+                        <div
+                            style={{
+                                fontSize: 16,
+                                color: "#555",
+                                background: "#e3eaff",
+                                padding: "4px 14px",
+                                borderRadius: 4
+                            }}
+                        >
+                            {scan.instrument}
+                        </div>
                     </div>
 
                     {/* Description */}
@@ -141,33 +155,40 @@ const ScanModal: FC<ScanModalProps> = ({show, scan: propScan, onClose}) => {
 
                     {/* Accordion for Scan Parameters and Zenodo Links */}
                     <Accordion defaultActiveKey="1" alwaysOpen>
-                        <Accordion.Item eventKey="0">
-                            <Accordion.Header>Scan Parameters</Accordion.Header>
-                            <Accordion.Body>
-                                <Table bordered size="sm">
-                                    <tbody>
-                                        {paramRows.map((row, idx) => (
-                                            <tr key={idx}>
-                                                {row.map(([k, v]) => (
-                                                    <Fragment key={k}>
-                                                        <td style={{fontWeight: 600, width: "20%"}}>
-                                                            {k}
-                                                        </td>
-                                                        <td style={{width: "30%"}}>{v}</td>
-                                                    </Fragment>
-                                                ))}
-                                                {row.length < 2 && (
-                                                    <>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </>
-                                                )}
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </Table>
-                            </Accordion.Body>
-                        </Accordion.Item>
+                        {paramsAvailable && (
+                            <Accordion.Item eventKey="0">
+                                <Accordion.Header>Scan Parameters</Accordion.Header>
+                                <Accordion.Body>
+                                    <Table bordered size="sm">
+                                        <tbody>
+                                            {paramRows.map((row, idx) => (
+                                                <tr key={idx}>
+                                                    {row.map(([k, v]) => (
+                                                        <Fragment key={k}>
+                                                            <td
+                                                                style={{
+                                                                    fontWeight: 600,
+                                                                    width: "20%"
+                                                                }}
+                                                            >
+                                                                {k}
+                                                            </td>
+                                                            <td style={{width: "30%"}}>{v}</td>
+                                                        </Fragment>
+                                                    ))}
+                                                    {row.length < 2 && (
+                                                        <>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </>
+                                                    )}
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </Table>
+                                </Accordion.Body>
+                            </Accordion.Item>
+                        )}
                         <Accordion.Item eventKey="1">
                             <Accordion.Header>Zenodo Links</Accordion.Header>
                             <Accordion.Body>

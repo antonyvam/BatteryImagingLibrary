@@ -184,3 +184,68 @@ export const scanMatchesSearch = (
 
 // TODO:
 // - modality + scan sample diversity sort function
+
+// Helper: get unique values from an array using a custom extractor
+function getUniqueValues<T, U>(arr: T[], extractor: (item: T) => U): Set<U> {
+    return new Set(arr.map(extractor));
+}
+
+// Smart shuffle function
+export function smartShuffle<T extends ScanDetails>(
+    data: T[],
+    fields: (keyof T)[],
+    extractors: Partial<{[K in keyof T]: (item: T) => any}>,
+    maxTries = 1000
+): T[] {
+    if (data.length <= 1) return [...data];
+
+    // Start with a random entry
+    const remaining = [...data];
+    const result: T[] = [];
+    const startIdx = Math.floor(Math.random() * remaining.length);
+    result.push(remaining.splice(startIdx, 1)[0]);
+
+    // Track unique values for each field
+    const seen = Object.fromEntries(fields.map((field) => [field, new Set<any>()])) as {
+        [K in keyof T]: Set<any>;
+    };
+
+    // Initialize seen sets with the first entry
+    for (const field of fields) {
+        const extractor = extractors[field] || ((item: T) => item[field]);
+        seen[field].add(extractor(result[0]));
+    }
+
+    while (remaining.length > 0) {
+        let bestIdx = 0;
+        let bestScore = -1;
+
+        // Try up to maxTries random samples to find the best candidate
+        for (let t = 0; t < Math.min(maxTries, remaining.length); t++) {
+            const idx = t === 0 ? 0 : Math.floor(Math.random() * remaining.length);
+            const candidate = remaining[idx];
+            let score = 0;
+
+            for (const field of fields) {
+                const extractor = extractors[field] || ((item: T) => item[field]);
+                const val = extractor(candidate);
+                if (!seen[field].has(val)) score++;
+            }
+
+            if (score > bestScore) {
+                bestScore = score;
+                bestIdx = idx;
+                if (score === fields.length) break; // can't do better
+            }
+        }
+
+        const next = remaining.splice(bestIdx, 1)[0];
+        result.push(next);
+        for (const field of fields) {
+            const extractor = extractors[field] || ((item: T) => item[field]);
+            seen[field].add(extractor(next));
+        }
+    }
+
+    return result;
+}

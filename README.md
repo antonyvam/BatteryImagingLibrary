@@ -20,18 +20,12 @@
 - read prerpint; update website section (inc dreaft website figure)
 - refine figure 1
 
-- smart shuffle of search results:
-
-  - maximise modality diversity
-  - maximise sample diversity
-
 - Image size -> Cross Section Area (UNIT^2)
 
   - mkae the sliders actually work
 
 - modal:
 
-  - related scans dropdown which links to same samples
   - make DOIs buttons work better:
   - display citation information + button to copy + little toast that says 'copied to clipboard'
 
@@ -43,6 +37,9 @@
   - add author field?
   - add appscript to VC?
   - app script to ping cross ref given a doi to get full citation and dunk it into json
+    -refactor:
+  - extract common styles into css, clean up css
+  - make everything use const fn = () => syntax
 
 ## Old:
 

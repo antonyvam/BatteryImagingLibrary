@@ -11,7 +11,7 @@ import {Container} from "react-bootstrap";
 
 import "./assets/scss/App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {scanMatchesSearch} from "./interfaces/helpers";
+import {scanMatchesSearch, smartShuffle} from "./interfaces/helpers";
 
 const App: FC = () => {
     const {
@@ -57,8 +57,8 @@ const App: FC = () => {
                                     gap: 18
                                 }}
                             >
-                                {scanData
-                                    .filter((s) =>
+                                {smartShuffle(
+                                    scanData.filter((s) =>
                                         scanMatchesSearch(
                                             s,
                                             searchText,
@@ -66,21 +66,26 @@ const App: FC = () => {
                                             sizeRange,
                                             selectedModalities
                                         )
-                                    )
-                                    .map((v, i) => (
-                                        <div
-                                            key={i}
-                                            onClick={() => {
-                                                {
-                                                    setSelectedScan(v);
-                                                    navigate(`/search/${v.scanID}`);
-                                                }
-                                            }}
-                                            style={{cursor: "pointer"}}
-                                        >
-                                            <SearchCard scan={v} />
-                                        </div>
-                                    ))}
+                                    ),
+                                    ["scanModality", "sampleID"],
+                                    {
+                                        scanModality: (s) => s.scanModality,
+                                        sampleID: (s) => s.sampleID
+                                    }
+                                ).map((v, i) => (
+                                    <div
+                                        key={i}
+                                        onClick={() => {
+                                            {
+                                                setSelectedScan(v);
+                                                navigate(`/search/${v.scanID}`);
+                                            }
+                                        }}
+                                        style={{cursor: "pointer"}}
+                                    >
+                                        <SearchCard scan={v} />
+                                    </div>
+                                ))}
                             </div>
                         </Container>
                     }

@@ -13,7 +13,7 @@ const AppContextProvider = (props: {
     const [searching, setSearching] = useState<boolean>(false);
     const [scanData, setScanData] = useState<ScanDetails[]>(loadAndParseScanDetails());
     const [selectedScan, setSelectedScan] = useState<ScanDetails | null>(null);
-    const [showContribute, setShowContribute] = useState<boolean>(true);
+    const [showContribute, setShowContribute] = useState<boolean>(false);
     return (
         <AppContext.Provider
             value={{

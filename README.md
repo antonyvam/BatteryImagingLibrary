@@ -8,13 +8,13 @@
 - add 'labels' colum to spreadsheet, reflect in zenodo dropdown
 - edit spreadsheet to account for updated JW data strucutre
 - fix preview imgs (?)
+- modal to submit data (appears when 'contribute pressed')
 
 ### doing:
 
 - read prerpint; update website section (inc dreaft website figure)
 - refine figure 1
 
-- modal to submit data (appears when 'contribute pressed')
 - home / back button on search results page
 - smart shuffle of search results:
 

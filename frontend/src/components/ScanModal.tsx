@@ -1,4 +1,6 @@
-import {FC, useState, useEffect, Fragment} from "react";
+import {FC, useState, useEffect, Fragment, useContext} from "react";
+import {useParams} from "react-router-dom";
+import AppContext from "../interfaces/types";
 import {isArrayEmpty} from "../interfaces/helpers";
 import {Modal, Button, Accordion, Table, Form} from "react-bootstrap";
 import ChannelCarousel from "./ChannelCarousel";
@@ -8,11 +10,24 @@ import {ModalityBadge} from "./SearchCard";
 
 interface ScanModalProps {
     show: boolean;
-    scan: ScanDetails;
+    scan?: ScanDetails | null;
     onClose: () => void;
 }
 
-const ScanModal: FC<ScanModalProps> = ({show, scan, onClose}) => {
+const ScanModal: FC<ScanModalProps> = ({show, scan: propScan, onClose}) => {
+    const {id} = useParams<{id: string}>();
+    const appContext = useContext(AppContext);
+    const scanData = appContext?.scanData[0] || [];
+    const [scan, setScan] = useState<ScanDetails | null>(propScan ?? null);
+
+    // If scan is not provided, look it up from scanData using id
+    useEffect(() => {
+        if (!scan && id && scanData.length > 0) {
+            const found = scanData.find((s) => String(s.scanID) === id);
+            if (found) setScan(found);
+        }
+    }, [id, scan, scanData]);
+
     // Modal centering and responsive width
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     useEffect(() => {
@@ -20,6 +35,8 @@ const ScanModal: FC<ScanModalProps> = ({show, scan, onClose}) => {
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
+
+    if (!scan) return null;
 
     // Prepare scanParameters as array of [key, value] pairs, two per row
     const paramEntries: [string, string][] = Object.entries(scan.scanParameters || {});

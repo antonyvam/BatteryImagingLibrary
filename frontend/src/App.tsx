@@ -1,5 +1,12 @@
-import {FC, useContext} from "react";
-import {Routes, Route, Navigate, Outlet, useLocation, useNavigate} from "react-router-dom";
+import {FC, useContext, useEffect} from "react";
+import {
+    Routes,
+    Route,
+    Navigate,
+    Outlet,
+    useLocation,
+    useNavigate
+} from "react-router-dom";
 import AppContext from "./interfaces/types";
 import ScanModal from "./components/ScanModal";
 import ContributeModal from "./components/ContributeModal";
@@ -24,11 +31,18 @@ const App: FC = () => {
         selectedScan: [selectedScan, setSelectedScan],
         showContribute: [showContribute, setShowContribute]
     } = useContext(AppContext)!;
+
     const navigate = useNavigate();
     const location = useLocation();
 
     // if location.state?.background exists, it means we navigated to a modal
     const state = location.state as {background?: Location};
+
+    const goBack = () => {
+        setSelectedScan(null);
+        navigate(-1);
+    };
+
 
     return (
         <div className="app">
@@ -71,17 +85,6 @@ const App: FC = () => {
                                             style={{cursor: "pointer"}}
                                         >
                                             <SearchCard scan={v} />
-                                            {/* <Route
-                                                path={`:${v.scanID}`}
-                                                element={
-                                                    <ScanModal
-                                                        show={selectedScan !== null}
-                                                        scan={v}
-                                                        onClose={() => setSelectedScan(null)}
-                                                        key={i}
-                                                    />
-                                                }
-                                            /> */}
                                         </div>
                                     ))}
                             </div>
@@ -90,13 +93,7 @@ const App: FC = () => {
                 />
                 <Route
                     path="/search/:id"
-                    element={
-                        <ScanModal
-                            show={selectedScan !== null}
-                            scan={selectedScan!}
-                            onClose={() => setSelectedScan(null)}
-                        />
-                    }
+                    element={<ScanModal show={true} onClose={goBack} />}
                 />
             </Routes>
 
@@ -105,13 +102,7 @@ const App: FC = () => {
                 <Routes>
                     <Route
                         path="/search/:id"
-                        element={
-                            <ScanModal
-                                show={selectedScan !== null}
-                                scan={selectedScan!}
-                                onClose={() => setSelectedScan(null)}
-                            />
-                        }
+                        element={<ScanModal show={true} onClose={goBack} />}
                     />
                 </Routes>
             )}

@@ -7,8 +7,10 @@ import AppContext, {isMobile, MAX_SIZE_NM, MAX_AREA_NM} from "../interfaces/type
 
 import "../assets/scss/styles.css";
 
-// TODO: remove docs & github
-const links = ["Paper", "Github", "Browse all", "Contribute!"];
+// Button configuration: label, type ('link' or 'action'), and value (url or function)
+type HeroButton =
+    | {label: string; type: "link"; url: string}
+    | {label: string; type: "action"; onClick: () => void};
 
 const HeroFold: FC<{searching: boolean}> = ({searching}) => {
     const heroRef = useRef<HTMLDivElement>(null);
@@ -19,6 +21,10 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
     const {
         resRange: [resRange, setResRange],
         sizeRange: [sizeRange, setSizeRange],
+        selectedModalities: [selectedModalities, setSelectedModalities],
+        searchText: [searchText, setSearchText],
+        searching: [searchingState, setSearching],
+        showContribute: [showContribute, setShowContribute],
         selectedScan: [selectedScan]
     } = useContext(AppContext)!;
 
@@ -39,6 +45,36 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
         window.addEventListener("resize", updateDims);
         return () => window.removeEventListener("resize", updateDims);
     }, [searching, selectedScan]);
+
+    // Button actions/links
+    const heroButtons: HeroButton[] = [
+        {
+            label: "Paper",
+            type: "link",
+            url: ""
+        },
+        {
+            label: "Github",
+            type: "link",
+            url: "https://github.com/antonyvam/BatteryImagingLibrary"
+        },
+        {
+            label: "Browse all",
+            type: "action",
+            onClick: () => {
+                setSearching(true);
+                setSelectedModalities([]);
+                setSearchText("");
+                setResRange({lower: 0, upper: MAX_SIZE_NM});
+                setSizeRange({lower: 0, upper: MAX_AREA_NM});
+            }
+        },
+        {
+            label: "Contribute!",
+            type: "action",
+            onClick: () => setShowContribute(true)
+        }
+    ];
 
     return (
         <Fold bgColour="#35383d" hero={false}>
@@ -78,16 +114,36 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                                 <div style={{display: "flex", flexDirection: "column", gap: 8}}>
                                     {[0, 1].map((row) => (
                                         <div style={{display: "flex", gap: 8}} key={row}>
-                                            {links.slice(row * 2, row * 2 + 2).map((label, idx) => (
-                                                <Button
-                                                    key={label}
-                                                    variant="light"
-                                                    size="lg"
-                                                    className="w-100"
-                                                >
-                                                    {label}
-                                                </Button>
-                                            ))}
+                                            {heroButtons.slice(row * 2, row * 2 + 2).map((btn) =>
+                                                btn.type === "link" ? (
+                                                    <Button
+                                                        key={btn.label}
+                                                        variant="light"
+                                                        size="lg"
+                                                        className="w-100"
+                                                        as="a"
+                                                        href={btn.url || undefined}
+                                                        target={btn.url ? "_blank" : undefined}
+                                                        rel={
+                                                            btn.url
+                                                                ? "noopener noreferrer"
+                                                                : undefined
+                                                        }
+                                                    >
+                                                        {btn.label}
+                                                    </Button>
+                                                ) : (
+                                                    <Button
+                                                        key={btn.label}
+                                                        variant="light"
+                                                        size="lg"
+                                                        className="w-100"
+                                                        onClick={btn.onClick}
+                                                    >
+                                                        {btn.label}
+                                                    </Button>
+                                                )
+                                            )}
                                         </div>
                                     ))}
                                 </div>

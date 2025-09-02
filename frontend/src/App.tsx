@@ -1,6 +1,7 @@
-import React, {useContext} from "react";
+import {FC, useContext} from "react";
 import AppContext from "./interfaces/types";
 import ScanModal from "./components/ScanModal";
+import ContributeModal from "./components/ContributeModal";
 
 import HeroFold from "./components/HeroFold";
 import ExampleCards from "./components/ExampleCard";
@@ -11,7 +12,7 @@ import "./assets/scss/App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {scanMatchesSearch} from "./interfaces/helpers";
 
-const App: React.FC = () => {
+const App: FC = () => {
     const {
         searching: [searching],
         scanData: [scanData],
@@ -19,7 +20,8 @@ const App: React.FC = () => {
         selectedModalities: [selectedModalities],
         resRange: [resRange],
         sizeRange: [sizeRange],
-        selectedScan: [selectedScan, setSelectedScan]
+        selectedScan: [selectedScan, setSelectedScan],
+        showContribute: [showContribute, setShowContribute]
     } = useContext(AppContext)!;
 
     return (
@@ -66,6 +68,10 @@ const App: React.FC = () => {
                     scan={selectedScan}
                     onClose={() => setSelectedScan(null)}
                 />
+            )}
+            {/* Contribute Modal */}
+            {showContribute && (
+                <ContributeModal show={showContribute} onClose={() => setShowContribute(false)} />
             )}
         </div>
     );

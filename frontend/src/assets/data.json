@@ -99,8 +99,8 @@
         "pixelSize_µm": [0.225, 0.225, 1],
         "dataDimensions_px": [1833, 610, 250, "H3"],
         "dataDimensions_µm": [412.43, 137.25, 250],
-        "thumbnailType": "3H",
-        "thumbnailName": ["4_1H.png", "4_2H.png", "4_3H.png"],
+        "thumbnailType": "6H",
+        "thumbnailName": ["4_1H.png", "4_2H.png", "4_3H.png", "4_4H.png", "4_5H.png", "4_6H.png"],
         "DOIs": ["BIL"],
         "scanParameters": {},
         "zenodoLinks": {
@@ -114,18 +114,18 @@
     },
     {
         "scanID": 5,
-        "sampleID": 2,
-        "sampleName": "LG M50LT (low-res)",
+        "sampleID": 3,
+        "sampleName": "LG M50LT (low-res 1)",
         "chemistry": "NMC811",
-        "sampleDescription": "",
+        "sampleDescription": "EBSD of a wide area of M50LT electrode",
         "scanType": "ELECTRODE",
         "scanModality": "EBSD",
         "instrument": "Thermo Scientific Helios 5 Laser-PFIB",
-        "pixelSize_µm": [0, 0],
-        "dataDimensions_px": [0, 0],
-        "dataDimensions_µm": [0, 0],
-        "thumbnailType": "2D",
-        "thumbnailName": ["5.png"],
+        "pixelSize_µm": [1, 1],
+        "dataDimensions_px": [1, 1],
+        "dataDimensions_µm": [1, 1],
+        "thumbnailType": "3H",
+        "thumbnailName": ["5_1H.png", "5_2H.png", "5_3H.png"],
         "DOIs": ["BIL"],
         "scanParameters": {},
         "zenodoLinks": {
@@ -139,18 +139,18 @@
     },
     {
         "scanID": 6,
-        "sampleID": 2,
-        "sampleName": "LG M50LT (high-res)",
+        "sampleID": 3,
+        "sampleName": "LG M50LT (high-res 1)",
         "chemistry": "NMC811",
-        "sampleDescription": "",
+        "sampleDescription": "EBSD of a few M50LT electrode particles",
         "scanType": "PARTICLE",
         "scanModality": "EBSD",
         "instrument": "Thermo Scientific Helios 5 Laser-PFIB",
-        "pixelSize_µm": [0, 0],
-        "dataDimensions_px": [0, 0],
-        "dataDimensions_µm": [0, 0],
-        "thumbnailType": "2D",
-        "thumbnailName": ["6.png"],
+        "pixelSize_µm": [1, 1],
+        "dataDimensions_px": [1, 1],
+        "dataDimensions_µm": [1, 1],
+        "thumbnailType": "2H",
+        "thumbnailName": ["6_1H.png", "6_2H.png"],
         "DOIs": ["BIL"],
         "scanParameters": {},
         "zenodoLinks": {
@@ -164,7 +164,7 @@
     },
     {
         "scanID": 7,
-        "sampleID": 3,
+        "sampleID": 4,
         "sampleName": "LG M50LT (low current)",
         "chemistry": "NMC811",
         "sampleDescription": "Single-slice high resolution SEM of wide electrode area taken with 1.6nA beam current and with 11 total detectors",
@@ -189,7 +189,7 @@
     },
     {
         "scanID": 8,
-        "sampleID": 3,
+        "sampleID": 4,
         "sampleName": "LG M50LT (high current)",
         "chemistry": "NMC811",
         "sampleDescription": "Single-slice high resolution SEM of wide electrode area taken with 26nA beam current and with 11 total detectors",
@@ -214,7 +214,7 @@
     },
     {
         "scanID": 9,
-        "sampleID": 3,
+        "sampleID": 4,
         "sampleName": "LG M50LT (fast)",
         "chemistry": "NMC811",
         "sampleDescription": "Single slice fast (noisy) EDS of wide area electrode",
@@ -224,8 +224,8 @@
         "pixelSize_µm": [0.225, 0.225],
         "dataDimensions_px": [1724, 505, "H3"],
         "dataDimensions_µm": [387.9, 113.63],
-        "thumbnailType": "3H",
-        "thumbnailName": ["9_1H.png", "9_2H.png", "9_3H.png"],
+        "thumbnailType": "4H",
+        "thumbnailName": ["9_1H.png", "9_2H.png", "9_3H.png", "9_4H.png"],
         "DOIs": ["BIL"],
         "scanParameters": {},
         "zenodoLinks": {
@@ -239,7 +239,7 @@
     },
     {
         "scanID": 10,
-        "sampleID": 3,
+        "sampleID": 4,
         "sampleName": "LG M50LT (slow)",
         "chemistry": "NMC811",
         "sampleDescription": "Single slice slow (noisy) EDS of wide area electrode",
@@ -249,8 +249,8 @@
         "pixelSize_µm": [0.225, 0.225],
         "dataDimensions_px": [1724, 505, "H5"],
         "dataDimensions_µm": [387.9, 113.63],
-        "thumbnailType": "3H",
-        "thumbnailName": ["10_1H.png", "10_2H.png", "10_3H.png"],
+        "thumbnailType": "4H",
+        "thumbnailName": ["10_1H.png", "10_2H.png", "10_3H.png", "10_4H.png"],
         "DOIs": ["BIL"],
         "scanParameters": {},
         "zenodoLinks": {
@@ -264,10 +264,10 @@
     },
     {
         "scanID": 11,
-        "sampleID": 3,
-        "sampleName": "LG M50LT (low-res)",
+        "sampleID": 4,
+        "sampleName": "LG M50LT (low-res 2)",
         "chemistry": "NMC811",
-        "sampleDescription": "",
+        "sampleDescription": "a",
         "scanType": "ELECTRODE",
         "scanModality": "EBSD",
         "instrument": "Thermo Scientific Helios 5 Laser-PFIB",
@@ -289,10 +289,10 @@
     },
     {
         "scanID": 12,
-        "sampleID": 3,
-        "sampleName": "LG M50LT (high-res)",
+        "sampleID": 4,
+        "sampleName": "LG M50LT (high-res 2)",
         "chemistry": "NMC811",
-        "sampleDescription": "",
+        "sampleDescription": "a",
         "scanType": "PARTICLE",
         "scanModality": "EBSD",
         "instrument": "Thermo Scientific Helios 5 Laser-PFIB",
@@ -314,7 +314,7 @@
     },
     {
         "scanID": 13,
-        "sampleID": 4,
+        "sampleID": 5,
         "sampleName": "JD Nov",
         "chemistry": "UNKNOWN",
         "sampleDescription": "3D SEM of an NMC cathode",
@@ -339,7 +339,7 @@
     },
     {
         "scanID": 14,
-        "sampleID": 4,
+        "sampleID": 5,
         "sampleName": "JD Nov",
         "chemistry": "UNKNOWN",
         "sampleDescription": "3D EDS of an NMC cathode",
@@ -363,8 +363,8 @@
         }
     },
     {
-        "scanID": 12,
-        "sampleID": "5; 6",
+        "scanID": 18,
+        "sampleID": "8; 9",
         "sampleName": "AAA NMC532 charged C2; AAA NMC532 charged C20",
         "chemistry": "NMC532",
         "sampleDescription": "Neutron-CT of a AAA NMC532 battery (Trustfire) charged to 4.2V with C/2 rate and a AAA NMC532 battery (Trustfire) charged to 4.2V with C/20 rate",
@@ -375,7 +375,7 @@
         "dataDimensions_px": [2048, 2048, 420],
         "dataDimensions_µm": [204800, 204800, 42000],
         "thumbnailType": "3D",
-        "thumbnailName": ["12_xy.png", "12_xz.png", "12_yz.png"],
+        "thumbnailName": ["18_xy.png", "18_xz.png", "18_yz.png"],
         "DOIs": ["BIL"],
         "scanParameters": {},
         "zenodoLinks": {
@@ -388,8 +388,8 @@
         }
     },
     {
-        "scanID": 13,
-        "sampleID": "7; 8",
+        "scanID": 19,
+        "sampleID": "10; 11",
         "sampleName": "AAA NMC532 discharged C2; AAA NMC532 discharged C20",
         "chemistry": "NMC532",
         "sampleDescription": "Neutron-CT of a AAA NMC532 battery (Trustfire) discharged to 2.75V with C/2 rate and a AAA NMC532 battery (Trustfire) discharged to 2.75V with C/20 rate",
@@ -400,7 +400,7 @@
         "dataDimensions_px": [2048, 2048, 420],
         "dataDimensions_µm": [204800, 204800, 42000],
         "thumbnailType": "3D",
-        "thumbnailName": ["13_xy.png", "13_xz.png", "13_yz.png"],
+        "thumbnailName": ["19_xy.png", "19_xz.png", "19_yz.png"],
         "DOIs": ["BIL"],
         "scanParameters": {},
         "zenodoLinks": {
@@ -413,8 +413,8 @@
         }
     },
     {
-        "scanID": 14,
-        "sampleID": 4,
+        "scanID": 20,
+        "sampleID": 7,
         "sampleName": "AAA NMC532 pristine",
         "chemistry": "NMC532",
         "sampleDescription": "Neutron-CT of a pristine AAA NMC532 battery (Trustfire)",
@@ -425,7 +425,7 @@
         "dataDimensions_px": [2048, 2048, 420],
         "dataDimensions_µm": [143360, 143360, 29400],
         "thumbnailType": "3D",
-        "thumbnailName": ["14_xy.png", "14_xz.png", "14_yz.png"],
+        "thumbnailName": ["20_xy.png", "20_xz.png", "20_yz.png"],
         "DOIs": [""],
         "scanParameters": {},
         "zenodoLinks": {
@@ -438,8 +438,8 @@
         }
     },
     {
-        "scanID": 16,
-        "sampleID": 6,
+        "scanID": 22,
+        "sampleID": 9,
         "sampleName": "AAA NMC532 charged C20",
         "chemistry": "NMC532",
         "sampleDescription": "Neutron-CT of a AAA NMC532 battery (Trustfire) charged to 4.2V with C/20 rate",
@@ -450,7 +450,7 @@
         "dataDimensions_px": [2048, 2048, 420],
         "dataDimensions_µm": [143360, 143360, 29400],
         "thumbnailType": "3D",
-        "thumbnailName": ["16_xy.png", "16_xz.png", "16_yz.png"],
+        "thumbnailName": ["22_xy.png", "22_xz.png", "22_yz.png"],
         "DOIs": [""],
         "scanParameters": {},
         "zenodoLinks": {
@@ -463,8 +463,8 @@
         }
     },
     {
-        "scanID": 18,
-        "sampleID": 9,
+        "scanID": 24,
+        "sampleID": 12,
         "sampleName": "AAA NMC532 discharged prolonged cycling",
         "chemistry": "NMC532",
         "sampleDescription": "XRD-CT of a AAA NMC532 battery (Trustfire) discharged to 2.75V after prolonged cycling",
@@ -475,7 +475,7 @@
         "dataDimensions_px": [1260, 1260, "H2047"],
         "dataDimensions_µm": [12600, 12600],
         "thumbnailType": "3H",
-        "thumbnailName": ["18_1H.png", "18_2H.png", "18_3H.png"],
+        "thumbnailName": ["24_1H.png", "24_2H.png", "24_3H.png"],
         "DOIs": [""],
         "scanParameters": {},
         "zenodoLinks": {

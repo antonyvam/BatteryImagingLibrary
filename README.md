@@ -7,6 +7,7 @@
 - provision CDN and link to url; upload coming soon
 - add 'labels' colum to spreadsheet, reflect in zenodo dropdown
 - edit spreadsheet to account for updated JW data strucutre
+- fix preview imgs (?)
 
 ### doing:
 
@@ -14,45 +15,33 @@
 - refine figure 1
 
 - modal to submit data (appears when 'contribute pressed')
-- home button on search results page
+- home / back button on search results page
 - smart shuffle of search results:
 
   - maximise modality diversity
+  - maximise sample diversity
 
-- related scans dropdown which links to same samples
 - Image size -> Cross Section Area (UNIT^2)
-- make DOIs buttons work better:
 
-  - app script to ping cross ref given a doi to get full citation and dunk it into json
-  - do this in a batch at the end
+  - mkae the sliders actually work
 
-- hero banner:
-  - get resolution slider + unit text working properly
-    - correct scale factors applied
-    - even when switching
 - examples cards:
-  - card per modality
+
   - on click, do search with that modality applied
-- search results:
-  - thumbnail previews:
-    - carousel img
-      - scale down to fit aspect ratio
-    - smallest pixel size in um as well
-  - make 'Image size' 'Side length'?
+
 - modal:
-  - same carousel
-    - display full-res image
-  - display full info
-  - display link data
+  - related scans dropdown which links to same samples
+  - make DOIs buttons work better:
   - display citation information + button to copy + little toast that says 'copied to clipboard'
+  - show instrument as well?
+  - fix modality badge size
 - script:
-  - take directory of images:
-    - resize down by a quarter, save into assets
-    - save oriignal image into azure db; loaded on modal click
+  - save oriignal image into azure db?
 - spreadsheet:
   - add cell geometry?
+  - add author field?
   - add appscript to VC?
-- notebook rendering
+  - app script to ping cross ref given a doi to get full citation and dunk it into json
 
 ## Old:
 

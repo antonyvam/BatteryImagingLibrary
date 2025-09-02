@@ -14,15 +14,18 @@ export const ModalityBadge: FC<{
     modality: Modality;
     canClose: boolean;
     onClick: (e: Modality) => void;
-}> = ({modality, canClose = false, onClick}) => (
+    isLarge?: boolean;
+}> = ({modality, canClose = false, onClick, isLarge = false}) => (
     <span
         className="badge"
         style={{
             backgroundColor: MODALITY_TO_COLOUR[modality],
             color: "#fff",
             fontWeight: 600,
-            fontSize: "0.8em",
-            textAlign: "center"
+            fontSize: isLarge ? "1.1em" : "0.8em",
+            textAlign: "center",
+            padding: isLarge ? "7px 14px" : "6px 8px",
+            borderRadius: 4
         }}
     >
         {renderModality(modality)}

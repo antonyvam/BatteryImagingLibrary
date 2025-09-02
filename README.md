@@ -15,6 +15,11 @@
 - read prerpint; update website section (inc dreaft website figure)
 - refine figure 1
 
+- react routing:
+  - point default to /home
+  - point search to /search
+  - point each sample to /search/{id}
+  - s.t users can share links to specific samples
 - home / back button on search results page
 - smart shuffle of search results:
 
@@ -24,10 +29,6 @@
 - Image size -> Cross Section Area (UNIT^2)
 
   - mkae the sliders actually work
-
-- examples cards:
-
-  - on click, do search with that modality applied
 
 - modal:
   - related scans dropdown which links to same samples

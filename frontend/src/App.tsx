@@ -1,4 +1,5 @@
 import {FC, useContext} from "react";
+import {Routes, Route, Navigate, Outlet, useLocation, useNavigate} from "react-router-dom";
 import AppContext from "./interfaces/types";
 import ScanModal from "./components/ScanModal";
 import ContributeModal from "./components/ContributeModal";
@@ -23,52 +24,105 @@ const App: FC = () => {
         selectedScan: [selectedScan, setSelectedScan],
         showContribute: [showContribute, setShowContribute]
     } = useContext(AppContext)!;
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    // if location.state?.background exists, it means we navigated to a modal
+    const state = location.state as {background?: Location};
 
     return (
         <div className="app">
             <HeroFold searching={searching} />
-            {!searching && <ExampleCards />}
-            {searching && (
-                <Container className="my-5">
-                    <div
-                        style={{
-                            display: "flex",
-                            flexDirection: "row",
-                            flexWrap: "wrap",
-                            justifyContent: "space-evenly",
-                            gap: 18
-                        }}
-                    >
-                        {scanData
-                            .filter((s) =>
-                                scanMatchesSearch(
-                                    s,
-                                    searchText,
-                                    resRange,
-                                    sizeRange,
-                                    selectedModalities
-                                )
-                            )
-                            .map((v, i) => (
-                                <div
-                                    key={i}
-                                    onClick={() => setSelectedScan(v)}
-                                    style={{cursor: "pointer"}}
-                                >
-                                    <SearchCard scan={v} />
-                                </div>
-                            ))}
-                    </div>
-                </Container>
+            <Routes location={state?.background || location}>
+                <Route path="/" element={<ExampleCards />} />
+                <Route path="/home" element={<Navigate to="/" replace />} />
+                <Route
+                    path="/search"
+                    element={
+                        <Container className="my-5">
+                            <div
+                                style={{
+                                    display: "flex",
+                                    flexDirection: "row",
+                                    flexWrap: "wrap",
+                                    justifyContent: "space-evenly",
+                                    gap: 18
+                                }}
+                            >
+                                {scanData
+                                    .filter((s) =>
+                                        scanMatchesSearch(
+                                            s,
+                                            searchText,
+                                            resRange,
+                                            sizeRange,
+                                            selectedModalities
+                                        )
+                                    )
+                                    .map((v, i) => (
+                                        <div
+                                            key={i}
+                                            onClick={() => {
+                                                {
+                                                    setSelectedScan(v);
+                                                    navigate(`/search/${v.scanID}`);
+                                                }
+                                            }}
+                                            style={{cursor: "pointer"}}
+                                        >
+                                            <SearchCard scan={v} />
+                                            {/* <Route
+                                                path={`:${v.scanID}`}
+                                                element={
+                                                    <ScanModal
+                                                        show={selectedScan !== null}
+                                                        scan={v}
+                                                        onClose={() => setSelectedScan(null)}
+                                                        key={i}
+                                                    />
+                                                }
+                                            /> */}
+                                        </div>
+                                    ))}
+                            </div>
+                        </Container>
+                    }
+                />
+                <Route
+                    path="/search/:id"
+                    element={
+                        <ScanModal
+                            show={selectedScan !== null}
+                            scan={selectedScan!}
+                            onClose={() => setSelectedScan(null)}
+                        />
+                    }
+                />
+            </Routes>
+
+            <Outlet />
+            {state?.background && (
+                <Routes>
+                    <Route
+                        path="/search/:id"
+                        element={
+                            <ScanModal
+                                show={selectedScan !== null}
+                                scan={selectedScan!}
+                                onClose={() => setSelectedScan(null)}
+                            />
+                        }
+                    />
+                </Routes>
             )}
             {/* Scan Modal */}
-            {selectedScan && (
+            {/* {selectedScan && (
                 <ScanModal
                     show={selectedScan !== null}
                     scan={selectedScan}
                     onClose={() => setSelectedScan(null)}
                 />
-            )}
+            )} */}
             {/* Contribute Modal */}
             {showContribute && (
                 <ContributeModal show={showContribute} onClose={() => setShowContribute(false)} />

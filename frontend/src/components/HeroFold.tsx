@@ -1,4 +1,5 @@
 import {useState, useRef, useEffect, useContext, FC} from "react";
+import {useNavigate, Navigate} from "react-router-dom";
 import Fold from "./Fold";
 import {LargeFilterCard, DoubleSlider, ModalityCard} from "./LargeFilterCard";
 import SearchBar from "./SearchBar";
@@ -13,6 +14,7 @@ type HeroButton =
     | {label: string; type: "action"; onClick: () => void};
 
 const HeroFold: FC<{searching: boolean}> = ({searching}) => {
+    const navigate = useNavigate();
     const heroRef = useRef<HTMLDivElement>(null);
 
     const [heroHeight, setHeroHeight] = useState<number>(600);
@@ -62,7 +64,8 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
             label: "Browse all",
             type: "action",
             onClick: () => {
-                setSearching(true);
+                navigate("/search");
+                // setSearching(true);
                 setSelectedModalities([]);
                 setSearchText("");
                 setResRange({lower: 0, upper: MAX_SIZE_NM});

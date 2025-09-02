@@ -210,59 +210,32 @@ const ScanModal: FC<ScanModalProps> = ({show, scan: propScan, onClose}) => {
                             <Accordion.Header>Zenodo Links</Accordion.Header>
                             <Accordion.Body>
                                 <div style={zenodoFlex}>
-                                    {!isArrayEmpty(rawZenodoLinks) && (
-                                        <div>
-                                            <div style={{fontWeight: 600}}>Raw</div>
-                                            <ul>
-                                                {rawZenodoLinks.map((url, i) => (
-                                                    <li key={i}>
-                                                        <a
-                                                            href={url}
-                                                            target="_blank"
-                                                            rel="noopener noreferrer"
-                                                        >
-                                                            {url}
-                                                        </a>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    )}
-                                    {!isArrayEmpty(processedZenodoLinks) && (
-                                        <div>
-                                            <div style={{fontWeight: 600}}>Processed</div>
-                                            <ul>
-                                                {processedZenodoLinks.map((url, i) => (
-                                                    <li key={i}>
-                                                        <a
-                                                            href={url}
-                                                            target="_blank"
-                                                            rel="noopener noreferrer"
-                                                        >
-                                                            {url}
-                                                        </a>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    )}
-                                    {!isArrayEmpty(reconstructedZenodoLinks) && (
-                                        <div>
-                                            <div style={{fontWeight: 600}}>Reconstructed</div>
-                                            <ul>
-                                                {reconstructedZenodoLinks.map((url, i) => (
-                                                    <li key={i}>
-                                                        <a
-                                                            href={url}
-                                                            target="_blank"
-                                                            rel="noopener noreferrer"
-                                                        >
-                                                            {url}
-                                                        </a>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
+                                    {[
+                                        {label: "Raw", arr: rawZenodoLinks},
+                                        {label: "Processed", arr: processedZenodoLinks},
+                                        {label: "Reconstructed", arr: reconstructedZenodoLinks}
+                                    ].map(({label, arr}) =>
+                                        !isArrayEmpty(arr) ? (
+                                            <div key={label}>
+                                                <div style={{fontWeight: 600}}>{label}</div>
+                                                <ul>
+                                                    {arr
+                                                        .map((url, i) => ({url, i}))
+                                                        .filter(({url}) => url && url !== "")
+                                                        .map(({url, i}) => (
+                                                            <li key={i}>
+                                                                <a
+                                                                    href={url}
+                                                                    target="_blank"
+                                                                    rel="noopener noreferrer"
+                                                                >
+                                                                    {url}
+                                                                </a>
+                                                            </li>
+                                                        ))}
+                                                </ul>
+                                            </div>
+                                        ) : null
                                     )}
                                 </div>
                             </Accordion.Body>

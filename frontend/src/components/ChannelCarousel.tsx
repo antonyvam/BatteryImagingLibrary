@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from "react";
+import {FC, CSSProperties, useState, useRef, useEffect} from "react";
 
 interface ChannelCarouselProps {
     thumbnailName: string[];
@@ -7,7 +7,7 @@ interface ChannelCarouselProps {
     height?: number;
 }
 
-const ChannelCarousel: React.FC<ChannelCarouselProps> = ({
+const ChannelCarousel: FC<ChannelCarouselProps> = ({
     thumbnailName,
     scanID,
     rootDir,
@@ -15,7 +15,7 @@ const ChannelCarousel: React.FC<ChannelCarouselProps> = ({
 }) => {
     const [currentIdx, setCurrentIdx] = useState(0);
     const imgRef = useRef<HTMLImageElement>(null);
-    const [imgStyle, setImgStyle] = useState<React.CSSProperties>({});
+    const [imgStyle, setImgStyle] = useState<CSSProperties>({});
 
     const images = thumbnailName.map((name) => `/assets/imgs/${rootDir}/${scanID}/${name}`);
 
@@ -31,7 +31,7 @@ const ChannelCarousel: React.FC<ChannelCarouselProps> = ({
                 const iH = imgRef.current.naturalHeight;
                 if (!iW || !iH) return;
                 // Focus on top center
-                let style: React.CSSProperties = {
+                let style: CSSProperties = {
                     objectFit: "cover",
                     objectPosition: "top center",
                     width: "100%",

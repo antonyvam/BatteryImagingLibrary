@@ -1,4 +1,4 @@
-import React, {useRef, useState, useEffect} from "react";
+import {FC, useRef, useState, useEffect} from "react";
 import {Card, Button} from "react-bootstrap";
 import {Container, Row, Col} from "react-bootstrap";
 import {ExampleCardData, isMobile, MODALITY_TO_COLOUR} from "../interfaces/types";
@@ -51,7 +51,7 @@ interface ExampleCardProps {
     cardData: ExampleCardData;
 }
 
-const ExampleCard: React.FC<ExampleCardProps> = ({cardData}) => {
+const ExampleCard: FC<ExampleCardProps> = ({cardData}) => {
     const divRef = useRef<HTMLDivElement>(null);
 
     const handleSeeAll = () => {

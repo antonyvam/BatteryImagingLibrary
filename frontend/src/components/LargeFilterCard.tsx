@@ -1,6 +1,6 @@
 import {useState, FC, useEffect, useContext, ChangeEvent} from "react";
 import ReactSlider from "react-slider";
-import {Form, Card, InputGroup, Button, CloseButton} from "react-bootstrap";
+import {Form, Card, InputGroup, Button} from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import AppContext, {

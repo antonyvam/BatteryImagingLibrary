@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import {FC, useState, useEffect, Fragment} from "react";
 import {isArrayEmpty} from "../interfaces/helpers";
 import {Modal, Button, Accordion, Table, Form} from "react-bootstrap";
 import ChannelCarousel from "./ChannelCarousel";
 import {ScanDetails} from "../interfaces/types";
-import {renderModality, renderSmallestPixelSize, renderDataDims} from "../interfaces/helpers";
+import {renderSmallestPixelSize, renderDataDims} from "../interfaces/helpers";
 import {ModalityBadge} from "./SearchCard";
 
 interface ScanModalProps {
@@ -12,10 +12,10 @@ interface ScanModalProps {
     onClose: () => void;
 }
 
-const ScanModal: React.FC<ScanModalProps> = ({show, scan, onClose}) => {
+const ScanModal: FC<ScanModalProps> = ({show, scan, onClose}) => {
     // Modal centering and responsive width
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    React.useEffect(() => {
+    useEffect(() => {
         const handleResize = () => setWindowWidth(window.innerWidth);
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
@@ -132,12 +132,12 @@ const ScanModal: React.FC<ScanModalProps> = ({show, scan, onClose}) => {
                                         {paramRows.map((row, idx) => (
                                             <tr key={idx}>
                                                 {row.map(([k, v]) => (
-                                                    <React.Fragment key={k}>
+                                                    <Fragment key={k}>
                                                         <td style={{fontWeight: 600, width: "20%"}}>
                                                             {k}
                                                         </td>
                                                         <td style={{width: "30%"}}>{v}</td>
-                                                    </React.Fragment>
+                                                    </Fragment>
                                                 ))}
                                                 {row.length < 2 && (
                                                     <>

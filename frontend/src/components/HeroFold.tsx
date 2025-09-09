@@ -4,7 +4,7 @@ import Fold from "./Fold";
 import {LargeFilterCard, DoubleSlider, ModalityCard} from "./LargeFilterCard";
 import SearchBar from "./SearchBar";
 import {Container, Row, Col, Button} from "react-bootstrap";
-import AppContext, {isMobile, MAX_SIZE_NM, MAX_AREA_NM} from "../interfaces/types";
+import AppContext, {isMobile, MIN_SIZE_NM, MAX_SIZE_NM, MAX_AREA_NM} from "../interfaces/types";
 
 import "../assets/scss/styles.css";
 
@@ -173,6 +173,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                                     setValue={setResRange}
                                     addDropdown={true}
                                     logarithmic={true}
+                                    min={Math.log10(MIN_SIZE_NM)}
                                     max={Math.log10(MAX_SIZE_NM)}
                                 />
                             </div>

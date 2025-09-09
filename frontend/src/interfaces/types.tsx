@@ -10,7 +10,8 @@ export interface FoldProps {
     hero: boolean;
 }
 
-export const MAX_SIZE_NM = 1e9;
+export const MIN_SIZE_NM = 0.1;
+export const MAX_SIZE_NM = 1e7;
 export const MAX_AREA_NM = 1e16;
 
 export const UNITS = ["NANO", "MICRON", "MILLI", "CENTI"] as const;

@@ -146,7 +146,7 @@ const ExampleCards = () => {
                 }}
             >
                 {exampleData.map((ex, idx) => (
-                    <ExampleCard cardData={ex} />
+                    <ExampleCard cardData={ex} key={idx} />
                 ))}
             </div>
         </Container>

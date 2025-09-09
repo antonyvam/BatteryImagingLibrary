@@ -141,22 +141,61 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
         }
     }, [value]);
 
+    // Generate integer marks from min to max
+    const intMin = Math.ceil(min);
+    const intMax = Math.floor(max);
+    const marks = Array.from({length: intMax - intMin + 1}, (_, i) => intMin + i);
+
+    // Special ticks: 1nm (0), 1um (3), 1mm (6)
+    const specialTicks = [0, 3, 6];
+    const specialLabels: Record<number, string> = {
+        0: "1nm",
+        3: "1µm",
+        6: "1mm"
+    };
+
+    // Render marks function
+    const renderMarks = (props: any) => {
+        const {
+            key,
+            className,
+            style
+        }: {key: number; className: string; style: React.CSSProperties} = props;
+
+        const val = min + key;
+        const isSpecial = specialTicks.includes(val);
+
+        if (isSpecial) {
+            return (
+                <span key={props.key} {...props} className={"slider-mark-special"}>
+                    {specialLabels[val]}
+                </span>
+            );
+        } else {
+            return <span key={props.key} {...props} className={"slider-mark"}></span>;
+        }
+    };
+
     return (
         <div style={{display: "flex", flexDirection: "column", gap: 2}}>
             <ReactSlider
                 className="horizontal-slider"
                 thumbClassName="example-thumb"
                 trackClassName="example-track"
+                // markClassName="slider-mark"
                 value={[sliderVal.lower, sliderVal.upper]}
                 min={min}
                 max={max}
                 step={step}
                 minDistance={0.2}
                 pearling
+                marks={marks}
+                renderMark={(props) => renderMarks(props)}
                 onChange={([lower, upper]) => onSliderChange(lower, upper)}
                 // renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
                 renderTrack={(props, state) => (
                     <div
+                        key={props.key}
                         {...props}
                         style={{
                             ...props.style,

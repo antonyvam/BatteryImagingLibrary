@@ -140,34 +140,38 @@ html {
 
 .slider-mark {
   width: 2px;
-  height: 18px;
+  height: 10px;
   background: #bcc3cf;
   position: absolute;
   left: 50%;
   top: 0;
   transform: translateX(-50%);
-  z-index: 1;
+  z-index: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .slider-mark-special {
-  color: #212121;
-  background-color: #212121;
+  color: rgb(108, 117, 125);
+  background-color: rgb(108, 117, 125);
   font-size: 0.8em;
   width: 2px;
-  height: 18px;
+  height: 10px;
   position: absolute;
   left: 50%;
   top: 0;
   transform: translateX(-50%);
-  z-index: 1;
+  z-index: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.slider-mark-text {
+  position: absolute;
+  color: 'red';
+}
 
 @media screen and (width < 700px) {
   .data-card {

@@ -107,6 +107,7 @@ export interface DoubleSliderProps {
     logarithmic?: boolean;
     addDropdown?: boolean;
     squared?: boolean;
+    showTicks?: boolean;
 }
 
 export const DoubleSlider: FC<DoubleSliderProps> = ({
@@ -117,7 +118,8 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     step = 0.001,
     logarithmic = false,
     addDropdown = false,
-    squared = false
+    squared = false,
+    showTicks = false
 }) => {
     const [sliderVal, setSliderVal] = useState<{lower: number; upper: number}>({
         lower: min,
@@ -144,7 +146,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     // Generate integer marks from min to max
     const intMin = Math.ceil(min);
     const intMax = Math.floor(max);
-    const marks = Array.from({length: intMax - intMin + 1}, (_, i) => intMin + i);
+    const marks = Array.from({length: intMax - intMin}, (_, i) => 1 + intMin + i);
 
     // Special ticks: 1nm (0), 1um (3), 1mm (6)
     const specialTicks = [0, 3, 6];
@@ -162,13 +164,13 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
             style
         }: {key: number; className: string; style: React.CSSProperties} = props;
 
-        const val = min + key;
+        const val = min + key + 1;
         const isSpecial = specialTicks.includes(val);
 
         if (isSpecial) {
             return (
                 <span key={props.key} {...props} className={"slider-mark-special"}>
-                    {specialLabels[val]}
+                    <span style={{position: "relative", top: "-20px"}}>{specialLabels[val]}</span>
                 </span>
             );
         } else {
@@ -189,7 +191,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                 step={step}
                 minDistance={0.2}
                 pearling
-                marks={marks}
+                marks={showTicks ? marks : false}
                 renderMark={(props) => renderMarks(props)}
                 onChange={([lower, upper]) => onSliderChange(lower, upper)}
                 // renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
@@ -201,7 +203,8 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                             ...props.style,
                             background: state.index === 1 ? "#0d6efd" : "#e9ecef",
                             height: 6,
-                            borderRadius: 3
+                            borderRadius: 3,
+                            zIndex: 1
                         }}
                     />
                 )}

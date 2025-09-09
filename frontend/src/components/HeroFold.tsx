@@ -166,7 +166,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                             flexWrap: isMobile() ? "wrap" : "nowrap"
                         }}
                     >
-                        <LargeFilterCard title="Resolution">
+                        <LargeFilterCard title="Pixel Size">
                             <div>
                                 <DoubleSlider
                                     value={resRange}
@@ -175,6 +175,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                                     logarithmic={true}
                                     min={Math.log10(MIN_SIZE_NM)}
                                     max={Math.log10(MAX_SIZE_NM)}
+                                    showTicks={true}
                                 />
                             </div>
                         </LargeFilterCard>

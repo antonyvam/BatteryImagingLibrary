@@ -21,10 +21,28 @@ def get_plane_suffix(filename: str) -> Optional[str]:
     return None
 
 
+def display(image, display_min, display_max) -> np.ndarray:
+    # https://stackoverflow.com/questions/14464449/using-numpy-to-efficiently-convert-16-bit-image-data-to-8-bit-for-display-with
+    # Here I set copy=True in order to ensure the original image is not
+    # modified. If you don't mind modifying the original image, you can
+    # set copy=False or skip this step.
+    print(image.dtype)
+    image = np.array(image, copy=True, dtype=image.dtype)
+
+    image.clip(display_min, display_max, out=image)
+    image -= display_min
+    image //= (display_min - display_max + 1) // 256
+    image = image.astype(np.uint8)
+    return image
+
+
 def load_image(path: str) -> Image.Image:
     ext = os.path.splitext(path)[1].lower()
     if ext in [".tif", ".tiff"]:
         img = tifffile.imread(path)
+        img = ((img / np.amax(img)) * 255).astype(np.uint8)
+        # img = display(img, 0, 255)
+
         if img.ndim == 2:
             return Image.fromarray(img)
         elif img.ndim == 3:

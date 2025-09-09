@@ -14,27 +14,51 @@
   - point search to /search
   - point each sample to /search/{id}
   - s.t users can share links to specific samples
+- refine figure 1
+- replace DOIs w citation in spreadsheet
+  - kintsugi data:
+    - zoom in on secondary particles + particle sep (of zoom)
+    - electrode & sep + seg
+    - zoom in from paper + seg
+- add author field?
 
 ### doing:
 
+- slider:
+  For BIL, could the pixel size scale be the following:
+  Log scale - done
+  Log tick marks
+  Three fixed tick labels: 1 nm, 1 um, 1 mm
+  Scale is actually from 0.1 nm to 1 mm
+  Boxes either end showing exact slider values
+
+  Histogram above showing number of entries at each pixel size?
+
+  If a slider is at the end of the range, set the search to include anything below/above
+
 - read prerpint; update website section (inc dreaft website figure)
-- refine figure 1
+- modal:
+
+  - display citation information + button to copy + little toast that says 'copied to clipboard'
+
+- to add:
+
+  - j old data:
+    - wide kintsugi attempt + seg
+    - high res
+  - seg of slice?
 
 - Image size -> Cross Section Area (UNIT^2)
 
   - mkae the sliders actually work
 
-- modal:
-
-  - make DOIs buttons work better:
-  - display citation information + button to copy + little toast that says 'copied to clipboard'
-
 - home / back button on search results page
 - script:
   - save oriignal image into azure db?
 - spreadsheet:
+
   - add cell geometry?
-  - add author field?
+
   - add appscript to VC?
   - app script to ping cross ref given a doi to get full citation and dunk it into json
     -refactor:

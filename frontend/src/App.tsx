@@ -102,14 +102,6 @@ const App: FC = () => {
                     />
                 </Routes>
             )}
-            {/* Scan Modal */}
-            {/* {selectedScan && (
-                <ScanModal
-                    show={selectedScan !== null}
-                    scan={selectedScan}
-                    onClose={() => setSelectedScan(null)}
-                />
-            )} */}
             {/* Contribute Modal */}
             {showContribute && (
                 <ContributeModal show={showContribute} onClose={() => setShowContribute(false)} />

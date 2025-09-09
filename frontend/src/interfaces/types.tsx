@@ -67,7 +67,9 @@ export type ScanDetails = {
     thumbnailType: string;
     thumbnailName: string[];
     scanParameters: Record<string, string>;
-    DOIs: string[];
+    citations: string[];
+    contributors: string;
+    licence: "CC-4.0" | "CC0";
     zenodoLinks: {
         rawZenodoLinks: string[];
         rawZenodoLabels: string[];
@@ -93,7 +95,9 @@ export const ScanDetailsSchema = z.object({
     thumbnailType: z.string(),
     thumbnailName: z.array(z.string()),
     scanParameters: z.record(z.string(), z.string()),
-    DOIs: z.array(z.string()),
+    citations: z.array(z.string()),
+    contributors: z.string(),
+    licence: z.enum(["CC-4.0", "CC0"]),
     zenodoLinks: z.object({
         rawZenodoLinks: z.array(z.string()),
         rawZenodoLabels: z.array(z.string()),

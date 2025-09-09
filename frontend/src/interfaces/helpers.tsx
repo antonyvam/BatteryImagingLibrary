@@ -190,6 +190,22 @@ function getUniqueValues<T, U>(arr: T[], extractor: (item: T) => U): Set<U> {
     return new Set(arr.map(extractor));
 }
 
+function sfc32(a, b, c, d) {
+    return function () {
+        a |= 0;
+        b |= 0;
+        c |= 0;
+        d |= 0;
+        let t = (((a + b) | 0) + d) | 0;
+        d = (d + 1) | 0;
+        a = b ^ (b >>> 9);
+        b = (c + (c << 3)) | 0;
+        c = (c << 21) | (c >>> 11);
+        c = (c + t) | 0;
+        return (t >>> 0) / 4294967296;
+    };
+}
+
 // Smart shuffle function
 export function smartShuffle<T extends ScanDetails>(
     data: T[],
@@ -197,12 +213,14 @@ export function smartShuffle<T extends ScanDetails>(
     extractors: Partial<{[K in keyof T]: (item: T) => any}>,
     maxTries = 1000
 ): T[] {
+    const seedgen = () => 1001 >>> 0;
+    const getRand = sfc32(seedgen(), seedgen(), seedgen(), seedgen());
     if (data.length <= 1) return [...data];
 
     // Start with a random entry
     const remaining = [...data];
     const result: T[] = [];
-    const startIdx = Math.floor(Math.random() * remaining.length);
+    const startIdx = 0; //Math.floor(getRand() * remaining.length); //Math.floor(Math.random() * remaining.length);
     result.push(remaining.splice(startIdx, 1)[0]);
 
     // Track unique values for each field
@@ -222,7 +240,7 @@ export function smartShuffle<T extends ScanDetails>(
 
         // Try up to maxTries random samples to find the best candidate
         for (let t = 0; t < Math.min(maxTries, remaining.length); t++) {
-            const idx = t === 0 ? 0 : Math.floor(Math.random() * remaining.length);
+            const idx = t === 0 ? 0 : Math.floor(getRand() * remaining.length);
             const candidate = remaining[idx];
             let score = 0;
 

@@ -38,16 +38,14 @@ export const NumericInputOptionalDropdown: FC<NumericInputOptionalDropdown> = ({
     units = UNITS,
     squared = false
 }) => {
-    // TODO: fix scale-based text rendering
-    // TODO: fix over eager text parsing / input
     const [unit, setUnit] = useState<Units>("NANO");
+    const [textVal, setTextVal] = useState<string>(value.toString());
+    const [keyPressed, setKeyPressed] = useState<boolean>(false);
+
     const onUnitChange = (newUnit: string) => {
         const isUnit = (val: string): val is Units => {
             return UNITS.includes(val as Units);
         };
-
-        const SF = UNIT_TO_SCALE[newUnit] / UNIT_TO_SCALE[unit];
-        setValue(value * SF);
 
         if (isUnit(newUnit)) {
             setUnit(newUnit);
@@ -67,16 +65,33 @@ export const NumericInputOptionalDropdown: FC<NumericInputOptionalDropdown> = ({
         }
     };
 
-    // Only allow floats and scientific notation
-    const handleChange = (val: string) => {
-        setValue(parseStrAsNumber(val) / UNIT_TO_SCALE[unit]);
-    };
+    useEffect(() => {
+        const handler = setTimeout(() => {
+            if (keyPressed) {
+                setValue(parseStrAsNumber(textVal) * UNIT_TO_SCALE[unit]); // update after user stops typing
+            }
+
+            setKeyPressed(false);
+        }, 500);
+
+        return () => {
+            clearTimeout(handler); // cleanup on new keystroke
+        };
+    }, [textVal, unit, setValue]);
+
+    useEffect(() => {
+        setTextVal(renderResolutionText(value, unit));
+    }, [value, unit]);
+
     return (
         <InputGroup style={{width: "100%"}} size="sm">
             <Form.Control
                 type="text"
-                value={renderResolutionText(value, unit)}
-                onChange={(e) => handleChange(e.target.value)}
+                value={textVal}
+                onChange={(e) => {
+                    setKeyPressed(true);
+                    setTextVal(e.target.value);
+                }}
                 inputMode="decimal"
                 autoComplete="off"
                 maxLength={10}

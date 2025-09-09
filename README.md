@@ -27,10 +27,10 @@
 - slider:
   For BIL, could the pixel size scale be the following:
   Log scale - done
-  Log tick marks
-  Three fixed tick labels: 1 nm, 1 um, 1 mm
-  Scale is actually from 0.1 nm to 1 mm
-  Boxes either end showing exact slider values
+  Log tick marks - done
+  Three fixed tick labels: 1 nm, 1 um, 1 mm - done
+  Scale is actually from 0.1 nm to 1 mm - done
+  Boxes either end showing exact slider values - done
 
   Histogram above showing number of entries at each pixel size?
 

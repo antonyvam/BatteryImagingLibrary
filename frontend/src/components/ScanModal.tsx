@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 import AppContext from "../interfaces/types";
 import {isArrayEmpty} from "../interfaces/helpers";
 import {Modal, Button, Accordion, Table, Form} from "react-bootstrap";
+import InputGroup from "react-bootstrap/InputGroup";
 import ChannelCarousel from "./ChannelCarousel";
 import {ScanDetails} from "../interfaces/types";
 import {renderSmallestPixelSize, renderDataDims} from "../interfaces/helpers";
@@ -46,7 +47,7 @@ const ScanModal: FC<ScanModalProps> = ({show, scan: propScan, onClose}) => {
     }
     const paramsAvailable = paramEntries.length > 0;
     const {rawZenodoLinks, processedZenodoLinks, reconstructedZenodoLinks} = scan.zenodoLinks;
-    const {DOIs} = scan;
+    const {citations} = scan;
 
     // Responsive flex for Zenodo links
     const zenodoFlex: React.CSSProperties =
@@ -241,27 +242,59 @@ const ScanModal: FC<ScanModalProps> = ({show, scan: propScan, onClose}) => {
                             </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="2">
-                            <Accordion.Header>DOIs</Accordion.Header>
+                            <Accordion.Header>Citations</Accordion.Header>
                             <Accordion.Body>
-                                {DOIs && DOIs.length > 0 ? (
-                                    DOIs.map((doi, idx) => (
-                                        <Form.Group
-                                            controlId={`formDOI${idx}`}
-                                            className="mb-3"
-                                            key={doi}
-                                        >
-                                            <Form.Label>{doi}</Form.Label>
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        flexDirection: "row",
+                                        flexWrap: "wrap",
+                                        justifyContent: "space-evenly"
+                                    }}
+                                >
+                                    <div>
+                                        <b>Contributor:</b> {scan.contributors}
+                                    </div>
+                                    <div
+                                        style={{
+                                            fontSize: 16,
+                                            color: "#555",
+                                            background: "#e3eaff",
+                                            padding: "4px 14px",
+                                            borderRadius: 4
+                                        }}
+                                    >
+                                        {scan.licence}
+                                    </div>
+                                </div>
+                                {citations && citations.length > 0 ? (
+                                    citations.map((doi, idx) => (
+                                        <InputGroup className="mb-3" key={idx}>
+                                            <InputGroup.Text
+                                                id="basic-addon1"
+                                                style={{maxWidth: "70%", overflow: "scroll"}}
+                                            >
+                                                {doi}
+                                            </InputGroup.Text>
                                             <Button
-                                                variant="outline-primary"
+                                                variant="outline-secondary"
                                                 size="sm"
-                                                style={{marginLeft: 8}}
                                                 onClick={() => {
                                                     navigator.clipboard.writeText(doi);
                                                 }}
                                             >
                                                 Copy
                                             </Button>
-                                        </Form.Group>
+                                            <Button
+                                                variant="outline-secondary"
+                                                size="sm"
+                                                onClick={() => {
+                                                    navigator.clipboard.writeText(doi);
+                                                }}
+                                            >
+                                                Copy (bibtex)
+                                            </Button>
+                                        </InputGroup>
                                     ))
                                 ) : (
                                     <div>No DOIs available.</div>

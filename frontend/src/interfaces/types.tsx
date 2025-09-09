@@ -64,7 +64,7 @@ export type ScanDetails = {
     instrument: string;
     pixelSize_µm: (number | string)[];
     dataDimensions_px: (number | string)[];
-    dataDimensions_µm: (number | string)[];
+    dataDimensions_µm: number[];
     thumbnailType: string;
     thumbnailName: string[];
     scanParameters: Record<string, string>;
@@ -92,7 +92,8 @@ export const ScanDetailsSchema = z.object({
     instrument: z.string(),
     pixelSize_µm: z.array(z.union([z.number(), z.string()])),
     dataDimensions_px: z.array(z.union([z.number(), z.string()])),
-    dataDimensions_µm: z.array(z.union([z.number(), z.string()])),
+    // dataDimensions_µm: z.array(z.union([z.number(), z.string()])),
+    dataDimensions_µm: z.array(z.number()),
     thumbnailType: z.string(),
     thumbnailName: z.array(z.string()),
     scanParameters: z.record(z.string(), z.string()),

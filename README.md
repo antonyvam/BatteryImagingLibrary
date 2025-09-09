@@ -50,8 +50,6 @@
 
 - Image size -> Cross Section Area (UNIT^2)
 
-  - mkae the sliders actually work
-
 - home / back button on search results page
 - script:
   - save oriignal image into azure db?

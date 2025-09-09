@@ -74,7 +74,7 @@ const ScanModal: FC<ScanModalProps> = ({show, scan: propScan, onClose}) => {
                     <a href={`${v.scanID}`}>
                         {v.sampleName} ({v.scanID})
                     </a>
-                    ;{i < valid.length - 1 && ", "}
+                    {i < valid.length - 1 && ", "}
                 </>
             );
         });
@@ -171,43 +171,8 @@ const ScanModal: FC<ScanModalProps> = ({show, scan: propScan, onClose}) => {
                         <p>Related: {styleRelatedScans(scanData, scan)}</p>
                     </div>
 
-                    {/* Accordion for Scan Parameters and Zenodo Links */}
-                    <Accordion defaultActiveKey="1" alwaysOpen>
-                        {paramsAvailable && (
-                            <Accordion.Item eventKey="0">
-                                <Accordion.Header>Scan Parameters</Accordion.Header>
-                                <Accordion.Body>
-                                    <Table bordered size="sm">
-                                        <tbody>
-                                            {paramRows.map((row, idx) => (
-                                                <tr key={idx}>
-                                                    {row.map(([k, v]) => (
-                                                        <Fragment key={k}>
-                                                            <td
-                                                                style={{
-                                                                    fontWeight: 600,
-                                                                    width: "20%"
-                                                                }}
-                                                            >
-                                                                {k}
-                                                            </td>
-                                                            <td style={{width: "30%"}}>{v}</td>
-                                                        </Fragment>
-                                                    ))}
-                                                    {row.length < 2 && (
-                                                        <>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </>
-                                                    )}
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </Table>
-                                </Accordion.Body>
-                            </Accordion.Item>
-                        )}
-                        <Accordion.Item eventKey="1">
+                    <Accordion defaultActiveKey="0" alwaysOpen>
+                        <Accordion.Item eventKey="0">
                             <Accordion.Header>Zenodo Links</Accordion.Header>
                             <Accordion.Body>
                                 <div style={zenodoFlex}>
@@ -241,6 +206,42 @@ const ScanModal: FC<ScanModalProps> = ({show, scan: propScan, onClose}) => {
                                 </div>
                             </Accordion.Body>
                         </Accordion.Item>
+
+                        {paramsAvailable && (
+                            <Accordion.Item eventKey="1">
+                                <Accordion.Header>Scan Parameters</Accordion.Header>
+                                <Accordion.Body>
+                                    <Table bordered size="sm">
+                                        <tbody>
+                                            {paramRows.map((row, idx) => (
+                                                <tr key={idx}>
+                                                    {row.map(([k, v]) => (
+                                                        <Fragment key={k}>
+                                                            <td
+                                                                style={{
+                                                                    fontWeight: 600,
+                                                                    width: "20%"
+                                                                }}
+                                                            >
+                                                                {k}
+                                                            </td>
+                                                            <td style={{width: "30%"}}>{v}</td>
+                                                        </Fragment>
+                                                    ))}
+                                                    {row.length < 2 && (
+                                                        <>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </>
+                                                    )}
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </Table>
+                                </Accordion.Body>
+                            </Accordion.Item>
+                        )}
+
                         <Accordion.Item eventKey="2">
                             <Accordion.Header>Citations</Accordion.Header>
                             <Accordion.Body>
@@ -249,7 +250,10 @@ const ScanModal: FC<ScanModalProps> = ({show, scan: propScan, onClose}) => {
                                         display: "flex",
                                         flexDirection: "row",
                                         flexWrap: "wrap",
-                                        justifyContent: "space-evenly"
+                                        justifyContent: "flex-start",
+                                        gap: 20,
+                                        paddingBottom: 30,
+                                        alignItems: "baseline"
                                     }}
                                 >
                                     <div>
@@ -268,34 +272,38 @@ const ScanModal: FC<ScanModalProps> = ({show, scan: propScan, onClose}) => {
                                     </div>
                                 </div>
                                 {citations && citations.length > 0 ? (
-                                    citations.map((doi, idx) => (
-                                        <InputGroup className="mb-3" key={idx}>
-                                            <InputGroup.Text
-                                                id="basic-addon1"
-                                                style={{maxWidth: "70%", overflow: "scroll"}}
+                                    <div
+                                        style={{
+                                            display: "flex",
+                                            flexDirection: "column"
+                                        }}
+                                    >
+                                        If you find this data useful in your research, please cite
+                                        the following:
+                                        {citations.map((doi, idx) => (
+                                            <InputGroup
+                                                className="mb-3"
+                                                key={idx}
+                                                style={{padding: 4}}
                                             >
-                                                {doi}
-                                            </InputGroup.Text>
-                                            <Button
-                                                variant="outline-secondary"
-                                                size="sm"
-                                                onClick={() => {
-                                                    navigator.clipboard.writeText(doi);
-                                                }}
-                                            >
-                                                Copy
-                                            </Button>
-                                            <Button
-                                                variant="outline-secondary"
-                                                size="sm"
-                                                onClick={() => {
-                                                    navigator.clipboard.writeText(doi);
-                                                }}
-                                            >
-                                                Copy (bibtex)
-                                            </Button>
-                                        </InputGroup>
-                                    ))
+                                                <InputGroup.Text
+                                                    id="basic-addon1"
+                                                    style={{maxWidth: "85%", overflow: "scroll"}}
+                                                >
+                                                    {doi}
+                                                </InputGroup.Text>
+                                                <Button
+                                                    variant="outline-secondary"
+                                                    size="sm"
+                                                    onClick={() => {
+                                                        navigator.clipboard.writeText(doi);
+                                                    }}
+                                                >
+                                                    Copy
+                                                </Button>
+                                            </InputGroup>
+                                        ))}
+                                    </div>
                                 ) : (
                                     <div>No DOIs available.</div>
                                 )}

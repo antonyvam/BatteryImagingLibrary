@@ -18,12 +18,12 @@ export function renderResolutionText(val: number, unit: Units = "NANO"): string 
     if (Math.abs(scaled) >= 1000) {
         const exp = Math.floor(Math.log10(Math.abs(scaled)));
         const base = scaled / Math.pow(10, exp);
-        return `${base.toFixed(1)}×10^${exp}`;
+        return `${base.toFixed(1)}E${exp}`;
     }
     if (Math.abs(scaled) > 0 && Math.abs(scaled) < 0.001) {
         const exp = Math.floor(Math.log10(Math.abs(scaled)));
         const base = scaled / Math.pow(10, exp);
-        return `${base.toFixed(1)}×10^${exp}`;
+        return `${base.toFixed(1)}E${exp}`;
     }
     return scaled.toPrecision(3).toString();
 }
@@ -79,6 +79,10 @@ export const getNVoxels = (dims: (string | number)[]) => {
         return Infinity;
     }
     return noStr.reduce((p, v) => p * v);
+};
+
+export const getArea = (dimsMicrons: number[]) => {
+    return (dimsMicrons[0] * dimsMicrons[1]) / 1e6;
 };
 
 export const renderSmallestPixelSize = (dims: (string | number)[]) => {
@@ -175,15 +179,14 @@ export const scanMatchesSearch = (
     const scanResNM = getSmallestFromDims(s.pixelSize_µm) * 1e3;
     const resRangeMatches = resRange.lower < scanResNM && scanResNM < resRange.upper;
 
-    const nVoxels = getNVoxels(s.dataDimensions_px);
-    const sizeRangeMatches = sizeRange.lower < nVoxels && nVoxels < sizeRange.upper;
+    // TODO: make this cross sectional area!
+    // const nVoxels = getNVoxels(s.dataDimensions_px);
+    const area = getArea(s.dataDimensions_µm);
+    const sizeRangeMatches = sizeRange.lower < area && area < sizeRange.upper;
     const modalityMatches =
         selectedModalities.length == 0 || selectedModalities.includes(s.scanModality);
     return searchMatches && resRangeMatches && sizeRangeMatches && modalityMatches;
 };
-
-// TODO:
-// - modality + scan sample diversity sort function
 
 // Helper: get unique values from an array using a custom extractor
 function getUniqueValues<T, U>(arr: T[], extractor: (item: T) => U): Set<U> {

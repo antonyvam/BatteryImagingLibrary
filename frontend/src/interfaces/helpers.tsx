@@ -82,7 +82,7 @@ export const getNVoxels = (dims: (string | number)[]) => {
 };
 
 export const getArea = (dimsMicrons: number[]) => {
-    return (dimsMicrons[0] * dimsMicrons[1]) / 1e6;
+    return dimsMicrons[0] * dimsMicrons[1] * 1e6;
 };
 
 export const renderSmallestPixelSize = (dims: (string | number)[]) => {

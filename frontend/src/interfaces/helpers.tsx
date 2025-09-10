@@ -42,7 +42,7 @@ export function parseStrAsNumber(s: string): number {
     return isNaN(num) ? 0 : num;
 }
 
-export const renderModality = (x: Modality) => {
+export const renderModality = (x: string) => {
     switch (x) {
         case "LAB_MICRO_XCT":
             return "Lab micro-XCT";
@@ -54,6 +54,8 @@ export const renderModality = (x: Modality) => {
             return "Synchotron micro-XCT";
         case "SYNCHOTRON_NANO_XCT":
             return "Synchotron nano-XCT";
+        case "ANY":
+            return "Any";
         default:
             return x;
     }
@@ -184,7 +186,9 @@ export const scanMatchesSearch = (
     const area = getArea(s.dataDimensions_µm);
     const sizeRangeMatches = sizeRange.lower < area && area < sizeRange.upper;
     const modalityMatches =
-        selectedModalities.length == 0 || selectedModalities.includes(s.scanModality);
+        selectedModalities.length == 0 ||
+        selectedModalities.includes(s.scanModality) ||
+        selectedModalities.includes("ANY");
     return searchMatches && resRangeMatches && sizeRangeMatches && modalityMatches;
 };
 

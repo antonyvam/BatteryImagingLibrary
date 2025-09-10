@@ -25,6 +25,7 @@ export const UNIT_TO_UNIT_STR: Record<Units, string> = {
 export const UNIT_TO_SCALE: Record<Units, number> = {NANO: 1, MICRON: 1e3, MILLI: 1e6, CENTI: 1e8};
 
 export const MODALITIES = [
+    "ANY",
     "SEM",
     "EDS",
     "EBSD",
@@ -44,7 +45,8 @@ export const MODALITY_TO_COLOUR: Record<Modality, string> = {
     NEUTRON_CT: "#888682ff",
     XRD_CT: "#D76A03",
     SYNCHOTRON_MICRO_XCT: "#d41919ff",
-    SYNCHOTRON_NANO_XCT: "#ff0000ff"
+    SYNCHOTRON_NANO_XCT: "#ff0000ff",
+    ANY: "#000000"
 };
 
 export interface ExampleCardData {

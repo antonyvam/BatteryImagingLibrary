@@ -322,7 +322,7 @@ export const ModalityCard = () => {
         selectedModalities: [selectedModalities, setSelectedModalities]
     } = useContext(AppContext)!;
 
-    const [dropdownSelection, setDropdownSelection] = useState<Modality>("SEM");
+    const [dropdownSelection, setDropdownSelection] = useState<Modality>("ANY");
 
     const onDropdownChange = (x: ChangeEvent<HTMLSelectElement>) => {
         const val = x.target.value;

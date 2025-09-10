@@ -271,10 +271,12 @@ export const LargeFilterCard: FC<LargeFilterCardProps> = ({title, children, styl
 
     return (
         <Card
-            className="mb-3 p-2 shadow-sm large-filter-card"
-            style={{minWidth: 0, maxWidth: 340, width: "100%", ...style}}
+            // className="mb-3 p-2 shadow-sm large-filter-card"
+            style={{minWidth: 0, maxWidth: 340, padding: 0, width: "100%", ...style}}
         >
-            <Card.Body style={{display: "flex", flexDirection: "column", height: "100%"}}>
+            <Card.Body
+                style={{display: "flex", flexDirection: "column", height: "100%", padding: "12 36"}}
+            >
                 <Card.Title className="mb-3" style={{marginBottom: 0}}>
                     <div
                         style={{

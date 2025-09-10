@@ -134,14 +134,14 @@ const ExampleCard: FC<ExampleCardProps> = ({cardData}) => {
 
 const ExampleCards = () => {
     return (
-        <Container className="my-5">
+        <Container style={{marginTop: 16}}>
             <h2 className="mb-4">Examples</h2>
             <div
                 style={{
                     display: "flex",
                     flexDirection: "row",
                     flexWrap: "wrap",
-                    gap: 40,
+                    gap: 20,
                     justifyContent: "space-evenly"
                 }}
             >

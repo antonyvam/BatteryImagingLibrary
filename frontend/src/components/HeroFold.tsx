@@ -98,14 +98,12 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                 <Container
                     style={{position: "relative", zIndex: 1, paddingTop: 4, paddingBottom: 4}}
                 >
-                    <h1 className="display-4 mb-3" style={{color: "#fff"}}>
-                        Battery Imaging Library
-                    </h1>
+                    <h1 style={{color: "#fff"}}>Battery Imaging Library</h1>
 
                     {searching === false && (
                         <Row className="align-items-center mb-4">
                             <Col md={7}>
-                                <p className="lead" style={{color: "#fff"}}>
+                                <p className="lead" style={{color: "#fff", fontSize: "1.2em"}}>
                                     7 modalities, 100+ scans and 10 billion voxels of open battery
                                     imaging data, from single particles up to full cells. Includes
                                     raw and processed (reconstructed, denoised, segmented,{" "}

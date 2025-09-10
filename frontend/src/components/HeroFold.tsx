@@ -96,7 +96,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                     }}
                 />
                 <Container
-                    style={{position: "relative", zIndex: 1, paddingTop: 48, paddingBottom: 48}}
+                    style={{position: "relative", zIndex: 1, paddingTop: 4, paddingBottom: 4}}
                 >
                     <h1 className="display-4 mb-3" style={{color: "#fff"}}>
                         Battery Imaging Library
@@ -160,7 +160,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                     <Row
                         className="mb-4"
                         style={{
-                            gap: 14,
+                            columnGap: 14,
                             display: "flex",
                             justifyContent: "space-evenly",
                             flexWrap: isMobile() ? "wrap" : "nowrap"

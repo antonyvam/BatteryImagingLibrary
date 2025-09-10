@@ -5,7 +5,6 @@
     "main": "src/index.tsx",
     "repository": "",
     "license": "MIT",
-    "homepage": "/secret",
     "scripts": {
         "build": "yarn run clean-dist && webpack --config=configs/webpack/prod.js",
         "clean-dist": "rimraf dist/*",

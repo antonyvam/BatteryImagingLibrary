@@ -37,12 +37,23 @@
 ### doing:
 
 - any change of sliders triggers search
+- fix smart shuffle
 - Change Area -> longest side:
 
   - double slider, px units
   - add 2D/3D/Both radio
 
-- contributor button
+- contributor button;link to zenodo BIL community (6 buttons)
+- synchotron micro-CT operando GIF and example card
+  - order: SEM; EDS; EBSD: Lab-micro CT; neutron-CT; S3XRD; s-mini; s-nano; XRD-CT
+- s3XRD modality as option
+- update text:
+  ' includes raw, processed and reconstructed data', 500+ billion voxels
+- update deploy of website
+- old J thumbnails
+- upload SEM data
+- google analytics ?
+- references in doc?
 
 - read prerpint; update website section (inc dreaft website figure)
 

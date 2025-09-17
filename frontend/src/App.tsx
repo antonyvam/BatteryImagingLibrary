@@ -11,7 +11,7 @@ import {Container} from "react-bootstrap";
 
 import "./assets/scss/App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {scanMatchesSearch, smartShuffle} from "./interfaces/helpers";
+import {scanMatchesSearch, smartShuffle, smartShuffle2} from "./interfaces/helpers";
 
 const App: FC = () => {
     const {
@@ -58,7 +58,7 @@ const App: FC = () => {
                                     // alignItems: "strech"
                                 }}
                             >
-                                {smartShuffle(
+                                {smartShuffle2(
                                     scanData.filter((s) =>
                                         scanMatchesSearch(
                                             s,

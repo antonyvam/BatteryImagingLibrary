@@ -10,8 +10,8 @@ import "../assets/scss/styles.css";
 
 // Button configuration: label, type ('link' or 'action'), and value (url or function)
 type HeroButton =
-    | {label: string; type: "link"; url: string}
-    | {label: string; type: "action"; onClick: () => void};
+    | {label: string; type: "link"; url: string; color?: string}
+    | {label: string; type: "action"; onClick: () => void; color?: string};
 
 const HeroFold: FC<{searching: boolean}> = ({searching}) => {
     const navigate = useNavigate();
@@ -60,6 +60,12 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
             url: "https://github.com/antonyvam/BatteryImagingLibrary"
         },
         {
+            label: "Zenodo",
+            type: "link",
+            url: "https://zenodo.org/communities/batteryimaginglibrary/records",
+            color: "#0047a8"
+        },
+        {
             label: "Browse all",
             type: "action",
             onClick: () => {
@@ -70,6 +76,11 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                 setResRange({lower: 0, upper: MAX_SIZE_NM});
                 setSizeRange({lower: 0, upper: MAX_L_PX});
             }
+        },
+        {
+            label: "Contributors",
+            type: "action",
+            onClick: () => setShowContribute(true)
         },
         {
             label: "Contribute!",
@@ -114,7 +125,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                                 <div style={{display: "flex", flexDirection: "column", gap: 8}}>
                                     {[0, 1].map((row) => (
                                         <div style={{display: "flex", gap: 8}} key={row}>
-                                            {heroButtons.slice(row * 2, row * 2 + 2).map((btn) =>
+                                            {heroButtons.slice(row * 3, row * 3 + 3).map((btn) =>
                                                 btn.type === "link" ? (
                                                     <Button
                                                         key={btn.label}
@@ -129,6 +140,10 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                                                                 ? "noopener noreferrer"
                                                                 : undefined
                                                         }
+                                                        style={{
+                                                            backgroundColor: btn.color,
+                                                            color: btn.color ? "white" : "black"
+                                                        }}
                                                     >
                                                         {btn.label}
                                                     </Button>

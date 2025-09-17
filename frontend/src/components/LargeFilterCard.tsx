@@ -184,12 +184,12 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
 
         if (isSpecial) {
             return (
-                <span key={props.key} {...props} className={"slider-mark-special"}>
+                <span {...props} key={props.key} className={"slider-mark-special"}>
                     <span style={{position: "relative", top: "-20px"}}>{specialLabels[val]}</span>
                 </span>
             );
         } else {
-            return <span key={props.key} {...props} className={"slider-mark"}></span>;
+            return <span {...props} key={props.key} className={"slider-mark"}></span>;
         }
     };
 
@@ -212,8 +212,8 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                 // renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
                 renderTrack={(props, state) => (
                     <div
-                        key={props.key}
                         {...props}
+                        key={props.key}
                         style={{
                             ...props.style,
                             background: state.index === 1 ? "#0d6efd" : "#e9ecef",

@@ -82,7 +82,8 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
                         marginBottom: 8,
                         background: "#f5f5f5",
                         padding: "4px 12px",
-                        borderRadius: 6
+                        borderRadius: 6,
+                        textAlign: "center"
                         // overflowX: "scroll",
                         // height: 50,
                         // whiteSpace: "nowrap",

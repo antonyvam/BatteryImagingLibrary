@@ -184,7 +184,7 @@ export const scanMatchesSearch = (
     // TODO: make this cross sectional area!
     // const nVoxels = getNVoxels(s.dataDimensions_px);
     const area = getArea(s.dataDimensions_µm);
-    const sizeRangeMatches = sizeRange.lower < area && area < sizeRange.upper;
+    const sizeRangeMatches = true; //sizeRange.lower < area && area < sizeRange.upper;
     const modalityMatches =
         selectedModalities.length == 0 ||
         selectedModalities.includes(s.scanModality) ||

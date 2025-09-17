@@ -5,7 +5,7 @@ import {Container} from "react-bootstrap";
 import AppContext, {
     ExampleCardData,
     isMobile,
-    MAX_AREA_NM,
+    MAX_L_PX,
     MAX_SIZE_NM,
     MODALITY_TO_COLOUR
 } from "../interfaces/types";
@@ -72,7 +72,7 @@ const ExampleCard: FC<ExampleCardProps> = ({cardData}) => {
         setSelectedModalities([cardData.modality]);
         setSearchText("");
         setResRange({lower: 0, upper: MAX_SIZE_NM});
-        setSizeRange({lower: 0, upper: MAX_AREA_NM});
+        setSizeRange({lower: 0, upper: MAX_L_PX});
         navigate("/search");
     };
 

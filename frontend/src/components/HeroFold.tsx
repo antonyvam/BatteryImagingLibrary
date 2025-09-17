@@ -4,7 +4,7 @@ import Fold from "./Fold";
 import {LargeFilterCard, DoubleSlider, ModalityCard} from "./LargeFilterCard";
 import SearchBar from "./SearchBar";
 import {Container, Row, Col, Button} from "react-bootstrap";
-import AppContext, {isMobile, MIN_SIZE_NM, MAX_SIZE_NM, MAX_AREA_NM} from "../interfaces/types";
+import AppContext, {isMobile, MIN_SIZE_NM, MAX_SIZE_NM, MAX_L_PX} from "../interfaces/types";
 
 import "../assets/scss/styles.css";
 
@@ -68,7 +68,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                 setSelectedModalities([]);
                 setSearchText("");
                 setResRange({lower: 0, upper: MAX_SIZE_NM});
-                setSizeRange({lower: 0, upper: MAX_AREA_NM});
+                setSizeRange({lower: 0, upper: MAX_L_PX});
             }
         },
         {
@@ -177,15 +177,15 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                                 />
                             </div>
                         </LargeFilterCard>
-                        <LargeFilterCard title="Area (cross-section)">
+                        <LargeFilterCard title="Longest side (px)">
                             <div>
                                 <DoubleSlider
                                     value={sizeRange}
                                     setValue={setSizeRange}
-                                    addDropdown={true}
+                                    addDropdown={false}
                                     logarithmic={true}
-                                    min={4}
-                                    max={Math.log10(MAX_AREA_NM)}
+                                    min={0}
+                                    max={Math.log10(MAX_L_PX)}
                                     squared={true}
                                 />
                             </div>

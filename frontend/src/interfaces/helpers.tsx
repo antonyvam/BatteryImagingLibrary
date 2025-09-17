@@ -14,8 +14,10 @@ import data from "../assets/data.json";
 export function renderResolutionText(val: number, unit: Units = "NANO"): string {
     const scaled = val / UNIT_TO_SCALE[unit];
 
+    const truncateAfter = 100000;
+
     if (scaled === 0 || isNaN(scaled)) return "0";
-    if (Math.abs(scaled) >= 1000) {
+    if (Math.abs(scaled) >= truncateAfter) {
         const exp = Math.floor(Math.log10(Math.abs(scaled)));
         const base = scaled / Math.pow(10, exp);
         return `${base.toFixed(1)}E${exp}`;
@@ -25,7 +27,7 @@ export function renderResolutionText(val: number, unit: Units = "NANO"): string 
         const base = scaled / Math.pow(10, exp);
         return `${base.toFixed(1)}E${exp}`;
     }
-    return scaled.toPrecision(3).toString();
+    return scaled.toPrecision(Math.log10(truncateAfter)).toString();
 }
 
 export function parseStrAsNumber(s: string): number {
@@ -73,6 +75,11 @@ export const renderDataDims = (dims: (string | number)[]) => {
 export const getSmallestFromDims = (dims: (string | number)[]) => {
     const noStr = dims.filter((v) => typeof v == "number");
     return Math.min(...noStr);
+};
+
+export const getLargestFromDims = (dims: (string | number)[]) => {
+    const noStr = dims.filter((v) => typeof v == "number");
+    return Math.max(...noStr);
 };
 
 export const getNVoxels = (dims: (string | number)[]) => {
@@ -182,9 +189,8 @@ export const scanMatchesSearch = (
     const resRangeMatches = resRange.lower < scanResNM && scanResNM < resRange.upper;
 
     // TODO: make this cross sectional area!
-    // const nVoxels = getNVoxels(s.dataDimensions_px);
-    const area = getArea(s.dataDimensions_µm);
-    const sizeRangeMatches = true; //sizeRange.lower < area && area < sizeRange.upper;
+    const largestSide = getLargestFromDims(s.dataDimensions_px);
+    const sizeRangeMatches = sizeRange.lower < largestSide && largestSide < sizeRange.upper;
     const modalityMatches =
         selectedModalities.length == 0 ||
         selectedModalities.includes(s.scanModality) ||

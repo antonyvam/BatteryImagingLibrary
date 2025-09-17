@@ -131,6 +131,7 @@ export interface contextProps {
         setSelectedScan: (e: ScanDetails | null) => void
     ];
     showContribute: [showContribute: boolean, setShowContribute: (e: boolean) => void];
+    showContributors: [showContributors: boolean, setShowContributors: (e: boolean) => void];
 }
 
 const AppContext = createContext<contextProps | null>(null);

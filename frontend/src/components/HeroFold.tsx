@@ -26,6 +26,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
         selectedModalities: [selectedModalities, setSelectedModalities],
         searchText: [searchText, setSearchText],
         showContribute: [showContribute, setShowContribute],
+        showContributors: [showContributors, setShowContributors],
         selectedScan: [selectedScan]
     } = useContext(AppContext)!;
 
@@ -80,7 +81,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
         {
             label: "Contributors",
             type: "action",
-            onClick: () => setShowContribute(true)
+            onClick: () => setShowContributors(true)
         },
         {
             label: "Contribute!",
@@ -198,7 +199,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                                     setValue={setSizeRange}
                                     addDropdown={false}
                                     logarithmic={true}
-                                    min={2}
+                                    min={1}
                                     max={Math.log10(MAX_L_PX)}
                                     squared={true}
                                 />

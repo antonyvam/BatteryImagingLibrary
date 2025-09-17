@@ -12,6 +12,7 @@ import {Container} from "react-bootstrap";
 import "./assets/scss/App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {scanMatchesSearch, smartShuffle, smartShuffle2} from "./interfaces/helpers";
+import ContributorModal from "./components/ContributorModal";
 
 const App: FC = () => {
     const {
@@ -21,7 +22,8 @@ const App: FC = () => {
         resRange: [resRange],
         sizeRange: [sizeRange],
         selectedScan: [selectedScan, setSelectedScan],
-        showContribute: [showContribute, setShowContribute]
+        showContribute: [showContribute, setShowContribute],
+        showContributors: [showContributors, setShowContributors]
     } = useContext(AppContext)!;
 
     const navigate = useNavigate();
@@ -58,7 +60,7 @@ const App: FC = () => {
                                     // alignItems: "strech"
                                 }}
                             >
-                                {smartShuffle2(
+                                {smartShuffle(
                                     scanData.filter((s) =>
                                         scanMatchesSearch(
                                             s,
@@ -106,6 +108,12 @@ const App: FC = () => {
             {/* Contribute Modal */}
             {showContribute && (
                 <ContributeModal show={showContribute} onClose={() => setShowContribute(false)} />
+            )}
+            {showContributors && (
+                <ContributorModal
+                    show={showContributors}
+                    onClose={() => setShowContributors(false)}
+                />
             )}
         </div>
     );

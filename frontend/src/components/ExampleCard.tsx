@@ -14,43 +14,45 @@ import VideoPlayer from "./VideoPlayer";
 
 const exampleData: ExampleCardData[] = [
     {
-        modality: "LAB_MICRO_XCT",
-        text: "Non-destructive 3D imaging of whole cells at the micron scale, widely used to study internal structure, defects, and design of commercial batteries.",
-        imgPath: "XCT"
-    },
-    {
-        modality: "XRD_CT",
-        text: "X-ray diffraction computed tomography combining spatial and crystallographic information, enabling mapping of phase distributions, strain, and lattice evolution in working batteries.",
-        imgPath: "XRD_CT"
-    },
-
-    {
         modality: "SEM",
         text: "Scanning electron microscopy for nanoscale imaging of surface and cross-sectional morphology, capturing fine structural features of electrodes and particles.",
         imgPath: "SEM"
+    },
+    {
+        modality: "EDS",
+        text: "Energy-dispersive X-ray spectroscopy coupled to SEM, producing spatially resolved chemical maps or spectral cubes that reveal elemental distributions.",
+        imgPath: "EDS"
+    },
+    {
+        modality: "EBSD",
+        text: "Electron backscatter diffraction for crystallographic mapping at the microscale, including raw Kikuchi patterns and indexed orientation maps for advanced analysis.",
+        imgPath: "ebsd"
+    },
+    {
+        modality: "LAB_MICRO_XCT",
+        text: "Non-destructive 3D imaging of whole cells at the micron scale, widely used to study internal structure, defects, and design of commercial batteries.",
+        imgPath: "XCT"
     },
     {
         modality: "NEUTRON_CT",
         text: "Complementary to X-ray CT, neutron imaging highlights low-Z materials such as electrolytes, polymers, and separators that are difficult to see with X-rays.",
         imgPath: "NEUTRON_CT"
     },
-
     {
-        modality: "EDS",
-        text: "Energy-dispersive X-ray spectroscopy coupled to SEM, producing spatially resolved chemical maps or spectral cubes that reveal elemental distributions.",
-        imgPath: "EDS"
+        modality: "XRD_CT",
+        text: "X-ray diffraction computed tomography combining spatial and crystallographic information, enabling mapping of phase distributions, strain, and lattice evolution in working batteries.",
+        imgPath: "XRD_CT"
+    },
+    {
+        modality: "SYNCHOTRON_MICRO_XCT",
+        text: "High-resolution, wide FoV, 3D imaging of battery electrodes at the microscale, including operando cycling datasets.",
+        imgPath: "micro_CT"
     },
 
     {
         modality: "SYNCHOTRON_NANO_XCT",
         text: "High-resolution 3D imaging of battery electrodes at the nanoscale, revealing porosity, cracks, and fine morphological features of the electode particles invisible to micro-CT.",
         imgPath: "nano_CT"
-    },
-
-    {
-        modality: "EBSD",
-        text: "Electron backscatter diffraction for crystallographic mapping at the microscale, including raw Kikuchi patterns and indexed orientation maps for advanced analysis.",
-        imgPath: "ebsd"
     }
 ];
 

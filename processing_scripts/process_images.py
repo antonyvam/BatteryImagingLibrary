@@ -4,6 +4,8 @@ import os
 import numpy as np
 from PIL import Image
 import tifffile
+import shutil
+from collections import defaultdict
 
 
 def list_sorted_images(folder: str) -> list[str]:
@@ -98,16 +100,19 @@ def resize_image(img: Image.Image, min_side: int) -> Image.Image:
     w, h = img.size
     scale = min_side / min(w, h)
     new_w, new_h = int(round(w * scale)), int(round(h * scale))
-    return img.resize((new_w, new_h), Image.LANCZOS)
+    return img.resize((new_w, new_h), Image.Resampling.LANCZOS)
 
 
 def process_and_save_images() -> None:
     src_root = "imgs_to_process"
     dst_thumb_root = "frontend/src/assets/imgs/thumbnail"
     dst_modal_root = "frontend/src/assets/imgs/modal"
+    ignore_folders = ["to_group"]
     os.makedirs(dst_thumb_root, exist_ok=True)
     os.makedirs(dst_modal_root, exist_ok=True)
     for subfolder in os.listdir(src_root):
+        if subfolder in ignore_folders:
+            continue
         subfolder_path = os.path.join(src_root, subfolder)
         if not os.path.isdir(subfolder_path):
             continue
@@ -147,5 +152,26 @@ def process_and_save_images() -> None:
             print(f"Processed {fpath} -> {thumb_name}, {modal_name}")
 
 
+def group_files_by_prefix(src_dir: str, target_dir: str, delimiter: str = "_") -> None:
+    """
+    List all files in src_dir, group by prefix (split by delimiter),
+    and copy them into target_dir/$prefix subdirectories.
+    """
+    files = [f for f in os.listdir(src_dir) if os.path.isfile(os.path.join(src_dir, f))]
+    groups = defaultdict(list)
+    for fname in files:
+        prefix = fname.split(delimiter)[0]
+        groups[prefix].append(fname)
+    for prefix, fnames in groups.items():
+        prefix_dir = os.path.join(target_dir, prefix)
+        os.makedirs(prefix_dir, exist_ok=True)
+        for fname in fnames:
+            src_path = os.path.join(src_dir, fname)
+            dst_path = os.path.join(prefix_dir, fname)
+            shutil.copy2(src_path, dst_path)
+            print(f"Copied {src_path} -> {dst_path}")
+
+
 if __name__ == "__main__":
     process_and_save_images()
+    # group_files_by_prefix("imgs_to_process/to_group", "imgs_to_process")

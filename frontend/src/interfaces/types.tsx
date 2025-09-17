@@ -33,7 +33,8 @@ export const MODALITIES = [
     "NEUTRON_CT",
     "XRD_CT",
     "SYNCHOTRON_MICRO_XCT",
-    "SYNCHOTRON_NANO_XCT"
+    "SYNCHOTRON_NANO_XCT",
+    "S3DXRD"
 ] as const;
 export type Modality = (typeof MODALITIES)[number];
 
@@ -46,6 +47,7 @@ export const MODALITY_TO_COLOUR: Record<Modality, string> = {
     XRD_CT: "#D76A03",
     SYNCHOTRON_MICRO_XCT: "#d41919ff",
     SYNCHOTRON_NANO_XCT: "#ff0000ff",
+    S3DXRD: "#ac34c9",
     ANY: "#000000"
 };
 

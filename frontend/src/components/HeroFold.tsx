@@ -198,7 +198,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                                     setValue={setSizeRange}
                                     addDropdown={false}
                                     logarithmic={true}
-                                    min={0}
+                                    min={2}
                                     max={Math.log10(MAX_L_PX)}
                                     squared={true}
                                 />

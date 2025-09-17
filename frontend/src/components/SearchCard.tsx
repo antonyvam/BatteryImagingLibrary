@@ -55,6 +55,9 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
                 width: 310,
                 background: "#fff",
                 boxShadow: "0 2px 8px #0001"
+                // display: "flex",
+                // flexDirection: "column",
+                // flex: 1
             }}
         >
             <ChannelCarousel
@@ -67,8 +70,9 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
                 style={{
                     padding: 16,
                     display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center"
+                    flexDirection: "column"
+                    // alignItems: "center",
+                    // flex: 1
                 }}
             >
                 <div
@@ -79,6 +83,11 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
                         background: "#f5f5f5",
                         padding: "4px 12px",
                         borderRadius: 6
+                        // overflowX: "scroll",
+                        // height: 50,
+                        // whiteSpace: "nowrap",
+                        // textOverflow: "ellipsis",
+                        // resize: "none"
                     }}
                 >
                     {sampleName}
@@ -88,7 +97,10 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
                         display: "flex",
                         flexDirection: "row",
                         alignItems: "center",
-                        gap: 5
+                        gap: 5,
+                        overflowX: "scroll",
+                        flexWrap: "wrap",
+                        justifyContent: "space-evenly"
                     }}
                 >
                     <ModalityBadge

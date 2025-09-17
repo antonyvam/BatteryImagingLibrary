@@ -1,4 +1,5 @@
 import {useState, FC, useEffect, useContext, ChangeEvent} from "react";
+import {useNavigate, Navigate} from "react-router-dom";
 import ReactSlider from "react-slider";
 import {Form, Card, InputGroup, Button} from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -136,6 +137,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     squared = false,
     showTicks = false
 }) => {
+    const navigate = useNavigate();
     const [sliderVal, setSliderVal] = useState<{lower: number; upper: number}>({
         lower: min,
         upper: max
@@ -148,6 +150,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
         } else {
             setValue({lower, upper});
         }
+        navigate("/search");
     };
 
     useEffect(() => {
@@ -318,6 +321,7 @@ export const LargeFilterCard: FC<LargeFilterCardProps> = ({title, children, styl
 };
 
 export const ModalityCard = () => {
+    const navigate = useNavigate();
     const {
         selectedModalities: [selectedModalities, setSelectedModalities]
     } = useContext(AppContext)!;
@@ -337,6 +341,7 @@ export const ModalityCard = () => {
         }
 
         setSelectedModalities([...selectedModalities, dropdownSelection]);
+        navigate("/search");
     };
 
     const removeModality = (x: Modality) => {

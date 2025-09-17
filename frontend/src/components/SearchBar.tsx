@@ -1,5 +1,5 @@
 import {FC, useContext} from "react";
-import {InputGroup, FormControl, DropdownButton, Dropdown, Button} from "react-bootstrap";
+import {InputGroup, FormControl, Button} from "react-bootstrap";
 import AppContext from "../interfaces/types";
 import {useNavigate} from "react-router-dom";
 
@@ -16,6 +16,7 @@ const SearchBar: FC<SearchBarProps> = ({variant = "outline-secondary"}) => {
     const onSearchChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
         const value = e.currentTarget.value;
         setSearchText(value);
+        navigate("/search");
         // console.log(value);
     };
 

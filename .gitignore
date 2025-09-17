@@ -176,3 +176,7 @@ old/
 
 figures/
 imgs_to_upload/
+zenodo_jsons/
+
+processing_scripts/in*
+processing_scripts/out*

@@ -32,8 +32,17 @@
   If a slider is at the end of the range, set the search to includ anything below/above
 - modal:
   - display citation information + button to copy + little toast that says 'copied to clipboard'
+- Modality dropdown has 'Any' option
 
 ### doing:
+
+- any change of sliders triggers search
+- Change Area -> longest side:
+
+  - double slider, px units
+  - add 2D/3D/Both radio
+
+- contributor button
 
 - read prerpint; update website section (inc dreaft website figure)
 

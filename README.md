@@ -33,22 +33,25 @@
 - modal:
   - display citation information + button to copy + little toast that says 'copied to clipboard'
 - Modality dropdown has 'Any' option
-
-### doing:
-
 - any change of sliders triggers search
-- fix smart shuffle
 - Change Area -> longest side:
 
   - double slider, px units
-  - add 2D/3D/Both radio
 
-- contributor button;link to zenodo BIL community (6 buttons)
-- synchotron micro-CT operando GIF and example card
-  - order: SEM; EDS; EBSD: Lab-micro CT; neutron-CT; S3XRD; s-mini; s-nano; XRD-CT
-- s3XRD modality as option
 - update text:
   ' includes raw, processed and reconstructed data', 500+ billion voxels
+
+- synchotron micro-CT operando GIF and example card
+  - order: SEM; EDS; EBSD: Lab-micro CT; neutron-CT; S3XRD; s-mini; s-nano; XRD-CT
+  - s3XRD modality as option
+
+### doing:
+
+- contributor button;link to zenodo BIL community (6 buttons)
+  - contributor modal:
+    - imperial, finden, manchester, ucl, southampton, DLS, ISIS neturons, ERSF, DESY, UKBIC, thermofisher?
+- fix smart shuffle
+
 - update deploy of website
 - old J thumbnails
 - upload SEM data
@@ -64,8 +67,6 @@
     - high res
   - seg of slice?
 
-- Image size -> Cross Section Area (UNIT^2)
-
 - home / back button on search results page
 - script:
   - save oriignal image into azure db?
@@ -75,9 +76,11 @@
 
   - add appscript to VC?
   - app script to ping cross ref given a doi to get full citation and dunk it into json
-    -refactor:
-  - extract common styles into css, clean up css
-  - make everything use const fn = () => syntax
+
+-refactor:
+
+- extract common styles into css, clean up css
+- make everything use const fn = () => syntax
 
 ## Old:
 

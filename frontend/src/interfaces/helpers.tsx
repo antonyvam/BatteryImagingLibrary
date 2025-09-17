@@ -213,6 +213,50 @@ function sfc32(a, b, c, d) {
     };
 }
 
+export type Tracker = {
+    [K in keyof ScanDetails]: Record<any, number>;
+};
+
+export function smartShuffle2<T extends ScanDetails>(
+    data: T[],
+    fields: (keyof T)[],
+    extractors: Partial<{[K in keyof T]: (item: T) => any}>,
+    maxTries = 1000
+): T[] {
+    if (data.length <= 1) return [...data];
+
+    const seedgen = () => 1001 >>> 0;
+    const getRand = sfc32(seedgen(), seedgen(), seedgen(), seedgen());
+
+    const tracker = fields.reduce(
+        (acc, field) => {
+            const valueSet = data.reduce((set, d) => set.add(d[field]), new Set<any>());
+            const track: Record<any, number> = Object.fromEntries([...valueSet].map((v) => [v, 0]));
+            acc[field] = track;
+            return acc;
+        },
+        {} as Record<keyof T, Record<any, number>>
+    );
+
+    // const updateTracker = (s: T, tracker: Record<keyof T, Record<any, number>>) => {
+    //     for (const f of fields) {
+    //         const val = s[f];
+    //         const subObj = tracker[f];
+    //         subObj[val] = subObj[val] + 1;
+    //     }
+    //     return tracker;
+    // };
+
+    // const initIdx = 0; //getRand()
+    // const init = data[initIdx];
+    // updateTracker(init, tracker);
+    // console.log(tracker);
+
+    // const shuffled: Array<T> = [init];
+
+    return data;
+}
+
 // Smart shuffle function
 export function smartShuffle<T extends ScanDetails>(
     data: T[],

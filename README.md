@@ -49,9 +49,11 @@
 
 - contributor button;link to zenodo BIL community (6 buttons)
   - contributor modal:
-    - imperial, finden, manchester, ucl, southampton, DLS, ISIS neturons, ERSF, DESY, UKBIC, WMG, NREL, thermofisher?
+    - imperial, finden, manchester, ucl, southampton,
+      DLS, ISIS neturons, ERSF, DESY, UKBIC, WMG, NREL, thermofisher?
 - make dropdowns start from min val
 - fix smart shuffle
+- fix mobile view
 
 - update deploy of website
 - old J thumbnails

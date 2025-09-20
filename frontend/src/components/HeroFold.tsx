@@ -81,7 +81,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
         {
             label: "Contributors",
             type: "action",
-            onClick: () => setShowContributors(false)
+            onClick: () => setShowContributors(true)
         },
         {
             label: "Contribute!",

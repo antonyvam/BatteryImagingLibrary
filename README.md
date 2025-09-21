@@ -46,10 +46,9 @@ Each notebook is designed to be **standalone and executable**, with detailed inl
 
 ## Installation Instructions
 
-The `BIL` notebooks depend on three main libraries: `ImageD11`, `CIL` and `nDTomo`. `ImageD11` is used to handle the S3DXRD data, `CIL` is used for the reconstruction of the laboratory cone beam CT data and `nDTomo` is used for the data handling of the XRD-CT, neutron-CT and parallel-beam CT and SEM/EDX/EBSD data.
+The `BIL` notebooks depend on three main libraries: `nDTomo` [3], `CIL` [4,5] and `ImageD11`. `ImageD11` is used to handle the S3DXRD data, `CIL` is used for the reconstruction of the laboratory cone beam X-ray CT data and `nDTomo` is used for the data handling of the XRD-CT, neutron-CT and parallel-beam X-ray CT.
 
-
-To make your life easier, please install [Anaconda](https://www.anaconda.com/products/distribution). The `ImageD11`, `CIL` and `nDTomo` libraries and all associated code can be installed by following the next steps:
+The `nDTomo`, `CIL` and `ImageD11` libraries and all associated code can be installed by following the next steps:
 
 ### 1. Install CIL with TIGRE and astra-toolbox
 
@@ -127,8 +126,8 @@ pip install dask-image xrmreader dxchange
 
 If you use parts of the code, please cite the work using the following:
 
-*Battery Imaging Library: Democratising multi-length scale and
-multi-modal synchrotron and laboratory battery imaging data*, R. Docherty et al., 2025
+*Battery Imaging Library: Multi-length scale and
+multi-modal synchrotron and laboratory battery imaging data for all*, R. Docherty et al., 2025
 
 ## References
 
@@ -136,9 +135,15 @@ multi-modal synchrotron and laboratory battery imaging data*, R. Docherty et al.
 
 [2] "Emerging chemical heterogeneities in a commercial 18650 NCA Li-ion battery during early cycling revealed by synchrotron X-ray diffraction tomography", D. Matras, T.E. Ashton, H. Dong, M. Mirolo, I. Martens, J. Drnec, J.A. Darr, P.D. Quinn, S.D.M. Jacques, A.M. Beale, A. Vamvakeros, Journal of Power Sources 539, 231589, 2022, https://doi.org/10.1016/j.jpowsour.2022.231589
 
+[3] "nDTomo: A Modular Python Toolkit for X-ray Chemical Imaging and Tomography", A. Vamvakeros, E. Papoutsellis, H. Dong, R. Docherty, A.M. Beale, S.J. Cooper, S.D.M. Jacques, Digital Discovery, 4, 2579-2592, 2025, https://doi.org/10.1039/D5DD00252D
+
+[4] "Core Imaging Library-Part I", J.S. Jørgensen, E. Ametova, G. Burca, G. Fardell, E. Papoutsellis, E. Pasca, K. Thielemans, M. Turner, R. Warr, W.R.B. Lionheart, P.J. Withers, Philosophical Transactions: Mathematical, Physical and Engineering Sciences, 1-24, 379, 2204, 2021.
+
+[5] "Core Imaging Library-Part II",  E. Papoutsellis, E. Ametova, C. Delplancke, G. Fardell, J. S. Jørgensen, E. Pasca, M. Turner, R. Warr, W.R.B. Lionheart, P.J. Withers, Philosophical Transactions: Mathematical, Physical and Engineering Sciences, 1-30, 2204, 379, 2021.
+
 ## Previous technical work (reverse chronological order)
 
-[1] "nDTomo: A Modular Python Toolkit for X-ray Chemical Imaging and Tomography", A. Vamvakeros, E. Papoutsellis, H. Dong, R. Docherty, A.M. Beale, S.J. Cooper, S.D.M. Jacques, Digital Discovery, 2025, https://doi.org/10.1039/D5DD00252D
+[1] "nDTomo: A Modular Python Toolkit for X-ray Chemical Imaging and Tomography", A. Vamvakeros, E. Papoutsellis, H. Dong, R. Docherty, A.M. Beale, S.J. Cooper, S.D.M. Jacques, Digital Discovery, 4, 2579-2592, 2025, https://doi.org/10.1039/D5DD00252D
 
 [2] "Obtaining parallax-free X-ray powder diffraction computed tomography data with a self-supervised neural network", H. Dong, S.D.M. Jacques, K.T. Butler, O. Gutowski, A.-C. Dippel, M. von Zimmerman, A.M. Beale, A. Vamvakeros, npj Computational Materials 10 (1), 201, 2024, https://doi.org/10.1038/s41524-024-01389-1
 

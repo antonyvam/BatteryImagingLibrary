@@ -8,9 +8,9 @@
         "scanType": "ELECTRODE",
         "scanModality": "SEM",
         "instrument": "Thermo Scientific Helios Hydra PFIB-SEM",
-        "pixelSize_µm": [0.011, 0.011],
+        "pixelSize_µm": [0.0405, 0.0405],
         "dataDimensions_px": [1358, 969, "H2"],
-        "dataDimensions_µm": [14.94, 10.66],
+        "dataDimensions_µm": [55, 39.24],
         "thumbnailType": "2H",
         "thumbnailName": ["1_1H.png", "1_2H.png"],
         "citations": [
@@ -43,9 +43,9 @@
         "scanType": "ELECTRODE",
         "scanModality": "EDS",
         "instrument": "Thermo Scientific Helios Hydra PFIB-SEM (Oxford Instruments X-Max 50 silicon drift detector)",
-        "pixelSize_µm": [0.011, 0.011],
+        "pixelSize_µm": [0.0405, 0.0406],
         "dataDimensions_px": [1358, 970, "H5"],
-        "dataDimensions_µm": [14.94, 10.67],
+        "dataDimensions_µm": [55, 39.38],
         "thumbnailType": "5H",
         "thumbnailName": ["2_1H.png", "2_2H.png", "2_3H.png", "2_4H.png", "2_5H.png"],
         "citations": [
@@ -3064,9 +3064,9 @@
         "scanType": "ELECTRODE",
         "scanModality": "SEM",
         "instrument": "Thermo Scientific Helios Hydra PFIB-SEM",
-        "pixelSize_µm": [1, 1],
+        "pixelSize_µm": [0.019, 0.019],
         "dataDimensions_px": [5928, 3868],
-        "dataDimensions_µm": [5928, 3868],
+        "dataDimensions_µm": [112.63, 73.49],
         "thumbnailType": "3H",
         "thumbnailName": ["85_1H.png", "85_2H.png", "85_3H.png"],
         "citations": [
@@ -3077,9 +3077,9 @@
         "contributors": "Bartłomiej Winiarski",
         "scanParameters": {},
         "zenodoLinks": {
-            "rawZenodoLinks": [""],
+            "rawZenodoLinks": ["https://zenodo.org/records/17176861"],
             "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
+            "processedZenodoLinks": ["https://zenodo.org/records/17176861"],
             "processedZenodoLabels": [""],
             "reconstructedZenodoLinks": [""],
             "reconstructedZenodoLabels": [""]
@@ -3107,9 +3107,9 @@
         "contributors": "Bartłomiej Winiarski",
         "scanParameters": {},
         "zenodoLinks": {
-            "rawZenodoLinks": [""],
+            "rawZenodoLinks": ["https://zenodo.org/records/17177207"],
             "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
+            "processedZenodoLinks": ["https://zenodo.org/records/17177207"],
             "processedZenodoLabels": [""],
             "reconstructedZenodoLinks": [""],
             "reconstructedZenodoLabels": [""]
@@ -3130,16 +3130,15 @@
         "thumbnailType": "3H",
         "thumbnailName": ["87_1H.png", "87_2H.png", "87_3H.png"],
         "citations": [
-            "S. J. Cooper et al, 'Methods—Kintsugi Imaging of Battery Electrodes: Distinguishing Pores from the Carbon Binder Domain using Pt Deposition', J. Electrochem. Soc. 169 070512, (2022)",
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
         ],
         "licence": "CC-4.0",
         "contributors": "Jack Donoghue",
         "scanParameters": {},
         "zenodoLinks": {
-            "rawZenodoLinks": [""],
+            "rawZenodoLinks": ["https://zenodo.org/records/17176807"],
             "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
+            "processedZenodoLinks": ["https://zenodo.org/records/17176807"],
             "processedZenodoLabels": [""],
             "reconstructedZenodoLinks": [""],
             "reconstructedZenodoLabels": [""]
@@ -3160,16 +3159,15 @@
         "thumbnailType": "3H",
         "thumbnailName": ["88_1H.png", "88_2H.png", "88_3H.png"],
         "citations": [
-            "S. J. Cooper et al, 'Methods—Kintsugi Imaging of Battery Electrodes: Distinguishing Pores from the Carbon Binder Domain using Pt Deposition', J. Electrochem. Soc. 169 070512, (2022)",
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
         ],
         "licence": "CC-4.0",
         "contributors": "Jack Donoghue",
         "scanParameters": {},
         "zenodoLinks": {
-            "rawZenodoLinks": [""],
+            "rawZenodoLinks": ["https://zenodo.org/records/17176747"],
             "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
+            "processedZenodoLinks": ["https://zenodo.org/records/17176747"],
             "processedZenodoLabels": [""],
             "reconstructedZenodoLinks": [""],
             "reconstructedZenodoLabels": [""]

@@ -13,6 +13,7 @@ import "./assets/scss/App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {scanMatchesSearch, smartShuffle} from "./interfaces/helpers";
 import ContributorModal from "./components/ContributorModal";
+import {FloatingButtons} from "./components/HeroButtons";
 
 const App: FC = () => {
     const {
@@ -86,6 +87,7 @@ const App: FC = () => {
                                     </div>
                                 ))}
                             </div>
+                            <FloatingButtons />
                         </Container>
                     }
                 />

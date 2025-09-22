@@ -4,7 +4,7 @@ import Fold from "./Fold";
 import {LargeFilterCard, DoubleSlider, ModalityCard} from "./LargeFilterCard";
 import SearchBar from "./SearchBar";
 import {Container, Row, Col, Button} from "react-bootstrap";
-import HeroButtons from "./HeroButtons";
+import {HeroButtons} from "./HeroButtons";
 import AppContext, {isMobile, MIN_SIZE_NM, MAX_SIZE_NM, MAX_L_PX} from "../interfaces/types";
 
 import "../assets/scss/styles.css";

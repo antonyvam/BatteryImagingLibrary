@@ -223,12 +223,7 @@ export type Tracker = {
     [K in keyof ScanDetails]: Record<any, number>;
 };
 
-export function smartShuffle2<T extends ScanDetails>(
-    data: T[],
-    fields: (keyof T)[],
-    extractors: Partial<{[K in keyof T]: (item: T) => any}>,
-    maxTries = 1000
-): T[] {
+export function smartShuffle<T extends ScanDetails>(data: T[], fields: (keyof T)[]): T[] {
     if (data.length <= 1) return [...data];
 
     const seedgen = () => 1001 >>> 0;
@@ -244,83 +239,87 @@ export function smartShuffle2<T extends ScanDetails>(
         {} as Record<keyof T, Record<any, number>>
     );
 
-    // const updateTracker = (s: T, tracker: Record<keyof T, Record<any, number>>) => {
-    //     for (const f of fields) {
-    //         const val = s[f];
-    //         const subObj = tracker[f];
-    //         subObj[val] = subObj[val] + 1;
-    //     }
-    //     return tracker;
-    // };
-
-    // const initIdx = 0; //getRand()
-    // const init = data[initIdx];
-    // updateTracker(init, tracker);
-    // console.log(tracker);
-
-    // const shuffled: Array<T> = [init];
-
-    return data;
-}
-
-// Smart shuffle function
-export function smartShuffle<T extends ScanDetails>(
-    data: T[],
-    fields: (keyof T)[],
-    extractors: Partial<{[K in keyof T]: (item: T) => any}>,
-    maxTries = 1000
-): T[] {
-    const seedgen = () => 1001 >>> 0;
-    const getRand = sfc32(seedgen(), seedgen(), seedgen(), seedgen());
-    if (data.length <= 1) return [...data];
-
-    // Start with a random entry
-    const remaining = [...data];
-    const result: T[] = [];
-    const startIdx = 0; //Math.floor(getRand() * remaining.length); //Math.floor(Math.random() * remaining.length);
-    result.push(remaining.splice(startIdx, 1)[0]);
-
-    // Track unique values for each field
-    const seen = Object.fromEntries(fields.map((field) => [field, new Set<any>()])) as {
-        [K in keyof T]: Set<any>;
+    const updateTracker = (s: T, tracker: Record<keyof T, Record<any, number>>) => {
+        for (const f of fields) {
+            const scanFieldValue = s[f];
+            const valueCounts = tracker[f];
+            // @ts-ignore
+            valueCounts[scanFieldValue] = valueCounts[scanFieldValue] + 1;
+        }
+        return tracker;
     };
 
-    // Initialize seen sets with the first entry
-    for (const field of fields) {
-        const extractor = extractors[field] || ((item: T) => item[field]);
-        seen[field].add(extractor(result[0]));
-    }
+    const getSampleIdsFromTracker = (
+        remainingData: T[],
+        tracker: Record<keyof T, Record<any, number>>
+    ): number[] => {
+        // For each field, find the least sampled value(s)
+        const leastSampled: Record<string, any[]> = {};
+        for (const field of fields) {
+            const counts = tracker[field];
+            const minCount = Math.min(...Object.values(counts));
+            leastSampled[field as string] = Object.entries(counts)
+                .filter(([_, count]) => count === minCount)
+                .map(([val, _]) => val);
+        }
+
+        // For each object, count how many fields match least sampled values
+        const scores = remainingData.map((obj) => {
+            let score = 0;
+            for (const field of fields) {
+                if (leastSampled[field as string].includes(obj[field])) {
+                    score++;
+                }
+            }
+            return score;
+        });
+
+        // Find the max score
+        const maxScore = Math.max(...scores);
+        // Return indices of objects with max score
+        return scores
+            .map((score, idx) => (score === maxScore ? idx : -1))
+            .filter((idx) => idx !== -1);
+    };
+
+    // Explicit loop to sort data
+    const remaining = [...data];
+    const shuffled: Array<T> = [];
+
+    // Start with a random entry
+    const initIdx = 0; // or Math.floor(getRand() * remaining.length)
+    const init = remaining.splice(initIdx, 1)[0];
+    shuffled.push(init);
+    updateTracker(init, tracker);
 
     while (remaining.length > 0) {
-        let bestIdx = 0;
-        let bestScore = -1;
-
-        // Try up to maxTries random samples to find the best candidate
-        for (let t = 0; t < Math.min(maxTries, remaining.length); t++) {
-            const idx = t === 0 ? 0 : Math.floor(getRand() * remaining.length);
-            const candidate = remaining[idx];
-            let score = 0;
-
-            for (const field of fields) {
-                const extractor = extractors[field] || ((item: T) => item[field]);
-                const val = extractor(candidate);
-                if (!seen[field].has(val)) score++;
-            }
-
-            if (score > bestScore) {
-                bestScore = score;
-                bestIdx = idx;
-                if (score === fields.length) break; // can't do better
+        // Get candidate indices
+        const candidateIdxs = getSampleIdsFromTracker(remaining, tracker);
+        let filteredIdxs = candidateIdxs;
+        if (shuffled.length > 0) {
+            const prev = shuffled[shuffled.length - 1];
+            filteredIdxs = candidateIdxs.filter((idx) => {
+                for (const field of fields) {
+                    if (remaining[idx][field] === prev[field]) {
+                        return false;
+                    }
+                }
+                return true;
+            });
+            // If all candidates match previous, fall back to original candidates
+            if (filteredIdxs.length === 0) {
+                filteredIdxs = candidateIdxs;
             }
         }
-
-        const next = remaining.splice(bestIdx, 1)[0];
-        result.push(next);
-        for (const field of fields) {
-            const extractor = extractors[field] || ((item: T) => item[field]);
-            seen[field].add(extractor(next));
-        }
+        // Pick one at random
+        const randIdx =
+            filteredIdxs.length === 1
+                ? filteredIdxs[0]
+                : filteredIdxs[Math.floor(getRand() * filteredIdxs.length)];
+        const next = remaining.splice(randIdx, 1)[0];
+        shuffled.push(next);
+        updateTracker(next, tracker);
     }
 
-    return result;
+    return shuffled;
 }

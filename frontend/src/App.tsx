@@ -11,7 +11,7 @@ import {Container} from "react-bootstrap";
 
 import "./assets/scss/App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {scanMatchesSearch, smartShuffle, smartShuffle2} from "./interfaces/helpers";
+import {scanMatchesSearch, smartShuffle} from "./interfaces/helpers";
 import ContributorModal from "./components/ContributorModal";
 
 const App: FC = () => {
@@ -70,11 +70,7 @@ const App: FC = () => {
                                             selectedModalities
                                         )
                                     ),
-                                    ["scanModality", "sampleID"],
-                                    {
-                                        scanModality: (s) => s.scanModality,
-                                        sampleID: (s) => s.sampleID
-                                    }
+                                    ["scanModality", "sampleID"]
                                 ).map((v, i) => (
                                     <div
                                         key={i}

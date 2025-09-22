@@ -51,15 +51,16 @@
   - contributor modal:
     - imperial, finden, manchester, ucl, southampton,
       DLS, ISIS neturons, ERSF, DESY, UKBIC, WMG, NREL, thermofisher?
+- fix smart shuffle
 
 ### doing:
 
 - upload SEM processed data
 - make dropdowns start from min val
-- fix smart shuffle
 - fix mobile view
 - button to jump to top
 
+- merge GH
 - references in doc
 - update deploy of website
 

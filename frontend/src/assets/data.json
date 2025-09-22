@@ -313,8 +313,8 @@
         "pixelSize_µm": [0.1, 0.1],
         "dataDimensions_px": [1500, 750],
         "dataDimensions_µm": [150, 75],
-        "thumbnailType": "2D",
-        "thumbnailName": ["11.png"],
+        "thumbnailType": "1H",
+        "thumbnailName": ["11_1H.png"],
         "citations": [
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
         ],
@@ -342,8 +342,8 @@
         "pixelSize_µm": [0.1, 0.1],
         "dataDimensions_px": [150, 180],
         "dataDimensions_µm": [15, 18],
-        "thumbnailType": "2D",
-        "thumbnailName": ["12.png"],
+        "thumbnailType": "1H",
+        "thumbnailName": ["12_1H.png"],
         "citations": [
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
         ],
@@ -486,7 +486,7 @@
         "instrument": "IMAT ISIS Neutron and Muon Source",
         "pixelSize_µm": [55, 55, 55],
         "dataDimensions_px": [863, 863, 1971],
-        "dataDimensions_µm": [],
+        "dataDimensions_µm": [47465, 47465, 108405],
         "thumbnailType": "4H",
         "thumbnailName": ["17_1H.png", "17_2H.png", "17_3H.png", "17_4H.png"],
         "citations": [
@@ -964,7 +964,7 @@
         "instrument": "P07 DESY",
         "pixelSize_µm": [20, 20],
         "dataDimensions_px": [1000, 1000, "H2047"],
-        "dataDimensions_µm": [],
+        "dataDimensions_µm": [20000, 20000],
         "thumbnailType": "3H",
         "thumbnailName": ["31_1H.png", "31_2H.png", "31_3H.png"],
         "citations": [
@@ -2318,65 +2318,7 @@
     {
         "scanID": 65,
         "sampleID": 31,
-        "sampleName": "20231006_d5_3666_AV_overview_160kV",
-        "chemistry": "LCO",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a Pintype Li-ion (Panasonic CG-320A/E4N) battery",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Diondo D5",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
-        "thumbnailType": "1H",
-        "thumbnailName": ["65_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 66,
-        "sampleID": 31,
-        "sampleName": "20231006_d5_3666_AV_overview_200kV",
-        "chemistry": "LCO",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a Pintype Li-ion (Panasonic CG-320A/E4N) battery",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Diondo D5",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
-        "thumbnailType": "1H",
-        "thumbnailName": ["66_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 67,
-        "sampleID": 32,
-        "sampleName": "20240604_d5_3917_AV_smallpin_overv_992x992x2582x32bit",
+        "sampleName": "Pintype Li-ion (Panasonic CG-320A/E4N) battery",
         "chemistry": "LCO",
         "sampleDescription": "Laboratory cone beam X-ray CT of a Pintype Li-ion (Panasonic CG-320A/E4N) battery",
         "scanType": "CELL",
@@ -2386,7 +2328,7 @@
         "dataDimensions_px": [992, 992, 2582],
         "dataDimensions_µm": [8928, 8928, 23238],
         "thumbnailType": "1H",
-        "thumbnailName": ["67_1H.png"],
+        "thumbnailName": ["65_1H.png"],
         "citations": [
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
         ],
@@ -2402,7 +2344,7 @@
             "voltage": "200kV"
         },
         "zenodoLinks": {
-            "rawZenodoLinks": [""],
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17011152"],
             "rawZenodoLabels": [""],
             "processedZenodoLinks": [""],
             "processedZenodoLabels": [""],
@@ -2411,17 +2353,91 @@
         }
     },
     {
-        "scanID": 68,
-        "sampleID": 33,
-        "sampleName": "20240603_d5_3917_AV_energizer4A_overv_800x800x2668x32bit",
+        "scanID": 66,
+        "sampleID": 32,
+        "sampleName": "AAAA Alkaline Zn/MnO2 (Energizer E96) battery",
         "chemistry": "Zn/MnO2",
         "sampleDescription": "Laboratory cone beam X-ray CT of a AAAA Alkaline Zn/MnO2 (Energizer E96) battery",
         "scanType": "CELL",
         "scanModality": "LAB_MICRO_XCT",
         "instrument": "Diondo D5",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
+        "pixelSize_µm": [20, 20, 20],
+        "dataDimensions_px": [800, 800, 2668],
+        "dataDimensions_µm": [16000, 16000, 53360],
+        "thumbnailType": "1H",
+        "thumbnailName": ["66_1H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "Antony Vamvakeros",
+        "scanParameters": {
+            "pixel_size": "20um",
+            "frame_binning": "2",
+            "integration_time": "1.35s",
+            "projections": "1250",
+            "angular_range": "360",
+            "current": "230uA",
+            "voltage": "300kV"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17011124"],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.17013839"],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 67,
+        "sampleID": 33,
+        "sampleName": "AAAA Alkaline Zn/MnO2 (Energizer E96) battery",
+        "chemistry": "Zn/MnO2",
+        "sampleDescription": "Laboratory cone beam X-ray CT of a AAAA Alkaline Zn/MnO2 (Energizer E96) battery",
+        "scanType": "CELL",
+        "scanModality": "LAB_MICRO_XCT",
+        "instrument": "Diondo D5",
+        "pixelSize_µm": [16, 16, 16],
+        "dataDimensions_px": [752, 752, 2686],
+        "dataDimensions_µm": [12032, 12032, 42976],
+        "thumbnailType": "1H",
+        "thumbnailName": ["67_1H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "Antony Vamvakeros",
+        "scanParameters": {
+            "pixel_size": "16um",
+            "frame_binning": "5",
+            "integration_time": "0.43s",
+            "projections": "1200",
+            "angular_range": "360",
+            "current": "180uA",
+            "voltage": "280kV"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17014099"],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.17013846"],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 68,
+        "sampleID": 34,
+        "sampleName": "AAAA Alkaline Zn/MnO2 (Energizer E96) battery",
+        "chemistry": "Zn/MnO2",
+        "sampleDescription": "Laboratory cone beam X-ray CT of a AAAA Alkaline Zn/MnO2 (Energizer E96) battery",
+        "scanType": "CELL",
+        "scanModality": "LAB_MICRO_XCT",
+        "instrument": "Diondo D5",
+        "pixelSize_µm": [16, 16, 16],
+        "dataDimensions_px": [752, 752, 2686],
+        "dataDimensions_µm": [12032, 12032, 42976],
         "thumbnailType": "1H",
         "thumbnailName": ["68_1H.png"],
         "citations": [
@@ -2429,146 +2445,38 @@
         ],
         "licence": "CC-4.0",
         "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
+        "scanParameters": {
+            "pixel_size": "16um",
+            "frame_binning": "5",
+            "integration_time": "0.43s",
+            "projections": "1200",
+            "angular_range": "360",
+            "current": "180uA",
+            "voltage": "280kV"
+        },
         "zenodoLinks": {
-            "rawZenodoLinks": [""],
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17014106"],
             "rawZenodoLabels": [""],
             "processedZenodoLinks": [""],
             "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.17013848"],
             "reconstructedZenodoLabels": [""]
         }
     },
     {
         "scanID": 69,
-        "sampleID": 33,
-        "sampleName": "20240603_d5_3917_AV_energizer4A_2heli_1440x1440x2204x32bit",
-        "chemistry": "Zn/MnO2",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a AAAA Alkaline Zn/MnO2 (Energizer E96) battery",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Diondo D5",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
-        "thumbnailType": "1H",
-        "thumbnailName": ["69_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 70,
-        "sampleID": 33,
-        "sampleName": "20240603_d5_3917_AV_energizer4A_heli_800x800x2202x32bit",
-        "chemistry": "Zn/MnO2",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a AAAA Alkaline Zn/MnO2 (Energizer E96) battery",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Diondo D5",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
-        "thumbnailType": "1H",
-        "thumbnailName": ["70_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 71,
-        "sampleID": 34,
-        "sampleName": "20240306_d5_3917_AV_AAAA_alkaline_01",
-        "chemistry": "Zn/MnO2",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a AAAA Alkaline Zn/MnO2 (Energizer E96) battery",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Diondo D5",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
-        "thumbnailType": "1H",
-        "thumbnailName": ["71_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 72,
-        "sampleID": "",
-        "sampleName": "20240306_d5_3917_AV_AAAA_alkaline_02",
-        "chemistry": "Zn/MnO2",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a AAAA Alkaline Zn/MnO2 (Energizer E96) battery",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Diondo D5",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
-        "thumbnailType": "1H",
-        "thumbnailName": ["72_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 73,
-        "sampleID": "",
-        "sampleName": "20240306_d5_3917_AV_AAA_LiFeS2_01_752x752x2686x32bit",
+        "sampleID": 35,
+        "sampleName": "AAA LiFeS2 (VARTA) battery (pristine)",
         "chemistry": "LiFeS2",
         "sampleDescription": "Laboratory cone beam X-ray CT of a AAA LiFeS2 (VARTA) battery",
         "scanType": "CELL",
         "scanModality": "LAB_MICRO_XCT",
         "instrument": "Diondo D5",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
+        "pixelSize_µm": [16, 16, 16],
+        "dataDimensions_px": [752, 752, 2686],
+        "dataDimensions_µm": [12032, 12032, 42976],
         "thumbnailType": "1H",
-        "thumbnailName": ["73_1H.png"],
+        "thumbnailName": ["69_1H.png"],
         "citations": [
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
         ],
@@ -2593,9 +2501,9 @@
         }
     },
     {
-        "scanID": 74,
-        "sampleID": "",
-        "sampleName": "20240306_d5_3917_AV_NiMH_01_800x800x2668x32bit",
+        "scanID": 70,
+        "sampleID": 36,
+        "sampleName": "AAA NiMH (Amazon Basics) battery",
         "chemistry": "NiMH",
         "sampleDescription": "Laboratory cone beam X-ray CT of a AAA NiMH (Amazon Basics) battery",
         "scanType": "CELL",
@@ -2605,7 +2513,7 @@
         "dataDimensions_px": [800, 800, 2668],
         "dataDimensions_µm": [16000, 16000, 53360],
         "thumbnailType": "1H",
-        "thumbnailName": ["74_1H.png"],
+        "thumbnailName": ["70_1H.png"],
         "citations": [
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
         ],
@@ -2630,9 +2538,9 @@
         }
     },
     {
-        "scanID": 75,
-        "sampleID": "",
-        "sampleName": "20240508_d5_3917_AV_panasonicAAA_overv_800x800x2270x32bit",
+        "scanID": 71,
+        "sampleID": 37,
+        "sampleName": "AAA NiMH (Panasonic Eneloop Lite) battery",
         "chemistry": "NiMH",
         "sampleDescription": "Laboratory cone beam X-ray CT of a AAA NiMH (Panasonic Eneloop Lite) battery",
         "scanType": "CELL",
@@ -2642,7 +2550,7 @@
         "dataDimensions_px": [800, 800, 2668],
         "dataDimensions_µm": [16000, 16000, 53360],
         "thumbnailType": "1H",
-        "thumbnailName": ["75_1H.png"],
+        "thumbnailName": ["71_1H.png"],
         "citations": [
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
         ],
@@ -2667,9 +2575,9 @@
         }
     },
     {
-        "scanID": 76,
-        "sampleID": "",
-        "sampleName": "20240508_d5_3917_AV_vartaAAA_overv_800x800x2275x32bit",
+        "scanID": 72,
+        "sampleID": 38,
+        "sampleName": "AAA LiFeS2 (VARTA) battery (discharged)",
         "chemistry": "LiFeS2",
         "sampleDescription": "Laboratory cone beam X-ray CT of a AAA LiFeS2 (VARTA) battery",
         "scanType": "CELL",
@@ -2679,7 +2587,7 @@
         "dataDimensions_px": [800, 800, 2668],
         "dataDimensions_µm": [16000, 16000, 53360],
         "thumbnailType": "1H",
-        "thumbnailName": ["76_1H.png"],
+        "thumbnailName": ["72_1H.png"],
         "citations": [
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
         ],
@@ -2704,9 +2612,9 @@
         }
     },
     {
-        "scanID": 77,
-        "sampleID": "",
-        "sampleName": "20240508_d5_3917_AV_trustfireAAA_overv_800x800x2270x32bit",
+        "scanID": 73,
+        "sampleID": 39,
+        "sampleName": "AAA NMC532 Li-ion (Trustfire) battery",
         "chemistry": "NMC532",
         "sampleDescription": "Laboratory cone beam X-ray CT of a AAA NMC532 Li-ion (Trustfire) battery",
         "scanType": "CELL",
@@ -2716,7 +2624,7 @@
         "dataDimensions_px": [800, 800, 2668],
         "dataDimensions_µm": [16000, 16000, 53360],
         "thumbnailType": "1H",
-        "thumbnailName": ["77_1H.png"],
+        "thumbnailName": ["73_1H.png"],
         "citations": [
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
         ],
@@ -2736,61 +2644,77 @@
             "rawZenodoLabels": [""],
             "processedZenodoLinks": [""],
             "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.17013885"],
             "reconstructedZenodoLabels": [""]
         }
     },
     {
-        "scanID": 78,
-        "sampleID": "",
-        "sampleName": "20240604_d5_3917_AV_blue18650Na_overv_800x800x2668x32bit",
+        "scanID": 74,
+        "sampleID": 40,
+        "sampleName": "18650 Na-ion 1500 mAh (HAKADI) battery",
         "chemistry": "Na-ion",
         "sampleDescription": "Laboratory cone beam X-ray CT of an 18650 Na-ion 1500 mAh (HAKADI) battery",
         "scanType": "CELL",
         "scanModality": "LAB_MICRO_XCT",
         "instrument": "Diondo D5",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
+        "pixelSize_µm": [27, 27, 27],
+        "dataDimensions_px": [800, 800, 2668],
+        "dataDimensions_µm": [21600, 21600, 72036],
         "thumbnailType": "1H",
-        "thumbnailName": ["78_1H.png"],
+        "thumbnailName": ["74_1H.png"],
         "citations": [
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
         ],
         "licence": "CC-4.0",
         "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
+        "scanParameters": {
+            "pixel_size": "27um",
+            "frame_binning": "2",
+            "integration_time": "1.35s",
+            "projections": "1250",
+            "angular_range": "360",
+            "current": "230uA",
+            "voltage": "300kV"
+        },
         "zenodoLinks": {
-            "rawZenodoLinks": [""],
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17011130"],
             "rawZenodoLabels": [""],
             "processedZenodoLinks": [""],
             "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.17008994"],
             "reconstructedZenodoLabels": [""]
         }
     },
     {
-        "scanID": 79,
-        "sampleID": "",
-        "sampleName": "20240604_d5_3917_AV_cyan18650Na_overv_800x800x2668x32bit",
+        "scanID": 75,
+        "sampleID": 41,
+        "sampleName": "18650 Na-ion 1300 mAh (HAKADI) battery",
         "chemistry": "Na-ion",
         "sampleDescription": "Laboratory cone beam X-ray CT of an 18650 Na-ion 1300 mAh (HAKADI) battery",
         "scanType": "CELL",
         "scanModality": "LAB_MICRO_XCT",
         "instrument": "Diondo D5",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
+        "pixelSize_µm": [27, 27, 27],
+        "dataDimensions_px": [800, 800, 2668],
+        "dataDimensions_µm": [21600, 21600, 72036],
         "thumbnailType": "1H",
-        "thumbnailName": ["79_1H.png"],
+        "thumbnailName": ["75_1H.png"],
         "citations": [
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
         ],
         "licence": "CC-4.0",
         "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
+        "scanParameters": {
+            "pixel_size": "27um",
+            "frame_binning": "2",
+            "integration_time": "1.35s",
+            "projections": "1250",
+            "angular_range": "360",
+            "current": "230uA",
+            "voltage": "300kV"
+        },
         "zenodoLinks": {
-            "rawZenodoLinks": [""],
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17011136"],
             "rawZenodoLabels": [""],
             "processedZenodoLinks": [""],
             "processedZenodoLabels": [""],
@@ -2799,38 +2723,46 @@
         }
     },
     {
-        "scanID": 80,
-        "sampleID": "",
-        "sampleName": "20240306_d5_3917_AV_Na-Ion_18650_fast1",
+        "scanID": 76,
+        "sampleID": 42,
+        "sampleName": "18650 Na-ion 1300 mAh (HAKADI) battery",
         "chemistry": "Na-ion",
         "sampleDescription": "Laboratory cone beam X-ray CT of an 18650 Na-ion 1300 mAh (HAKADI) battery",
         "scanType": "CELL",
         "scanModality": "LAB_MICRO_XCT",
         "instrument": "Diondo D5",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
+        "pixelSize_µm": [36, 36, 36],
+        "dataDimensions_px": [800, 800, 2668],
+        "dataDimensions_µm": [28800, 28800, 96048],
         "thumbnailType": "1H",
-        "thumbnailName": ["80_1H.png"],
+        "thumbnailName": ["76_1H.png"],
         "citations": [
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
         ],
         "licence": "CC-4.0",
         "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
+        "scanParameters": {
+            "pixel_size": "36um",
+            "frame_binning": "1",
+            "integration_time": "0.38s",
+            "projections": "1250",
+            "angular_range": "360",
+            "current": "200uA",
+            "voltage": "300kV"
+        },
         "zenodoLinks": {
-            "rawZenodoLinks": [""],
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17014114"],
             "rawZenodoLabels": [""],
             "processedZenodoLinks": [""],
             "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.17013921"],
             "reconstructedZenodoLabels": [""]
         }
     },
     {
-        "scanID": 81,
-        "sampleID": "",
-        "sampleName": "20240604_d5_3917_AV_purp18650Li_overv_800x800x2668x32bit",
+        "scanID": 77,
+        "sampleID": 42,
+        "sampleName": "18650 Li-ion (Samsung 29E 2900mAh) battery",
         "chemistry": "Li-ion",
         "sampleDescription": "Laboratory cone beam X-ray CT of an 18650 Li-ion (Samsung 29E 2900mAh) battery",
         "scanType": "CELL",
@@ -2840,7 +2772,7 @@
         "dataDimensions_px": [800, 800, 2668],
         "dataDimensions_µm": [21600, 21600, 72036],
         "thumbnailType": "1H",
-        "thumbnailName": ["81_1H.png"],
+        "thumbnailName": ["77_1H.png"],
         "citations": [
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
         ],
@@ -2860,43 +2792,14 @@
             "rawZenodoLabels": [""],
             "processedZenodoLinks": [""],
             "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.17013912"],
             "reconstructedZenodoLabels": [""]
         }
     },
     {
-        "scanID": 82,
-        "sampleID": "",
-        "sampleName": "20240306_d5_3917_AV_21700_01",
-        "chemistry": "Li-ion",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a 21700 Li-ion (Molicel P42A 4200mAh) battery",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Diondo D5",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
-        "thumbnailType": "1H",
-        "thumbnailName": ["82_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 83,
-        "sampleID": "",
-        "sampleName": "20240306_d5_3917_AV_21700_02_800x800x2668x32bit",
+        "scanID": 78,
+        "sampleID": 43,
+        "sampleName": "21700 Li-ion (Molicel P42A 4200mAh) battery",
         "chemistry": "Li-ion",
         "sampleDescription": "Laboratory cone beam X-ray CT of a 21700 Li-ion (Molicel P42A 4200mAh) battery",
         "scanType": "CELL",
@@ -2906,7 +2809,44 @@
         "dataDimensions_px": [800, 800, 2668],
         "dataDimensions_µm": [28800, 28800, 96048],
         "thumbnailType": "1H",
-        "thumbnailName": ["83_1H.png"],
+        "thumbnailName": ["78_1H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "Antony Vamvakeros",
+        "scanParameters": {
+            "pixel_size": "36um",
+            "frame_binning": "2",
+            "integration_time": "1.35s",
+            "projections": "1250",
+            "angular_range": "360",
+            "current": "230uA",
+            "voltage": "300kV"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17014097"],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.17013712"],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 79,
+        "sampleID": 43,
+        "sampleName": "21700 Li-ion (Molicel P42A 4200mAh) battery",
+        "chemistry": "Li-ion",
+        "sampleDescription": "Laboratory cone beam X-ray CT of a 21700 Li-ion (Molicel P42A 4200mAh) battery",
+        "scanType": "CELL",
+        "scanModality": "LAB_MICRO_XCT",
+        "instrument": "Diondo D5",
+        "pixelSize_µm": [36, 36, 36],
+        "dataDimensions_px": [800, 800, 2668],
+        "dataDimensions_µm": [28800, 28800, 96048],
+        "thumbnailType": "1H",
+        "thumbnailName": ["79_1H.png"],
         "citations": [
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
         ],
@@ -2922,7 +2862,7 @@
             "voltage": "300kV"
         },
         "zenodoLinks": {
-            "rawZenodoLinks": [""],
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17010244"],
             "rawZenodoLabels": [""],
             "processedZenodoLinks": [""],
             "processedZenodoLabels": [""],
@@ -2931,96 +2871,83 @@
         }
     },
     {
-        "scanID": 84,
-        "sampleID": "",
-        "sampleName": "20240508_d5_3917_AV_21700_ROI-top-fast_1568x1568x2194x32bit",
+        "scanID": 80,
+        "sampleID": 43,
+        "sampleName": "21700 Li-ion (Molicel P42A 4200mAh) battery",
         "chemistry": "Li-ion",
         "sampleDescription": "Laboratory cone beam X-ray CT of a 21700 Li-ion (Molicel P42A 4200mAh) battery",
         "scanType": "CELL",
         "scanModality": "LAB_MICRO_XCT",
         "instrument": "Diondo D5",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
+        "pixelSize_µm": [16, 16, 16],
+        "dataDimensions_px": [1568, 1568, 2194],
+        "dataDimensions_µm": [25088, 25088, 35104],
         "thumbnailType": "1H",
-        "thumbnailName": ["84_1H.png"],
+        "thumbnailName": ["80_1H.png"],
         "citations": [
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
         ],
         "licence": "CC-4.0",
         "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
+        "scanParameters": {
+            "pixel_size": "16um",
+            "frame_binning": "2",
+            "integration_time": "0.28s",
+            "projections": "1560",
+            "angular_range": "360",
+            "current": "260uA",
+            "voltage": "290kV"
+        },
         "zenodoLinks": {
-            "rawZenodoLinks": [""],
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17010248"],
             "rawZenodoLabels": [""],
             "processedZenodoLinks": [""],
             "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.17010197"],
             "reconstructedZenodoLabels": [""]
         }
     },
     {
-        "scanID": 85,
-        "sampleID": "",
-        "sampleName": "20240306_d5_3917_AV_4680_overv_1408x1408x2546x32bit",
+        "scanID": 81,
+        "sampleID": 44,
+        "sampleName": "4680 LFP Li-ion 15000mAh (Jedila) battery",
         "chemistry": "LFP",
         "sampleDescription": "Laboratory cone beam X-ray CT of a 4680 LFP Li-ion 15000mAh (Jedila) battery",
         "scanType": "CELL",
         "scanModality": "LAB_MICRO_XCT",
         "instrument": "Diondo D5",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
+        "pixelSize_µm": [36, 36, 36],
+        "dataDimensions_px": [1408, 1408, 2546],
+        "dataDimensions_µm": [50688, 50688, 91656],
         "thumbnailType": "1H",
-        "thumbnailName": ["85_1H.png"],
+        "thumbnailName": ["81_1H.png"],
         "citations": [
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
         ],
         "licence": "CC-4.0",
         "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
+        "scanParameters": {
+            "pixel_size": "36um",
+            "frame_binning": "4",
+            "integration_time": "1.35s",
+            "projections": "2200",
+            "angular_range": "360",
+            "current": "230uA",
+            "voltage": "300kV"
+        },
         "zenodoLinks": {
-            "rawZenodoLinks": [""],
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17010237"],
             "rawZenodoLabels": [""],
             "processedZenodoLinks": [""],
             "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.17008919"],
             "reconstructedZenodoLabels": [""]
         }
     },
     {
-        "scanID": 86,
-        "sampleID": "",
-        "sampleName": "20240508_d5_3917_AV_4680_ROI-top-fast_3008x3008x2100x32bit",
-        "chemistry": "LFP",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a 4680 LFP Li-ion 15000mAh (Jedila) battery",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Diondo D5",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
-        "thumbnailType": "1H",
-        "thumbnailName": ["86_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 87,
-        "sampleID": "",
-        "sampleName": "20240306_d5_3917_AV_4680_fast1",
+        "scanID": 82,
+        "sampleID": 44,
+        "sampleName": "4680 LFP Li-ion 15000mAh (Jedila) battery",
         "chemistry": "LFP",
         "sampleDescription": "Laboratory cone beam X-ray CT of a 4680 LFP Li-ion 15000mAh (Jedila) battery",
         "scanType": "CELL",
@@ -3030,7 +2957,7 @@
         "dataDimensions_px": [1408, 1408, 2560],
         "dataDimensions_µm": [56320, 56320, 102400],
         "thumbnailType": "1H",
-        "thumbnailName": ["87_1H.png"],
+        "thumbnailName": ["82_1H.png"],
         "citations": [
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
         ],
@@ -3046,7 +2973,7 @@
             "voltage": "300kV"
         },
         "zenodoLinks": {
-            "rawZenodoLinks": [""],
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17014039"],
             "rawZenodoLabels": [""],
             "processedZenodoLinks": [""],
             "processedZenodoLabels": [""],
@@ -3055,509 +2982,81 @@
         }
     },
     {
-        "scanID": 88,
-        "sampleID": "",
-        "sampleName": "20240306_d5_3917_AV_4680_fast2",
+        "scanID": 83,
+        "sampleID": 44,
+        "sampleName": "4680 LFP Li-ion 15000mAh (Jedila) battery",
         "chemistry": "LFP",
         "sampleDescription": "Laboratory cone beam X-ray CT of a 4680 LFP Li-ion 15000mAh (Jedila) battery",
         "scanType": "CELL",
         "scanModality": "LAB_MICRO_XCT",
         "instrument": "Diondo D5",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
+        "pixelSize_µm": [36, 36, 36],
+        "dataDimensions_px": [1408, 1408, 2546],
+        "dataDimensions_µm": [50688, 50688, 91656],
         "thumbnailType": "1H",
-        "thumbnailName": ["88_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 89,
-        "sampleID": "",
-        "sampleName": "20240306_d5_3917_AV_4680_fast3",
-        "chemistry": "LFP",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a 4680 LFP Li-ion 15000mAh (Jedila) battery",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Diondo D5",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
-        "thumbnailType": "1H",
-        "thumbnailName": ["89_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 90,
-        "sampleID": "",
-        "sampleName": "Energizer_AAA_binning1_0.5s",
-        "chemistry": "Zn/MnO2",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a AAAA Alkaline Zn/MnO2 (Energizer E96) battery",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Phoenix",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
-        "thumbnailType": "1H",
-        "thumbnailName": ["90_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 91,
-        "sampleID": "",
-        "sampleName": "Energizer_AAA_binning1_0.5s_ROI",
-        "chemistry": "Zn/MnO2",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a AAAA Alkaline Zn/MnO2 (Energizer E96) battery",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Phoenix",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
-        "thumbnailType": "1H",
-        "thumbnailName": ["91_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 92,
-        "sampleID": "",
-        "sampleName": "Energizer_AAA_binning1_1s_ROI_3600_scan1",
-        "chemistry": "Zn/MnO2",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a AAAA Alkaline Zn/MnO2 (Energizer E96) battery",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Phoenix",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
-        "thumbnailType": "1H",
-        "thumbnailName": ["92_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 93,
-        "sampleID": "",
-        "sampleName": "Energizer_AAA_binning1_1s_ROI_3600_scan2",
-        "chemistry": "Zn/MnO2",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a AAAA Alkaline Zn/MnO2 (Energizer E96) battery",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Phoenix",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
-        "thumbnailType": "1H",
-        "thumbnailName": ["93_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 94,
-        "sampleID": "",
-        "sampleName": "Energizer_AAA_binning1_1s_ROI",
-        "chemistry": "Zn/MnO2",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a AAAA Alkaline Zn/MnO2 (Energizer E96) battery",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Phoenix",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
-        "thumbnailType": "1H",
-        "thumbnailName": ["94_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 95,
-        "sampleID": "",
-        "sampleName": "Energizer_AAA_binning2_0.5s",
-        "chemistry": "Zn/MnO2",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a AAAA Alkaline Zn/MnO2 (Energizer E96) battery",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Phoenix",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
-        "thumbnailType": "1H",
-        "thumbnailName": ["95_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 96,
-        "sampleID": "",
-        "sampleName": "Energizer_AAA_binning2_0.25s",
-        "chemistry": "Zn/MnO2",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a AAAA Alkaline Zn/MnO2 (Energizer E96) battery",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Phoenix",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
-        "thumbnailType": "1H",
-        "thumbnailName": ["96_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 97,
-        "sampleID": "",
-        "sampleName": "Li_Fe_S2_full-battery",
-        "chemistry": "LiFeS2",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a AAA LiFeS2 (VARTA) battery",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Phoenix",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
-        "thumbnailType": "1H",
-        "thumbnailName": ["97_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 98,
-        "sampleID": "",
-        "sampleName": "Li_Fe_S2_ROI",
-        "chemistry": "LiFeS2",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a AAA LiFeS2 (VARTA) battery",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Phoenix",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
-        "thumbnailType": "1H",
-        "thumbnailName": ["98_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 99,
-        "sampleID": "",
-        "sampleName": "Nickel_M8_1s_ROI",
-        "chemistry": "NiMH",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a AAA NiMH (Panasonic Eneloop Lite)",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Phoenix",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
-        "thumbnailType": "1H",
-        "thumbnailName": ["99_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 100,
-        "sampleID": "",
-        "sampleName": "Nickel_M8_full-battery",
-        "chemistry": "NiMH",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a AAA NiMH (Panasonic Eneloop Lite)",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Phoenix",
-        "pixelSize_µm": [40.5, 40.5, 40.5],
-        "dataDimensions_px": [1142, 1142, 1151],
-        "dataDimensions_µm": [46251, 46251, 46615.5],
-        "thumbnailType": "1H",
-        "thumbnailName": ["100_1H.png"],
+        "thumbnailName": ["83_1H.png"],
         "citations": [
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
         ],
         "licence": "CC-4.0",
         "contributors": "Antony Vamvakeros",
         "scanParameters": {
-            "pixel_size": "40.5um",
-            "binning": "1",
-            "average": "2",
-            "integration_time": "1s",
-            "projections": "1800",
+            "pixel_size": "36um",
+            "frame_binning": "1",
+            "integration_time": "0.38s",
+            "projections": "2200",
             "angular_range": "360",
-            "current": "150uA",
-            "voltage": "100kV"
+            "current": "200uA",
+            "voltage": "300kV"
         },
         "zenodoLinks": {
-            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17010106"],
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17014058"],
             "rawZenodoLabels": [""],
             "processedZenodoLinks": [""],
             "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.17010104"],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.17013955"],
             "reconstructedZenodoLabels": [""]
         }
     },
     {
-        "scanID": 101,
-        "sampleID": "",
-        "sampleName": "Nickel_M8_ROI",
-        "chemistry": "NiMH",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a AAA NiMH (Panasonic Eneloop Lite)",
+        "scanID": 84,
+        "sampleID": 44,
+        "sampleName": "4680 LFP Li-ion 15000mAh (Jedila) battery",
+        "chemistry": "LFP",
+        "sampleDescription": "Laboratory cone beam X-ray CT of a 4680 LFP Li-ion 15000mAh (Jedila) battery",
         "scanType": "CELL",
         "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Phoenix",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
+        "instrument": "Diondo D5",
+        "pixelSize_µm": [36, 36, 36],
+        "dataDimensions_px": [1408, 1408, 2546],
+        "dataDimensions_µm": [50688, 50688, 91656],
         "thumbnailType": "1H",
-        "thumbnailName": ["101_1H.png"],
+        "thumbnailName": ["84_1H.png"],
         "citations": [
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
         ],
         "licence": "CC-4.0",
         "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
+        "scanParameters": {
+            "pixel_size": "36um",
+            "frame_binning": "1",
+            "integration_time": "1.35s",
+            "projections": "2200",
+            "angular_range": "360",
+            "current": "230uA",
+            "voltage": "300kV"
+        },
         "zenodoLinks": {
-            "rawZenodoLinks": [""],
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17014081"],
             "rawZenodoLabels": [""],
             "processedZenodoLinks": [""],
             "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.17013983"],
             "reconstructedZenodoLabels": [""]
         }
     },
     {
-        "scanID": 102,
-        "sampleID": "",
-        "sampleName": "18650_2s_full-battery",
-        "chemistry": "Li-ion",
-        "sampleDescription": "Laboratory cone beam X-ray CT of an 18650 Li-ion (Samsung 35E 3500mAh) battery",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Phoenix",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
-        "thumbnailType": "1H",
-        "thumbnailName": ["102_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 103,
-        "sampleID": "",
-        "sampleName": "21700_2s_full-battery",
-        "chemistry": "Li-ion",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a 21700 Li-ion (Molicel P42A 4200mAh) battery",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Phoenix",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
-        "thumbnailType": "1H",
-        "thumbnailName": ["103_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 104,
-        "sampleID": "",
-        "sampleName": "21700_M_0.25s_binning2",
-        "chemistry": "Li-ion",
-        "sampleDescription": "Laboratory cone beam X-ray CT of a 21700 Li-ion (Molicel P42A 4200mAh) battery",
-        "scanType": "CELL",
-        "scanModality": "LAB_MICRO_XCT",
-        "instrument": "Phoenix",
-        "pixelSize_µm": [],
-        "dataDimensions_px": [],
-        "dataDimensions_µm": [],
-        "thumbnailType": "1H",
-        "thumbnailName": ["104_1H.png"],
-        "citations": [
-            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
-        ],
-        "licence": "CC-4.0",
-        "contributors": "Antony Vamvakeros",
-        "scanParameters": {},
-        "zenodoLinks": {
-            "rawZenodoLinks": [""],
-            "rawZenodoLabels": [""],
-            "processedZenodoLinks": [""],
-            "processedZenodoLabels": [""],
-            "reconstructedZenodoLinks": [""],
-            "reconstructedZenodoLabels": [""]
-        }
-    },
-    {
-        "scanID": 118,
+        "scanID": 85,
         "sampleID": 1,
         "sampleName": "18650 Li-NMC (no Pt)",
         "chemistry": "NMC811",
@@ -3569,7 +3068,7 @@
         "dataDimensions_px": [5928, 3868],
         "dataDimensions_µm": [5928, 3868],
         "thumbnailType": "3H",
-        "thumbnailName": ["118_1H.png", "118_2H.png", "118_3H.png"],
+        "thumbnailName": ["85_1H.png", "85_2H.png", "85_3H.png"],
         "citations": [
             "S. J. Cooper et al, 'Methods—Kintsugi Imaging of Battery Electrodes: Distinguishing Pores from the Carbon Binder Domain using Pt Deposition', J. Electrochem. Soc. 169 070512, (2022)",
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
@@ -3587,7 +3086,7 @@
         }
     },
     {
-        "scanID": 119,
+        "scanID": 86,
         "sampleID": 1,
         "sampleName": "18650 particles",
         "chemistry": "NMC811",
@@ -3599,7 +3098,7 @@
         "dataDimensions_px": [6136, 4068],
         "dataDimensions_µm": [29.98, 21],
         "thumbnailType": "4H",
-        "thumbnailName": ["119_1H.png", "119_2H.png", "119_3H.png", "119_4H.png"],
+        "thumbnailName": ["86_1H.png", "86_2H.png", "86_3H.png", "86_4H.png"],
         "citations": [
             "S. J. Cooper et al, 'Methods—Kintsugi Imaging of Battery Electrodes: Distinguishing Pores from the Carbon Binder Domain using Pt Deposition', J. Electrochem. Soc. 169 070512, (2022)",
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
@@ -3617,8 +3116,8 @@
         }
     },
     {
-        "scanID": 120,
-        "sampleID": 101,
+        "scanID": 87,
+        "sampleID": 45,
         "sampleName": "NMC - kintsugi attempt",
         "chemistry": "NMC",
         "sampleDescription": "NMC cathode with partial Pt infiltration of pores",
@@ -3629,7 +3128,7 @@
         "dataDimensions_px": [6144, 4376],
         "dataDimensions_µm": [159.74, 113.78],
         "thumbnailType": "3H",
-        "thumbnailName": ["120_1H.png", "120_2H.png", "120_3H.png"],
+        "thumbnailName": ["87_1H.png", "87_2H.png", "87_3H.png"],
         "citations": [
             "S. J. Cooper et al, 'Methods—Kintsugi Imaging of Battery Electrodes: Distinguishing Pores from the Carbon Binder Domain using Pt Deposition', J. Electrochem. Soc. 169 070512, (2022)",
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
@@ -3647,8 +3146,8 @@
         }
     },
     {
-        "scanID": 121,
-        "sampleID": 101,
+        "scanID": 88,
+        "sampleID": 45,
         "sampleName": "NMC - kintsugi attempt (no Pt)",
         "chemistry": "NMC",
         "sampleDescription": "NMC cathode before Pt infiltration of pores",
@@ -3659,7 +3158,7 @@
         "dataDimensions_px": [3072, 2188],
         "dataDimensions_µm": [122.88, 87.52],
         "thumbnailType": "3H",
-        "thumbnailName": ["121_1H.png", "121_2H.png", "121_3H.png"],
+        "thumbnailName": ["88_1H.png", "88_2H.png", "88_3H.png"],
         "citations": [
             "S. J. Cooper et al, 'Methods—Kintsugi Imaging of Battery Electrodes: Distinguishing Pores from the Carbon Binder Domain using Pt Deposition', J. Electrochem. Soc. 169 070512, (2022)",
             "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"

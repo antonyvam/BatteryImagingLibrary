@@ -4,6 +4,7 @@ import Fold from "./Fold";
 import {LargeFilterCard, DoubleSlider, ModalityCard} from "./LargeFilterCard";
 import SearchBar from "./SearchBar";
 import {Container, Row, Col, Button} from "react-bootstrap";
+import HeroButtons from "./HeroButtons";
 import AppContext, {isMobile, MIN_SIZE_NM, MAX_SIZE_NM, MAX_L_PX} from "../interfaces/types";
 
 import "../assets/scss/styles.css";
@@ -105,68 +106,66 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                         zIndex: 0,
                         opacity: 0.65,
                         pointerEvents: "none"
+                        // display: isMobile() ? "none" : "block"
                     }}
                 />
                 <Container
-                    style={{position: "relative", zIndex: 1, paddingTop: 4, paddingBottom: 4}}
+                    fluid
+                    style={{
+                        position: "relative",
+                        zIndex: 1,
+                        paddingTop: 16,
+                        paddingBottom: 8,
+                        maxWidth: 1200,
+                        margin: "0 auto"
+                    }}
                 >
-                    <h1 style={{color: "#fff"}}>Battery Imaging Library</h1>
+                    <h1
+                        className={isMobile() ? "text-center mb-3" : "mb-3"}
+                        style={{
+                            color: "#fff",
+                            fontSize: isMobile() ? "2em" : "2.5em",
+                            wordBreak: "break-word",
+                            paddingLeft: isMobile() ? 8 : 0,
+                            paddingRight: isMobile() ? 8 : 0,
+                            textAlign: isMobile() ? "center" : "left"
+                        }}
+                    >
+                        Battery Imaging Library
+                    </h1>
 
                     {searching === false && (
-                        <Row className="align-items-center mb-4">
-                            <Col md={7}>
-                                <p className="lead" style={{color: "#fff", fontSize: "1.2em"}}>
+                        <Row
+                            className="align-items-center mb-4"
+                            style={{
+                                flexDirection: isMobile() ? "column" : "row",
+                                gap: isMobile() ? 16 : 0
+                            }}
+                        >
+                            <Col xs={12} md={7} className={isMobile() ? "mb-3" : ""}>
+                                <p
+                                    className={isMobile() ? "lead text-center" : "lead"}
+                                    style={{
+                                        color: "#fff",
+                                        fontSize: isMobile() ? "1em" : "1.2em",
+                                        wordBreak: "break-word",
+                                        paddingLeft: isMobile() ? 8 : 0,
+                                        paddingRight: isMobile() ? 8 : 0,
+                                        textAlign: isMobile() ? "center" : "left"
+                                    }}
+                                >
                                     8 modalities, 100s of scans and over 500 billion voxels of open
                                     battery imaging data, from single particles up to full cells.
                                     Includes raw, processed and reconstructed data. Start searching!
                                 </p>
                             </Col>
-                            <Col md={5}>
-                                <div style={{display: "flex", flexDirection: "column", gap: 8}}>
-                                    {[0, 1].map((row) => (
-                                        <div style={{display: "flex", gap: 8}} key={row}>
-                                            {heroButtons.slice(row * 3, row * 3 + 3).map((btn) =>
-                                                btn.type === "link" ? (
-                                                    <Button
-                                                        key={btn.label}
-                                                        variant="light"
-                                                        size="lg"
-                                                        className="w-100"
-                                                        as="a"
-                                                        href={btn.url || undefined}
-                                                        target={btn.url ? "_blank" : undefined}
-                                                        rel={
-                                                            btn.url
-                                                                ? "noopener noreferrer"
-                                                                : undefined
-                                                        }
-                                                        style={{
-                                                            backgroundColor: btn.color,
-                                                            color: btn.color ? "white" : "black"
-                                                        }}
-                                                    >
-                                                        {btn.label}
-                                                    </Button>
-                                                ) : (
-                                                    <Button
-                                                        key={btn.label}
-                                                        variant="light"
-                                                        size="lg"
-                                                        className="w-100"
-                                                        onClick={btn.onClick}
-                                                    >
-                                                        {btn.label}
-                                                    </Button>
-                                                )
-                                            )}
-                                        </div>
-                                    ))}
-                                </div>
+                            <Col xs={12} md={5}>
+                                <HeroButtons heroButtons={heroButtons} isMobile={isMobile} />
                             </Col>
                         </Row>
                     )}
                     <Row className="mb-4">
-                        <Col>
+                        <Col xs={12}>
                             <SearchBar variant="light" />
                         </Col>
                     </Row>

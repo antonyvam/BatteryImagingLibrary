@@ -53,11 +53,13 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
                 borderRadius: 8,
                 overflow: "hidden",
                 width: 310,
+                height: 340,
                 background: "#fff",
-                boxShadow: "0 2px 8px #0001"
-                // display: "flex",
-                // flexDirection: "column",
-                // flex: 1
+                boxShadow: "0 2px 8px #0001",
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "stretch"
             }}
         >
             <ChannelCarousel
@@ -70,9 +72,8 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
                 style={{
                     padding: 16,
                     display: "flex",
-                    flexDirection: "column"
-                    // alignItems: "center",
-                    // flex: 1
+                    flexDirection: "column",
+                    flex: 1
                 }}
             >
                 <div
@@ -83,12 +84,12 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
                         background: "#f5f5f5",
                         padding: "4px 12px",
                         borderRadius: 6,
-                        textAlign: "center"
-                        // overflowX: "scroll",
-                        // height: 50,
-                        // whiteSpace: "nowrap",
-                        // textOverflow: "ellipsis",
-                        // resize: "none"
+                        textAlign: "center",
+                        overflowX: "scroll",
+                        height: 40,
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        resize: "none"
                     }}
                 >
                     {sampleName}

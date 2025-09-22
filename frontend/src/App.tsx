@@ -56,8 +56,8 @@ const App: FC = () => {
                                     flexDirection: "row",
                                     flexWrap: "wrap",
                                     justifyContent: "space-evenly",
-                                    gap: 18
-                                    // alignItems: "strech"
+                                    gap: 18,
+                                    alignItems: "stretch"
                                 }}
                             >
                                 {smartShuffle(

@@ -142,7 +142,7 @@ const ContributorModal: FC<ContributorModalProps> = ({show, onClose}) => {
                                     <a href={contrib.url} target="_blank" rel="noopener noreferrer">
                                         <img
                                             src={`../assets/imgs/institutions/${contrib.imgName}.png`}
-                                            // alt={contrib.name}
+                                            alt={contrib.name}
                                             style={{
                                                 width: 420,
                                                 height: 120,
@@ -160,14 +160,6 @@ const ContributorModal: FC<ContributorModalProps> = ({show, onClose}) => {
                         ))}
                     </Carousel>
                 </div>
-                {/* <div style={{textAlign: "center", marginTop: 16}}>
-                    <h3 style={{fontSize: 22, fontWeight: 600, marginBottom: 4}}>
-                        {contributorData[contributorIdx].name}
-                    </h3>
-                    <p style={{fontSize: 16, color: "#555", margin: 0}}>
-                        {contributorData[contributorIdx].subheader}
-                    </p>
-                </div> */}
             </Modal.Body>
         </Modal>
     );

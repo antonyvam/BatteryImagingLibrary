@@ -42,7 +42,7 @@ def load_image(path: str) -> Image.Image:
     ext = os.path.splitext(path)[1].lower()
     if ext in [".tif", ".tiff"]:
         img = tifffile.imread(path)
-        img = ((img / np.amax(img)) * 255).astype(np.uint8)
+        img = ((img - np.amin(img)) / (np.amax(img) - np.amin(img)) * 255).astype(np.uint8)
         # img = display(img, 0, 255)
 
         if img.ndim == 2:

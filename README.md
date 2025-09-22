@@ -42,43 +42,35 @@
   ' includes raw, processed and reconstructed data', 500+ billion voxels
 
 - synchotron micro-CT operando GIF and example card
+
   - order: SEM; EDS; EBSD: Lab-micro CT; neutron-CT; S3XRD; s-mini; s-nano; XRD-CT
   - s3XRD modality as option
 
-### doing:
-
+- cards all same height
 - contributor button;link to zenodo BIL community (6 buttons)
   - contributor modal:
     - imperial, finden, manchester, ucl, southampton,
       DLS, ISIS neturons, ERSF, DESY, UKBIC, WMG, NREL, thermofisher?
+
+### doing:
+
+- upload SEM processed data
 - make dropdowns start from min val
 - fix smart shuffle
 - fix mobile view
+- button to jump to top
 
+- references in doc
 - update deploy of website
-- old J thumbnails
-- upload SEM data
+
 - google analytics ?
-- references in doc?
-
-- read prerpint; update website section (inc dreaft website figure)
-
-- to add:
-
-  - j old data:
-    - wide kintsugi attempt + seg
-    - high res
-  - seg of slice?
 
 - home / back button on search results page
 - script:
   - save oriignal image into azure db?
 - spreadsheet:
-
   - add cell geometry?
-
   - add appscript to VC?
-  - app script to ping cross ref given a doi to get full citation and dunk it into json
 
 -refactor:
 

@@ -138,8 +138,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                         <Row
                             className="align-items-center mb-4"
                             style={{
-                                flexDirection: isMobile() ? "column" : "row",
-                                gap: isMobile() ? 16 : 0
+                                flexDirection: isMobile() ? "column" : "row"
                             }}
                         >
                             <Col xs={12} md={7} className={isMobile() ? "mb-3" : ""}>
@@ -151,7 +150,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                                         wordBreak: "break-word",
                                         paddingLeft: isMobile() ? 8 : 0,
                                         paddingRight: isMobile() ? 8 : 0,
-                                        textAlign: isMobile() ? "center" : "left"
+                                        textAlign: "left"
                                     }}
                                 >
                                     8 modalities, 100s of scans and over 500 billion voxels of open
@@ -159,9 +158,11 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                                     Includes raw, processed and reconstructed data. Start searching!
                                 </p>
                             </Col>
-                            <Col xs={12} md={5}>
-                                <HeroButtons heroButtons={heroButtons} isMobile={isMobile} />
-                            </Col>
+                            {!isMobile() && (
+                                <Col xs={12} md={5}>
+                                    <HeroButtons heroButtons={heroButtons} isMobile={isMobile} />
+                                </Col>
+                            )}
                         </Row>
                     )}
                     <Row className="mb-4">
@@ -173,6 +174,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                         className="mb-4"
                         style={{
                             columnGap: 14,
+                            rowGap: 4,
                             display: "flex",
                             justifyContent: "space-evenly",
                             flexWrap: isMobile() ? "wrap" : "nowrap"

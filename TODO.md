@@ -53,11 +53,13 @@
       DLS, ISIS neturons, ERSF, DESY, UKBIC, WMG, NREL, thermofisher?
 - fix smart shuffle
 - upload SEM processed data
+- fix mobile view
+- make default units microns
 
 ### doing:
 
 - make dropdowns start from min val
-- fix mobile view
+
 - button to jump to top; button to go home
 
 - merge GH

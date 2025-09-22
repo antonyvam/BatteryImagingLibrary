@@ -39,7 +39,7 @@ export const NumericInputOptionalDropdown: FC<NumericInputOptionalDropdown> = ({
     units = UNITS,
     squared = false
 }) => {
-    const [unit, setUnit] = useState<Units>("NANO");
+    const [unit, setUnit] = useState<Units>("MICRON");
     const [textVal, setTextVal] = useState<string>(value.toString());
     const [keyPressed, setKeyPressed] = useState<boolean>(false);
 

@@ -60,7 +60,7 @@ const ScanModal: FC<ScanModalProps> = ({show, scan: propScan, onClose}) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        minHeight: "100vh",
+        minHeight: "85vh",
         margin: 0
     };
 
@@ -93,7 +93,9 @@ const ScanModal: FC<ScanModalProps> = ({show, scan: propScan, onClose}) => {
                 <Modal.Title style={{fontWeight: 700, fontSize: 28}}>{scan.sampleName}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <div style={{display: "flex", flexDirection: "column", gap: 24}}>
+                <div
+                    style={{display: "flex", flexDirection: "column", gap: 24, overflow: "scroll"}}
+                >
                     {/* Channel Carousel */}
                     <ChannelCarousel
                         thumbnailName={scan.thumbnailName}

@@ -190,6 +190,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                                     min={Math.log10(MIN_SIZE_NM)}
                                     max={Math.log10(MAX_SIZE_NM)}
                                     showTicks={true}
+                                    defaultUnit="MICRON"
                                 />
                             </div>
                         </LargeFilterCard>
@@ -202,7 +203,6 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                                     logarithmic={true}
                                     min={1}
                                     max={Math.log10(MAX_L_PX)}
-                                    squared={true}
                                 />
                             </div>
                         </LargeFilterCard>

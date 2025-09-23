@@ -30,6 +30,7 @@ interface NumericInputOptionalDropdown {
     addDropdown?: boolean;
     units?: string[];
     squared?: boolean;
+    defaultUnit: Units;
 }
 
 export const NumericInputOptionalDropdown: FC<NumericInputOptionalDropdown> = ({
@@ -37,9 +38,10 @@ export const NumericInputOptionalDropdown: FC<NumericInputOptionalDropdown> = ({
     setValue,
     addDropdown = false,
     units = UNITS,
-    squared = false
+    squared = false,
+    defaultUnit = "PIXEL"
 }) => {
-    const [unit, setUnit] = useState<Units>("MICRON");
+    const [unit, setUnit] = useState<Units>(defaultUnit);
     const [textVal, setTextVal] = useState<string>(value.toString());
     const [keyPressed, setKeyPressed] = useState<boolean>(false);
 
@@ -124,6 +126,7 @@ export interface DoubleSliderProps {
     addDropdown?: boolean;
     squared?: boolean;
     showTicks?: boolean;
+    defaultUnit?: Units;
 }
 
 export const DoubleSlider: FC<DoubleSliderProps> = ({
@@ -135,7 +138,8 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     logarithmic = false,
     addDropdown = false,
     squared = false,
-    showTicks = false
+    showTicks = false,
+    defaultUnit = "PIXEL"
 }) => {
     const navigate = useNavigate();
     const [sliderVal, setSliderVal] = useState<{lower: number; upper: number}>({
@@ -150,7 +154,10 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
         } else {
             setValue({lower, upper});
         }
-        navigate("/search");
+        const isSearching = location.pathname.startsWith("/search");
+        if (!isSearching) {
+            navigate("/search");
+        }
     };
 
     useEffect(() => {
@@ -235,6 +242,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                     }}
                     addDropdown={addDropdown}
                     squared={squared}
+                    defaultUnit={defaultUnit}
                 />
                 <NumericInputOptionalDropdown
                     value={value.upper}
@@ -243,6 +251,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                     }}
                     addDropdown={addDropdown}
                     squared={squared}
+                    defaultUnit={defaultUnit}
                 />
             </div>
         </div>

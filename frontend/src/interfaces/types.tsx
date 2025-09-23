@@ -14,15 +14,22 @@ export const MIN_SIZE_NM = 0.1;
 export const MAX_SIZE_NM = 1e7;
 export const MAX_L_PX = 10_000;
 
-export const UNITS = ["NANO", "MICRON", "MILLI", "CENTI"] as const;
+export const UNITS = ["NANO", "MICRON", "MILLI", "CENTI", "PIXEL"] as const;
 export type Units = (typeof UNITS)[number];
 export const UNIT_TO_UNIT_STR: Record<Units, string> = {
     NANO: "nm",
     MICRON: "µm",
     MILLI: "mm",
-    CENTI: "cm"
+    CENTI: "cm",
+    PIXEL: "px"
 };
-export const UNIT_TO_SCALE: Record<Units, number> = {NANO: 1, MICRON: 1e3, MILLI: 1e6, CENTI: 1e8};
+export const UNIT_TO_SCALE: Record<Units, number> = {
+    NANO: 1,
+    MICRON: 1e3,
+    MILLI: 1e6,
+    CENTI: 1e8,
+    PIXEL: 1
+};
 
 export const MODALITIES = [
     "ANY",

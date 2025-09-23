@@ -11,8 +11,16 @@ import {
 import data from "../assets/data.json";
 
 // Render a resolution value as 1x10^n if > 1,000 or < 0.001, else as normal string
-export function renderResolutionText(val: number, unit: Units = "NANO"): string {
+export function renderResolutionText(
+    val: number,
+    unit: Units = "NANO",
+    isInt: boolean = false
+): string {
     const scaled = val / UNIT_TO_SCALE[unit];
+
+    if (isInt) {
+        return Math.round(val).toString();
+    }
 
     const truncateAfter = 100000;
 

@@ -31,6 +31,7 @@ interface NumericInputOptionalDropdown {
     units?: string[];
     squared?: boolean;
     defaultUnit: Units;
+    integer?: boolean;
 }
 
 export const NumericInputOptionalDropdown: FC<NumericInputOptionalDropdown> = ({
@@ -39,7 +40,8 @@ export const NumericInputOptionalDropdown: FC<NumericInputOptionalDropdown> = ({
     addDropdown = false,
     units = UNITS,
     squared = false,
-    defaultUnit = "PIXEL"
+    defaultUnit = "PIXEL",
+    integer = false
 }) => {
     const [unit, setUnit] = useState<Units>(defaultUnit);
     const [textVal, setTextVal] = useState<string>(value.toString());
@@ -83,7 +85,7 @@ export const NumericInputOptionalDropdown: FC<NumericInputOptionalDropdown> = ({
     }, [textVal, unit, setValue]);
 
     useEffect(() => {
-        setTextVal(renderResolutionText(value, unit));
+        setTextVal(renderResolutionText(value, unit, integer));
     }, [value, unit]);
 
     return (
@@ -127,6 +129,7 @@ export interface DoubleSliderProps {
     squared?: boolean;
     showTicks?: boolean;
     defaultUnit?: Units;
+    integer?: boolean;
 }
 
 export const DoubleSlider: FC<DoubleSliderProps> = ({
@@ -139,7 +142,8 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     addDropdown = false,
     squared = false,
     showTicks = false,
-    defaultUnit = "PIXEL"
+    defaultUnit = "PIXEL",
+    integer = false
 }) => {
     const navigate = useNavigate();
     const [sliderVal, setSliderVal] = useState<{lower: number; upper: number}>({
@@ -243,6 +247,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                     addDropdown={addDropdown}
                     squared={squared}
                     defaultUnit={defaultUnit}
+                    integer={integer}
                 />
                 <NumericInputOptionalDropdown
                     value={value.upper}
@@ -252,6 +257,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                     addDropdown={addDropdown}
                     squared={squared}
                     defaultUnit={defaultUnit}
+                    integer={integer}
                 />
             </div>
         </div>

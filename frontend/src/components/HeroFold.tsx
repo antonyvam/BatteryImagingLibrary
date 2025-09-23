@@ -203,6 +203,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                                     logarithmic={true}
                                     min={1}
                                     max={Math.log10(MAX_L_PX)}
+                                    integer={true}
                                 />
                             </div>
                         </LargeFilterCard>

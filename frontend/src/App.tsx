@@ -1,4 +1,4 @@
-import {FC, useContext, useEffect} from "react";
+import {FC, useContext, useEffect, useState} from "react";
 import {Routes, Route, Navigate, Outlet, useLocation, useNavigate} from "react-router-dom";
 import AppContext from "./interfaces/types";
 import ScanModal from "./components/ScanModal";
@@ -44,6 +44,7 @@ const App: FC = () => {
     return (
         <div className="app">
             <HeroFold searching={isSearching} />
+            <FloatingButtons />
             <Routes location={state?.background || location}>
                 <Route path="/" element={<ExampleCards />} />
                 <Route path="/home" element={<Navigate to="/" replace />} />
@@ -87,7 +88,6 @@ const App: FC = () => {
                                     </div>
                                 ))}
                             </div>
-                            <FloatingButtons />
                         </Container>
                     }
                 />

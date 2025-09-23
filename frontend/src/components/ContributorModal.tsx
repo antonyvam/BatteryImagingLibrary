@@ -88,7 +88,7 @@ const contributorData: ContributorData[] = [
     },
     {
         name: "ThermoFisher Scientific",
-        subheader: "",
+        subheader: "Materials & Structure Analysis",
         url: "https://www.thermofisher.com/uk/en/home.html",
         imgName: "thermofisher"
     }

@@ -95,7 +95,7 @@ export const getArea = (dimsMicrons: number[]) => {
 };
 
 export const renderSmallestPixelSize = (dims: (string | number)[]) => {
-    return getSmallestFromDims(dims).toString() + renderUnit("MICRON");
+    return getSmallestFromDims(dims).toString() + " " + renderUnit("MICRON");
 };
 
 export const isModality = (x: any): x is Modality => {

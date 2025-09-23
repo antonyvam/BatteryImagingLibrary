@@ -85,7 +85,8 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
                         padding: "4px 12px",
                         borderRadius: 6,
                         textAlign: "center",
-                        overflowX: "scroll",
+                        // overflowX: "scroll",
+                        overflowX: "clip",
                         height: 40,
                         whiteSpace: "nowrap",
                         textOverflow: "ellipsis",
@@ -100,7 +101,7 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
                         flexDirection: "row",
                         alignItems: "center",
                         gap: 5,
-                        overflowX: "scroll",
+                        // overflowX: "scroll",
                         flexWrap: "wrap",
                         justifyContent: "space-evenly"
                     }}

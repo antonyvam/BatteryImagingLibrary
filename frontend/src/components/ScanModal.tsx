@@ -68,16 +68,25 @@ const ScanModal: FC<ScanModalProps> = ({show, scan: propScan, onClose}) => {
         const valid = scanData.filter(
             (v) => v.sampleID == currentScan.sampleID && v.scanID != currentScan.scanID
         );
-        return valid.map((v, i) => {
-            return (
-                <>
-                    <a href={`${v.scanID}`}>
-                        {v.sampleName} ({v.scanID})
-                    </a>
-                    {i < valid.length - 1 && ", "}
-                </>
-            );
-        });
+        if (valid.length == 0) {
+            return <></>;
+        }
+
+        return (
+            <p>
+                From same sample:{" "}
+                {valid.map((v, i) => {
+                    return (
+                        <>
+                            <a href={`${v.scanID}`}>
+                                {v.sampleName} ({v.scanID})
+                            </a>
+                            {i < valid.length - 1 && ", "}
+                        </>
+                    );
+                })}
+            </p>
+        );
     };
 
     return (
@@ -170,7 +179,7 @@ const ScanModal: FC<ScanModalProps> = ({show, scan: propScan, onClose}) => {
                         }}
                     >
                         <p>{scan.sampleDescription}</p>
-                        <p>Related: {styleRelatedScans(scanData, scan)}</p>
+                        <>{styleRelatedScans(scanData, scan)}</>
                     </div>
 
                     <Accordion defaultActiveKey="0" alwaysOpen>

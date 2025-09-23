@@ -176,9 +176,9 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     // Special ticks: 1nm (0), 1um (3), 1mm (6)
     const specialTicks = [0, 3, 6];
     const specialLabels: Record<number, string> = {
-        0: "1nm",
-        3: "1µm",
-        6: "1mm"
+        0: "1\xa0nm",
+        3: "1\xa0µm",
+        6: "1\xa0mm"
     };
 
     // Render marks function

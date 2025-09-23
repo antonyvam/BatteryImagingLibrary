@@ -89,13 +89,63 @@ interface HeroButtonsProps {
 }
 
 export const HeroButtons: React.FC<HeroButtonsProps> = ({heroButtons, isMobile}) => {
+    // Button sizing for even layout
+    const BUTTON_WIDTH = 160;
+    const BUTTON_HEIGHT = 48;
+
+    // Helper to get shared button style
+    const getButtonStyle = (color?: string, fontSize?: string) => ({
+        backgroundColor: color,
+        color: color ? "white" : "black",
+        fontSize: fontSize || undefined,
+        minWidth: BUTTON_WIDTH,
+        minHeight: BUTTON_HEIGHT,
+        maxWidth: BUTTON_WIDTH,
+        maxHeight: BUTTON_HEIGHT,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+    });
+
+    // Helper to render a button (link or action)
+    const renderHeroButton = (btn: HeroButton, size: "sm" | "lg", key?: React.Key) => {
+        const style = getButtonStyle(btn.color, size === "sm" ? "0.95em" : undefined);
+        if (btn.type === "link") {
+            return (
+                <Button
+                    key={btn.label}
+                    variant="light"
+                    size={size}
+                    as="a"
+                    href={btn.url || undefined}
+                    target={btn.url ? "_blank" : undefined}
+                    rel={btn.url ? "noopener noreferrer" : undefined}
+                    style={style}
+                >
+                    {btn.label}
+                </Button>
+            );
+        } else {
+            return (
+                <Button
+                    key={btn.label}
+                    variant="light"
+                    size={size}
+                    onClick={btn.onClick}
+                    style={style}
+                >
+                    {btn.label}
+                </Button>
+            );
+        }
+    };
+
     return (
         <div
             style={{
                 display: "flex",
-                flexDirection: isMobile() ? "column" : "column",
-                gap: 8,
-                width: "100%"
+                flexDirection: "column",
+                gap: 8
             }}
         >
             {/* On mobile, stack all buttons vertically */}
@@ -109,78 +159,16 @@ export const HeroButtons: React.FC<HeroButtonsProps> = ({heroButtons, isMobile})
                               marginBottom: 4
                           }}
                       >
-                          {heroButtons.slice(i * 2, i * 2 + 2).map((btn) =>
-                              btn.type === "link" ? (
-                                  <Button
-                                      key={btn.label}
-                                      variant="light"
-                                      size="sm"
-                                      className="w-100"
-                                      as="a"
-                                      href={btn.url || undefined}
-                                      target={btn.url ? "_blank" : undefined}
-                                      rel={btn.url ? "noopener noreferrer" : undefined}
-                                      style={{
-                                          backgroundColor: btn.color,
-                                          color: btn.color ? "white" : "black",
-                                          fontSize: "0.95em",
-                                          padding: "6px 0",
-                                          minWidth: 0
-                                      }}
-                                  >
-                                      {btn.label}
-                                  </Button>
-                              ) : (
-                                  <Button
-                                      key={btn.label}
-                                      variant="light"
-                                      size="sm"
-                                      className="w-100"
-                                      onClick={btn.onClick}
-                                      style={{
-                                          fontSize: "0.95em",
-                                          padding: "6px 0",
-                                          minWidth: 0
-                                      }}
-                                  >
-                                      {btn.label}
-                                  </Button>
-                              )
-                          )}
+                          {heroButtons
+                              .slice(i * 2, i * 2 + 2)
+                              .map((btn) => renderHeroButton(btn, "sm", btn.label))}
                       </div>
                   ))
                 : [0, 1].map((row) => (
                       <div style={{display: "flex", gap: 8}} key={row}>
-                          {heroButtons.slice(row * 3, row * 3 + 3).map((btn) =>
-                              btn.type === "link" ? (
-                                  <Button
-                                      key={btn.label}
-                                      variant="light"
-                                      size="lg"
-                                      className="w-100"
-                                      as="a"
-                                      href={btn.url || undefined}
-                                      target={btn.url ? "_blank" : undefined}
-                                      rel={btn.url ? "noopener noreferrer" : undefined}
-                                      style={{
-                                          backgroundColor: btn.color,
-                                          color: btn.color ? "white" : "black"
-                                      }}
-                                  >
-                                      {btn.label}
-                                  </Button>
-                              ) : (
-                                  <Button
-                                      key={btn.label}
-                                      variant="light"
-                                      size="lg"
-                                      className="w-100"
-                                      onClick={btn.onClick}
-                                  >
-                                      {btn.label}
-                                  </Button>
-                              )
-                          )}
+                          {heroButtons
+                              .slice(row * 3, row * 3 + 3)
+                              .map((btn) => renderHeroButton(btn, "lg", btn.label))}
                       </div>
                   ))}
         </div>

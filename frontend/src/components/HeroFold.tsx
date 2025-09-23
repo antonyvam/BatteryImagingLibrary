@@ -68,7 +68,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
             color: "#0047a8"
         },
         {
-            label: "Browse all",
+            label: "About",
             type: "action",
             onClick: () => {
                 navigate("/search");
@@ -106,76 +106,54 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                         zIndex: 0,
                         opacity: 0.65,
                         pointerEvents: "none"
-                        // display: isMobile() ? "none" : "block"
                     }}
                 />
-                <Container
-                    fluid
+                <div
                     style={{
                         position: "relative",
                         zIndex: 1,
                         paddingTop: 16,
                         paddingBottom: 8,
-                        maxWidth: 1200,
-                        margin: "0 auto"
+                        width: "100%"
                     }}
                 >
-                    <h1
-                        className={isMobile() ? "text-center mb-3" : "mb-3"}
+                    <div
                         style={{
-                            color: "#fff",
-                            fontSize: isMobile() ? "2em" : "2.5em",
-                            wordBreak: "break-word",
-                            paddingLeft: isMobile() ? 8 : 0,
-                            paddingRight: isMobile() ? 8 : 0,
-                            textAlign: isMobile() ? "center" : "left"
+                            display: "flex",
+                            flexDirection: isMobile() ? "column" : "row",
+                            alignItems: "flex-end",
+                            justifyContent: "space-between",
+                            gap: isMobile() ? 16 : 32,
+                            marginBottom: 24
                         }}
                     >
-                        Battery Imaging Library
-                    </h1>
-
-                    {searching === false && (
-                        <Row
-                            className="align-items-center mb-4"
-                            style={{
-                                flexDirection: isMobile() ? "column" : "row"
-                            }}
-                        >
-                            <Col xs={12} md={7} className={isMobile() ? "mb-3" : ""}>
-                                <p
-                                    className={isMobile() ? "lead text-center" : "lead"}
-                                    style={{
-                                        color: "#fff",
-                                        fontSize: isMobile() ? "1em" : "1.2em",
-                                        wordBreak: "break-word",
-                                        paddingLeft: isMobile() ? 8 : 0,
-                                        paddingRight: isMobile() ? 8 : 0,
-                                        textAlign: "left"
-                                    }}
-                                >
-                                    8 modalities, 100s of scans and over 500 billion voxels of open
-                                    battery imaging data, from single particles up to full cells.
-                                    Includes raw, processed and reconstructed data. Start searching!
-                                </p>
-                            </Col>
-                            {!isMobile() && (
-                                <Col xs={12} md={5}>
-                                    <HeroButtons heroButtons={heroButtons} isMobile={isMobile} />
-                                </Col>
-                            )}
-                        </Row>
-                    )}
-                    <Row className="mb-4">
-                        <Col xs={12}>
-                            <SearchBar variant="light" />
-                        </Col>
-                    </Row>
-                    <Row
-                        className="mb-4"
+                        {/* Title and search bar stacked vertically */}
+                        <div style={{flex: 1, display: "flex", flexDirection: "column", gap: 12}}>
+                            <h1
+                                className={isMobile() ? "text-center mb-3" : "mb-3"}
+                                style={{
+                                    color: "#fff"
+                                }}
+                            >
+                                Battery Imaging Library
+                            </h1>
+                            <div style={{marginTop: 8}}>
+                                <SearchBar variant="light" />
+                            </div>
+                        </div>
+                        {/* HeroButtons stacked to the right (or below on mobile) */}
+                        {!isMobile() && (
+                            <HeroButtons heroButtons={heroButtons} isMobile={isMobile} />
+                        )}
+                    </div>
+                    {/* Filters row remains below */}
+                    <div
                         style={{
-                            columnGap: 14,
+                            columnGap: 64,
                             rowGap: 4,
+                            marginBottom: 16,
                             display: "flex",
+                            flex: "row",
                             justifyContent: "space-evenly",
                             flexWrap: isMobile() ? "wrap" : "nowrap"
                         }}
@@ -208,8 +186,8 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
                             </div>
                         </LargeFilterCard>
                         <ModalityCard />
-                    </Row>
-                </Container>
+                    </div>
+                </div>
             </div>
         </Fold>
     );

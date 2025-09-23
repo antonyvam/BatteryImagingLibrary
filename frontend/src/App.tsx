@@ -14,6 +14,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import {scanMatchesSearch, smartShuffle} from "./interfaces/helpers";
 import ContributorModal from "./components/ContributorModal";
 import {FloatingButtons} from "./components/HeroButtons";
+import AboutModal from "./components/AboutModal";
 
 const App: FC = () => {
     const {
@@ -24,7 +25,8 @@ const App: FC = () => {
         sizeRange: [sizeRange],
         selectedScan: [selectedScan, setSelectedScan],
         showContribute: [showContribute, setShowContribute],
-        showContributors: [showContributors, setShowContributors]
+        showContributors: [showContributors, setShowContributors],
+        showAbout: [showAbout, setShowAbout]
     } = useContext(AppContext)!;
 
     const navigate = useNavigate();
@@ -113,6 +115,7 @@ const App: FC = () => {
                     onClose={() => setShowContributors(false)}
                 />
             )}
+            {showAbout && <AboutModal show={showAbout} onClose={() => setShowAbout(false)} />}
         </div>
     );
 };

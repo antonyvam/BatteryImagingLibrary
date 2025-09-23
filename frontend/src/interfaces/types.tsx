@@ -139,6 +139,7 @@ export interface contextProps {
     ];
     showContribute: [showContribute: boolean, setShowContribute: (e: boolean) => void];
     showContributors: [showContributors: boolean, setShowContributors: (e: boolean) => void];
+    showAbout: [showAbout: boolean, setShowAbout: (e: boolean) => void];
 }
 
 const AppContext = createContext<contextProps | null>(null);

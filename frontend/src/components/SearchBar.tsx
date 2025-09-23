@@ -37,7 +37,7 @@ const SearchBar: FC<SearchBarProps> = ({variant = "outline-secondary"}) => {
                 aria-label="Search"
                 onChange={onSearchChange}
             />
-            <Button variant={"primary"} onClick={onSearchPress}>
+            <Button style={{backgroundColor: "#0d6efd"}} onClick={onSearchPress}>
                 Browse all
             </Button>
         </InputGroup>

@@ -28,6 +28,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
         searchText: [, setSearchText],
         showContribute: [, setShowContribute],
         showContributors: [, setShowContributors],
+        showAbout: [, setShowAbout],
         selectedScan: [selectedScan]
     } = useContext(AppContext)!;
 
@@ -54,7 +55,9 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
         {
             label: "About",
             type: "action",
-            onClick: () => {}
+            onClick: () => {
+                setShowAbout(true);
+            }
         },
         {
             label: "Paper",

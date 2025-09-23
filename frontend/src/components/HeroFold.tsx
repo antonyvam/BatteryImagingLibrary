@@ -24,10 +24,10 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
     const {
         resRange: [resRange, setResRange],
         sizeRange: [sizeRange, setSizeRange],
-        selectedModalities: [selectedModalities, setSelectedModalities],
-        searchText: [searchText, setSearchText],
-        showContribute: [showContribute, setShowContribute],
-        showContributors: [showContributors, setShowContributors],
+        selectedModalities: [, setSelectedModalities],
+        searchText: [, setSearchText],
+        showContribute: [, setShowContribute],
+        showContributors: [, setShowContributors],
         selectedScan: [selectedScan]
     } = useContext(AppContext)!;
 
@@ -52,6 +52,11 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
     // Button actions/links
     const heroButtons: HeroButton[] = [
         {
+            label: "About",
+            type: "action",
+            onClick: () => {}
+        },
+        {
             label: "Paper",
             type: "link",
             url: ""
@@ -64,21 +69,9 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
         {
             label: "Zenodo",
             type: "link",
-            url: "https://zenodo.org/communities/batteryimaginglibrary/records",
-            color: "#0047a8"
+            url: "https://zenodo.org/communities/batteryimaginglibrary/records"
         },
-        {
-            label: "About",
-            type: "action",
-            onClick: () => {
-                navigate("/search");
-                // setSearching(true);
-                setSelectedModalities([]);
-                setSearchText("");
-                setResRange({lower: 0, upper: MAX_SIZE_NM});
-                setSizeRange({lower: 0, upper: MAX_L_PX});
-            }
-        },
+
         {
             label: "Contributors",
             type: "action",

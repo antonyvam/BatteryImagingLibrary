@@ -15,6 +15,7 @@ const AppContextProvider = (props: {
     const [showContribute, setShowContribute] = useState<boolean>(false);
     const [showContributors, setShowContributors] = useState<boolean>(false);
     const [showAbout, setShowAbout] = useState<boolean>(false);
+    const [isSearching, setIsSearching] = useState<boolean>(false);
     return (
         <AppContext.Provider
             value={{
@@ -26,7 +27,8 @@ const AppContextProvider = (props: {
                 selectedScan: [selectedScan, setSelectedScan],
                 showContribute: [showContribute, setShowContribute],
                 showContributors: [showContributors, setShowContributors],
-                showAbout: [showAbout, setShowAbout]
+                showAbout: [showAbout, setShowAbout],
+                isSearching: [isSearching, setIsSearching]
             }}
         >
             {props.children}

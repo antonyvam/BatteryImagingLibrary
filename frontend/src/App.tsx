@@ -1,4 +1,4 @@
-import {FC, useContext, useEffect, useState} from "react";
+import {FC, useContext, useEffect, useState, useMemo} from "react";
 import {Routes, Route, Navigate, Outlet, useLocation, useNavigate} from "react-router-dom";
 import AppContext from "./interfaces/types";
 import ScanModal from "./components/ScanModal";
@@ -26,22 +26,32 @@ const App: FC = () => {
         selectedScan: [selectedScan, setSelectedScan],
         showContribute: [showContribute, setShowContribute],
         showContributors: [showContributors, setShowContributors],
-        showAbout: [showAbout, setShowAbout]
+        showAbout: [showAbout, setShowAbout],
+        isSearching: [isSearching, setIsSearching]
     } = useContext(AppContext)!;
 
     const navigate = useNavigate();
     const location = useLocation();
-
-    // if location.state?.background exists, it means we navigated to a modal
-    const state = location.state as {background?: Location};
+    // Memoize state, update when modal states change
+    const state = useMemo(
+        () => location.state as {background?: Location},
+        [location, showContribute, showContributors, showAbout]
+    );
 
     const goBack = () => {
         setSelectedScan(null);
+        setIsSearching(true);
         navigate("/search");
     };
 
     // Determine if current route is '/search'
-    const isSearching = location.pathname.startsWith("/search");
+    useEffect(() => {
+        if (location.pathname.startsWith("/search")) {
+            setIsSearching(true);
+        } else if (location.pathname === "/" || location.pathname === "/home") {
+            setIsSearching(false);
+        }
+    }, [location.pathname, setIsSearching]);
 
     return (
         <div className="app">

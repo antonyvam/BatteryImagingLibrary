@@ -2,13 +2,7 @@ import {FC, useRef, useState, useEffect, useContext} from "react";
 import {Card, Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import {Container} from "react-bootstrap";
-import AppContext, {
-    ExampleCardData,
-    isMobile,
-    MAX_L_PX,
-    MAX_SIZE_NM,
-    MODALITY_TO_COLOUR
-} from "../interfaces/types";
+import AppContext, {ExampleCardData, isMobile, MAX_L_PX, MAX_SIZE_NM} from "../interfaces/types";
 import {renderModality} from "../interfaces/helpers";
 import VideoPlayer from "./VideoPlayer";
 
@@ -67,7 +61,8 @@ const ExampleCard: FC<ExampleCardProps> = ({cardData}) => {
         searchText: [, setSearchText],
         selectedModalities: [, setSelectedModalities],
         resRange: [, setResRange],
-        sizeRange: [, setSizeRange]
+        sizeRange: [, setSizeRange],
+        isSearching: [, setIsSearching]
     } = useContext(AppContext)!;
 
     const handleSeeAll = () => {
@@ -75,6 +70,7 @@ const ExampleCard: FC<ExampleCardProps> = ({cardData}) => {
         setSearchText("");
         setResRange({lower: 0, upper: MAX_SIZE_NM});
         setSizeRange({lower: 0, upper: MAX_L_PX});
+        setIsSearching(true);
         navigate("/search");
     };
 

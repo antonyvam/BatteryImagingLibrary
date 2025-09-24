@@ -12,13 +12,15 @@ const SearchBar: FC<SearchBarProps> = ({variant = "outline-secondary"}) => {
         searchText: [, setSearchText],
         resRange: [, setResRange],
         sizeRange: [, setSizeRange],
-        selectedModalities: [, setSelectedModalities]
+        selectedModalities: [, setSelectedModalities],
+        isSearching: [, setIsSearching]
     } = useContext(AppContext)!;
     const navigate = useNavigate();
 
     const onSearchChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
         const value = e.currentTarget.value;
         setSearchText(value);
+        setIsSearching(true);
         navigate("/search");
     };
 
@@ -27,6 +29,7 @@ const SearchBar: FC<SearchBarProps> = ({variant = "outline-secondary"}) => {
         setSearchText("");
         setResRange({lower: 0, upper: MAX_SIZE_NM});
         setSizeRange({lower: 0, upper: MAX_L_PX});
+        setIsSearching(true);
         navigate("/search");
     };
 

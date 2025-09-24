@@ -1,5 +1,5 @@
 import {useState, FC, useEffect, useContext, ChangeEvent} from "react";
-import {useNavigate, Navigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import ReactSlider from "react-slider";
 import {Form, Card, InputGroup, Button} from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -8,7 +8,6 @@ import AppContext, {
     isMobile,
     MODALITIES,
     Modality,
-    MODALITY_TO_COLOUR,
     UNIT_TO_SCALE,
     UNITS,
     Units
@@ -146,11 +145,13 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     integer = false
 }) => {
     const navigate = useNavigate();
+    const {
+        isSearching: [isSearching, setIsSearching]
+    } = useContext(AppContext)!;
     const [sliderVal, setSliderVal] = useState<{lower: number; upper: number}>({
         lower: min,
         upper: max
     });
-    // TODO: Hoist unit up here?
 
     const onSliderChange = (lower: number, upper: number) => {
         if (logarithmic) {
@@ -158,8 +159,8 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
         } else {
             setValue({lower, upper});
         }
-        const isSearching = location.pathname.startsWith("/search");
         if (!isSearching) {
+            setIsSearching(true);
             navigate("/search");
         }
     };
@@ -338,7 +339,8 @@ export const LargeFilterCard: FC<LargeFilterCardProps> = ({title, children, styl
 export const ModalityCard = () => {
     const navigate = useNavigate();
     const {
-        selectedModalities: [selectedModalities, setSelectedModalities]
+        selectedModalities: [selectedModalities, setSelectedModalities],
+        isSearching: [, setIsSearching]
     } = useContext(AppContext)!;
 
     const [dropdownSelection, setDropdownSelection] = useState<Modality>("ANY");
@@ -356,6 +358,7 @@ export const ModalityCard = () => {
         }
 
         setSelectedModalities([...selectedModalities, dropdownSelection]);
+        setIsSearching(true);
         navigate("/search");
     };
 

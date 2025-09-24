@@ -131,7 +131,6 @@ export interface contextProps {
         setSelectedModalities: (e: Modality[]) => void
     ];
     searchText: [searchText: string, setSearchText: (e: string) => void];
-    // searching: [searching: boolean, setSearching: (e: boolean) => void];
     scanData: [scanData: ScanDetails[], setScanData: (e: ScanDetails[]) => void];
     selectedScan: [
         selectedScan: ScanDetails | null,
@@ -140,6 +139,7 @@ export interface contextProps {
     showContribute: [showContribute: boolean, setShowContribute: (e: boolean) => void];
     showContributors: [showContributors: boolean, setShowContributors: (e: boolean) => void];
     showAbout: [showAbout: boolean, setShowAbout: (e: boolean) => void];
+    isSearching: [isSearching: boolean, setIsSearching: (e: boolean) => void];
 }
 
 const AppContext = createContext<contextProps | null>(null);

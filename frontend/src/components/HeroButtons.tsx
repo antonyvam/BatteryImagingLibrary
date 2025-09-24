@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Button, OverlayTrigger, Tooltip} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
+import AppContext from "../interfaces/types";
 
 type FloatingButtonProps = {
     iconPath: string;
@@ -45,9 +46,11 @@ const FloatingButton: React.FC<FloatingButtonProps> = ({iconPath, onClick, ariaL
 };
 
 export const FloatingButtons: React.FC = () => {
+    const {
+        isSearching: [isSearching, setIsSearching]
+    } = useContext(AppContext)!;
     const navigate = useNavigate();
 
-    const isSearching = location.pathname.startsWith("/search");
     const navPath = isSearching ? "/" : "/search";
     const navButtonPath = isSearching
         ? "/assets/imgs/icons/home.png"

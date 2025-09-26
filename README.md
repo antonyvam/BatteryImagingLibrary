@@ -68,11 +68,15 @@ You can choose one of the following options to install the nDTomo library:
 
 #### a. To install using pip:
 
+This will install the latest stable release but it is recommended you install the latest version from github:
+
 ```bash
 pip install nDTomo
 ```
 
 #### b. To install using Git:
+
+This will install the latest version from github:
 
 ```bash
 pip install git+https://github.com/antonyvam/nDTomo.git

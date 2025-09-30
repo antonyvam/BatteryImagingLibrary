@@ -16,7 +16,8 @@ interface ContributorModalProps {
 const contributorData: ContributorData[] = [
     {
         name: "Imperial College London",
-        subheader: "TLDR Group; Dyson School of Design Engineering ",
+        subheader:
+            "Dyson School of Design Engineering, Department of Materials and Department of Earth Science and Engineering ",
         url: "https://www.imperial.ac.uk/",
         imgName: "imperial"
     },
@@ -28,7 +29,7 @@ const contributorData: ContributorData[] = [
     },
     {
         name: "University of Manchester",
-        subheader: "Department of Materials",
+        subheader: "Department of Materials; Faculty of Science and Engineering",
         url: "https://www.materials.manchester.ac.uk/",
         imgName: "manchester"
     },
@@ -46,7 +47,7 @@ const contributorData: ContributorData[] = [
     },
     {
         name: "Diamond Light Source",
-        subheader: "Beamline I12 & Rutherford Appleton Laboratory",
+        subheader: "Beamline I12 & Research Complex at Harwell",
         url: "https://www.diamond.ac.uk/Instruments/Imaging-and-Microscopy/I12.html",
         imgName: "DLS"
     },

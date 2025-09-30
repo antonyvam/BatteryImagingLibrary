@@ -62,7 +62,7 @@ const HeroFold: FC<{searching: boolean}> = ({searching}) => {
         {
             label: "Paper",
             type: "link",
-            url: ""
+            url: "https://chemrxiv.org/engage/chemrxiv/article-details/68d3b52b3e708a7649ffd0a5"
         },
         {
             label: "Github",

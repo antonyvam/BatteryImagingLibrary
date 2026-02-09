@@ -45,6 +45,9 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
     const dataDims = scan.dataDimensions_px;
     const pixelSize = scan.pixelSize_µm;
 
+    const dataDimsText = renderDataDims(dataDims);
+    const pixelSizeText = renderDataDims(pixelSize);
+
     return (
         <div
             className="search-card"
@@ -113,28 +116,32 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
                             /**/
                         }}
                     />
-                    <div
-                        style={{
-                            fontSize: 14,
-                            color: "#555",
-                            background: "#e3eaff",
-                            padding: "2px 10px",
-                            borderRadius: 4
-                        }}
-                    >
-                        {renderDataDims(dataDims)}
-                    </div>
-                    <div
-                        style={{
-                            fontSize: 14,
-                            color: "#555",
-                            background: "#e3eaff",
-                            padding: "2px 10px",
-                            borderRadius: 4
-                        }}
-                    >
-                        {renderSmallestPixelSize(pixelSize)}
-                    </div>
+                    {dataDimsText !== "" && (
+                        <div
+                            style={{
+                                fontSize: 14,
+                                color: "#555",
+                                background: "#e3eaff",
+                                padding: "2px 10px",
+                                borderRadius: 4
+                            }}
+                        >
+                            {dataDimsText}
+                        </div>
+                    )}
+                    {pixelSizeText && (
+                        <div
+                            style={{
+                                fontSize: 14,
+                                color: "#555",
+                                background: "#e3eaff",
+                                padding: "2px 10px",
+                                borderRadius: 4
+                            }}
+                        >
+                            {pixelSizeText}
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

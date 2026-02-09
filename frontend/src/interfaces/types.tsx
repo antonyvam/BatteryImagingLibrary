@@ -12,7 +12,7 @@ export interface FoldProps {
 
 export const MIN_SIZE_NM = 0.1;
 export const MAX_SIZE_NM = 1e7;
-export const MAX_L_PX = 10_000;
+export const MAX_L_PX = 50_000;
 
 export const UNITS = ["NANO", "MICRON", "MILLI", "CENTI", "PIXEL"] as const;
 export type Units = (typeof UNITS)[number];
@@ -37,11 +37,15 @@ export const MODALITIES = [
     "EDS",
     "EBSD",
     "LAB_MICRO_XCT",
+    "LAB_NANO_XCT",
     "NEUTRON_CT",
     "XRD_CT",
+    "XANES_CT",
     "SYNCHOTRON_MICRO_XCT",
     "SYNCHOTRON_NANO_XCT",
-    "S3DXRD"
+    "S3DXRD",
+    "TEM",
+    "APT"
 ] as const;
 export type Modality = (typeof MODALITIES)[number];
 
@@ -50,11 +54,15 @@ export const MODALITY_TO_COLOUR: Record<Modality, string> = {
     EDS: "#1fadd8ff",
     EBSD: "#8EA604",
     LAB_MICRO_XCT: "#bb441dff",
+    LAB_NANO_XCT: "rgb(255, 87, 32)",
     NEUTRON_CT: "#888682ff",
     XRD_CT: "#D76A03",
+    XANES_CT: "rgb(80, 255, 109)",
     SYNCHOTRON_MICRO_XCT: "#d41919ff",
     SYNCHOTRON_NANO_XCT: "#ff0000ff",
     S3DXRD: "#ac34c9",
+    TEM: "#01328d",
+    APT: "#4a148c",
     ANY: "#000000"
 };
 
@@ -62,6 +70,7 @@ export interface ExampleCardData {
     modality: Modality;
     text: string;
     imgPath: string;
+    isVideo: boolean;
 }
 
 export type ScanDetails = {
@@ -73,9 +82,9 @@ export type ScanDetails = {
     scanType: string;
     scanModality: Modality;
     instrument: string;
-    pixelSize_µm: (number | string)[];
-    dataDimensions_px: (number | string)[];
-    dataDimensions_µm: number[];
+    pixelSize_µm: (number | string)[] | null;
+    dataDimensions_px: (number | string)[] | null;
+    dataDimensions_µm: number[] | null;
     thumbnailType: string;
     thumbnailName: string[];
     scanParameters: Record<string, string>;
@@ -101,10 +110,10 @@ export const ScanDetailsSchema = z.object({
     scanType: z.string(),
     scanModality: z.enum(MODALITIES),
     instrument: z.string(),
-    pixelSize_µm: z.array(z.union([z.number(), z.string()])),
-    dataDimensions_px: z.array(z.union([z.number(), z.string()])),
+    pixelSize_µm: z.array(z.union([z.number(), z.string()])).nullable(),
+    dataDimensions_px: z.array(z.union([z.number(), z.string()])).nullable(),
     // dataDimensions_µm: z.array(z.union([z.number(), z.string()])),
-    dataDimensions_µm: z.array(z.number()),
+    dataDimensions_µm: z.array(z.number()).nullable(),
     thumbnailType: z.string(),
     thumbnailName: z.array(z.string()),
     scanParameters: z.record(z.string(), z.string()),

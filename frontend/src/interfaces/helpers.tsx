@@ -56,10 +56,14 @@ export const renderModality = (x: string) => {
     switch (x) {
         case "LAB_MICRO_XCT":
             return "Lab micro-XCT";
+        case "LAB_NANO_XCT":
+            return "Lab nano-XCT";
         case "XRD_CT":
             return "XRD-CT";
         case "NEUTRON_CT":
             return "Neutron-CT";
+        case "XANES_CT":
+            return "XANES-CT";
         case "SYNCHOTRON_MICRO_XCT":
             return "Synchotron micro-XCT";
         case "SYNCHOTRON_NANO_XCT":
@@ -75,22 +79,26 @@ export const renderUnit = (x: Units) => {
     return UNIT_TO_UNIT_STR[x];
 };
 
-export const renderDataDims = (dims: (string | number)[]) => {
+export const renderDataDims = (dims: (string | number)[] | null) => {
+    if (!dims) return "";
     const noStr = dims.filter((v) => typeof v == "number");
     return noStr.join("x");
 };
 
-export const getSmallestFromDims = (dims: (string | number)[]) => {
+export const getSmallestFromDims = (dims: (string | number)[] | null) => {
+    if (!dims) return -10;
     const noStr = dims.filter((v) => typeof v == "number");
     return Math.min(...noStr);
 };
 
-export const getLargestFromDims = (dims: (string | number)[]) => {
+export const getLargestFromDims = (dims: (string | number)[] | null) => {
+    if (!dims) return 10;
     const noStr = dims.filter((v) => typeof v == "number");
     return Math.max(...noStr);
 };
 
-export const getNVoxels = (dims: (string | number)[]) => {
+export const getNVoxels = (dims: (string | number)[] | null) => {
+    if (!dims) return 0;
     const noStr = dims.filter((v) => typeof v == "number");
     if (noStr.length == 0) {
         return Infinity;
@@ -102,7 +110,8 @@ export const getArea = (dimsMicrons: number[]) => {
     return dimsMicrons[0] * dimsMicrons[1] * 1e6;
 };
 
-export const renderSmallestPixelSize = (dims: (string | number)[]) => {
+export const renderSmallestPixelSize = (dims: (string | number)[] | null) => {
+    if (!dims || dims.length == 0) return "";
     return getSmallestFromDims(dims).toString() + " " + renderUnit("MICRON");
 };
 
@@ -121,7 +130,11 @@ export const isArrayEmpty = (arr: any[] | undefined | null): boolean => {
 export function loadAndParseScanDetails(): ScanDetails[] {
     const res = data
         .map((item) => {
-            return ScanDetailsSchema.safeParse(item);
+            const parsed = ScanDetailsSchema.safeParse(item);
+            if (!parsed.success) {
+                console.warn("Failed to parse item:", item, "Error:", parsed.error);
+            }
+            return parsed;
         })
         .filter((v) => v.success)
         .map((v) => v.data);
@@ -193,12 +206,16 @@ export const scanMatchesSearch = (
 ): boolean => {
     const searchMatches = regexSearch(searchTerm.split(" "), s);
 
+    const scanResIsNull = s.pixelSize_µm === null || s.pixelSize_µm.length === 0;
     const scanResNM = getSmallestFromDims(s.pixelSize_µm) * 1e3;
-    const resRangeMatches = resRange.lower < scanResNM && scanResNM < resRange.upper;
+    const resRangeMatches =
+        (resRange.lower < scanResNM && scanResNM < resRange.upper) || scanResIsNull;
 
     // TODO: make this cross sectional area!
+    const sizeIsNull = s.dataDimensions_px === null || s.dataDimensions_px.length === 0;
     const largestSide = getLargestFromDims(s.dataDimensions_px);
-    const sizeRangeMatches = sizeRange.lower < largestSide && largestSide < sizeRange.upper;
+    const sizeRangeMatches =
+        (sizeRange.lower < largestSide && largestSide < sizeRange.upper) || sizeIsNull;
     const modalityMatches =
         selectedModalities.length == 0 ||
         selectedModalities.includes(s.scanModality) ||

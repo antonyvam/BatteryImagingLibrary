@@ -180,3 +180,5 @@ zenodo_jsons/
 
 processing_scripts/in*
 processing_scripts/out*
+processing_scripts/assets/
+*figure_1_pillow*

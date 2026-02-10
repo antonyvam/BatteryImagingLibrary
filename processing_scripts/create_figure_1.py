@@ -5,7 +5,7 @@ from typing import Literal, Tuple, Optional
 
 # Global image size
 FIG_W_PX = 2400
-FIG_H_PX = 1200
+FIG_H_PX = 2000
 
 
 def frac_to_px(x_frac: float, y_frac: float) -> Tuple[int, int]:
@@ -213,7 +213,7 @@ def main(modalities: list[Modality]) -> None:
         # draw_inset_images(img, draw, modality, y_px, bar_height_px, x_start, x_end, log_min, log_max)
     for i, modality in enumerate(modalities):
         y_px = y_start + i * (bar_height_px + bar_gap_px)
-        draw_inset_images(img, draw, modality, y_px, bar_height_px, x_start, x_end, log_min, log_max)
+        draw_inset_images(img, draw, modality, y_px, bar_height_px, x_start, x_end, log_min, log_max, 14)
         # draw_bar(draw, modality, y_px, bar_height_px, font, x_start, x_end, log_min, log_max)
 
     img.save("figure_1_pillow.png")
@@ -230,6 +230,8 @@ xct_3_img = Image.open("processing_scripts/assets/XCT_3.png")
 nct_img = Image.open("processing_scripts/assets/NCT.png")
 xrd_img = Image.open("processing_scripts/assets/XRDCT.png")
 sem_img = Image.open("processing_scripts/assets/SEM.png")
+tem_img = Image.open("processing_scripts/assets/TEM.png")
+apt_img = Image.open("processing_scripts/assets/APT.png")
 s3xrd_img = Image.open("processing_scripts/assets/S3XRD.png")
 
 
@@ -242,21 +244,21 @@ modalities = [
         inset_images=(
             InsetImage(
                 image=xct_1_img,
-                img_loc=(0.91, 0.19, 0, 0),
+                img_loc=(0.93, 0.4, 0, 0),
                 bar_loc=0.99,
                 sf=0.47,
                 inset_loc=(0.1, 0.1, 0.9, 0.9),
             ),
             InsetImage(
                 image=xct_2_img,
-                img_loc=(0.73, 0.66, 0, 0),
+                img_loc=(0.73, 0.75, 0, 0),
                 bar_loc=0.7,
                 sf=0.32,
                 inset_loc=(0.1, 0.1, 0.9, 0.9),
             ),
             InsetImage(
                 image=xct_3_img,
-                img_loc=(0.47, 0.66, 0, 0),
+                img_loc=(0.47, 0.78, 0, 0),
                 bar_loc=0.38,
                 sf=0.32,
                 inset_loc=(0.1, 0.1, 0.9, 0.9),
@@ -268,42 +270,56 @@ modalities = [
         scale_range_nm=(1e4, 1e8),
         colour="#888682ff",
         text_loc=0.70,
-        inset_images=(InsetImage(image=nct_img, img_loc=(0.77, 0.04, 0, 0), bar_loc=0.65, sf=0.3),),
+        inset_images=(InsetImage(image=nct_img, img_loc=(0.835, 0.14, 0, 0), bar_loc=0.60, sf=0.35),),
     ),
     Modality(
         label="XRD CT",
         scale_range_nm=(750, 4e7),
         colour="#D76A03",
         text_loc=0.83,
-        inset_images=(InsetImage(image=xrd_img, img_loc=(0.61, 0.02, 0, 0), bar_loc=0.52, sf=0.32),),
+        inset_images=(InsetImage(image=xrd_img, img_loc=(0.67, 0.25, 0, 0), bar_loc=0.71, sf=0.32),),
     ),
     Modality(
         label="SEM",
         scale_range_nm=(1, 1e6),
         colour="#387780",
         text_loc=0.915,
-        inset_images=(InsetImage(image=sem_img, img_loc=(0.21, 0.665, 0, 0), bar_loc=0.35, sf=0.37),),
-    ),
-    Modality(
-        label="EDS",
-        scale_range_nm=(1e1, 1e5),
-        colour="#1fadd8ff",
-        text_loc=0.88,
-        inset_images=(InsetImage(image=eds_img, img_loc=(0.22, 0.03, 0, 0), bar_loc=0.6, sf=0.49),),
-    ),
-    Modality(
-        label="EBSD",
-        scale_range_nm=(1e1, 1e5),
-        colour="#8EA604",
-        text_loc=0.85,
-        inset_images=(InsetImage(image=ebsd_img, img_loc=(0.01, 0.665, 0, 0), bar_loc=0.1, sf=1.5),),
+        inset_images=(InsetImage(image=sem_img, img_loc=(0.2, 0.80, 0, 0), bar_loc=0.66, sf=0.4),),
     ),
     Modality(
         label="S3DXRD",
         scale_range_nm=(100, 1e5),
         colour="#ac34c9",
         text_loc=0.7,
-        inset_images=(InsetImage(image=s3xrd_img, img_loc=(0.005, 0.155, 0, 0), bar_loc=0.1, sf=0.3),),
+        inset_images=(InsetImage(image=s3xrd_img, img_loc=(0.005, 0.77, 0, 0), bar_loc=0.4, sf=0.25),),
+    ),
+    Modality(
+        label="EDS",
+        scale_range_nm=(1e1, 1e5),
+        colour="#1fadd8ff",
+        text_loc=0.88,
+        inset_images=(InsetImage(image=eds_img, img_loc=(0.20, 0.03, 0, 0), bar_loc=0.65, sf=0.52),),
+    ),
+    Modality(
+        label="EBSD",
+        scale_range_nm=(1e1, 1e5),
+        colour="#8EA604",
+        text_loc=0.85,
+        inset_images=(InsetImage(image=ebsd_img, img_loc=(0.60, 0.05, 0, 0), bar_loc=0.8, sf=0.7),),
+    ),
+    Modality(
+        label="TEM",
+        scale_range_nm=(0.1, 1e3),
+        colour="#01328d",
+        text_loc=0.87,
+        inset_images=(InsetImage(image=tem_img, img_loc=(0.01, 0.4, 0, 0), bar_loc=0.35, sf=0.60),),
+    ),
+    Modality(
+        label="APT",
+        scale_range_nm=(0.3, 1e2),
+        colour="#4a148c",
+        text_loc=0.81,
+        inset_images=(InsetImage(image=apt_img, img_loc=(0.04, 0.07, 0, 0), bar_loc=0.35, sf=0.5),),
     ),
 ][::-1]
 

@@ -61,15 +61,15 @@ const exampleData: ExampleCardData[] = [
         imgPath: "S3XRD",
         isVideo: false
     },
-    // {
-    //     modality: "TEM",
-    //     text: "High-resolution, wide FoV, 3D imaging of battery electrodes at the microscale, including operando cycling datasets.",
-    //     imgPath: "micro_CT",
-    //     isVideo: true
-    // },
+    {
+        modality: "TEM",
+        text: "Transmission electron microscopy for high-resolution imaging of electrode materials at the atomic scale, revealing lattice structure, defects, etc.",
+        imgPath: "TEM",
+        isVideo: false
+    },
     {
         modality: "XANES_CT",
-        text: "X-ray Absorption Near-Edge Structure Computed Tomography allows for in-situ 3D mapping of local chemical environmnents.",
+        text: "X-ray Absorption Near-Edge Structure Computed-Tomography allows for in-situ 3D mapping of local chemical environmnents.",
         imgPath: "XANES_CT",
         isVideo: false
     },

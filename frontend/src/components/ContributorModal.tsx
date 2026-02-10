@@ -35,7 +35,8 @@ const contributorData: ContributorData[] = [
     },
     {
         name: "University College London",
-        subheader: "Department of Chemistry",
+        subheader:
+            "Department of Chemistry, Department of Chemical Engineering, Energy Innovation Lab and Advanced Propulsion Lab",
         url: "https://www.ucl.ac.uk/mathematical-physical-sciences/chemistry",
         imgName: "ucl"
     },
@@ -44,6 +45,12 @@ const contributorData: ContributorData[] = [
         subheader: "μ-VIS X-ray Imaging Centre",
         url: "https://muvis.org/",
         imgName: "southampton"
+    },
+    {
+        name: "Tohoku University",
+        subheader: "Institute of Multidisciplinary Research for Advanced Materials",
+        url: "https://www2.tagen.tohoku.ac.jp/en/",
+        imgName: "tohoku"
     },
     {
         name: "Diamond Light Source",
@@ -70,6 +77,12 @@ const contributorData: ContributorData[] = [
         imgName: "DESY"
     },
     {
+        name: "Spring-8",
+        subheader: "",
+        url: "http://www.spring8.or.jp/en/",
+        imgName: "spring8"
+    },
+    {
         name: "UKBIC",
         subheader: "",
         url: "https://www.ukbic.co.uk/",
@@ -82,10 +95,16 @@ const contributorData: ContributorData[] = [
         imgName: "WMG"
     },
     {
-        name: "National Renewable Energy Laboratory",
+        name: "The Faraday Institution",
+        subheader: "",
+        url: "https://www.faraday.ac.uk/",
+        imgName: "faraday"
+    },
+    {
+        name: "National Laboratory of the Rockies",
         subheader: "Center for Energy Conversion and Storage Systems",
-        url: "https://www.nrel.gov/",
-        imgName: "NREL"
+        url: "https://www.nlr.gov/",
+        imgName: "nlr"
     },
     {
         name: "ThermoFisher Scientific",

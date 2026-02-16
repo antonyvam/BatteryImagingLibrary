@@ -32,6 +32,12 @@ const exampleData: ExampleCardData[] = [
         isVideo: true
     },
     {
+        modality: "LAB_NANO_XCT",
+        text: "Non-destructive 3D imaging of electrodes at the nano scale, capturing fine microstructural features like cracking.",
+        imgPath: "NANO_XCT",
+        isVideo: true
+    },
+    {
         modality: "NEUTRON_CT",
         text: "Complementary to X-ray CT, neutron imaging highlights low-Z materials such as electrolytes, polymers, and separators that are difficult to see with X-rays.",
         imgPath: "NEUTRON_CT",

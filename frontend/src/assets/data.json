@@ -3822,5 +3822,967 @@
             "reconstructedZenodoLinks": [""],
             "reconstructedZenodoLabels": [""]
         }
+    },
+    {
+        "scanID": 103,
+        "sampleID": 56,
+        "sampleName": "AAA NMC532 Li-ion (Trustfire) battery",
+        "chemistry": "NMC532",
+        "sampleDescription": "Synchrotron X-ray micro-CT cylindrical Trustfire NMC532 Li-ion battery Charged C/2 (top)",
+        "scanType": "CELL",
+        "scanModality": "SYNCHOTRON_MICRO_XCT",
+        "instrument": "I12 Diamond Light Source",
+        "pixelSize_µm": [7.91, 7.91, 7.91],
+        "dataDimensions_px": [2160, 2160, 2560],
+        "dataDimensions_µm": [17085.6, 17085.6, 20249.6],
+        "thumbnailType": "1H",
+        "thumbnailName": ["103_1H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "Antony Vamvakeros",
+        "scanParameters": {
+            "pixel_size": "7.91um",
+            "flats": "50",
+            "darks": "50",
+            "projections": "1800",
+            "angular_range": "180",
+            "energy": "73.755keV",
+            "exposure_time": "8ms"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17930623"],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": [""],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 104,
+        "sampleID": 56,
+        "sampleName": "AAA NMC532 Li-ion (Trustfire) battery",
+        "chemistry": "NMC532",
+        "sampleDescription": "Synchrotron X-ray micro-CT cylindrical Trustfire NMC532 Li-ion battery Charged C/2 (middle)",
+        "scanType": "CELL",
+        "scanModality": "SYNCHOTRON_MICRO_XCT",
+        "instrument": "I12 Diamond Light Source",
+        "pixelSize_µm": [7.91, 7.91, 7.91],
+        "dataDimensions_px": [2160, 2160, 2560],
+        "dataDimensions_µm": [17085.6, 17085.6, 20249.6],
+        "thumbnailType": "1H",
+        "thumbnailName": ["104_1H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "Antony Vamvakeros",
+        "scanParameters": {
+            "pixel_size": "7.91um",
+            "flats": "50",
+            "darks": "50",
+            "projections": "1800",
+            "angular_range": "180",
+            "energy": "73.755keV",
+            "exposure_time": "8ms"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17930678"],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": [""],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 105,
+        "sampleID": 57,
+        "sampleName": "AAA NMC532 Li-ion (Trustfire) battery",
+        "chemistry": "NMC532",
+        "sampleDescription": "Synchrotron X-ray micro-CT cylindrical Trustfire NMC532 Li-ion battery Discharged C/2 (top)",
+        "scanType": "CELL",
+        "scanModality": "SYNCHOTRON_MICRO_XCT",
+        "instrument": "I12 Diamond Light Source",
+        "pixelSize_µm": [7.91, 7.91, 7.91],
+        "dataDimensions_px": [2160, 2160, 2560],
+        "dataDimensions_µm": [17085.6, 17085.6, 20249.6],
+        "thumbnailType": "1H",
+        "thumbnailName": ["105_1H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "Antony Vamvakeros",
+        "scanParameters": {
+            "pixel_size": "7.91um",
+            "flats": "50",
+            "darks": "50",
+            "projections": "1800",
+            "angular_range": "180",
+            "energy": "73.755keV",
+            "exposure_time": "8ms"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17930737"],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": [""],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 106,
+        "sampleID": 57,
+        "sampleName": "AAA NMC532 Li-ion (Trustfire) battery",
+        "chemistry": "NMC532",
+        "sampleDescription": "Synchrotron X-ray micro-CT cylindrical Trustfire NMC532 Li-ion battery Discharged C/2 (middle)",
+        "scanType": "CELL",
+        "scanModality": "SYNCHOTRON_MICRO_XCT",
+        "instrument": "I12 Diamond Light Source",
+        "pixelSize_µm": [7.91, 7.91, 7.91],
+        "dataDimensions_px": [2160, 2160, 2560],
+        "dataDimensions_µm": [17085.6, 17085.6, 20249.6],
+        "thumbnailType": "1H",
+        "thumbnailName": ["106_1H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "Antony Vamvakeros",
+        "scanParameters": {
+            "pixel_size": "7.91um",
+            "flats": "50",
+            "darks": "50",
+            "projections": "1800",
+            "angular_range": "180",
+            "energy": "73.755keV",
+            "exposure_time": "8ms"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17930768"],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": [""],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 107,
+        "sampleID": 58,
+        "sampleName": "AAA NMC532 Li-ion (Trustfire) battery",
+        "chemistry": "NMC532",
+        "sampleDescription": "Synchrotron X-ray micro-CT cylindrical Trustfire NMC532 Li-ion battery Charged C/20 (top)",
+        "scanType": "CELL",
+        "scanModality": "SYNCHOTRON_MICRO_XCT",
+        "instrument": "I12 Diamond Light Source",
+        "pixelSize_µm": [7.91, 7.91, 7.91],
+        "dataDimensions_px": [2160, 2160, 2560],
+        "dataDimensions_µm": [17085.6, 17085.6, 20249.6],
+        "thumbnailType": "1H",
+        "thumbnailName": ["107_1H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "Antony Vamvakeros",
+        "scanParameters": {
+            "pixel_size": "7.91um",
+            "flats": "50",
+            "darks": "50",
+            "projections": "1800",
+            "angular_range": "180",
+            "energy": "73.755keV",
+            "exposure_time": "8ms"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17930553"],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": [""],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 108,
+        "sampleID": 58,
+        "sampleName": "AAA NMC532 Li-ion (Trustfire) battery",
+        "chemistry": "NMC532",
+        "sampleDescription": "Synchrotron X-ray micro-CT cylindrical Trustfire NMC532 Li-ion battery Charged C/20 (middle)",
+        "scanType": "CELL",
+        "scanModality": "SYNCHOTRON_MICRO_XCT",
+        "instrument": "I12 Diamond Light Source",
+        "pixelSize_µm": [7.91, 7.91, 7.91],
+        "dataDimensions_px": [2160, 2160, 2560],
+        "dataDimensions_µm": [17085.6, 17085.6, 20249.6],
+        "thumbnailType": "1H",
+        "thumbnailName": ["108_1H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "Antony Vamvakeros",
+        "scanParameters": {
+            "pixel_size": "7.91um",
+            "flats": "50",
+            "darks": "50",
+            "projections": "1800",
+            "angular_range": "180",
+            "energy": "73.755keV",
+            "exposure_time": "8ms"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17930592"],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": [""],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 109,
+        "sampleID": 59,
+        "sampleName": "AAA NMC532 Li-ion (Trustfire) battery",
+        "chemistry": "NMC532",
+        "sampleDescription": "Synchrotron X-ray micro-CT cylindrical Trustfire NMC532 Li-ion battery Discharged C/20 (top)",
+        "scanType": "CELL",
+        "scanModality": "SYNCHOTRON_MICRO_XCT",
+        "instrument": "I12 Diamond Light Source",
+        "pixelSize_µm": [7.91, 7.91, 7.91],
+        "dataDimensions_px": [2160, 2160, 2560],
+        "dataDimensions_µm": [17085.6, 17085.6, 20249.6],
+        "thumbnailType": "1H",
+        "thumbnailName": ["109_1H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "Antony Vamvakeros",
+        "scanParameters": {
+            "pixel_size": "7.91um",
+            "flats": "50",
+            "darks": "50",
+            "projections": "1800",
+            "angular_range": "180",
+            "energy": "73.755keV",
+            "exposure_time": "8ms"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17930456"],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": [""],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 110,
+        "sampleID": 59,
+        "sampleName": "AAA NMC532 Li-ion (Trustfire) battery",
+        "chemistry": "NMC532",
+        "sampleDescription": "Synchrotron X-ray micro-CT cylindrical Trustfire NMC532 Li-ion battery Discharged C/20 (middle)",
+        "scanType": "CELL",
+        "scanModality": "SYNCHOTRON_MICRO_XCT",
+        "instrument": "I12 Diamond Light Source",
+        "pixelSize_µm": [7.91, 7.91, 7.91],
+        "dataDimensions_px": [2160, 2160, 2560],
+        "dataDimensions_µm": [17085.6, 17085.6, 20249.6],
+        "thumbnailType": "1H",
+        "thumbnailName": ["110_1H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "Antony Vamvakeros",
+        "scanParameters": {
+            "pixel_size": "7.91um",
+            "flats": "50",
+            "darks": "50",
+            "projections": "1800",
+            "angular_range": "180",
+            "energy": "73.755keV",
+            "exposure_time": "8ms"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17930488"],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": [""],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 111,
+        "sampleID": 60,
+        "sampleName": "18650 Samsung 35E 3500 mAh battery",
+        "chemistry": "NCA",
+        "sampleDescription": "Synchrotron X-ray micro-CT cylindrical 18650 Samsung 35E 3500 mAh Li-ion battery Pristine (middle)",
+        "scanType": "CELL",
+        "scanModality": "SYNCHOTRON_MICRO_XCT",
+        "instrument": "I12 Diamond Light Source",
+        "pixelSize_µm": [7.91, 7.91, 7.91],
+        "dataDimensions_px": [2160, 2160, 2560],
+        "dataDimensions_µm": [17085.6, 17085.6, 20249.6],
+        "thumbnailType": "1H",
+        "thumbnailName": ["111_1H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "Antony Vamvakeros",
+        "scanParameters": {
+            "pixel_size": "7.91um",
+            "flats": "50",
+            "darks": "50",
+            "projections": "1800",
+            "angular_range": "180",
+            "energy": "73.755keV",
+            "exposure_time": "8ms"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17931111"],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": [""],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 112,
+        "sampleID": 60,
+        "sampleName": "18650 Samsung 35E 3500 mAh battery",
+        "chemistry": "NCA",
+        "sampleDescription": "Synchrotron X-ray micro-CT cylindrical 18650 Samsung 35E 3500 mAh Li-ion battery Pristine (top)",
+        "scanType": "CELL",
+        "scanModality": "SYNCHOTRON_MICRO_XCT",
+        "instrument": "I12 Diamond Light Source",
+        "pixelSize_µm": [7.91, 7.91, 7.91],
+        "dataDimensions_px": [2160, 2160, 2560],
+        "dataDimensions_µm": [17085.6, 17085.6, 20249.6],
+        "thumbnailType": "1H",
+        "thumbnailName": ["112_1H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "Antony Vamvakeros",
+        "scanParameters": {
+            "pixel_size": "7.91um",
+            "flats": "50",
+            "darks": "50",
+            "projections": "1800",
+            "angular_range": "180",
+            "energy": "73.755keV",
+            "exposure_time": "8ms"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17931027"],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": [""],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 113,
+        "sampleID": 61,
+        "sampleName": "AAA NMC532 Li-ion (Trustfire) battery",
+        "chemistry": "NMC532",
+        "sampleDescription": "Synchrotron X-ray micro-CT cylindrical Trustfire NMC532 Li-ion battery Pristine (top)",
+        "scanType": "CELL",
+        "scanModality": "SYNCHOTRON_MICRO_XCT",
+        "instrument": "I12 Diamond Light Source",
+        "pixelSize_µm": [7.91, 7.91, 7.91],
+        "dataDimensions_px": [2160, 2160, 2560],
+        "dataDimensions_µm": [17085.6, 17085.6, 20249.6],
+        "thumbnailType": "1H",
+        "thumbnailName": ["113_1H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "Antony Vamvakeros",
+        "scanParameters": {
+            "pixel_size": "7.91um",
+            "flats": "50",
+            "darks": "50",
+            "projections": "3600",
+            "angular_range": "180",
+            "energy": "73.755keV",
+            "exposure_time": "8ms"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17930801"],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": [""],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 114,
+        "sampleID": 61,
+        "sampleName": "AAA NMC532 Li-ion (Trustfire) battery",
+        "chemistry": "NMC532",
+        "sampleDescription": "Synchrotron X-ray micro-CT cylindrical Trustfire NMC532 Li-ion battery Pristine (middle)",
+        "scanType": "CELL",
+        "scanModality": "SYNCHOTRON_MICRO_XCT",
+        "instrument": "I12 Diamond Light Source",
+        "pixelSize_µm": [7.91, 7.91, 7.91],
+        "dataDimensions_px": [2160, 2160, 2560],
+        "dataDimensions_µm": [17085.6, 17085.6, 20249.6],
+        "thumbnailType": "1H",
+        "thumbnailName": ["114_1H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "Antony Vamvakeros",
+        "scanParameters": {
+            "pixel_size": "7.91um",
+            "flats": "50",
+            "darks": "50",
+            "projections": "3600",
+            "angular_range": "180",
+            "energy": "73.755keV",
+            "exposure_time": "8ms"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": ["https://doi.org/10.5281/zenodo.17930896"],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": [""],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 115,
+        "sampleID": 62,
+        "sampleName": "Graphite anode",
+        "chemistry": "Li-ion",
+        "sampleDescription": "Nano-CT of a pristine graphite anode taken in large field of view model with combined phase and absorption imaging.",
+        "scanType": "ELECTRODE",
+        "scanModality": "LAB_NANO_XCT",
+        "instrument": "Zeiss Xradia Ultra 810",
+        "pixelSize_µm": [0.128, 0.128, 0.128],
+        "dataDimensions_px": [503, 511, 670],
+        "dataDimensions_µm": [64.38, 65.41, 85.76],
+        "thumbnailType": "2H",
+        "thumbnailName": ["115_1H.png", "115_2H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "NREL",
+        "scanParameters": {
+            "pixel_size": "0.128um",
+            "frame_binning": "2",
+            "integration_time": "90s",
+            "projections": "901",
+            "angular_range": "180",
+            "current": "NA",
+            "voltage": "NA"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": [""],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.18601577"],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 116,
+        "sampleID": 63,
+        "sampleName": "Graphite anode",
+        "chemistry": "Li-ion",
+        "sampleDescription": "Nano-CT of a pristine graphite anode taken in large field of view model with combined phase and absorption imaging.",
+        "scanType": "ELECTRODE",
+        "scanModality": "LAB_NANO_XCT",
+        "instrument": "Zeiss Xradia Ultra 810",
+        "pixelSize_µm": [0.128, 0.128, 0.128],
+        "dataDimensions_px": [498, 510, 1077],
+        "dataDimensions_µm": [63.74, 65.28, 137.86],
+        "thumbnailType": "2H",
+        "thumbnailName": ["116_1H.png", "116_2H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "NREL",
+        "scanParameters": {
+            "pixel_size": "0.128um",
+            "frame_binning": "2",
+            "integration_time": "80s",
+            "projections": "901",
+            "angular_range": "180",
+            "current": "NA",
+            "voltage": "NA"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": [""],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.18601668"],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 117,
+        "sampleID": 64,
+        "sampleName": "Graphite anode",
+        "chemistry": "Li-ion",
+        "sampleDescription": "Nano-CT of a pristine graphite anode taken in large field of view model with combined phase and absorption imaging.",
+        "scanType": "ELECTRODE",
+        "scanModality": "LAB_NANO_XCT",
+        "instrument": "Zeiss Xradia Ultra 810",
+        "pixelSize_µm": [0.128, 0.128, 0.128],
+        "dataDimensions_px": [506, 515, 940],
+        "dataDimensions_µm": [64.77, 65.92, 120.32],
+        "thumbnailType": "2H",
+        "thumbnailName": ["117_1H.png", "117_2H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "NREL",
+        "scanParameters": {
+            "pixel_size": "0.128um",
+            "frame_binning": "2",
+            "integration_time": "96s",
+            "projections": "901",
+            "angular_range": "180",
+            "current": "NA",
+            "voltage": "NA"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": [""],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.18601701"],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 118,
+        "sampleID": 65,
+        "sampleName": "Graphite anode",
+        "chemistry": "Li-ion",
+        "sampleDescription": "Nano-CT of a pristine graphite anode taken in large field of view model with combined phase and absorption imaging.",
+        "scanType": "ELECTRODE",
+        "scanModality": "LAB_NANO_XCT",
+        "instrument": "Zeiss Xradia Ultra 810",
+        "pixelSize_µm": [0.128, 0.128, 0.128],
+        "dataDimensions_px": [491, 510, 905],
+        "dataDimensions_µm": [62.85, 65.28, 115.84],
+        "thumbnailType": "2H",
+        "thumbnailName": ["118_1H.png", "118_2H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "NREL",
+        "scanParameters": {
+            "pixel_size": "0.128um",
+            "frame_binning": "2",
+            "integration_time": "98s",
+            "projections": "901",
+            "angular_range": "180",
+            "current": "NA",
+            "voltage": "NA"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": [""],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.18601750"],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 119,
+        "sampleID": 66,
+        "sampleName": "Graphite anode",
+        "chemistry": "Li-ion",
+        "sampleDescription": "Nano-CT of a pristine graphite anode taken in large field of view model with combined phase and absorption imaging.",
+        "scanType": "ELECTRODE",
+        "scanModality": "LAB_NANO_XCT",
+        "instrument": "Zeiss Xradia Ultra 810",
+        "pixelSize_µm": [0.128, 0.128, 0.128],
+        "dataDimensions_px": [504, 507, 512],
+        "dataDimensions_µm": [64.51, 64.9, 65.54],
+        "thumbnailType": "2H",
+        "thumbnailName": ["119_1H.png", "119_2H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "NREL",
+        "scanParameters": {
+            "pixel_size": "0.128um",
+            "frame_binning": "2",
+            "integration_time": "80s",
+            "projections": "901",
+            "angular_range": "180",
+            "current": "NA",
+            "voltage": "NA"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": [""],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.18601879"],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 120,
+        "sampleID": 67,
+        "sampleName": "Graphite anode",
+        "chemistry": "Li-ion",
+        "sampleDescription": "Nano-CT of a pristine graphite anode taken in large field of view model with combined phase and absorption imaging.",
+        "scanType": "ELECTRODE",
+        "scanModality": "LAB_NANO_XCT",
+        "instrument": "Zeiss Xradia Ultra 810",
+        "pixelSize_µm": [0.128, 0.128, 0.128],
+        "dataDimensions_px": [496, 510, 512],
+        "dataDimensions_µm": [63.49, 65.28, 65.54],
+        "thumbnailType": "2H",
+        "thumbnailName": ["120_1H.png", "120_2H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "NREL",
+        "scanParameters": {
+            "pixel_size": "0.128um",
+            "frame_binning": "2",
+            "integration_time": "20s",
+            "projections": "901",
+            "angular_range": "180",
+            "current": "NA",
+            "voltage": "NA"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": [""],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.18601923"],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 121,
+        "sampleID": 68,
+        "sampleName": "NMC811 electrode",
+        "chemistry": "NMC811",
+        "sampleDescription": "Nano-CT of pristine NMC 811 taken in large field of view absorption mode.",
+        "scanType": "ELECTRODE",
+        "scanModality": "LAB_NANO_XCT",
+        "instrument": "Zeiss Xradia Ultra 810",
+        "pixelSize_µm": [0.128, 0.128, 0.128],
+        "dataDimensions_px": [504, 508, 512],
+        "dataDimensions_µm": [64.51, 65.02, 65.54],
+        "thumbnailType": "2H",
+        "thumbnailName": ["121_1H.png", "121_2H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "NREL",
+        "scanParameters": {
+            "pixel_size": "0.128um",
+            "frame_binning": "2",
+            "integration_time": "20s",
+            "projections": "901",
+            "angular_range": "180",
+            "current": "NA",
+            "voltage": "NA"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": [""],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.18602348"],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 122,
+        "sampleID": 69,
+        "sampleName": "NMC811 electrode",
+        "chemistry": "NMC811",
+        "sampleDescription": "Nano-CT of pristine NMC 811 taken in large field of view absorption mode.",
+        "scanType": "ELECTRODE",
+        "scanModality": "LAB_NANO_XCT",
+        "instrument": "Zeiss Xradia Ultra 810",
+        "pixelSize_µm": [0.128, 0.128, 0.128],
+        "dataDimensions_px": [504, 511, 720],
+        "dataDimensions_µm": [64.51, 65.41, 92.16],
+        "thumbnailType": "2H",
+        "thumbnailName": ["122_1H.png", "122_2H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "NREL",
+        "scanParameters": {
+            "pixel_size": "0.128um",
+            "frame_binning": "2",
+            "integration_time": "20s",
+            "projections": "901",
+            "angular_range": "180",
+            "current": "NA",
+            "voltage": "NA"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": [""],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.18602352"],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 123,
+        "sampleID": 70,
+        "sampleName": "NMC811 electrode",
+        "chemistry": "NMC811",
+        "sampleDescription": "Nano-CT of pristine NMC 811 taken in large field of view absorption mode.",
+        "scanType": "ELECTRODE",
+        "scanModality": "LAB_NANO_XCT",
+        "instrument": "Zeiss Xradia Ultra 810",
+        "pixelSize_µm": [0.128, 0.128, 0.128],
+        "dataDimensions_px": [504, 512, 704],
+        "dataDimensions_µm": [64.51, 65.54, 90.11],
+        "thumbnailType": "2H",
+        "thumbnailName": ["123_1H.png", "123_2H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "NREL",
+        "scanParameters": {
+            "pixel_size": "0.128um",
+            "frame_binning": "2",
+            "integration_time": "20s",
+            "projections": "901",
+            "angular_range": "180",
+            "current": "NA",
+            "voltage": "NA"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": [""],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.18602358"],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 124,
+        "sampleID": 71,
+        "sampleName": "NMC811 electrode",
+        "chemistry": "NMC811",
+        "sampleDescription": "Nano-CT of pristine NMC 811 taken in large field of view absorption mode.",
+        "scanType": "ELECTRODE",
+        "scanModality": "LAB_NANO_XCT",
+        "instrument": "Zeiss Xradia Ultra 810",
+        "pixelSize_µm": [0.128, 0.128, 0.128],
+        "dataDimensions_px": [504, 511, 792],
+        "dataDimensions_µm": [64.51, 65.41, 101.38],
+        "thumbnailType": "2H",
+        "thumbnailName": ["124_1H.png", "124_2H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "NREL",
+        "scanParameters": {
+            "pixel_size": "0.128um",
+            "frame_binning": "2",
+            "integration_time": "20s",
+            "projections": "901",
+            "angular_range": "180",
+            "current": "NA",
+            "voltage": "NA"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": [""],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.18602371"],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 125,
+        "sampleID": 72,
+        "sampleName": "NMC811 electrode",
+        "chemistry": "NMC811",
+        "sampleDescription": "Nano-CT of pristine NMC 811 taken in large field of view absorption mode.",
+        "scanType": "ELECTRODE",
+        "scanModality": "LAB_NANO_XCT",
+        "instrument": "Zeiss Xradia Ultra 810",
+        "pixelSize_µm": [0.128, 0.128, 0.128],
+        "dataDimensions_px": [506, 551, 3006],
+        "dataDimensions_µm": [64.77, 70.53, 384.77],
+        "thumbnailType": "2H",
+        "thumbnailName": ["125_1H.png", "125_2H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "NREL",
+        "scanParameters": {
+            "pixel_size": "0.128um",
+            "frame_binning": "2",
+            "integration_time": "20s",
+            "projections": "901",
+            "angular_range": "180",
+            "current": "NA",
+            "voltage": "NA"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": [""],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.18602376"],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 126,
+        "sampleID": 73,
+        "sampleName": "NMC811 electrode",
+        "chemistry": "NMC811",
+        "sampleDescription": "Nano-CT of pristine NMC 811 taken in large field of view absorption mode.",
+        "scanType": "ELECTRODE",
+        "scanModality": "LAB_NANO_XCT",
+        "instrument": "Zeiss Xradia Ultra 810",
+        "pixelSize_µm": [0.128, 0.128, 0.128],
+        "dataDimensions_px": [563, 661, 2175],
+        "dataDimensions_µm": [72.06, 84.61, 278.4],
+        "thumbnailType": "2H",
+        "thumbnailName": ["126_1H.png", "126_2H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "NREL",
+        "scanParameters": {
+            "pixel_size": "0.128um",
+            "frame_binning": "2",
+            "integration_time": "20s",
+            "projections": "901",
+            "angular_range": "180",
+            "current": "NA",
+            "voltage": "NA"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": [""],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.18602381"],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 127,
+        "sampleID": 74,
+        "sampleName": "NMC811 electrode",
+        "chemistry": "NMC811",
+        "sampleDescription": "Nano-CT of pristine NMC 811 taken in large field of view absorption mode.",
+        "scanType": "ELECTRODE",
+        "scanModality": "LAB_NANO_XCT",
+        "instrument": "Zeiss Xradia Ultra 810",
+        "pixelSize_µm": [0.128, 0.128, 0.128],
+        "dataDimensions_px": [520, 572, 2176],
+        "dataDimensions_µm": [66.56, 73.22, 278.53],
+        "thumbnailType": "2H",
+        "thumbnailName": ["127_1H.png", "127_2H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "NREL",
+        "scanParameters": {
+            "pixel_size": "0.128um",
+            "frame_binning": "2",
+            "integration_time": "20s",
+            "projections": "901",
+            "angular_range": "180",
+            "current": "NA",
+            "voltage": "NA"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": [""],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.18602387"],
+            "reconstructedZenodoLabels": [""]
+        }
+    },
+    {
+        "scanID": 128,
+        "sampleID": 75,
+        "sampleName": "NMC811 electrode",
+        "chemistry": "NMC811",
+        "sampleDescription": "Nano-CT of pristine NMC 811 taken in large field of view absorption mode.",
+        "scanType": "ELECTRODE",
+        "scanModality": "LAB_NANO_XCT",
+        "instrument": "Zeiss Xradia Ultra 810",
+        "pixelSize_µm": [0.128, 0.128, 0.128],
+        "dataDimensions_px": [499, 511, 649],
+        "dataDimensions_µm": [63.87, 65.41, 83.07],
+        "thumbnailType": "2H",
+        "thumbnailName": ["128_1H.png", "128_2H.png"],
+        "citations": [
+            "R. Docherty et al, 'Battery Imaging Library: Democratising multi-length scale and multi-modal synchrotron and laboratory battery imaging data', arXiv preprint"
+        ],
+        "licence": "CC-4.0",
+        "contributors": "NREL",
+        "scanParameters": {
+            "pixel_size": "0.128um",
+            "frame_binning": "2",
+            "integration_time": "20s",
+            "projections": "901",
+            "angular_range": "180",
+            "current": "NA",
+            "voltage": "NA"
+        },
+        "zenodoLinks": {
+            "rawZenodoLinks": [""],
+            "rawZenodoLabels": [""],
+            "processedZenodoLinks": [""],
+            "processedZenodoLabels": [""],
+            "reconstructedZenodoLinks": ["https://doi.org/10.5281/zenodo.18602396"],
+            "reconstructedZenodoLabels": [""]
+        }
     }
 ]

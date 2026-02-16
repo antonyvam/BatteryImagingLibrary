@@ -46,7 +46,7 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
     const pixelSize = scan.pixelSize_µm;
 
     const dataDimsText = renderDataDims(dataDims);
-    const pixelSizeText = renderDataDims(pixelSize);
+    const pixelSizeText = renderSmallestPixelSize(pixelSize);
 
     return (
         <div
@@ -116,19 +116,6 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
                             /**/
                         }}
                     />
-                    {dataDimsText !== "" && (
-                        <div
-                            style={{
-                                fontSize: 14,
-                                color: "#555",
-                                background: "#e3eaff",
-                                padding: "2px 10px",
-                                borderRadius: 4
-                            }}
-                        >
-                            {dataDimsText}
-                        </div>
-                    )}
                     {pixelSizeText && (
                         <div
                             style={{
@@ -140,6 +127,19 @@ const SearchCard: FC<SearchCardProps> = ({scan}) => {
                             }}
                         >
                             {pixelSizeText}
+                        </div>
+                    )}
+                    {dataDimsText !== "" && (
+                        <div
+                            style={{
+                                fontSize: 14,
+                                color: "#555",
+                                background: "#e3eaff",
+                                padding: "2px 10px",
+                                borderRadius: 4
+                            }}
+                        >
+                            {dataDimsText}
                         </div>
                     )}
                 </div>

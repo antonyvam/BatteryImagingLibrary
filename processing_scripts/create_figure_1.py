@@ -72,6 +72,29 @@ def draw_bar(
     draw.text((text_x, text_y), modality.label, fill="white", font=font)
 
 
+def draw_bar_shadow(
+    draw,
+    modality: Modality,
+    y_px: int,
+    bar_height_px: int,
+    x_start: float,
+    x_end: float,
+    log_min: float,
+    log_max: float,
+    shadow_offset: Tuple[int, int] = (26, -26),
+):
+    x0, x1 = modality.scale_range_nm
+    bar_x0 = log_to_px(x0, x_start, x_end, log_min, log_max)
+    bar_x1 = log_to_px(x1, x_start, x_end, log_min, log_max)
+    # Draw bar
+
+    r_edge = 7
+    sx, sy = shadow_offset
+    draw.rounded_rectangle(
+        [bar_x0 - sx, y_px - sy, bar_x1 - sx, y_px + bar_height_px - sy], fill="#000000", radius=r_edge
+    )
+
+
 def draw_inset_images(
     base_img: Image.Image,
     draw,
@@ -141,6 +164,45 @@ def draw_inset_images(
             width=border_w,
             radius=border_w,
         )
+
+
+def draw_shadows(
+    draw,
+    modality: Modality,
+    x_start: float,
+    x_end: float,
+    log_min: float,
+    log_max: float,
+    shadow_offset: Tuple[int, int] = (4, -4),
+    lw: float = 7,
+):
+    inset = modality.inset_images[0]  # Assuming one inset for line drawing
+
+    x_frac, y_frac, w_frac, h_frac = inset.img_loc
+
+    x_px_img, y_px_img = frac_to_px(x_frac, y_frac)
+    x_px_img, y_px_img = frac_to_px(x_frac, y_frac)
+    ih, iw = inset.image.height, inset.image.width
+    w_px, h_px = int(iw * inset.sf), int(ih * inset.sf)
+
+    x0, x1 = modality.scale_range_nm
+    bar_x0 = log_to_px(x0, x_start, x_end, log_min, log_max)
+    bar_x1 = log_to_px(x1, x_start, x_end, log_min, log_max)
+
+    border_w = int(lw / 2)
+
+    x0i, y0i, x1i, y1i = x_px_img, y_px_img, x_px_img + w_px, y_px_img + h_px
+    draw.rounded_rectangle(
+        [
+            x0i - shadow_offset[0] - border_w,
+            y0i - shadow_offset[1] - border_w,
+            x1i - shadow_offset[0] + border_w,
+            y1i - shadow_offset[1] + border_w,
+        ],
+        fill="#000000",
+        width=border_w,
+        radius=border_w,
+    )
 
 
 def draw_scalebar(
@@ -221,12 +283,12 @@ def main(modalities: list[Modality]) -> None:
     bar_gap_pct = 0.003
     bar_gap_px = int(bar_gap_pct * FIG_H_PX)
 
-    y_start_frac = 0.3
+    y_start_frac = 0.23
     y_start = int(y_start_frac * FIG_H_PX)
 
     scale_ticks = [1e-1, 1, 10, 1e2, 1e3, 1e4, 1e5, 1e6, 1e7, 1e8]
     scale_labels = ["1 Å", "1 nm", "10 nm", "100 nm", "1 µm", "10 µm", "100 µm", "1 mm", "1 cm", "10 cm"]
-    label_y = y_start_frac + ((0.95 + len(modalities)) * (bar_height_frac + bar_gap_pct))  # 0.65
+    label_y = y_start_frac + ((1.85 + len(modalities)) * (bar_height_frac + bar_gap_pct))  # 0.65
 
     line_width_px = 18
 
@@ -238,12 +300,18 @@ def main(modalities: list[Modality]) -> None:
 
     for i, modality in enumerate(modalities):
         y_px = y_start + i * (bar_height_px + bar_gap_px)
-        draw_inset_images(img, draw, modality, y_px, bar_height_px, x_start, x_end, log_min, log_max, line_width_px)
+        draw_bar_shadow(draw, modality, y_px, bar_height_px, x_start, x_end, log_min, log_max)
+
+    for i, modality in enumerate(modalities):
+        y_px = y_start + i * (bar_height_px + bar_gap_px)
+        draw_inset_images(
+            img, draw, modality, y_px, bar_height_px, x_start, x_end, log_min, log_max, line_width_px, draw_shadow=True
+        )
         # draw_bar(draw, modality, y_px, bar_height_px, font, x_start, x_end, log_min, log_max)
 
     for i, modality in enumerate(modalities):
         y_px = y_start + i * (bar_height_px + bar_gap_px)
-        draw_bar(draw, modality, y_px, bar_height_px, font, x_start, x_end, log_min, log_max)
+        draw_bar(draw, modality, y_px, bar_height_px, font, x_start, x_end, log_min, log_max, draw_shadow=False)
 
         # draw_inset_images(img, draw, modality, y_px, bar_height_px, x_start, x_end, log_min, log_max)
 
@@ -280,6 +348,7 @@ sem_img = Image.open("processing_scripts/assets/SEM.png")
 tem_img = Image.open("processing_scripts/assets/TEM.png")
 apt_img = Image.open("processing_scripts/assets/APT.png")
 s3xrd_img = Image.open("processing_scripts/assets/S3XRD.png")
+xanes_img = Image.open("processing_scripts/assets/XANESCT.png")
 
 
 modalities = [
@@ -317,7 +386,7 @@ modalities = [
         scale_range_nm=(1e4, 1e8),
         colour="#888682ff",
         text_loc=0.70,
-        inset_images=(InsetImage(image=nct_img, img_loc=(0.835, 0.14, 0, 0), bar_loc=0.60, sf=0.35),),
+        inset_images=(InsetImage(image=nct_img, img_loc=(0.84, 0.12, 0, 0), bar_loc=0.60, sf=0.35),),
     ),
     Modality(
         label="XRD CT",
@@ -338,35 +407,43 @@ modalities = [
         scale_range_nm=(100, 1e5),
         colour="#ac34c9",
         text_loc=0.7,
-        inset_images=(InsetImage(image=s3xrd_img, img_loc=(0.005, 0.77, 0, 0), bar_loc=0.4, sf=0.75),),
+        inset_images=(InsetImage(image=s3xrd_img, img_loc=(0.035, 0.79, 0, 0), bar_loc=0.4, sf=0.70),),
+        # inset_images=(InsetImage(image=s3xrd_img, img_loc=(0.25, 0.55, 0, 0), bar_loc=0.4, sf=0.70),),
+    ),
+    Modality(
+        label="XANES CT",
+        scale_range_nm=(100, 1e5),
+        colour="#048519",
+        text_loc=0.65,
+        inset_images=(InsetImage(image=xanes_img, img_loc=(0.015, 0.5125, 0, 0), bar_loc=0.4, sf=0.33),),
     ),
     Modality(
         label="EDS",
         scale_range_nm=(1e1, 1e5),
         colour="#1fadd8ff",
         text_loc=0.88,
-        inset_images=(InsetImage(image=eds_img, img_loc=(0.20, 0.03, 0, 0), bar_loc=0.65, sf=0.52),),
+        inset_images=(InsetImage(image=eds_img, img_loc=(0.17, 0.02, 0, 0), bar_loc=0.65, sf=0.55),),
     ),
     Modality(
         label="EBSD",
         scale_range_nm=(1e1, 1e5),
         colour="#8EA604",
         text_loc=0.85,
-        inset_images=(InsetImage(image=ebsd_img, img_loc=(0.60, 0.05, 0, 0), bar_loc=0.8, sf=0.7),),
+        inset_images=(InsetImage(image=ebsd_img, img_loc=(0.625, 0.04, 0, 0), bar_loc=0.8, sf=0.7),),
     ),
     Modality(
         label="TEM",
         scale_range_nm=(0.1, 1e3),
         colour="#01328d",
         text_loc=0.87,
-        inset_images=(InsetImage(image=tem_img, img_loc=(0.01, 0.44, 0, 0), bar_loc=0.35, sf=0.60),),
+        inset_images=(InsetImage(image=tem_img, img_loc=(0.035, 0.335, 0, 0), bar_loc=0.35, sf=0.55),),
     ),
     Modality(
         label="APT",
         scale_range_nm=(0.3, 1e2),
         colour="#4a148c",
         text_loc=0.81,
-        inset_images=(InsetImage(image=apt_img, img_loc=(0.04, 0.07, 0, 0), bar_loc=0.35, sf=0.5),),
+        inset_images=(InsetImage(image=apt_img, img_loc=(0.015, 0.05, 0, 0), bar_loc=0.35, sf=0.5),),
     ),
 ][::-1]
 

@@ -65,13 +65,13 @@ const exampleData: ExampleCardData[] = [
         modality: "S3DXRD",
         text: "Scanning three-dimensional X-ray diffraction for spatially resolved crystallographic mapping, enabling grain-resolved imaging of phase distribution, lattice strain, orientation, & structural heterogeneity in polycrystalline materials.",
         imgPath: "S3XRD",
-        isVideo: false
+        isVideo: true
     },
     {
         modality: "TEM",
         text: "Transmission electron microscopy for high-resolution imaging of electrode materials at the atomic scale, revealing lattice structure, defects, etc.",
         imgPath: "TEM",
-        isVideo: false
+        isVideo: true
     },
     {
         modality: "XANES_CT",

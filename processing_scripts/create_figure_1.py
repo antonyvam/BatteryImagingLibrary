@@ -51,12 +51,21 @@ def draw_bar(
     x_end: float,
     log_min: float,
     log_max: float,
+    draw_shadow: bool = True,
+    shadow_offset: Tuple[int, int] = (26, -26),
 ):
     x0, x1 = modality.scale_range_nm
     bar_x0 = log_to_px(x0, x_start, x_end, log_min, log_max)
     bar_x1 = log_to_px(x1, x_start, x_end, log_min, log_max)
     # Draw bar
-    draw.rectangle([bar_x0, y_px, bar_x1, y_px + bar_height_px], fill=modality.colour)
+
+    r_edge = 7
+    if draw_shadow:
+        sx, sy = shadow_offset
+        draw.rounded_rectangle(
+            [bar_x0 - sx, y_px - sy, bar_x1 - sx, y_px + bar_height_px - sy], fill="#000000", radius=r_edge
+        )
+    draw.rounded_rectangle([bar_x0, y_px, bar_x1, y_px + bar_height_px], fill=modality.colour, radius=r_edge)
     # Draw label text
     text_x = bar_x0 + modality.text_loc * (bar_x1 - bar_x0)
     text_y = y_px
@@ -74,6 +83,8 @@ def draw_inset_images(
     log_min: float,
     log_max: float,
     lw: float = 7,
+    draw_shadow: bool = True,
+    shadow_offset: Tuple[int, int] = (4, -4),
 ):
     for inset in modality.inset_images:
         if inset.image is None:
@@ -103,12 +114,33 @@ def draw_inset_images(
             y1i = y_px_img + int(inset.inset_loc[3] * h_px)
 
         o_px = 4
+        border_w = int(lw / 2)
         # draw.line([(bar_x, bar_y), (x0i + o_px, y0i + o_px)], fill=modality.colour, width=lw)
         # draw.line([(bar_x, bar_y), (x1i - o_px, y1i - o_px)], fill=modality.colour, width=lw)
 
+        if draw_shadow:
+            x0i, y0i, x1i, y1i = x_px_img, y_px_img, x_px_img + w_px, y_px_img + h_px
+            draw.rounded_rectangle(
+                [
+                    x0i - shadow_offset[0] - border_w,
+                    y0i - shadow_offset[1] - border_w,
+                    x1i - shadow_offset[0] + border_w,
+                    y1i - shadow_offset[1] + border_w,
+                ],
+                fill="#000000",
+                width=border_w,
+                radius=border_w,
+            )
         draw.line([(bar_x, bar_y), (x0i + (x1i - x0i) / 2, y0i + (y1i - y0i) / 2)], fill=modality.colour, width=lw)
 
         base_img.paste(img_resized, (x_px_img, y_px_img))
+
+        draw.rounded_rectangle(
+            [x0i - border_w / 2, y0i - border_w / 2, x1i + border_w / 2, y1i + border_w / 2],
+            outline=modality.colour,
+            width=border_w,
+            radius=border_w,
+        )
 
 
 def draw_scalebar(
@@ -129,6 +161,7 @@ def draw_scalebar(
     line_width: int = 2,
     tick_height_frac: float = 0.015,
     text_offset_frac: float = 0.01,
+    draw_container: bool = True,
 ):
     """
     Draws a scale bar with tick labels and optional line/tick marks.
@@ -137,6 +170,15 @@ def draw_scalebar(
     y_text = int(start_frac_y * FIG_H_PX)
     y_line = y_text - int(text_offset_frac * FIG_H_PX)
     tick_height = int(tick_height_frac * FIG_H_PX)
+
+    if draw_container:
+        # Draw a container box around the scale bar and labels
+        x0 = log_to_px(scale_ticks[0], x_start, x_end, log_min, log_max) - 3 * tick_height
+        x1 = log_to_px(scale_ticks[-1], x_start, x_end, log_min, log_max) + 5 * tick_height
+        y0 = y_line - tick_height - int(0.01 * FIG_H_PX)
+        y1 = y_text + int(0.035 * FIG_H_PX)
+        draw.rounded_rectangle([x0, y0, x1, y1], outline="black", fill="#fff3de", width=line_width, radius=200)
+
     # Draw main line
     if draw_line:
         x0 = log_to_px(scale_ticks[0], x_start, x_end, log_min, log_max)
@@ -175,18 +217,35 @@ def main(modalities: list[Modality]) -> None:
     x_end = 0.88  # e.g., 0.8 for 80% from left (so bars are centered)
     bar_height_frac = 0.04
     bar_height_px = int(bar_height_frac * FIG_H_PX)
-    bar_gap_px = int(0 * FIG_H_PX)
+
+    bar_gap_pct = 0.003
+    bar_gap_px = int(bar_gap_pct * FIG_H_PX)
 
     y_start_frac = 0.3
     y_start = int(y_start_frac * FIG_H_PX)
 
     scale_ticks = [1e-1, 1, 10, 1e2, 1e3, 1e4, 1e5, 1e6, 1e7, 1e8]
-    scale_labels = ["1A", "1nm", "10nm", "100nm", "1µm", "10µm", "100µm", "1mm", "1cm", "10cm"]
-    label_y = y_start_frac + ((0.65 + len(modalities)) * bar_height_frac)  # 0.65
+    scale_labels = ["1 Å", "1 nm", "10 nm", "100 nm", "1 µm", "10 µm", "100 µm", "1 mm", "1 cm", "10 cm"]
+    label_y = y_start_frac + ((0.95 + len(modalities)) * (bar_height_frac + bar_gap_pct))  # 0.65
+
+    line_width_px = 18
 
     # Compute log range from data
     log_min = np.log10(min(scale_ticks))
     log_max = np.log10(max(scale_ticks))
+
+    # Draw bars and insets
+
+    for i, modality in enumerate(modalities):
+        y_px = y_start + i * (bar_height_px + bar_gap_px)
+        draw_inset_images(img, draw, modality, y_px, bar_height_px, x_start, x_end, log_min, log_max, line_width_px)
+        # draw_bar(draw, modality, y_px, bar_height_px, font, x_start, x_end, log_min, log_max)
+
+    for i, modality in enumerate(modalities):
+        y_px = y_start + i * (bar_height_px + bar_gap_px)
+        draw_bar(draw, modality, y_px, bar_height_px, font, x_start, x_end, log_min, log_max)
+
+        # draw_inset_images(img, draw, modality, y_px, bar_height_px, x_start, x_end, log_min, log_max)
 
     # Draw scale tick labels
     draw_scalebar(
@@ -203,18 +262,6 @@ def main(modalities: list[Modality]) -> None:
         ticks="all",
         line_width=6,
     )
-
-    # Draw bars and insets
-
-    for i, modality in enumerate(modalities):
-        y_px = y_start + i * (bar_height_px + bar_gap_px)
-        draw_bar(draw, modality, y_px, bar_height_px, font, x_start, x_end, log_min, log_max)
-
-        # draw_inset_images(img, draw, modality, y_px, bar_height_px, x_start, x_end, log_min, log_max)
-    for i, modality in enumerate(modalities):
-        y_px = y_start + i * (bar_height_px + bar_gap_px)
-        draw_inset_images(img, draw, modality, y_px, bar_height_px, x_start, x_end, log_min, log_max, 14)
-        # draw_bar(draw, modality, y_px, bar_height_px, font, x_start, x_end, log_min, log_max)
 
     img.save("figure_1_pillow.png")
     return
@@ -251,14 +298,14 @@ modalities = [
             ),
             InsetImage(
                 image=xct_2_img,
-                img_loc=(0.73, 0.75, 0, 0),
+                img_loc=(0.73, 0.78, 0, 0),
                 bar_loc=0.7,
                 sf=0.32,
                 inset_loc=(0.1, 0.1, 0.9, 0.9),
             ),
             InsetImage(
                 image=xct_3_img,
-                img_loc=(0.47, 0.78, 0, 0),
+                img_loc=(0.47, 0.785, 0, 0),
                 bar_loc=0.38,
                 sf=0.32,
                 inset_loc=(0.1, 0.1, 0.9, 0.9),
@@ -291,7 +338,7 @@ modalities = [
         scale_range_nm=(100, 1e5),
         colour="#ac34c9",
         text_loc=0.7,
-        inset_images=(InsetImage(image=s3xrd_img, img_loc=(0.005, 0.77, 0, 0), bar_loc=0.4, sf=0.25),),
+        inset_images=(InsetImage(image=s3xrd_img, img_loc=(0.005, 0.77, 0, 0), bar_loc=0.4, sf=0.75),),
     ),
     Modality(
         label="EDS",
@@ -312,7 +359,7 @@ modalities = [
         scale_range_nm=(0.1, 1e3),
         colour="#01328d",
         text_loc=0.87,
-        inset_images=(InsetImage(image=tem_img, img_loc=(0.01, 0.4, 0, 0), bar_loc=0.35, sf=0.60),),
+        inset_images=(InsetImage(image=tem_img, img_loc=(0.01, 0.44, 0, 0), bar_loc=0.35, sf=0.60),),
     ),
     Modality(
         label="APT",

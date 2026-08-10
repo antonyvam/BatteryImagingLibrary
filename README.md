@@ -51,9 +51,16 @@ Each notebook is designed to be **standalone and executable**, with detailed inl
 
 ## Installation Instructions
 
-The `BIL` notebooks depend on three main libraries: `nDTomo` [3] and `CIL` [4,5]. `CIL` is used for the reconstruction of the laboratory cone beam X-ray CT data and `nDTomo` is used for the data handling of the XRD-CT, neutron-CT and parallel-beam X-ray CT.
+The `BIL` notebooks depend on two main libraries: `nDTomo` [3] and `CIL` [4,5]. `CIL` is used for the reconstruction of the laboratory cone beam X-ray CT data and `nDTomo` is used for the data handling of the XRD-CT, neutron-CT and parallel-beam X-ray CT.
 
-The `nDTomo` and `CIL` libraries and all associated code can be installed by following the next steps:
+The easiest way to set up the complete computational environment with all required dependencies is using the provided `environment.yml` file:
+
+```bash
+conda env create -f environment.yml
+conda activate bil
+```
+
+Alternatively, you can install the packages manually by following these steps:
 
 ### 1. Install CIL with TIGRE and astra-toolbox
 
@@ -65,57 +72,15 @@ conda activate bil
 conda install -c astra-toolbox -c nvidia -c conda-forge -c https://software.repos.intel.com/python/conda -c ccpi astra-toolbox cil tigre
 ```
 
-### 2. Install nDTomo from GitHub
+### 2. Install nDTomo
 
-You can choose one of the following options to install the nDTomo library:
-
-#### a. To install using pip:
-
-This will install the latest stable release but it is recommended you install the latest version from github:
+This will install the latest stable release of nDTomo:
 
 ```bash
 pip install nDTomo
 ```
 
-#### b. To install using Git:
-
-This will install the latest version from github:
-
-```bash
-pip install git+https://github.com/antonyvam/nDTomo.git
-```
-For development work (editable install):
-
-```bash
-git clone https://github.com/antonyvam/nDTomo.git && cd nDTomo
-pip install -e .
-```
-
-#### c. For local installation after downloading the repo:
-
-Navigate to where the `setup.py` file is located and run:
-
-```bash
-pip install --user .
-```
-
-or:
-
-```bash
-python3 setup.py install --user
-```
-
-### 3. Install PyTorch
-
-The neural networks, as well as any GPU-based code, used in `nDTomo` require Pytorch which can be installed through pip.
-
-For example, for Windows/Linux with CUDA 11.8:
-
-```bash
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-```
-
-## 4. Install extra packagaes
+## 3. Install extra packagaes
 
 ```bash
 pip install dask-image xrmreader dxchange

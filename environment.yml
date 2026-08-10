@@ -1,0 +1,22 @@
+name: bil
+channels:
+  - astra-toolbox
+  - nvidia
+  - conda-forge
+  - intel
+  - ccpi
+  - defaults
+dependencies:
+  - python=3.11
+  - astra-toolbox
+  - cil
+  - tigre
+  - pip
+  - pip:
+    - nDTomo
+    - torch
+    - torchvision
+    - torchaudio
+    - dask-image
+    - xrmreader
+    - dxchange

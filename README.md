@@ -12,8 +12,11 @@ It currently includes the following type of data:
 - Synchrotron X-ray nano-CT
 - Synchrotron X-ray micro-CT including two dynamic 4D experiments
 - Synchrotron XRD-CT including datasets at different states of charge of the same battery
+- Synchrotron 3D XANES-CT
 - Neutron-CT
 - Laboratory X-ray micro-ct
+- Laboratory TEM
+- Laboratory Atom Probe Tomography (APT)
 
 📘 Official website: https://www.batteryimaginglibrary.com
 
@@ -48,9 +51,9 @@ Each notebook is designed to be **standalone and executable**, with detailed inl
 
 ## Installation Instructions
 
-The `BIL` notebooks depend on three main libraries: `nDTomo` [3], `CIL` [4,5] and `ImageD11`. `ImageD11` is used to handle the S3DXRD data, `CIL` is used for the reconstruction of the laboratory cone beam X-ray CT data and `nDTomo` is used for the data handling of the XRD-CT, neutron-CT and parallel-beam X-ray CT.
+The `BIL` notebooks depend on three main libraries: `nDTomo` [3] and `CIL` [4,5]. `CIL` is used for the reconstruction of the laboratory cone beam X-ray CT data and `nDTomo` is used for the data handling of the XRD-CT, neutron-CT and parallel-beam X-ray CT.
 
-The `nDTomo`, `CIL` and `ImageD11` libraries and all associated code can be installed by following the next steps:
+The `nDTomo` and `CIL` libraries and all associated code can be installed by following the next steps:
 
 ### 1. Install CIL with TIGRE and astra-toolbox
 
@@ -112,17 +115,7 @@ For example, for Windows/Linux with CUDA 11.8:
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 ```
 
-## 4. Install ImageD11
-
-`ImageD11` can be installed through pip:
-
-```bash
-pip install ImageD11
-```
-
-Please visit ImageD11's github repo for alternative installation instructions  https://github.com/FABLE-3DXRD/ImageD11/tree/master
-
-## 5. Install extra packagaes
+## 4. Install extra packagaes
 
 ```bash
 pip install dask-image xrmreader dxchange

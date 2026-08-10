@@ -3,7 +3,6 @@ channels:
   - astra-toolbox
   - nvidia
   - conda-forge
-  - intel
   - ccpi
   - defaults
 dependencies:

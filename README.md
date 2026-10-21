@@ -90,8 +90,8 @@ pip install dask-image xrmreader dxchange
 
 If you use parts of the code, please cite the work using the following:
 
-*Battery Imaging Library: Multi-length scale and
-multi-modal synchrotron and laboratory battery imaging data for all*, R. Docherty et al., 2025
+"Battery Imaging Library: Multi-length scale and
+multi-modal synchrotron and laboratory battery imaging data for all", R. Docherty, S. Riley, J. D. Morley, E. Papoutsellis, A. D. Bobitan, J. Donoghue, K. Rankin, F. Alvarez Borges, L. E. Salinas Farran, S. Michalik, A. Liptak, G. Burca, P.-O. Autran, J. Wright, W. Kockelmann, O. Gutowski, A. C. Dippel, M. von Zimmerman, D. Matras, B. Winiarski, J. Mangum, M. Popeil, D. P. Finegan, J. Gott, D. Proprentner, G. West, L. F. J. Piper, H. Dong, M. P. Jones, F. Iacoviello, A. V. Llewellyn, R. Jervis, Y. Kimura, K. Amezawa, O. Sekizawa, M. G. Ardakani, A. Omirkhan, M. P. Ryan, J. O. Douglas, S. Wang, F. Giuliani, N. Mulcahy, S. Conroy, C. George, A. M. Beale, S. D. M. Jacques, S. J. Cooper, A. Vamvakeros, RSC Digital Discovery, 2026. https://doi.org/10.1039/d6dd00321d
 
 ## References
 
